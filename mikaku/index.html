@@ -11,7 +11,7 @@
 <meta property="og:type" content="restaurant">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Mikaku Izakaya","servesCuisine":["Japanese","Korean","Izakaya"],"telephone":"+1-647-748-2340","address":{"@type":"PostalAddress","streetAddress":"6180 Yonge St","addressLocality":"North York","addressRegion":"ON","postalCode":"M2M 3X1","addressCountry":"CA"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"17:30","closes":"02:30"}],"acceptsReservations":"https://mikaku.setmore.com/","menu":"https://mikakutoronto.ca/menu/","sameAs":["https://www.instagram.com/mikaku_toronto/"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=Noto+Serif+JP:wght@600;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=Noto+Serif+JP:wght@600;900&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#0f0d0c;--ink2:#1a1614;--paper:#f3ece1;--paper2:#e9dfcf;--red:#d2352a;--gold:#d8b56a;--mute:#9b9083;--line:#ffffff1f}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -169,6 +169,17 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 .mobile-menu{position:absolute;top:100%;right:20px;left:20px;background:#0f0d0cf5;border:1px solid var(--line);border-radius:14px;padding:8px;display:grid;backdrop-filter:blur(10px)}
 .mobile-menu[hidden]{display:none}
 .mobile-menu a{padding:14px 16px;font:400 24px 'Instrument Serif';border-bottom:1px solid var(--line)}.mobile-menu a:last-child{border:0}
+.nav-r{display:flex;align-items:center;gap:10px}
+.lang-btn{height:38px;padding:0 14px;border-radius:99px;border:1px solid #f3ece180;background:#0f0d0c66;color:var(--paper);font:600 12px Inter,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;letter-spacing:.04em;cursor:pointer}
+.lang-btn:hover{background:var(--paper);color:var(--ink)}
+/* Korean: Hangul falls back to Gowun Batang in serif text, keep words whole, relax tight display leading */
+html[lang=ko] body{word-break:keep-all}
+html[lang=ko] .hero h1,html[lang=ko] .marquee div,html[lang=ko] .def,html[lang=ko] .intro h2,html[lang=ko] .facts b,html[lang=ko] .head h2,html[lang=ko] .dish h3,html[lang=ko] .dish q,html[lang=ko] .sake h2,html[lang=ko] .flight b,html[lang=ko] .quote,html[lang=ko] .perks b,html[lang=ko] .visit h2,html[lang=ko] .fam b,html[lang=ko] .pin b,html[lang=ko] .mobile-menu a{font-family:'Instrument Serif','Gowun Batang',serif}
+html[lang=ko] .hero h1{font-size:clamp(42px,6.2vw,92px);line-height:1.14;letter-spacing:-.01em}
+html[lang=ko] .intro h2,html[lang=ko] .head h2,html[lang=ko] .sake h2,html[lang=ko] .visit h2{line-height:1.22}
+html[lang=ko] .intro h2{font-size:clamp(32px,3.9vw,54px)}
+html[lang=ko] .head h2,html[lang=ko] .sake h2,html[lang=ko] .visit h2{font-size:clamp(36px,4.6vw,68px)}
+html[lang=ko] .eyebrow,html[lang=ko] .btn,html[lang=ko] .dock a,html[lang=ko] .links,html[lang=ko] .hero .meta small,html[lang=ko] .who,html[lang=ko] .facts span{letter-spacing:.04em}
 /* mobile dock */
 .dock{display:none}
 @media(max-width:900px){
@@ -202,45 +213,45 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
  .dock a:last-child{background:var(--red)}
 }
 </style></head><body>
-<div class="concept-ribbon" style="background:#141414;color:#f4f2ee;font:500 12.5px/1.4 system-ui,sans-serif;text-align:center;padding:8px 14px">Design concept by <a href="../" style="color:#ff8a6b;text-decoration:underline">Mooque Studio</a>, not the official Mikaku Izakaya website. <a href="https://mikakutoronto.ca/" target="_blank" rel="noopener" style="color:#f4f2ee;text-decoration:underline">Visit the real site ↗</a></div>
+<div class="concept-ribbon" style="background:#141414;color:#f4f2ee;font:500 12.5px/1.4 system-ui,sans-serif;text-align:center;padding:8px 14px" data-ko="&lt;a href=&quot;../&quot; style=&quot;color:#ff8a6b;text-decoration:underline&quot;&gt;Mooque Studio&lt;/a&gt;의 디자인 시안이며, 미카쿠 이자카야 공식 웹사이트가 아닙니다. &lt;a href=&quot;https://mikakutoronto.ca/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; style=&quot;color:#f4f2ee;text-decoration:underline&quot;&gt;실제 사이트 보기 ↗&lt;/a&gt;">Design concept by <a href="../" style="color:#ff8a6b;text-decoration:underline">Mooque Studio</a>, not the official Mikaku Izakaya website. <a href="https://mikakutoronto.ca/" target="_blank" rel="noopener" style="color:#f4f2ee;text-decoration:underline">Visit the real site ↗</a></div>
 
 
-<div class="status"><span class="dot"></span><b id="openState">Open tonight</b> · <span id="openDetail">5:30pm – 2:30am</span><span class="addr-s"> · 6180 Yonge St, North York</span></div>
+<div class="status"><span class="dot"></span><b id="openState">Open tonight</b> · <span id="openDetail">5:30pm – 2:30am</span><span class="addr-s" data-ko=" · 6180 Yonge St, 노스욕"> · 6180 Yonge St, North York</span></div>
 
 <nav>
  <a class="logo" href="#"><b>MIKAKU</b><span class="jp">味覚</span></a>
- <div class="links"><a href="#menu">Menu</a><a href="#sake">Sake</a><a href="#room">The Room</a><a href="#visit">Visit</a><a href="#family">Udon Bars</a></div>
- <a class="btn btn-red" href="https://mikaku.setmore.com/" target="_blank" rel="noopener">Book a table</a>
- <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
- <div class="mobile-menu" id="mobileMenu" hidden><a href="#menu">Menu</a><a href="#sake">Sake</a><a href="#room">The Room</a><a href="#visit">Visit</a><a href="#family">Udon Bars</a></div>
+ <div class="links"><a href="#menu" data-ko="메뉴">Menu</a><a href="#sake" data-ko="사케">Sake</a><a href="#room" data-ko="공간">The Room</a><a href="#visit" data-ko="오시는 길">Visit</a><a href="#family" data-ko="우동 바">Udon Bars</a></div>
+ <div class="nav-r"><button class="lang-btn" id="langBtn" aria-label="한국어로 보기">한국어</button><a class="btn btn-red" href="https://mikaku.setmore.com/" target="_blank" rel="noopener" data-ko="예약하기">Book a table</a>
+ <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu">Menu</button></div>
+ <div class="mobile-menu" id="mobileMenu" hidden><a href="#menu" data-ko="메뉴">Menu</a><a href="#sake" data-ko="사케">Sake</a><a href="#room" data-ko="공간">The Room</a><a href="#visit" data-ko="오시는 길">Visit</a><a href="#family" data-ko="우동 바">Udon Bars</a></div>
 </nav>
 
 <header class="hero">
  <img fetchpriority="high" src="img/grilled-butter-squid.jpg" alt="Grilled butter squid beside daruma dolls and a bottle of sake">
  <div class="inner">
   <div>
-   <div class="eyebrow">Izakaya &amp; Sake Bar · Yonge &amp; Finch</div>
-   <h1>Good food,<br><i>better</i> sake,<br>open ’til 2:30.</h1>
-   <p>A small, loud, glowing izakaya in North York. Japanese bar plates with a Korean accent and seven pages of sake.</p>
-   <div class="cta"><a class="btn btn-red" href="https://mikaku.setmore.com/" target="_blank" rel="noopener">Book a table →</a><a class="btn btn-line" href="#menu">See what to order</a></div>
+   <div class="eyebrow" data-ko="이자카야 &amp;amp; 사케 바 · 영 &amp;amp; 핀치">Izakaya &amp; Sake Bar · Yonge &amp; Finch</div>
+   <h1 data-ko="늦은 밤,&lt;br&gt;&lt;i&gt;한 잔 더&lt;/i&gt;&lt;br&gt;하고 싶을 때.">Good food,<br><i>better</i> sake,<br>open ’til 2:30.</h1>
+   <p data-ko="새벽 2시 30분까지 문을 여는 노스욕의 작은 이자카야. 한국인 입맛에 맞춘 일본식 안주와 일곱 페이지 분량의 사케를 준비했어요.">North York’s late-night izakaya. Japanese bar plates with a Korean accent, seven pages of sake, and a shelf of daruma dolls who have seen it all.</p>
+   <div class="cta"><a class="btn btn-red" href="https://mikaku.setmore.com/" target="_blank" rel="noopener" data-ko="예약하기 →">Book a table →</a><a class="btn btn-line" href="#menu" data-ko="대표 메뉴 보기">See what to order</a></div>
   </div>
-  <div class="meta"><div class="vert">味覚</div><small>Tue – Sun<br>5:30pm – 2:30am<br>Closed Mondays</small></div>
+  <div class="meta"><div class="vert">味覚</div><small data-ko="화 – 일&lt;br&gt;오후 5:30 – 새벽 2:30&lt;br&gt;월요일 휴무">Tue – Sun<br>5:30pm – 2:30am<br>Closed Mondays</small></div>
  </div>
 </header>
 
 <main>
 <div class="marquee" aria-hidden="true"><div>
- <span>Beef tartare</span><em>✦</em><span>Grilled butter squid</span><em>✦</em><span>Spicy cream udon</span><em>✦</em><span>Rosé tteokbokki</span><em>✦</em><span>Buta pork belly</span><em>✦</em><span>Yuzu karaage</span><em>✦</em><span>Seven pages of sake</span><em>✦</em>
- <span>Beef tartare</span><em>✦</em><span>Grilled butter squid</span><em>✦</em><span>Spicy cream udon</span><em>✦</em><span>Rosé tteokbokki</span><em>✦</em><span>Buta pork belly</span><em>✦</em><span>Yuzu karaage</span><em>✦</em><span>Seven pages of sake</span><em>✦</em>
+ <span data-ko="육회">Beef tartare</span><em>✦</em><span data-ko="버터 오징어구이">Grilled butter squid</span><em>✦</em><span data-ko="스파이시 크림 우동">Spicy cream udon</span><em>✦</em><span data-ko="로제 떡볶이">Rosé tteokbokki</span><em>✦</em><span data-ko="삼겹살 구이">Buta pork belly</span><em>✦</em><span data-ko="유자 가라아게">Yuzu karaage</span><em>✦</em><span data-ko="사케 리스트 7페이지">Seven pages of sake</span><em>✦</em>
+ <span data-ko="육회">Beef tartare</span><em>✦</em><span data-ko="버터 오징어구이">Grilled butter squid</span><em>✦</em><span data-ko="스파이시 크림 우동">Spicy cream udon</span><em>✦</em><span data-ko="로제 떡볶이">Rosé tteokbokki</span><em>✦</em><span data-ko="삼겹살 구이">Buta pork belly</span><em>✦</em><span data-ko="유자 가라아게">Yuzu karaage</span><em>✦</em><span data-ko="사케 리스트 7페이지">Seven pages of sake</span><em>✦</em>
 </div></div>
 
 <section class="intro"><div class="wrap grid">
  <div>
-  <div class="def"><b class="jp">味覚</b> mi·ka·ku — <i>n.</i> the sense of taste.</div>
-  <h2>Come for one drink.<br>Stay for <i>the whole menu.</i></h2>
-  <p>Mikaku is the izakaya you end up at after work, after the movie, after everywhere else has closed. Shareable plates come out fast, sake gets poured generously, and the daruma dolls watch over all of it.</p>
-  <p>Our kitchen cooks Japanese bar food the way we like to eat it: smoky, buttery, a little spicy, and built to share.</p>
-  <div class="facts"><div><b>2:30</b><span>Last call, a.m.</span></div><div><b>7</b><span>Pages of sake</span></div><div><b>1</b><span>Heated tatami room</span></div></div>
+  <div class="def" data-ko="&lt;b class=&quot;jp&quot;&gt;味覚&lt;/b&gt; 미카쿠 — 일본어로 ‘미각’, 맛을 느끼는 감각."><b class="jp">味覚</b> mi·ka·ku — <i>n.</i> the sense of taste.</div>
+  <h2 data-ko="다른 곳이 문을 닫을 때,&lt;br&gt;&lt;i&gt;미카쿠&lt;/i&gt;는 이제 시작.">Miraculously good times.<br><i>Mikakulously</i> late nights.</h2>
+  <p data-ko="퇴근 후 한 잔, 영화 끝나고 한 잔, 다른 가게들이 모두 문을 닫은 뒤의 한 잔까지. 안주는 빠르게, 사케는 넉넉하게 준비해 드려요.">We’re where you end up after work, after the movie, after everywhere else has closed. Plates come out fast. Sake gets poured generously. The daruma dolls keep watch, and they never judge.</p>
+  <p data-ko="불향 가득한 삼겹살 구이, 버터 향 진한 오징어구이, 은근히 매콤한 크림 우동까지. 여럿이 나눠 먹기 좋은 메뉴로 채웠어요.">We cook Japanese bar food the way we like to eat it: smoky, buttery, a little spicy, and made for passing around the table.</p>
+  <div class="facts"><div><b>2:30</b><span data-ko="새벽 마감">Last call, a.m.</span></div><div><b>7</b><span data-ko="페이지 분량의 사케 리스트">Pages of sake</span></div><div><b>1</b><span data-ko="난방되는 다다미 좌식 룸">Heated tatami room</span></div></div>
  </div>
  <div class="stack">
   <figure class="a"><img loading="lazy" decoding="async" src="img/mikaku-interior.jpg" alt="Mikaku dining room at night"></figure>
@@ -249,76 +260,76 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 </div></section>
 
 <section class="order" id="menu"><div class="wrap">
- <div class="head"><div><div class="eyebrow">The Order</div><h2>Five plates <i>everyone</i><br>tells their friends about.</h2></div><p>New here? Start with these, add a bottle of yuzu sake, and let the table fight over the last bite.</p></div>
+ <div class="head"><div><div class="eyebrow" data-ko="대표 메뉴">The Order</div><h2 data-ko="처음이라면,&lt;br&gt;&lt;i&gt;이 다섯 가지부터.&lt;/i&gt;">Don’t overthink it.<br><i>Start here.</i></h2></div><p data-ko="리뷰에서 자주 언급되는 메뉴들이에요. 유자 사케 한 병과 함께 즐겨 보세요. 메뉴가 고민될 땐 직원에게 추천을 부탁하셔도 좋아요.">Five plates our regulars keep coming back for. Add a bottle of yuzu sake. Fight over the last bite. Still stuck? Ask your server. Reviewers say their picks were the best part of the night.</p></div>
  <div class="dishes">
-  <article class="dish d1"><img loading="lazy" decoding="async" src="img/beef-tartare.jpg" alt="Mikaku beef tartare"><div class="cap"><div class="no">01 · House signature</div><h3>Mikaku Beef Tartare <small>$21.99</small></h3><q>One of the best Korean beef tartare in Toronto.</q></div></article>
-  <article class="dish d2"><img loading="lazy" decoding="async" src="img/spicy-cream-udon.jpg" alt="Spicy cream udon"><div class="cap"><div class="no">02 · Reviewer favourite</div><h3>Spicy Cream Udon <small>$21.99</small></h3><q>Creamy and slightly sweet, a must-get.</q></div></article>
-  <article class="dish d3"><img loading="lazy" decoding="async" src="img/buta.jpg" alt="Buta grilled pork belly"><div class="cap"><div class="no">03</div><h3>Buta <small>$17.99</small></h3><q>Salty and smokey.</q></div></article>
-  <article class="dish d4"><img loading="lazy" decoding="async" src="img/cream-cheese-tekbokki.jpg" alt="Cream cheese rice cake in a bread bowl"><div class="cap"><div class="no">04</div><h3>Cream Cheese Rice Cake <small>$21.99</small></h3><q>Really unique and filling.</q></div></article>
-  <article class="dish d5"><img loading="lazy" decoding="async" src="img/rose-teokbokki.jpg" alt="Rosé tteokbokki"><div class="cap"><div class="no">05</div><h3>Rosé Tteokbokki <small>$21.99</small></h3><span class="desc">Rice cakes &amp; potato noodles in spicy rosé cream</span></div></article>
+  <article class="dish d1"><img loading="lazy" decoding="async" src="img/beef-tartare.jpg" alt="Mikaku beef tartare"><div class="cap"><div class="no" data-ko="01 · 시그니처">01 · House signature</div><h3 data-ko="미카쿠 육회 &lt;small&gt;$21.99&lt;/small&gt;">Mikaku Beef Tartare <small>$21.99</small></h3><q data-ko="토론토에서 손꼽히는 한국식 육회">One of the best Korean beef tartare in Toronto.</q></div></article>
+  <article class="dish d2"><img loading="lazy" decoding="async" src="img/spicy-cream-udon.jpg" alt="Spicy cream udon"><div class="cap"><div class="no" data-ko="02 · 리뷰 인기 메뉴">02 · Reviewer favourite</div><h3 data-ko="스파이시 크림 우동 &lt;small&gt;$21.99&lt;/small&gt;">Spicy Cream Udon <small>$21.99</small></h3><q data-ko="크리미하고 은은하게 달콤한, 꼭 시켜야 할 메뉴">Creamy and slightly sweet, a must-get.</q></div></article>
+  <article class="dish d3"><img loading="lazy" decoding="async" src="img/buta.jpg" alt="Buta grilled pork belly"><div class="cap"><div class="no">03</div><h3 data-ko="부타 (삼겹살 구이) &lt;small&gt;$17.99&lt;/small&gt;">Buta <small>$17.99</small></h3><q data-ko="짭짤하고 불향 가득">Salty and smokey.</q></div></article>
+  <article class="dish d4"><img loading="lazy" decoding="async" src="img/cream-cheese-tekbokki.jpg" alt="Cream cheese rice cake in a bread bowl"><div class="cap"><div class="no">04</div><h3 data-ko="크림치즈 떡볶이 &lt;small&gt;$21.99&lt;/small&gt;">Cream Cheese Rice Cake <small>$21.99</small></h3><q data-ko="바삭한 빵 그릇에 담아내는 든든한 한 그릇">Really unique and filling.</q></div></article>
+  <article class="dish d5"><img loading="lazy" decoding="async" src="img/rose-teokbokki.jpg" alt="Rosé tteokbokki"><div class="cap"><div class="no">05</div><h3 data-ko="로제 떡볶이 &lt;small&gt;$21.99&lt;/small&gt;">Rosé Tteokbokki <small>$21.99</small></h3><span class="desc" data-ko="매콤한 로제 크림 소스에 떡과 감자면">Rice cakes &amp; potato noodles in spicy rosé cream</span></div></article>
  </div>
- <div class="menu-cta"><a class="btn btn-line" href="https://mikakutoronto.ca/menu/" target="_blank" rel="noopener">Full food menu</a><a class="btn btn-line" href="#sake">Sake list</a></div>
+ <div class="menu-cta"><a class="btn btn-line" href="https://mikakutoronto.ca/menu/" target="_blank" rel="noopener" data-ko="전체 메뉴 보기">Full food menu</a><a class="btn btn-line" href="#sake" data-ko="사케 리스트">Sake list</a></div>
 </div></section>
 
 <section class="sake" id="sake"><div class="bigjp jp">酒</div><div class="wrap grid">
  <div class="photo"><img loading="lazy" decoding="async" src="img/img_1965.jpg" alt="Sake bottles at the bar"></div>
  <div>
-  <div class="eyebrow">Sake Bar</div>
-  <h2>Seven pages<br>of sake. <i>No pressure.</i></h2>
-  <p>Not sure where to start? Tell your server what you like and they'll pour you something. Or pick a mood:</p>
+  <div class="eyebrow" data-ko="사케 바">Sake Bar</div>
+  <h2 data-ko="사케가 처음이어도&lt;br&gt;&lt;i&gt;괜찮아요.&lt;/i&gt;">Seven pages of sake.<br><i>Zero homework.</i></h2>
+  <p data-ko="일곱 페이지 분량의 사케 리스트가 어렵게 느껴지신다면, 직원에게 취향만 알려 주세요. 그날의 기분에 따라 골라 보셔도 좋아요.">You don’t need to know junmai from daiginjo. Tell us what you like and we’ll pour. Or pick a mood:</p>
   <div class="flights">
-   <div class="flight"><span class="n">一</span><div><b>Fruity &amp; easy</b><span>Yuzu, peach and pear sake, made for sharing</span></div><em>Bottle</em></div>
-   <div class="flight"><span class="n">二</span><div><b>Crisp &amp; dry</b><span>Clean junmai to cut through anything fried</span></div><em>Glass</em></div>
-   <div class="flight"><span class="n">三</span><div><b>Rich &amp; warm</b><span>Served hot, best with a nabe on a cold night</span></div><em>Tokkuri</em></div>
-   <div class="flight"><span class="n">四</span><div><b>Just a beer</b><span>The giant can of Asahi. We get it.</span></div><em>Can</em></div>
+   <div class="flight"><span class="n">一</span><div><b data-ko="산뜻하고 달콤하게">Fruity &amp; easy</b><span data-ko="유자·복숭아·배 사케. 병으로 나눠 마시기 좋아요">Yuzu, peach and pear sake, made for sharing</span></div><em data-ko="병">Bottle</em></div>
+   <div class="flight"><span class="n">二</span><div><b data-ko="깔끔하고 드라이하게">Crisp &amp; dry</b><span data-ko="튀김 안주와 잘 어울리는 준마이">Clean junmai to cut through anything fried</span></div><em data-ko="잔">Glass</em></div>
+   <div class="flight"><span class="n">三</span><div><b data-ko="따뜻하게">Rich &amp; warm</b><span data-ko="데워 마시는 사케. 추운 날 나베와 함께">Served hot, best with a nabe on a cold night</span></div><em data-ko="도쿠리">Tokkuri</em></div>
+   <div class="flight"><span class="n">四</span><div><b data-ko="맥주 한 잔">Just a beer</b><span data-ko="아사히 대용량 캔도 있어요">The giant can of Asahi. No judgement.</span></div><em data-ko="캔">Can</em></div>
   </div>
  </div>
 </div></section>
 
 <section class="reviews"><div class="wrap">
- <div class="eyebrow">What people say on their way out</div>
+ <div data-ko="손님 리뷰 (Google 원문)" class="eyebrow" data-ko="손님들이 남긴 한마디 (Google 리뷰 원문)">Overheard on the way out</div>
  <p class="quote serif" id="q">“Be prepared to wait… but MAN is it worth the wait.”</p>
  <div class="who" id="w">Charis W. · Google review</div>
  <div class="pips" id="pips"></div>
 </div></section>
 
 <section class="room" id="room"><div class="wrap">
- <div class="head"><div><div class="eyebrow" style="color:#b0281e">The Room</div><h2>Small room.<br><i style="color:var(--red)">Big night.</i></h2></div><p>We're cozy, which means it fills up fast on weekends. Book ahead, or grab a seat at the bar, which has no time limit.</p></div>
+ <div class="head"><div><div class="eyebrow" style="color:#b0281e" data-ko="공간">The Room</div><h2 data-ko="작은 가게,&lt;br&gt;&lt;i style=&quot;color:var(--red)&quot;&gt;오래 머무는 밤.&lt;/i&gt;">Small room.<br><i style="color:var(--red)">Big night.</i></h2></div><p data-ko="좌석이 많지 않아 주말에는 웨이팅이 생길 수 있어요. 미리 예약하시거나, 이용 시간 제한이 없는 바 좌석을 이용해 주세요.">We’re cozy, so weekends fill up fast. Book ahead, or grab a bar seat. The bar has no time limit.</p></div>
  <div class="gallery">
-  <figure><img loading="lazy" decoding="async" src="img/img_1973.jpg" alt="Mikaku bar"><figcaption>The bar</figcaption></figure>
-  <figure><img loading="lazy" decoding="async" src="img/mikaku-1535.jpg" alt="Shared plates spread"><figcaption>The spread</figcaption></figure>
-  <figure><img loading="lazy" decoding="async" src="img/img_1967.jpg" alt="Interior detail"><figcaption>Late night</figcaption></figure>
-  <figure><img loading="lazy" decoding="async" src="img/salmon-tataki.jpg" alt="Salmon tataki"><figcaption>Salmon tataki</figcaption></figure>
-  <figure><img loading="lazy" decoding="async" src="img/maze-udon.jpg" alt="Maze udon"><figcaption>Maze udon</figcaption></figure>
+  <figure><img loading="lazy" decoding="async" src="img/img_1973.jpg" alt="Mikaku bar"><figcaption data-ko="바">The bar</figcaption></figure>
+  <figure><img loading="lazy" decoding="async" src="img/mikaku-1535.jpg" alt="Shared plates spread"><figcaption data-ko="다양한 안주">The spread</figcaption></figure>
+  <figure><img loading="lazy" decoding="async" src="img/img_1967.jpg" alt="Interior detail"><figcaption data-ko="늦은 밤">Late night</figcaption></figure>
+  <figure><img loading="lazy" decoding="async" src="img/salmon-tataki.jpg" alt="Salmon tataki"><figcaption data-ko="연어 타다키">Salmon tataki</figcaption></figure>
+  <figure><img loading="lazy" decoding="async" src="img/maze-udon.jpg" alt="Maze udon"><figcaption data-ko="마제 우동">Maze udon</figcaption></figure>
  </div>
  <div class="perks">
-  <div><b>Heated tatami</b><p>Shoes off, sit low. Ask for it when you book a group.</p></div>
-  <div><b>Bar seats</b><p>No time limit at the bar, unlike the tables.</p></div>
-  <div><b>Late nights</b><p>Open until 2:30am, six nights a week.</p></div>
-  <div><b>Parking</b><p>Small lot out front, easy to miss. Street parking nearby.</p></div>
+  <div><b data-ko="다다미 좌식 룸">Heated tatami</b><p data-ko="신발을 벗고 편하게 앉는 난방 좌식 공간이에요. 단체 예약 시 요청해 주세요.">Shoes off, sit low, stay late. Ask for it when you book a group.</p></div>
+  <div><b data-ko="바 좌석">Bar seats</b><p data-ko="테이블과 달리 이용 시간 제한이 없어요.">No time limit at the bar, unlike the tables. Regulars know.</p></div>
+  <div><b data-ko="새벽까지 영업">Late nights</b><p data-ko="화요일부터 일요일까지, 새벽 2시 30분까지 열어요.">Open until 2:30am, six nights a week. Yes, really.</p></div>
+  <div><b data-ko="주차">Parking</b><p data-ko="가게 앞에 작은 주차장이 있어요. 입구를 지나치기 쉬우니 천천히 진입해 주세요. 인근 노상 주차도 가능해요.">Small lot out front. Blink and you’ll miss it. Street parking nearby.</p></div>
  </div>
 </div></section>
 
 <section class="visit" id="visit"><div class="wrap grid">
  <div>
-  <div class="eyebrow">Visit</div>
-  <h2>See you<br><i style="color:var(--gold)">tonight?</i></h2>
+  <div class="eyebrow" data-ko="오시는 길">Visit</div>
+  <h2 data-ko="오늘 밤,&lt;br&gt;&lt;i style=&quot;color:var(--gold)&quot;&gt;미카쿠에서.&lt;/i&gt;">See you<br><i style="color:var(--gold)">tonight?</i></h2>
   <table class="hours" id="hours" aria-label="Opening hours"></table>
   <div class="addr">
-   <div><b>Address</b>6180 Yonge St<br>North York, ON M2M 3X1</div>
-   <div><b>Call</b><a href="tel:+16477482340">647 748 2340</a><br><a href="https://www.instagram.com/mikaku_toronto/" target="_blank" rel="noopener">@mikaku_toronto</a></div>
+   <div data-ko="&lt;b&gt;주소&lt;/b&gt;6180 Yonge St&lt;br&gt;North York, ON M2M 3X1"><b>Address</b>6180 Yonge St<br>North York, ON M2M 3X1</div>
+   <div><b data-ko="전화">Call</b><a href="tel:+16477482340">647 748 2340</a><br><a href="https://www.instagram.com/mikaku_toronto/" target="_blank" rel="noopener">@mikaku_toronto</a></div>
   </div>
-  <a class="btn btn-red" href="https://mikaku.setmore.com/" target="_blank" rel="noopener">Book a table →</a>
+  <a class="btn btn-red" href="https://mikaku.setmore.com/" target="_blank" rel="noopener" data-ko="예약하기 →">Book a table →</a>
  </div>
- <a class="map" href="https://maps.google.com/?q=6180+Yonge+St+North+York+ON" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="img/img_1961.jpg" alt="Mikaku storefront and patio on Yonge St"><span class="pin"><b>Look for the black awning</b>6180 Yonge St · just north of Finch<em>Get directions →</em></span></a>
+ <a class="map" href="https://maps.google.com/?q=6180+Yonge+St+North+York+ON" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="img/img_1961.jpg" alt="Mikaku storefront and patio on Yonge St"><span class="pin" data-ko="&lt;b&gt;검은 차양이 보이면 도착&lt;/b&gt;6180 Yonge St · 핀치 북쪽&lt;em&gt;길찾기 →&lt;/em&gt;"><b>Look for the black awning</b>6180 Yonge St · just north of Finch<em>Get directions →</em></span></a>
 </div></section>
 
 <section class="family" id="family"><div class="wrap">
- <div class="eyebrow" style="margin-bottom:24px">The Mikaku family</div>
+ <div class="eyebrow" style="margin-bottom:24px" data-ko="미카쿠의 다른 매장">The Mikaku family</div>
  <div class="fam">
-  <a href="#visit"><span class="tag">Izakaya · You are here</span><b>Mikaku Izakaya</b><p>6180 Yonge St · Tue–Sun 5:30pm–2:30am</p></a>
-  <a href="https://maps.google.com/?q=229+Carlton+St+Toronto" target="_blank" rel="noopener"><span class="tag">Udon Bar</span><b>Carlton</b><p>229 Carlton St · Lunch &amp; dinner, Tue–Sun</p></a>
-  <a href="https://maps.google.com/?q=360+Hwy+7+Unit+10+Richmond+Hill" target="_blank" rel="noopener"><span class="tag">Udon Bar</span><b>Richmond Hill</b><p>360 Hwy 7, Unit 10 · Lunch &amp; dinner, Tue–Sun</p></a>
+  <a href="#visit"><span class="tag" data-ko="이자카야 · 현재 매장">Izakaya · You are here</span><b data-ko="미카쿠 이자카야">Mikaku Izakaya</b><p data-ko="6180 Yonge St · 화–일 오후 5:30–새벽 2:30">6180 Yonge St · Tue–Sun 5:30pm–2:30am</p></a>
+  <a href="https://maps.google.com/?q=229+Carlton+St+Toronto" target="_blank" rel="noopener"><span class="tag" data-ko="우동 바">Udon Bar</span><b data-ko="칼튼">Carlton</b><p data-ko="229 Carlton St · 화–일 점심 &amp;amp; 저녁">229 Carlton St · Lunch &amp; dinner, Tue–Sun</p></a>
+  <a href="https://maps.google.com/?q=360+Hwy+7+Unit+10+Richmond+Hill" target="_blank" rel="noopener"><span class="tag" data-ko="우동 바">Udon Bar</span><b data-ko="리치먼드 힐">Richmond Hill</b><p data-ko="360 Hwy 7, Unit 10 · 화–일 점심 &amp;amp; 저녁">360 Hwy 7, Unit 10 · Lunch &amp; dinner, Tue–Sun</p></a>
  </div>
 </div></section>
 
@@ -326,27 +337,33 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 
 <footer>
  <div class="big">Mikaku<span>味覚</span></div>
- <span>© Mikaku Izakaya · 6180 Yonge St, Toronto</span><span><a href="https://www.instagram.com/mikaku_toronto/">Instagram</a> · <a href="tel:+16477482340">647 748 2340</a></span>
+ <span data-ko="© 미카쿠 이자카야 · 6180 Yonge St, 토론토">© Mikaku Izakaya · 6180 Yonge St, Toronto</span><span data-ko="&lt;a href=&quot;https://www.instagram.com/mikaku_toronto/&quot;&gt;인스타그램&lt;/a&gt; · &lt;a href=&quot;tel:+16477482340&quot;&gt;647 748 2340&lt;/a&gt;"><a href="https://www.instagram.com/mikaku_toronto/">Instagram</a> · <a href="tel:+16477482340">647 748 2340</a></span>
 </footer>
 
-<div class="dock"><a href="tel:+16477482340">Call</a><a href="https://maps.google.com/?q=6180+Yonge+St+Toronto" target="_blank" rel="noopener">Directions</a><a href="https://mikaku.setmore.com/" target="_blank" rel="noopener">Book a table</a></div>
+<div class="dock"><a href="tel:+16477482340" data-ko="전화">Call</a><a href="https://maps.google.com/?q=6180+Yonge+St+Toronto" target="_blank" rel="noopener" data-ko="길찾기">Directions</a><a href="https://mikaku.setmore.com/" target="_blank" rel="noopener" data-ko="예약하기">Book a table</a></div>
 
 <script>
 // Live open/closed status in Toronto time. Hours: Tue–Sun 5:30pm–2:30am, closed Monday.
-(function(){
- const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+window.LANG='en';
+const T={en:{open:['Open now','Open until 2:30am'],monday:['Closed today','Back Tuesday at 5:30pm'],later:['Open tonight','Doors at 5:30pm, last call 2:30am'],
+  days:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],today:' · today',closed:'Closed',hours:'5:30pm – 2:30am',menu:'Menu',close:'Close',review:'Google review',toggle:'한국어',toggleLabel:'한국어로 보기',
+  title:'Mikaku Izakaya — Late-night sake bar, Yonge & Finch'},
+ ko:{open:['영업 중','새벽 2시 30분까지'],monday:['오늘 휴무','화요일 오후 5시 30분 오픈'],later:['오늘 영업','오후 5시 30분 – 새벽 2시 30분'],
+  days:['일요일','월요일','화요일','수요일','목요일','금요일','토요일'],today:' · 오늘',closed:'휴무',hours:'오후 5:30 – 새벽 2:30',menu:'메뉴',close:'닫기',review:'Google 리뷰',toggle:'EN',toggleLabel:'View in English',
+  title:'미카쿠 이자카야 | 영 & 핀치 심야 이자카야 · 사케 바'}};
+function renderStatus(){
+ const L=T[window.LANG],days=T.en.days;
  const p=Object.fromEntries(new Intl.DateTimeFormat('en-US',{timeZone:'America/Toronto',weekday:'long',hour:'numeric',minute:'numeric',hour12:false}).formatToParts(new Date()).map(x=>[x.type,x.value]));
  const d=days.indexOf(p.weekday), m=(+p.hour%24)*60+(+p.minute), y=(d+6)%7;
  const open=(d!==1&&m>=1050)||(y!==1&&m<150);
  const s=document.getElementById('openState'),t=document.getElementById('openDetail');
- if(open){s.textContent='Open now';t.textContent='Open until 2:30am'}
- else if(d===1){s.textContent='Closed today';t.textContent='Back Tuesday at 5:30pm'}
- else{s.textContent='Open tonight';t.textContent='Doors at 5:30pm, last call 2:30am'}
- const rows=[1,2,3,4,5,6,0].map(i=>`<tr class="${i===d?'today':''}"><td>${days[i]}${i===d?' · today':''}</td><td>${i===1?'Closed':'5:30pm – 2:30am'}</td></tr>`).join('');
+ const [a,b]=open?L.open:d===1?L.monday:L.later;s.textContent=a;t.textContent=b;
+ const rows=[1,2,3,4,5,6,0].map(i=>`<tr class="${i===d?'today':''}"><td>${L.days[i]}${i===d?L.today:''}</td><td>${i===1?L.closed:L.hours}</td></tr>`).join('');
  document.getElementById('hours').innerHTML=rows;
-})();
+}
+renderStatus();
 // Mobile menu
-(function(){const b=document.getElementById('menuBtn'),m=document.getElementById('mobileMenu');b.onclick=()=>{const o=m.hidden;m.hidden=!o;b.setAttribute('aria-expanded',o);b.textContent=o?'Close':'Menu'};m.querySelectorAll('a').forEach(a=>a.onclick=()=>{m.hidden=true;b.setAttribute('aria-expanded',false);b.textContent='Menu'})})();
+(function(){const b=document.getElementById('menuBtn'),m=document.getElementById('mobileMenu');b.onclick=()=>{const o=m.hidden;m.hidden=!o;b.setAttribute('aria-expanded',o);b.textContent=o?T[window.LANG].close:T[window.LANG].menu};m.querySelectorAll('a').forEach(a=>a.onclick=()=>{m.hidden=true;b.setAttribute('aria-expanded',false);b.textContent=T[window.LANG].menu})})();
 // Rotating reviews (real Google reviews from the current site)
 (function(){
  const R=[["“Be prepared to wait… but MAN is it worth the wait.”","Charis W. · Google review"],
@@ -356,10 +373,29 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
  ["“Definitely worth coming for a good time and good food.”","Lucy C. · Google review"]];
  const q=document.getElementById('q'),w=document.getElementById('w'),pp=document.getElementById('pips');let i=0,t;
  R.forEach((_,k)=>{const b=document.createElement('button');b.setAttribute('aria-label','Review '+(k+1));b.onclick=()=>show(k);pp.append(b)});
- function show(k){i=k;q.style.opacity=0;setTimeout(()=>{q.textContent=R[k][0];w.textContent=R[k][1];q.style.opacity=1},300);[...pp.children].forEach((b,j)=>b.classList.toggle('on',j===k));clearInterval(t);if(!still&&!paused)t=setInterval(()=>show((i+1)%R.length),5000)}
+ function show(k){i=k;q.style.opacity=0;setTimeout(()=>{q.textContent=R[k][0];w.textContent=R[k][1].replace('Google review',T[window.LANG].review);q.style.opacity=1},300);[...pp.children].forEach((b,j)=>b.classList.toggle('on',j===k));clearInterval(t);if(!still&&!paused)t=setInterval(()=>show((i+1)%R.length),5000)}
  const still=matchMedia('(prefers-reduced-motion: reduce)').matches;let paused=false;
  const box=q.closest('section');['mouseenter','focusin'].forEach(e=>box.addEventListener(e,()=>{paused=true;clearInterval(t)}));['mouseleave','focusout'].forEach(e=>box.addEventListener(e,()=>{paused=false;show(i)}));
+ window.showReview=()=>show(i);
  show(0);
+})();
+// Language toggle: swaps every [data-ko] element, re-renders live text, remembers the choice, supports ?lang=ko
+(function(){
+ const els=document.querySelectorAll('[data-ko]');els.forEach(e=>e.dataset.en=e.innerHTML);
+ const btn=document.getElementById('langBtn'),menu=document.getElementById('menuBtn');
+ function setLang(l){
+  window.LANG=l;document.documentElement.lang=l;
+  els.forEach(e=>e.innerHTML=l==='ko'?e.dataset.ko:e.dataset.en);
+  const L=T[l];btn.textContent=L.toggle;btn.setAttribute('aria-label',L.toggleLabel);document.title=L.title;
+  menu.textContent=document.getElementById('mobileMenu').hidden?L.menu:L.close;
+  renderStatus();window.showReview&&window.showReview();
+  try{localStorage.setItem('mikaku-lang',l)}catch(e){}
+  const u=new URL(location.href);l==='ko'?u.searchParams.set('lang','ko'):u.searchParams.delete('lang');history.replaceState(null,'',u);
+ }
+ btn.onclick=()=>setLang(window.LANG==='ko'?'en':'ko');
+ let start=new URLSearchParams(location.search).get('lang');
+ if(!start){try{start=localStorage.getItem('mikaku-lang')}catch(e){}}
+ if(start==='ko')setLang('ko');
 })();
 </script>
 </body></html>

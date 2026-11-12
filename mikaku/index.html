@@ -119,7 +119,7 @@ nav .btn{height:42px;padding:0 20px}
 .quote{font:400 clamp(36px,4.6vw,66px)/1.08 'Instrument Serif';max-width:1000px;margin:30px auto 26px;min-height:2.2em;transition:opacity .4s}
 .who{font:600 12px Inter;letter-spacing:.2em;text-transform:uppercase;color:#fff}
 .pips{display:flex;justify-content:center;gap:10px;margin-top:40px}
-.pips button{width:34px;height:3px;border:0;background:#ffffff55;cursor:pointer}.pips button.on{background:#fff}
+.pips button{width:34px;height:24px;border:0;background:linear-gradient(#ffffff55,#ffffff55) center/100% 3px no-repeat;cursor:pointer}.pips button.on{background:linear-gradient(#fff,#fff) center/100% 3px no-repeat}
 
 /* room */
 .room{padding:130px 0;background:var(--paper);color:var(--ink)}
@@ -141,6 +141,7 @@ nav .btn{height:42px;padding:0 20px}
 .hours td:last-child{text-align:right;color:#d6cbbb}
 .hours tr.today td{color:var(--gold);font-weight:600}
 .addr{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin:36px 0}
+.addr a{display:inline-block;padding:8px 0}
 .addr b{display:block;font:600 11px Inter;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
 .map{position:relative;display:block;border-radius:4px;overflow:hidden;min-height:520px}
 .map img{position:absolute;inset:0;transition:transform .8s}.map:hover img{transform:scale(1.04)}
@@ -154,7 +155,7 @@ nav .btn{height:42px;padding:0 20px}
 .fam{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px}
 .fam a{border:1px solid var(--line);border-radius:4px;padding:30px;transition:.2s}
 .fam a:hover{border-color:var(--gold)}
-.fam .tag{font:600 10px Inter;letter-spacing:.2em;text-transform:uppercase;color:#f0695e}
+.fam .tag{font:600 11px Inter;letter-spacing:.2em;text-transform:uppercase;color:#f0695e}
 .fam b{display:block;font:400 32px 'Instrument Serif';margin:10px 0 6px}
 .fam p{font-size:14px;color:var(--mute)}
 
@@ -164,17 +165,22 @@ footer .big span{color:var(--red);font:900 .45em 'Noto Serif JP';vertical-align:
 
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.menu-btn{display:none;height:38px;padding:0 16px;border-radius:99px;border:1px solid #f3ece180;background:#0f0d0c66;color:var(--paper);font:600 11px Inter;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.mobile-menu{position:absolute;top:100%;right:20px;left:20px;background:#0f0d0cf5;border:1px solid var(--line);border-radius:14px;padding:8px;display:grid;backdrop-filter:blur(10px)}
+.mobile-menu[hidden]{display:none}
+.mobile-menu a{padding:14px 16px;font:400 24px 'Instrument Serif';border-bottom:1px solid var(--line)}.mobile-menu a:last-child{border:0}
 /* mobile dock */
 .dock{display:none}
 @media(max-width:900px){
  .wrap{padding:0 20px}
  nav{padding:16px 20px}.links{display:none}
- nav .btn{height:38px;padding:0 16px;font-size:11px}
+ nav .btn{display:none}
+ .menu-btn{display:block}
  .addr-s{display:none}
  .hero{height:88vh;min-height:560px}
  .hero:after{background:linear-gradient(180deg,#0f0d0caa 0%,#0f0d0c33 22%,#0f0d0ccc 50%,#0f0d0cf5 100%)}
  .hero>img{object-position:30% center}
- .hero .inner{left:20px;right:20px;bottom:36px;flex-direction:column;align-items:flex-start}
+ .hero .inner{left:20px;right:20px;bottom:96px;flex-direction:column;align-items:flex-start}
  .hero p{font-size:15px}
  .hero .meta{display:none}
  .marquee div{font-size:24px}
@@ -205,6 +211,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
  <a class="logo" href="#"><b>MIKAKU</b><span class="jp">味覚</span></a>
  <div class="links"><a href="#menu">Menu</a><a href="#sake">Sake</a><a href="#room">The Room</a><a href="#visit">Visit</a><a href="#family">Udon Bars</a></div>
  <a class="btn btn-red" href="https://mikaku.setmore.com/" target="_blank" rel="noopener">Book a table</a>
+ <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+ <div class="mobile-menu" id="mobileMenu" hidden><a href="#menu">Menu</a><a href="#sake">Sake</a><a href="#room">The Room</a><a href="#visit">Visit</a><a href="#family">Udon Bars</a></div>
 </nav>
 
 <header class="hero">
@@ -337,6 +345,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
  const rows=[1,2,3,4,5,6,0].map(i=>`<tr class="${i===d?'today':''}"><td>${days[i]}${i===d?' · today':''}</td><td>${i===1?'Closed':'5:30pm – 2:30am'}</td></tr>`).join('');
  document.getElementById('hours').innerHTML=rows;
 })();
+// Mobile menu
+(function(){const b=document.getElementById('menuBtn'),m=document.getElementById('mobileMenu');b.onclick=()=>{const o=m.hidden;m.hidden=!o;b.setAttribute('aria-expanded',o);b.textContent=o?'Close':'Menu'};m.querySelectorAll('a').forEach(a=>a.onclick=()=>{m.hidden=true;b.setAttribute('aria-expanded',false);b.textContent='Menu'})})();
 // Rotating reviews (real Google reviews from the current site)
 (function(){
  const R=[["“Be prepared to wait… but MAN is it worth the wait.”","Charis W. · Google review"],

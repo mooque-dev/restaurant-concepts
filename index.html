@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Restaurant Website Concepts</title>
+<meta name="description" content="Website concepts for Toronto's independent restaurants and cafés: see yours for free before you pay anything.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#141414">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%23141414%22/%3E%3Ccircle cx=%2232%22 cy=%2232%22 r=%2212%22 fill=%22%23ff5a36%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f2ee;--card:#fff;--ink:#141414;--mute:#6b6760;--line:#14141418;--hot:#ff5a36}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%}
+a:focus-visible,button:focus-visible{outline:2px solid var(--hot);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.eyebrow{font:600 12px Inter;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.btn{display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 22px;border-radius:99px;font:600 14px Inter;border:1.5px solid var(--ink);transition:.2s;white-space:nowrap}
+.btn.fill{background:var(--ink);color:#fff}.btn.fill:hover{background:#333}
+.btn:not(.fill):hover{background:var(--ink);color:#fff}
+
+header{display:flex;justify-content:space-between;align-items:center;padding:22px 32px;max-width:1240px;margin:0 auto}
+.brand{font:400 26px 'Instrument Serif';display:flex;align-items:center;gap:10px}
+.brand i{width:12px;height:12px;border-radius:50%;background:var(--hot)}
+header nav{display:flex;gap:28px;font-size:14px;font-weight:500}
+
+.hero{padding:70px 0 60px}
+.hero h1{font:400 clamp(52px,8vw,118px)/.95 'Instrument Serif';letter-spacing:-.025em;max-width:1000px}
+.hero h1 em{color:var(--hot)}
+.hero p{font-size:19px;color:#45423d;max-width:600px;margin:26px 0 32px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.stats{display:flex;gap:44px;margin-top:56px;padding-top:26px;border-top:1px solid var(--line);flex-wrap:wrap}
+.stats b{font:400 40px/1 'Instrument Serif';display:block}
+.stats span{font-size:13px;color:var(--mute)}
+
+.work{padding:40px 0 100px}
+.sechead{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:34px;flex-wrap:wrap}
+.sechead h2{font:400 clamp(40px,5vw,64px)/1 'Instrument Serif';letter-spacing:-.015em;margin-top:10px}
+.sechead p{max-width:420px;color:var(--mute)}
+.cards{display:grid;gap:26px}
+.card{display:grid;grid-template-columns:1.25fr 1fr;background:var(--card);border-radius:22px;overflow:hidden;border:1px solid var(--line)}
+.card .shot{position:relative;background:#ddd;min-height:380px;overflow:hidden}
+.card .shot img{position:absolute;inset:0;height:100%;object-fit:cover;object-position:top;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.card:hover .shot img{transform:scale(1.03)}
+.card .shot .before{position:absolute;right:16px;bottom:16px;width:30%;border-radius:10px;overflow:hidden;box-shadow:0 12px 30px #0005;border:3px solid #fff;aspect-ratio:16/10}
+.card .shot .before img{position:static;height:100%;object-fit:cover;object-position:top;filter:saturate(.7)}
+.card .shot .before span{position:absolute;left:6px;top:6px;background:#141414cc;color:#fff;font:600 10px Inter;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:4px}
+.card .info{padding:34px 36px;display:flex;flex-direction:column}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.tag{font:600 11px Inter;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:99px;border:1px solid var(--line)}
+.tag.status{color:#fff;border:0}
+.card h3{font:400 40px/1.02 'Instrument Serif';letter-spacing:-.01em}
+.card .area{font-size:14px;color:var(--mute);margin:6px 0 16px}
+.card .pitch{font-size:15.5px;color:#36332f}
+.card ul{list-style:none;margin:18px 0 26px;display:grid;gap:8px;font-size:14.5px}
+.card li{display:flex;gap:10px}
+.card li:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--acc);margin-top:9px;flex:none}
+.card .acts{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap}
+
+.how{background:var(--ink);color:#f4f2ee;padding:100px 0}
+.how .eyebrow{color:#a7a29a}
+.how .sechead p{color:#a7a29a}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.step{border-top:1px solid #ffffff2a;padding-top:22px}
+.step .n{font:400 54px/1 'Instrument Serif';color:var(--hot)}
+.step b{display:block;font:400 30px 'Instrument Serif';margin:10px 0 8px}
+.step p{color:#c9c4bb;font-size:15px}
+
+.pricing{padding:100px 0}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tier{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:32px;display:flex;flex-direction:column}
+.tier.feat{background:var(--ink);color:#f4f2ee;border-color:var(--ink)}
+.tier .name{font:600 12px Inter;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.tier.feat .name{color:#a7a29a}
+.tier .price{font:400 58px/1 'Instrument Serif';margin:14px 0 4px}
+.tier .price small{font:500 15px Inter;color:var(--mute)}
+.tier.feat .price small{color:#a7a29a}
+.tier .for{font-size:14.5px;color:var(--mute);margin-bottom:20px}
+.tier.feat .for{color:#c9c4bb}
+.tier ul{list-style:none;display:grid;gap:10px;font-size:14.5px;margin-bottom:26px}
+.tier li{padding-left:24px;position:relative}
+.tier li:before{content:"✓";position:absolute;left:0;color:var(--hot);font-weight:700}
+.tier .btn{margin-top:auto;justify-content:center}
+.tier.feat .btn{border-color:#fff;background:#fff;color:var(--ink)}
+.addons{margin-top:34px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.addon{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.addon b{display:block;font-size:15px;margin-bottom:4px}
+.addon span{font-size:13.5px;color:var(--mute)}
+.addon em{display:block;font-style:normal;font-weight:600;margin-top:10px;font-size:14px}
+.fine{font-size:13px;color:var(--mute);margin-top:18px}
+
+.check{padding:0 0 100px}
+.checkgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.ck{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;font-size:14px}
+.ck b{display:block;font:400 26px/1 'Instrument Serif';color:var(--hot);margin-bottom:8px}
+
+.contact{background:var(--hot);color:#fff;border-radius:28px;padding:64px;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;margin-bottom:60px}
+.contact h2{font:400 clamp(40px,5vw,64px)/1 'Instrument Serif';max-width:640px}
+.contact .btn{border-color:#fff;background:#fff;color:var(--ink)}
+footer{border-top:1px solid var(--line);padding:30px 32px 50px;max-width:1240px;margin:0 auto;font-size:13px;color:var(--mute);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+@media(max-width:960px){
+ .wrap{padding:0 18px}header{padding:18px}header nav{display:none}
+ .card{grid-template-columns:1fr}.card .shot{min-height:260px}.card .info{padding:26px 22px}
+ .steps,.tiers{grid-template-columns:1fr}.addons{grid-template-columns:1fr 1fr}.checkgrid{grid-template-columns:1fr 1fr}
+ .contact{padding:36px 26px}
+}
+</style></head><body>
+
+<header>
+ <a class="brand" href="#"><i></i><span id="studioName">Studio</span></a>
+ <nav><a href="#work">Work</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a></nav>
+</header>
+
+<main>
+<section class="hero"><div class="wrap">
+ <div class="eyebrow">Websites for independent restaurants &amp; cafés · Toronto</div>
+ <h1>Your food is great. <em>Your website</em> should be too.</h1>
+ <p>We redesign restaurant and café websites around what diners actually look for: are you open, what should I order, and how do I book. See a working concept of yours before you pay anything.</p>
+ <div class="cta"><a class="btn fill" href="#work">See the concepts</a><a class="btn" href="#pricing">Pricing</a></div>
+ <div class="stats" id="stats"></div>
+</div></section>
+
+<section class="work" id="work"><div class="wrap">
+ <div class="sechead"><div><div class="eyebrow">Concepts</div><h2>Recent work</h2></div><p>Each concept uses the business's own photos, menu, hours and reviews. Open one, or compare it with the current site side by side.</p></div>
+ <div class="cards" id="cards"></div>
+</div></section>
+
+<section class="how" id="how"><div class="wrap">
+ <div class="sechead"><div><div class="eyebrow">How it works</div><h2>Free to look. Simple to launch.</h2></div><p>No contracts to start. If you like the concept, we put it live on your domain.</p></div>
+ <div class="steps">
+  <div class="step"><span class="n">1</span><b>Free concept</b><p>We build a working homepage from your real photos, menu, hours and reviews, and send you a private link to try on your phone.</p></div>
+  <div class="step"><span class="n">2</span><b>Launch</b><p>We move it to your domain with HTTPS, fast photos, a proper web menu and Google listing data, so you show up right in search and Maps.</p></div>
+  <div class="step"><span class="n">3</span><b>Care</b><p>Text us a new dish, price or holiday hours and it's live within two business days. One short report a month.</p></div>
+ </div>
+</div></section>
+
+<section class="pricing" id="pricing"><div class="wrap">
+ <div class="sechead"><div><div class="eyebrow">Pricing</div><h2>Three ways to work together.</h2></div><p>Prices in Canadian dollars, plus tax. Hosting is included in every plan.</p></div>
+ <div class="tiers">
+  <div class="tier"><span class="name">Concept</span><div class="price">$0</div><p class="for">See it before you decide.</p><ul><li>One-page concept with your photos, menu and hours</li><li>Live "open now" status and hours</li><li>Call, directions and booking buttons on mobile</li><li>Private link to share with your team</li></ul><a class="btn" href="#contact">Ask for yours</a></div>
+  <div class="tier feat"><span class="name">Launch</span><div class="price">$750 <small>one time</small></div><p class="for">Your new site, live on your domain.</p><ul><li>Everything in Concept</li><li>Connected to your domain with HTTPS</li><li>Full menu as a web page, no PDFs</li><li>Compressed, self-hosted photos</li><li>Google Business Profile and search tune-up</li><li>Visitor stats: calls, directions, bookings</li><li>Two rounds of changes</li></ul><a class="btn" href="#contact">Launch my site</a></div>
+  <div class="tier"><span class="name">Care</span><div class="price">$59 <small>/ month</small></div><p class="for">Never think about your website again.</p><ul><li>Menu, price and hours updates within 2 business days</li><li>Holiday hours and seasonal promos</li><li>Monthly one-page report</li><li>Hosting, HTTPS and uptime monitoring</li><li>Cancel any time</li></ul><a class="btn" href="#contact">Add care</a></div>
+ </div>
+ <div class="addons">
+  <div class="addon"><b>Photo shoot</b><span>Half-day food and room shoot</span><em>from $450</em></div>
+  <div class="addon"><b>Bilingual site</b><span>Korean, Chinese, French or another language</span><em>+$300</em></div>
+  <div class="addon"><b>Reservations &amp; ordering</b><span>Resy, OpenTable, Toast or Square</span><em>+$150</em></div>
+  <div class="addon"><b>Extra location</b><span>Own hours, menu and map</span><em>+$200</em></div>
+  <div class="addon"><b>QR table menu</b><span>Printed table cards linked to your web menu</span><em>+$120</em></div>
+  <div class="addon"><b>Review booster</b><span>Table card that sends happy guests to Google</span><em>+$80</em></div>
+  <div class="addon"><b>Events &amp; catering form</b><span>Group bookings straight to your inbox</span><em>+$150</em></div>
+  <div class="addon"><b>Café finder</b><span>Live hours and nearest-location for multi-site cafés</span><em>quoted</em></div>
+ </div>
+</div></section>
+
+<section class="check"><div class="wrap">
+ <div class="sechead"><div><div class="eyebrow">Free 10-point check</div><h2>What we look at first.</h2></div><p>The questions diners ask in the first five seconds on your site. Most restaurant sites miss at least four.</p></div>
+ <div class="checkgrid">
+  <div class="ck"><b>01</b>Are you open right now?</div>
+  <div class="ck"><b>02</b>Can I book or call in one tap?</div>
+  <div class="ck"><b>03</b>Is the menu a page, not a PDF?</div>
+  <div class="ck"><b>04</b>Does the first screen show food?</div>
+  <div class="ck"><b>05</b>Is the site secure (HTTPS)?</div>
+  <div class="ck"><b>06</b>Does it load fast on a phone?</div>
+  <div class="ck"><b>07</b>Do hours match Google Maps?</div>
+  <div class="ck"><b>08</b>Are reviews recent and real?</div>
+  <div class="ck"><b>09</b>Is every location covered?</div>
+  <div class="ck"><b>10</b>Can your community read it?</div>
+ </div>
+</div></section>
+
+<section class="wrap" id="contact"><div class="contact">
+ <h2>Want to see a free concept of your restaurant?</h2>
+ <a class="btn" id="contactBtn" href="#">Get in touch</a>
+</div></section>
+</main>
+
+<footer><span id="foot"></span><span>Concepts are design explorations made with each business's public photos and information. They are not affiliated with or endorsed by the businesses shown unless stated.</span></footer>
+
+<script src="data/concepts.js"></script>
+<script>
+const S=window.STUDIO,C=window.CONCEPTS;
+document.getElementById('studioName').textContent=S.name;
+document.title=S.name+' · Restaurant Website Concepts';
+document.getElementById('foot').textContent='© '+new Date().getFullYear()+' '+S.name+' · '+S.city;
+const cb=document.getElementById('contactBtn');
+if(S.email){cb.href='mailto:'+S.email+'?subject=Free%20website%20concept'}else{cb.textContent='Contact email coming soon';cb.removeAttribute('href')}
+document.getElementById('stats').innerHTML=[[C.length,'concepts so far'],['$0','to see yours'],['2 days','to update your menu']].map(([b,s])=>`<div><b>${b}</b><span>${s}</span></div>`).join('');
+document.getElementById('cards').innerHTML=C.map(c=>`
+ <article class="card" style="--acc:${c.accent}">
+  <a class="shot" href="${c.id}/" aria-label="Open the ${c.name} concept"><img loading="lazy" src="${c.id}/thumb.jpg" alt="${c.name} concept homepage"><div class="before"><span>Before</span><img loading="lazy" src="${c.id}/before-desktop.jpg" alt="${c.name} current website"></div></a>
+  <div class="info">
+   <div class="tags"><span class="tag status" style="background:${c.accent}">${c.status}</span><span class="tag">${c.work}</span></div>
+   <h3>${c.name}</h3><div class="area">${c.kind} · ${c.area}</div>
+   <p class="pitch">${c.pitch}</p>
+   <ul>${c.highlights.map(h=>`<li>${h}</li>`).join('')}</ul>
+   <div class="acts"><a class="btn fill" href="${c.id}/">View concept →</a><a class="btn" href="compare.html?c=${c.id}">Before &amp; after</a></div>
+  </div>
+ </article>`).join('');
+</script>
+</body></html>

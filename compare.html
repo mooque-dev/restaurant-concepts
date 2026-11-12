@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Before &amp; After</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%23141414%22/%3E%3Ccircle cx=%2232%22 cy=%2232%22 r=%2212%22 fill=%22%23ff5a36%22/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f2ee;--ink:#141414;--mute:#6b6760;--line:#14141418;--hot:#ff5a36;--acc:#ff5a36}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:400 15px/1.55 Inter,sans-serif;padding:24px 28px 80px}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--hot);outline-offset:3px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:22px;font-size:14px}
+.top a{text-decoration:none;font-weight:600}
+.switch{display:flex;gap:6px;flex-wrap:wrap}
+.switch a{padding:7px 14px;border-radius:99px;border:1px solid var(--line);background:#fff;font-weight:500}
+.switch a.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+h1{font:400 clamp(36px,4.6vw,58px)/1 'Instrument Serif';letter-spacing:-.015em}
+h1 i{color:var(--acc)}
+.sub{color:var(--mute);margin:10px 0 20px;max-width:760px;font-size:16px}
+.bar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.seg{display:inline-flex;background:#fff;border-radius:99px;padding:4px;border:1px solid var(--line)}
+.seg button{border:0;background:none;padding:8px 18px;border-radius:99px;font:600 12px Inter;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;color:var(--mute)}
+.seg button.on{background:var(--ink);color:#fff}
+.hint{font-size:12.5px;color:var(--mute)}
+.panes{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.pane label{display:flex;justify-content:space-between;font:600 11px Inter;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px;color:var(--mute)}
+.pane label b{color:var(--acc)}
+.pane label a{text-transform:none;letter-spacing:0;font-weight:500}
+.view{height:78vh;background:#1b1b1b;border-radius:14px;overflow:hidden;position:relative}
+.before{overflow-y:auto;background:#fff}
+.before img{display:block;width:100%}
+.view iframe{border:0;background:#fff;transform-origin:top left;position:absolute;left:0;top:0}
+.mobile .view{background:#ddd8cf;display:flex;justify-content:center;align-items:flex-start}
+.mobile .before{overflow:hidden}
+.mobile .before .scroller{width:390px;height:calc(100% - 40px);margin-top:20px;border-radius:30px;border:8px solid #141414;overflow-y:auto;background:#fff}
+.mobile .view iframe{position:relative;transform:none!important;width:390px!important;height:calc(100% - 40px)!important;margin-top:20px;border-radius:30px;border:8px solid #141414}
+h2{font:400 34px 'Instrument Serif';margin:56px 0 16px}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden;font-size:14.5px}
+th{text-align:left;font:600 11px Inter;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);padding:14px 18px;background:#faf8f5}
+td{padding:16px 18px;border-top:1px solid var(--line);vertical-align:top}
+td:first-child{font:400 21px 'Instrument Serif';white-space:nowrap}
+td.after{background:color-mix(in srgb,var(--acc) 7%,#fff)}
+.next{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.nx{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px}
+.nx span{display:inline-block;font:600 10.5px Inter;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--ink);padding:4px 9px;border-radius:99px;margin-bottom:10px}
+.nx span.Launch{background:var(--acc)}
+.cta{margin-top:40px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;height:46px;padding:0 22px;border-radius:99px;font:600 14px Inter;border:1.5px solid var(--ink);text-decoration:none}
+.btn.fill{background:var(--ink);color:#fff}
+@media(max-width:1000px){.panes{grid-template-columns:1fr}body{padding:18px 16px 60px}td:first-child{white-space:normal}}
+</style></head><body>
+
+<div class="top"><a href="./">← All concepts</a><div class="switch" id="switch"></div></div>
+<h1 id="title"></h1>
+<p class="sub" id="sub"></p>
+<div class="bar">
+ <div class="seg" id="mode"><button class="on" data-m="desktop">Desktop</button><button data-m="mobile">Mobile</button></div>
+ <span class="hint">Before is a full-page capture of the current site. After is the working concept: scroll it, tap it, try the buttons.</span>
+</div>
+<div class="panes" id="panes">
+ <div class="pane"><label>Before · current site <a id="liveLink" target="_blank" rel="noopener">open live ↗</a></label><div class="view before"><div class="scroller"><img id="beforeImg" alt="Current website, full page"></div></div></div>
+ <div class="pane"><label><b>After · concept</b> <a id="conceptLink" target="_blank">open full screen ↗</a></label><div class="view"><iframe id="after" title="Concept"></iframe></div></div>
+</div>
+
+<h2>What changed</h2>
+<table><thead><tr><th style="width:150px">Area</th><th>Before</th><th>After</th></tr></thead><tbody id="changes"></tbody></table>
+
+<h2>What could come next</h2>
+<div class="next" id="next"></div>
+<div class="cta"><a class="btn fill" href="./#pricing">See pricing</a><a class="btn" href="./">Back to all concepts</a></div>
+
+<script src="data/concepts.js"></script>
+<script>
+const C=window.CONCEPTS,id=new URLSearchParams(location.search).get('c')||C[0].id,c=C.find(x=>x.id===id)||C[0];
+document.documentElement.style.setProperty('--acc',c.accent);
+document.title=c.name+' · Before & After';
+document.getElementById('title').innerHTML=`${c.name}, <i>before &amp; after</i>`;
+document.getElementById('sub').textContent=c.pitch;
+document.getElementById('switch').innerHTML=C.map(x=>`<a href="?c=${x.id}" class="${x.id===c.id?'on':''}">${x.short||x.name}</a>`).join('');
+const live=document.getElementById('liveLink');live.href=c.live;
+document.getElementById('conceptLink').href=c.id+'/';
+const img=document.getElementById('beforeImg'),fr=document.getElementById('after'),panes=document.getElementById('panes');
+fr.src=c.id+'/';
+function setMode(m){
+ panes.classList.toggle('mobile',m==='mobile');
+ img.src=`${c.id}/before-${m}.jpg`;fit();
+}
+function fit(){
+ const v=fr.parentElement;
+ if(panes.classList.contains('mobile')){fr.style.transform='';return}
+ const W=1440,s=v.clientWidth/W;fr.style.width=W+'px';fr.style.height=(v.clientHeight/s)+'px';fr.style.transform=`scale(${s})`;
+}
+document.querySelectorAll('#mode button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#mode button').forEach(x=>x.classList.toggle('on',x===b));setMode(b.dataset.m)});
+addEventListener('resize',fit);setMode('desktop');
+document.getElementById('changes').innerHTML=c.changes.map(([a,b,f])=>`<tr><td>${a}</td><td>${b}</td><td class="after">${f}</td></tr>`).join('');
+document.getElementById('next').innerHTML=c.next.map(([t,d])=>`<div class="nx"><span class="${t}">${t}</span><div>${d}</div></div>`).join('');
+</script>
+</body></html>

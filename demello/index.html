@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>De Mello Cafés — find your nearest De Mello</title>
+<meta name="description" content="Find a De Mello Coffee café near you: live opening hours for Castlefield, Broadway, The Well and Bloor St E in Toronto, plus our Concord roastery and Seoul café.">
+<meta name="theme-color" content="#1d3a9e">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#1d3a9e;--blue2:#142a75;--yellow:#f6c344;--cream:#f7f1e3;--ink:#10183a;--mute:#5b6280;--line:#10183a1f;--green:#1f9d61;--red:#d4473a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);color:var(--ink);font:400 16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+a:focus-visible,button:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.disp{font-family:'Bricolage Grotesque',sans-serif}
+
+.ticker{background:var(--blue);color:#fff;font:600 12px Inter;letter-spacing:.08em;text-transform:uppercase;overflow:hidden;white-space:nowrap;padding:9px 0}
+.ticker div{display:inline-block;animation:t 30s linear infinite}
+.ticker span{margin:0 34px}
+@keyframes t{to{transform:translateX(-50%)}}
+nav{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+nav .logo{height:34px;width:auto}
+nav .links{display:flex;gap:28px;font:600 13px Inter;letter-spacing:.06em;text-transform:uppercase}
+nav .links a.on{color:var(--blue);box-shadow:inset 0 -2px var(--blue);padding-bottom:4px}
+nav .cart{font:600 13px Inter;border:2px solid var(--ink);border-radius:99px;padding:7px 14px}
+
+.hero{background:var(--blue);color:#fff;position:relative;overflow:hidden}
+.hero .wrap{padding-top:72px;padding-bottom:64px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:end}
+.hero h1{font:800 clamp(52px,7vw,104px)/.92 'Bricolage Grotesque';letter-spacing:-.03em}
+.hero h1 span{color:var(--yellow)}
+.hero p{font-size:19px;color:#dfe5ff;max-width:520px;margin:22px 0 30px}
+.live{background:#ffffff14;border:1px solid #ffffff2e;border-radius:18px;padding:24px}
+.live b{display:block;font:800 56px/1 'Bricolage Grotesque'}
+.live span{color:#dfe5ff;font-size:15px}
+.live .dots{display:flex;gap:6px;margin-top:16px}
+.live .dots i{flex:1;height:8px;border-radius:9px;background:#ffffff33}.live .dots i.on{background:var(--yellow)}
+.controls{display:flex;gap:10px;flex-wrap:wrap}
+.chip{height:44px;padding:0 18px;border-radius:99px;border:2px solid #ffffff55;background:none;color:#fff;font-weight:600;font-size:14px}
+.chip.on{background:var(--yellow);border-color:var(--yellow);color:var(--ink)}
+.chip.loc{background:#fff;color:var(--blue);border-color:#fff}
+.hint{font-size:13px;color:#c7d0ff;margin-top:12px;min-height:20px}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding:56px 0 30px}
+.cafe{background:#fff;border-radius:18px;overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.cafe:hover{transform:translateY(-3px);box-shadow:0 18px 40px #10183a1a}
+.cafe .ph{height:220px;position:relative}
+.badge{position:absolute;top:14px;left:14px;font:700 12px Inter;padding:6px 12px;border-radius:99px;background:#fff;display:flex;gap:7px;align-items:center}
+.badge i{width:8px;height:8px;border-radius:50%;background:var(--green)}
+.badge.off i{background:var(--red)}
+.dist{position:absolute;top:14px;right:14px;font:700 12px Inter;padding:6px 12px;border-radius:99px;background:var(--yellow);display:none}
+.cafe .body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
+.cafe .kind{font:700 11px Inter;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.cafe h3{font:800 26px/1.1 'Bricolage Grotesque';margin:6px 0 8px}
+.cafe .addr{color:var(--mute);font-size:14.5px}
+.today{margin:16px 0 18px;padding:12px 14px;background:var(--cream);border-radius:10px;font-size:14px;display:flex;justify-content:space-between}
+.today b{font-weight:600}
+details{font-size:14px;margin-bottom:18px}
+summary{cursor:pointer;color:var(--blue);font-weight:600}
+details table{width:100%;margin-top:8px;border-collapse:collapse}
+details td{padding:5px 0;border-bottom:1px solid var(--line)}
+details td:last-child{text-align:right}
+.cafe .acts{margin-top:auto;display:flex;gap:8px}
+.btn{height:44px;padding:0 18px;border-radius:99px;font:700 13px Inter;display:inline-flex;align-items:center;justify-content:center;gap:6px;border:2px solid var(--ink)}
+.btn.fill{background:var(--ink);color:#fff}
+.btn.y{background:var(--yellow);border-color:var(--yellow);color:var(--ink)}
+.cafe.hide{display:none}
+
+.sec{padding:80px 0}
+.sec h2{font:800 clamp(36px,4.4vw,60px)/1 'Bricolage Grotesque';letter-spacing:-.02em}
+.sec .lead{color:var(--mute);max-width:520px;margin-top:12px}
+.beans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
+.bean{background:#fff;border-radius:18px;padding:22px;border:1px solid var(--line);display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center}
+.bean .ph{height:130px;border-radius:12px;overflow:hidden;background:var(--cream)}
+.bean .ph img{object-fit:contain}
+.bean b{font:800 20px 'Bricolage Grotesque';display:block}
+.bean span{font-size:13.5px;color:var(--mute);display:block;margin:4px 0 10px}
+.bean em{font-style:normal;font-weight:700;font-size:14px}
+
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.panel{border-radius:22px;padding:40px;min-height:300px;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.panel.y{background:var(--yellow)}
+.panel.b{background:var(--ink);color:#fff}
+.panel h3{font:800 38px/1 'Bricolage Grotesque';letter-spacing:-.02em}
+.panel p{max-width:420px;margin-top:12px}
+.panel.b p{color:#c7d0ff}
+.panel.b .btn{border-color:#fff;color:#fff}
+
+.seoul{display:grid;grid-template-columns:1fr 1fr;border-radius:22px;overflow:hidden;background:#fff;border:1px solid var(--line)}
+.seoul .ph{min-height:340px}
+.seoul .t{padding:44px}
+.seoul .clock{font:800 64px/1 'Bricolage Grotesque';color:var(--blue);margin:16px 0 6px}
+
+footer{background:var(--blue2);color:#c7d0ff;padding:50px 32px 60px;font-size:14px;margin-top:80px}
+footer .row{max-width:1240px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
+footer img{height:30px;width:auto}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media(max-width:900px){
+ .wrap{padding:0 18px}
+ nav .links{display:none}
+ .hero .wrap{grid-template-columns:1fr;padding-top:44px;padding-bottom:40px}
+ .hero p{font-size:16px}
+ .grid,.beans,.duo,.seoul{grid-template-columns:1fr}
+ .panel{padding:28px;min-height:0}
+ .seoul .t{padding:28px}.seoul .ph{min-height:220px}
+}
+</style></head><body>
+<div class="concept-ribbon" style="background:#141414;color:#f4f2ee;font:500 12.5px/1.4 system-ui,sans-serif;text-align:center;padding:8px 14px">Design concept by <a href="../" style="color:#ff8a6b;text-decoration:underline">Mooque Studio</a>, not the official De Mello Coffee website. <a href="https://hellodemello.com/" target="_blank" rel="noopener" style="color:#f4f2ee;text-decoration:underline">Visit the real site ↗</a></div>
+
+
+<div class="ticker" aria-hidden="true"><div><span>Drinking our coffee may give you superpowers™</span><span>Free shipping on orders over $45</span><span>Drinking our coffee may give you superpowers™</span><span>Free shipping on orders over $45</span><span>Drinking our coffee may give you superpowers™</span><span>Free shipping on orders over $45</span><span>Drinking our coffee may give you superpowers™</span><span>Free shipping on orders over $45</span></div></div>
+
+<nav><div class="wrap">
+ <a href="https://hellodemello.com/"><img class="logo" src="img/logo-blue.svg" alt="De Mello Coffee"></a>
+ <div class="links"><a href="https://hellodemello.com/collections/all-coffee">Coffee</a><a href="https://hellodemello.com/collections/shop">Shop</a><a href="https://hellodemello.com/collections/subscribe-save">Subscription</a><a class="on" href="#">Cafés</a><a href="https://demellowholesale.com/">Wholesale</a></div>
+ <a class="cart" href="https://hellodemello.com/cart">Cart</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+ <div>
+  <h1>Find your<br><span>De Mello.</span></h1>
+  <p>Four cafés across Toronto, a roastery in Concord and a café in Seoul. Live hours, the closest one to you, and directions in one tap.</p>
+  <div class="controls" role="group" aria-label="Filter cafés">
+   <button class="chip loc" id="near">📍 Use my location</button>
+   <button class="chip on" data-f="all">All</button>
+   <button class="chip" data-f="open">Open now</button>
+   <button class="chip" data-f="weekend">Open weekends</button>
+  </div>
+  <div class="hint" id="hint" aria-live="polite"></div>
+ </div>
+ <div class="live" aria-live="polite"><b id="openCount">–</b><span id="openLabel">Toronto cafés open right now</span><div class="dots" id="dots"></div></div>
+</div></header>
+
+<main>
+<div class="wrap"><div class="grid" id="grid"></div></div>
+
+<section class="sec" style="padding-top:40px"><div class="wrap">
+ <h2>On bar this month.</h2>
+ <p class="lead">Two volcanic origins, now pouring in our cafés. Liked your pour-over? Take the bag home or have it shipped.</p>
+ <div class="beans">
+  <a class="bean" href="https://hellodemello.com/collections/single-origin"><div class="ph"><img loading="lazy" src="img/bag-indonesia.png" alt="Indonesia Mt. Ijen coffee bag"></div><div><b>Indonesia Mt. Ijen</b><span>Strawberry · Dark Cherry · Raisin</span><em>From $27</em></div></a>
+  <a class="bean" href="https://hellodemello.com/collections/single-origin"><div class="ph"><img loading="lazy" src="img/bag-rwanda.png" alt="Rwanda Cyiya coffee bag"></div><div><b>Rwanda Cyiya</b><span>Lime Candy · Green Apple · White Flower</span><em>From $24</em></div></a>
+  <a class="bean" href="https://hellodemello.com/collections/single-origin"><div class="ph"><img loading="lazy" src="img/bag-ethiopia.png" alt="Ethiopia Abdo coffee bag"></div><div><b>Ethiopia Abdo</b><span>Elderflower Cider · Yellow Plum · Pink Muscat</span><em>From $26</em></div></a>
+ </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="wrap duo">
+ <div class="panel y"><div><h3>Love the café coffee? Get it delivered.</h3><p>Subscribe to the beans we pour in-store and have them shipped to your door.</p></div><div><a class="btn fill" href="https://hellodemello.com/collections/subscribe-save">Start a subscription</a></div></div>
+ <div class="panel b"><div><h3>Bring De Mello to your office.</h3><p>Wholesale coffee for offices, cafés and restaurants, roasted in Concord.</p></div><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn y" href="https://demellowholesale.com/">Wholesale enquiries</a><a class="btn" href="https://www.eventbrite.ca/o/de-mello-coffee-roastery-71455480383" target="_blank" rel="noopener">Classes &amp; events</a></div></div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="wrap">
+ <div class="seoul">
+  <div class="ph"><img loading="lazy" src="img/seoul.jpg" alt="De Mello Coffee café entrance in Seoul with tiger mural"></div>
+  <div class="t">
+   <div class="cafe" style="border:0;background:none"><span class="kind">De Mello Korea · 서울</span></div>
+   <div class="clock" id="seoulClock">--:--</div>
+   <p id="seoulState" style="font-weight:600"></p>
+   <p style="color:var(--mute);margin:10px 0 22px">Unit B111, G+ Tower, 123 Digital-ro 26-gil, Guro-gu, Seoul. Monday to Friday, 8am to 7pm KST.</p>
+   <a class="btn fill" href="https://maps.google.com/?q=G%2B+Tower+123+Digital-ro+26-gil+Guro-gu+Seoul" target="_blank" rel="noopener">Directions in Seoul</a>
+  </div>
+ </div>
+</div></section>
+</main>
+
+<footer><div class="row">
+ <img src="img/logo-white.svg" alt="De Mello Coffee">
+ <span>Concept for a café finder module · hours from hellodemello.com/pages/location</span>
+</div></footer>
+
+<script>
+// Café data from hellodemello.com/pages/location. Hours per weekday Sun..Sat in minutes; null = closed. Coordinates approximate.
+const IMG='img/';
+const wk=(a,b)=>[b,a,a,a,a,a,b];
+const CAFES=[
+ {id:'castlefield',name:'Castlefield',kind:'Yonge & Eglinton',addr:'2489 Yonge St, Toronto',img:'castlefield.jpg',lat:43.7116,lng:-79.3994,hours:wk([420,1140],[480,1140]),q:'2489+Yonge+St+Toronto'},
+ {id:'broadway',name:'Broadway',kind:'Yonge & Eglinton',addr:'2389 Yonge St, Toronto',img:'broadway.jpg',lat:43.7088,lng:-79.3986,hours:wk([420,1140],[480,1140]),q:'2389+Yonge+St+Toronto'},
+ {id:'well',name:'The Well',kind:'Spadina & Front · lobby kiosk',addr:'100G – 8 Spadina Ave, Toronto',img:'the-well.jpg',lat:43.6427,lng:-79.3955,hours:wk([450,1020],[540,1080]),q:'8+Spadina+Ave+Toronto'},
+ {id:'bloor',name:'Bloor St E',kind:'Sherbourne & Bloor',addr:'Unit 19, 365 Bloor St E, Toronto',img:'bloor.jpg',lat:43.6721,lng:-79.3787,hours:wk([420,1080],[480,1080]),q:'365+Bloor+St+E+Toronto'},
+ {id:'roastery',name:'The Roastery',kind:'Concord · roastery',addr:'40 Adesso Dr, Unit 3, Concord ON',img:'roastery.jpg',lat:43.8018,lng:-79.5246,hours:[null,[480,960],[480,960],[480,960],[480,960],[480,960],null],q:'40+Adesso+Dr+Concord+ON',roastery:true}
+];
+const DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const fmt=m=>{const h=Math.floor(m/60),mm=m%60;return (h%12||12)+(mm?':'+String(mm).padStart(2,'0'):'')+(h>=12?'pm':'am')};
+function nowIn(tz){const p=Object.fromEntries(new Intl.DateTimeFormat('en-US',{timeZone:tz,weekday:'long',hour:'numeric',minute:'numeric',hour12:false}).formatToParts(new Date()).map(x=>[x.type,x.value]));return {d:DAYS.indexOf(p.weekday),m:(+p.hour%24)*60+(+p.minute),hh:p.hour%24,mm:p.minute}}
+const T=nowIn('America/Toronto');
+function state(c){
+ const h=c.hours[T.d];
+ if(h&&T.m>=h[0]&&T.m<h[1])return {open:true,label:`Open · until ${fmt(h[1])}`};
+ if(h&&T.m<h[0])return {open:false,label:`Opens ${fmt(h[0])} today`};
+ for(let i=1;i<=7;i++){const n=c.hours[(T.d+i)%7];if(n)return {open:false,label:`Closed · opens ${i===1?'tomorrow':DAYS[(T.d+i)%7]} ${fmt(n[0])}`}}
+}
+let filter='all',dist={};
+function km(a,b){const R=6371,r=x=>x*Math.PI/180,dl=r(b.lat-a.lat),dg=r(b.lng-a.lng);const s=Math.sin(dl/2)**2+Math.cos(r(a.lat))*Math.cos(r(b.lat))*Math.sin(dg/2)**2;return 2*R*Math.asin(Math.sqrt(s))}
+function render(){
+ const list=[...CAFES].sort((a,b)=>(dist[a.id]??0)-(dist[b.id]??0));
+ document.getElementById('grid').innerHTML=list.map(c=>{
+  const s=state(c),h=c.hours[T.d];
+  const show=filter==='all'||(filter==='open'&&s.open)||(filter==='weekend'&&c.hours[0]&&c.hours[6]);
+  const rows=[1,2,3,4,5,6,0].map(i=>`<tr${i===T.d?' style="font-weight:600"':''}><td>${DAYS[i]}</td><td>${c.hours[i]?fmt(c.hours[i][0])+' – '+fmt(c.hours[i][1]):'Closed'}</td></tr>`).join('');
+  return `<article class="cafe ${show?'':'hide'}"><div class="ph"><img loading="lazy" src="${IMG+c.img}" alt="Inside De Mello ${c.name}"><span class="badge ${s.open?'':'off'}"><i></i>${s.open?'Open now':'Closed'}</span><span class="dist" style="${dist[c.id]!=null?'display:block':''}">${dist[c.id]!=null?dist[c.id].toFixed(1)+' km':''}</span></div>
+  <div class="body"><span class="kind">${c.kind}</span><h3>De Mello ${c.name}</h3><div class="addr">${c.addr}</div>
+  <div class="today"><span>Today</span><b>${s.label}</b></div>
+  <details><summary>All hours</summary><table>${rows}</table></details>
+  <div class="acts"><a class="btn fill" href="https://maps.google.com/?q=${c.q}" target="_blank" rel="noopener">Directions</a>${c.roastery?'<a class="btn" href="https://demellowholesale.com/">Wholesale</a>':''}</div></div></article>`}).join('');
+ const tor=CAFES.filter(c=>!c.roastery),open=tor.filter(c=>state(c).open).length;
+ document.getElementById('openCount').textContent=`${open} of ${tor.length}`;
+ document.getElementById('dots').innerHTML=tor.map(c=>`<i class="${state(c).open?'on':''}"></i>`).join('');
+}
+document.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{filter=b.dataset.f;document.querySelectorAll('[data-f]').forEach(x=>x.classList.toggle('on',x===b));render()});
+document.getElementById('near').onclick=()=>{
+ const hint=document.getElementById('hint');
+ if(!navigator.geolocation){hint.textContent='Location is not available in this browser.';return}
+ hint.textContent='Finding the closest café…';
+ navigator.geolocation.getCurrentPosition(p=>{const me={lat:p.coords.latitude,lng:p.coords.longitude};CAFES.forEach(c=>dist[c.id]=km(me,c));const n=[...CAFES].sort((a,b)=>dist[a.id]-dist[b.id])[0];hint.textContent=`Closest: De Mello ${n.name}, about ${dist[n.id].toFixed(1)} km away.`;render()},
+  ()=>{hint.textContent='No location shared. Showing all cafés.'},{timeout:8000});
+};
+function seoul(){const s=nowIn('Asia/Seoul');document.getElementById('seoulClock').textContent=`${String(s.hh).padStart(2,'0')}:${s.mm} KST`;const open=s.d>=1&&s.d<=5&&s.m>=480&&s.m<1140;document.getElementById('seoulState').textContent=open?'Open now in Seoul':'Closed in Seoul right now';}
+render();seoul();setInterval(seoul,30000);
+</script>
+</body></html>

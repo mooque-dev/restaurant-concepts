@@ -27,7 +27,7 @@ window.CONCEPTS = [
     changes: [
       ['First screen', 'A pun headline in heavy condensed type over a busy food photo. No hours or location on the first screen; booking is a small nav link.', 'Their best photo with an "open \'til 2:30" headline, and booking buttons in the nav and hero.'],
       ['Hours', 'On a separate page, not on the homepage.', 'Live open / closed bar at the top, hours table with today highlighted.'],
-      ['Food', 'A "M E N U" banner and one button.', 'Five reviewer-favourite dishes as photo cards with prices.'],
+      ['Food', 'A "M E N U" banner and one button.', 'Six reviewer-favourite dishes as photo cards with prices, including an M / L size picker.'],
       ['Sake', 'Only in the page title.', 'A four-mood guide that makes a seven-page list approachable.'],
       ['Reviews', 'Long review cards in a carousel.', 'One big rotating pull quote.'],
       ['Language', 'English only.', 'One-tap Korean version, written for Korean readers.'],
@@ -88,7 +88,7 @@ window.CONCEPTS = [
       ['First screen', 'A notice about the Toronto location and online orders is the first thing visitors read.', 'The name, the herbal-simmered jokbal and an order button.'],
       ['Photos', 'Homepage dish photos appear to be generic stock images, not their own food.', 'Their own dishes, taken from their menu designs.'],
       ['Menu', 'Eight images: six for jokbal and two for the 무청감자탕 gamjatang menu. Not searchable, hard to read on a phone, invisible to Google.', 'A tabbed text menu with every price and size, gamjatang included.'],
-      ['Signature', 'Jokbal is explained in a paragraph of text.', 'Four ways to jokbal, plus bossam and combos, with S / M / L prices.'],
+      ['Signature', 'Jokbal is explained in a paragraph of text.', 'Original, spicy and half-and-half jokbal plus bossam and combos, each with a tappable S / M / L price.'],
       ['Language', 'English text under a Korean logo.', 'One-tap Korean version.'],
       ['Hours', 'At the bottom of the page.', 'Live open status at the top.']
     ],
@@ -146,7 +146,7 @@ window.CONCEPTS = [
       ['Menu', 'Five separate PDF and PNG files that download to the phone.', 'Signature dishes on the page with Korean names. A full web menu comes with Launch.'],
       ['Locations', 'Separate page with plain-text hours.', 'Side-by-side cards with live open / closed status, today highlighted, call and directions.'],
       ['Language', 'English only.', 'One-tap Korean toggle for headings, hours and key copy.'],
-      ['Brand', 'KoSam and Koryo Samgyetang names, two Instagram handles, never explained.', 'Explains it: Leslie is the original Koryo Samgyetang, Sheppard is KoSam with a bar and patio.'],
+      ['Brand', 'KoSam and Koryo Samgyetang names, two Instagram handles, never explained.', 'Explains it: Leslie is also known as Koryo Samgyetang; Sheppard is KoSam, with a bar and a seasonal patio.'],
       ['Reviews', 'Yelp quotes from 2021, labelled "Yelp Reviewer #1".', 'The same quotes, presented cleanly. Current Google reviews can come next.']
     ],
     next: [

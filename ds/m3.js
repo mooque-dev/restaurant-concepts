@@ -20,7 +20,7 @@
     if (h === 0 && !mm) return 'midnight';
     return `${h % 12 || 12}${pad}${h >= 12 ? 'pm' : 'am'}`;
   }
-  const dur = m => { const h = Math.floor(m / 60), mm = m % 60; return LANG === 'ko' ? (h ? `${h}시간 ` : '') + `${mm}분` : (h ? `${h}h ` : '') + `${mm}m`; };
+  const dur = m => { const h = Math.floor(m / 60), mm = m % 60; return LANG === 'ko' ? [h && `${h}시간`, (mm || !h) && `${mm}분`].filter(Boolean).join(' ') : [h && `${h}h`, (mm || !h) && `${mm}m`].filter(Boolean).join(' '); };
   /*__HOURS__*/
   function stateText(st, loc, short) {
     if (st.open) {

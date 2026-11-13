@@ -43,6 +43,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .t-body-m{font-size:var(--md-sys-typescale-body-medium-size);line-height:var(--md-sys-typescale-body-medium-line)}
 .t-label-l{font:600 var(--md-sys-typescale-label-large-size)/1.4 var(--md-ref-typeface-plain);letter-spacing:.01em}
 .t-label-m{font:600 var(--md-sys-typescale-label-medium-size)/1.4 var(--md-ref-typeface-plain);letter-spacing:.08em;text-transform:uppercase}
+.t-display-l,.t-display-m,.t-headline-l,.m-facts b,.m-price,.m-hours td{font-variant-numeric:lining-nums tabular-nums}
 .accent{color:var(--md-sys-color-secondary-text);font-style:var(--md-ref-accent-style,italic)}
 .muted{color:var(--md-sys-color-on-surface-variant)}
 .eyebrow{color:var(--md-sys-color-secondary-text)}
@@ -239,6 +240,7 @@ html[lang=ko] body{word-break:keep-all}
 html[lang=ko] .t-display-l,html[lang=ko] .t-display-m,html[lang=ko] .t-headline-l,html[lang=ko] .m-quote blockquote{font-family:var(--md-ref-typeface-brand),var(--md-ref-typeface-ko);line-height:1.22;letter-spacing:-.01em}
 html[lang=ko] .t-display-l{font-size:calc(var(--md-sys-typescale-display-large-size) * .82)}
 html[lang=ko] .t-label-m{letter-spacing:.04em}
+html[lang=ko] .m-card__kicker[data-native]{display:none}
 
 /* ---------- responsive ---------- */
 @media(max-width:900px){

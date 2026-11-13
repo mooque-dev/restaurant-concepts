@@ -16,7 +16,7 @@ export default {
     shape: [6, 10, 14, 20, 28, 999]
   },
   ribbon: { en: 'Design concept by Mooque Studio, not the official EHWA website. <a href="https://www.ehwa.ca/" target="_blank" rel="noopener">See the current site ↗</a>', ko: 'Mooque Studio의 디자인 시안이며, EHWA 공식 웹사이트가 아닙니다. <a href="https://www.ehwa.ca/" target="_blank" rel="noopener">현재 사이트 보기 ↗</a>' },
-  brand: { wordmark: '<img src="https://www.ehwa.ca/assets/logo-white.webp" alt="" width="20" height="32" style="align-self:center">EHWA' },
+  brand: { wordmark: '<img src="https://www.ehwa.ca/assets/logo-white.webp" alt="" width="18" height="29" style="display:inline-block;vertical-align:middle;margin:-4px 10px 0 0">EHWA' },
   nav: [{ href: '#menu', label: { en: 'Menu', ko: '메뉴' } }, { href: '#late', label: { en: 'Late night', ko: '심야 영업' } }, { href: '#story', label: { en: 'Our story', ko: '이화 이야기' } }, { href: '#visit', label: { en: 'Locations', ko: '매장 안내' } }],
   primary: { href: '#visit', label: { en: 'Reserve', ko: '예약하기' } },
   bar: [{ icon: 'location_on', href: '#visit', label: { en: 'Locations', ko: '매장' } }, { icon: 'restaurant_menu', href: '#menu', label: { en: 'Menu', ko: '메뉴' } }, { icon: 'event_available', href: '#visit', label: { en: 'Reserve', ko: '예약하기' }, primary: true }],

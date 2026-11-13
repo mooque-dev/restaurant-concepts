@@ -54,6 +54,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .t-body-m{font-size:var(--md-sys-typescale-body-medium-size);line-height:var(--md-sys-typescale-body-medium-line)}
 .t-label-l{font:600 var(--md-sys-typescale-label-large-size)/1.4 var(--md-ref-typeface-plain);letter-spacing:.01em}
 .t-label-m{font:600 var(--md-sys-typescale-label-medium-size)/1.4 var(--md-ref-typeface-plain);letter-spacing:.08em;text-transform:uppercase}
+.t-display-l,.t-display-m,.t-headline-l,.m-facts b,.m-price,.m-hours td{font-variant-numeric:lining-nums tabular-nums}
 .accent{color:var(--md-sys-color-secondary-text);font-style:var(--md-ref-accent-style,italic)}
 .muted{color:var(--md-sys-color-on-surface-variant)}
 .eyebrow{color:var(--md-sys-color-secondary-text)}
@@ -250,6 +251,7 @@ html[lang=ko] body{word-break:keep-all}
 html[lang=ko] .t-display-l,html[lang=ko] .t-display-m,html[lang=ko] .t-headline-l,html[lang=ko] .m-quote blockquote{font-family:var(--md-ref-typeface-brand),var(--md-ref-typeface-ko);line-height:1.22;letter-spacing:-.01em}
 html[lang=ko] .t-display-l{font-size:calc(var(--md-sys-typescale-display-large-size) * .82)}
 html[lang=ko] .t-label-m{letter-spacing:.04em}
+html[lang=ko] .m-card__kicker[data-native]{display:none}
 
 /* ---------- responsive ---------- */
 @media(max-width:900px){
@@ -398,7 +400,7 @@ html[lang=ko] .t-label-m{letter-spacing:.04em}
     if (h === 0 && !mm) return 'midnight';
     return `${h % 12 || 12}${pad}${h >= 12 ? 'pm' : 'am'}`;
   }
-  const dur = m => { const h = Math.floor(m / 60), mm = m % 60; return LANG === 'ko' ? (h ? `${h}시간 ` : '') + `${mm}분` : (h ? `${h}h ` : '') + `${mm}m`; };
+  const dur = m => { const h = Math.floor(m / 60), mm = m % 60; return LANG === 'ko' ? [h && `${h}시간`, (mm || !h) && `${mm}분`].filter(Boolean).join(' ') : [h && `${h}h`, (mm || !h) && `${mm}m`].filter(Boolean).join(' '); };
   function hoursState(week,day,min){const t=week[day],y=week[(day+6)%7];if(y&&y[1]>1440&&min<y[1]-1440)return{open:true,closesAt:y[1]-1440,closesIn:y[1]-1440-min};if(t&&min>=t[0]&&min<t[1])return{open:true,closesAt:t[1],closesIn:t[1]-min};if(t&&min<t[0])return{open:false,opensAt:t[0],opensDay:0};for(let i=1;i<=7;i++){const d=week[(day+i)%7];if(d)return{open:false,opensAt:d[0],opensDay:i}}return{open:false}}
   function stateText(st, loc, short) {
     if (st.open) {

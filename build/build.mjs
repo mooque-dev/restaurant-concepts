@@ -51,7 +51,7 @@ R.cards = s => {
     if (it.tags) parts.push(it.tags.map(t => `<span class="m-chip">${T('span', t)}</span>`).join(''));
     return parts.length ? `<div class="m-card__foot">${parts.join('')}</div>` : '';
   };
-  const card = it => `<article class="m-card ${s.media === 'plate' ? 'm-card--plate' : ''}" data-zoom-hover ${it.temps ? `data-temp="${it.temps[0]}"` : ''}>${media(it)}<div class="m-card__body">${T('div', it.kicker, 'class="m-card__kicker"')}<div class="m-card__title">${T('h3', it.title)}${it.prices ? `<span class="m-price" data-price-out>${esc(it.prices[0].price)}</span>` : it.price ? `<span class="m-price">${esc(it.price)}</span>` : ''}</div>${T('p', it.desc)}${foot(it)}</div></article>`;
+  const card = it => `<article class="m-card ${s.media === 'plate' ? 'm-card--plate' : ''}" data-zoom-hover ${it.temps ? `data-temp="${it.temps[0]}"` : ''}>${media(it)}<div class="m-card__body">${T('div', it.kicker, `class="m-card__kicker"${/[\uac00-\ud7a3]/.test(L(it.kicker).en || '') ? ' data-native' : ''}`)}<div class="m-card__title">${T('h3', it.title)}${it.prices ? `<span class="m-price" data-price-out>${esc(it.prices[0].price)}</span>` : it.price ? `<span class="m-price">${esc(it.price)}</span>` : ''}</div>${T('p', it.desc)}${foot(it)}</div></article>`;
   return `<section class="m-section ${s.tint ? 'm-section--tint' : ''}" ${s.id ? `id="${s.id}"` : ''}><div class="m-container">${head(s)}<div class="m-grid m-grid--${s.cols || 3} ${s.scroll !== false ? 'm-scroll-x' : ''}">${s.items.map(card).join('')}</div>${T('p', s.note, 'class="t-body-m muted" style="margin-top:16px"')}${ctas(s.ctas) ? `<div style="margin-top:28px">${ctas(s.ctas)}</div>` : ''}</div></section>`;
 };
 R.menu = s => `<section class="m-section ${s.tint ? 'm-section--tint' : ''}" id="${s.id || 'menu'}"><div class="m-container" data-search-scope>${head(s)}
@@ -79,7 +79,7 @@ R.locations = (s, v) => {
    ${multi ? `<div class="m-seg m-seg--lg m-locs-switch" role="group" aria-label="Location">${v.locations.map((l, k) => `<button class="m-seg__btn" type="button" data-value="${l.id}" aria-pressed="${k === 0}">${T('span', l.short || l.name)}</button>`).join('')}</div>` : ''}
    ${v.locations.map(loc).join('')}</div>${s.image ? `<figure class="m-media visit__img" data-ratio="4/3">${img(s.image, '(max-width: 900px) 92vw, 45vw')}${T('figcaption', s.imageCaption, 'class="visit__cap"')}</figure>` : ''}</div></div></section>`;
 };
-R.links = s => `<section class="m-section" style="padding-top:0"><div class="m-container">${T('div', s.eyebrow, 'class="t-label-m eyebrow" style="margin-bottom:18px"')}<div class="m-grid m-grid--${s.items.length} m-links">${s.items.map(it => `<a class="m-card m-card--outlined m-interactive" href="${esc(it.href)}"${ext(it.href)} style="padding:22px">${T('div', it.kicker, 'class="m-card__kicker"')}${T('h3', it.title, 'class="t-headline-s" style="margin:6px 0 4px"')}${T('p', it.text, 'class="t-body-m muted"')}</a>`).join('')}</div></div></section>`;
+R.links = s => `<section class="m-section" style="padding-top:0"><div class="m-container">${T('div', s.eyebrow, 'class="t-label-m eyebrow" style="margin-bottom:18px"')}<div class="m-grid m-grid--${s.items.length} m-links">${s.items.map(it => `<a class="m-card m-card--outlined m-interactive" href="${esc(it.href)}"${ext(it.href)} style="padding:22px">${T('div', it.kicker, `class="m-card__kicker"${/[\uac00-\ud7a3]/.test(L(it.kicker).en || '') ? ' data-native' : ''}`)}${T('h3', it.title, 'class="t-headline-s" style="margin:6px 0 4px"')}${T('p', it.text, 'class="t-body-m muted"')}</a>`).join('')}</div></div></section>`;
 R.raw = s => s.html;
 
 // ---------- page ----------
@@ -114,7 +114,8 @@ ${body}
   const koText = [...page.matchAll(/data-ko="([^"]*)"/g)].map(m => m[1]).join('') + JSON.stringify(v.strings.ko || {}) + JSON.stringify(v.title.ko || '');
   const hangul = [...new Set([...koText].filter(c => c >= '\uac00' && c <= '\ud7a3'))].sort().join('');
   const f = v.theme.fonts, fontLinks = [];
-  const allChars = () => [...new Set([...page.replace(/<[^>]+>/g, ' '), ...hangul, ...'0123456789$.,·–—:!?()&\'’"'])].filter(c => c.trim()).sort().join('');
+  const ascii = Array.from({ length: 95 }, (_, i) => String.fromCharCode(32 + i)).join('');
+  const allChars = () => [...new Set([...page, ...JSON.stringify(v.strings), ...JSON.stringify(v.title), ...hangul, ...ascii, ...'·–—’‘“”…×'])].filter(c => c.trim() && c.charCodeAt(0) > 31).sort().join('');
   for (const fam of f.css) fontLinks.push(fam.includes('{SUBSET}') ? fam.replace('{SUBSET}', encodeURIComponent(allChars())) : fam);
   const koFont = f.koCss && hangul ? `${f.koCss}&text=${encodeURIComponent(hangul + ' ·,.?!~–—()&\'‘’“”0123456789:')}` : null;
   const icons = [...new Set([...page.matchAll(/<span class="icon"[^>]*>([a-z_]+)<\/span>/g)].map(m => m[1]).concat(['local_fire_department', 'ac_unit']))].sort();

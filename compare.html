@@ -46,12 +46,15 @@ td.after{background:color-mix(in srgb,var(--acc) 7%,#fff)}
 .nx span{display:inline-block;font:600 10.5px Inter;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--ink);padding:4px 9px;border-radius:99px;margin-bottom:10px}
 .nx span.Launch{background:var(--acc)}
 .cta{margin-top:40px;display:flex;gap:12px;flex-wrap:wrap}
+.copy{border:1px solid var(--line);background:#fff;border-radius:99px;padding:7px 14px;font:600 12px Inter;cursor:pointer}
+.ownerNote{margin-top:40px;color:var(--mute);font-size:14px;max-width:640px}
+body.share .top{display:none}
 .btn{display:inline-flex;align-items:center;height:46px;padding:0 22px;border-radius:99px;font:600 14px Inter;border:1.5px solid var(--ink);text-decoration:none}
 .btn.fill{background:var(--ink);color:#fff}
 @media(max-width:1000px){.panes{grid-template-columns:1fr}body{padding:18px 16px 60px}td:first-child{white-space:normal}}
 </style></head><body>
 
-<div class="top"><a href="./">← All concepts</a><div class="switch" id="switch"></div></div>
+<div class="top" id="teamNav"><a href="./">← All concepts</a><div class="switch" id="switch"></div><button class="copy" id="copyOwner" type="button">Copy owner link</button></div>
 <h1 id="title"></h1>
 <p class="sub" id="sub"></p>
 <div class="bar">
@@ -68,16 +71,21 @@ td.after{background:color-mix(in srgb,var(--acc) 7%,#fff)}
 
 <h2>What could come next</h2>
 <div class="next" id="next"></div>
-<div class="cta"><a class="btn fill" href="./#pricing">See pricing</a><a class="btn" href="./">Back to all concepts</a></div>
+<div class="cta" id="teamCta"><a class="btn fill" href="./#pricing">See pricing</a><a class="btn" href="./">Back to all concepts</a></div>
+<p class="ownerNote" id="ownerNote" hidden>This is a design concept made with your public photos, menu and hours. Questions or changes? Reply to the message this link came with.</p>
 
 <script src="data/concepts.js"></script>
 <script>
-const C=window.CONCEPTS,id=new URLSearchParams(location.search).get('c')||C[0].id,c=C.find(x=>x.id===id)||C[0];
+const Q=new URLSearchParams(location.search),C=window.CONCEPTS,id=Q.get('c')||C[0].id,c=C.find(x=>x.id===id)||C[0];
+// Owner view (?share=1): no links to other concepts, the team hub or pricing
+const share=Q.get('share')==='1';
+if(share){document.body.classList.add('share');document.getElementById('teamCta').remove();document.getElementById('teamNav').remove();document.getElementById('ownerNote').hidden=false;}
+if(!share)document.getElementById('copyOwner').onclick=async function(){const u=new URL(location.href);u.search='?c='+c.id+'&share=1';try{await navigator.clipboard.writeText(u.href);this.textContent='Copied ✓'}catch(e){prompt('Owner link:',u.href)}};
 document.documentElement.style.setProperty('--acc',c.accent);
 document.title=c.name+' · Before & After';
 document.getElementById('title').innerHTML=`${c.name}, <i>before &amp; after</i>`;
 document.getElementById('sub').textContent=c.pitch;
-document.getElementById('switch').innerHTML=C.map(x=>`<a href="?c=${x.id}" class="${x.id===c.id?'on':''}">${x.short||x.name}</a>`).join('');
+if(!share)document.getElementById('switch').innerHTML=[...C.filter(x=>x.group!=='earlier'),...C.filter(x=>x.group==='earlier')].map(x=>`<a href="?c=${x.id}" class="${x.id===c.id?'on':''}">${x.short||x.name}</a>`).join('');
 const live=document.getElementById('liveLink');live.href=c.live;
 document.getElementById('conceptLink').href=c.id+'/';
 const img=document.getElementById('beforeImg'),fr=document.getElementById('after'),panes=document.getElementById('panes');

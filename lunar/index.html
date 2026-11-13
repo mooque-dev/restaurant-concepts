@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Coffee Lunar — specialty drinks &amp; desserts, Rosedale and North York</title>
+<meta name="description" content="Coffee Lunar: signature drops, espresso and desserts at 920 Yonge St (Rosedale) and 6040 Yonge St (North York), Toronto. Order ahead online.">
+<meta name="theme-color" content="#f4f2ee">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4f2ee;--white:#fff;--ink:#121212;--mute:#6f6c66;--line:#1212121c;--moon:#dedad2;--cream:#efe4d2}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 36px}
+.eyebrow{font:600 11.5px/1.4 Inter;letter-spacing:.24em;text-transform:uppercase;color:var(--mute)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 24px;border-radius:99px;font:600 14px Inter;transition:.2s;white-space:nowrap}
+.btn-ink{background:var(--ink);color:var(--paper)}.btn-ink:hover{background:#333}
+.btn-line{border:1.5px solid var(--ink)}.btn-line:hover{background:var(--ink);color:var(--paper)}
+
+.concept-ribbon{background:var(--ink);color:#f4f2ee;font:500 12.5px/1.4 system-ui,sans-serif;text-align:center;padding:8px 14px}
+.concept-ribbon a{text-decoration:underline}
+.status{border-bottom:1px solid var(--line);font:500 13px Inter;padding:9px 16px;display:flex;justify-content:center;gap:6px 26px;flex-wrap:wrap;color:#3a3833}
+.status span{display:inline-flex;align-items:center;gap:8px}
+.pill{width:8px;height:8px;border-radius:50%;background:#2e9d5b}.pill.off{background:#c9c6bf}
+
+nav{position:sticky;top:0;z-index:15;background:#f4f2eef2;border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:70px;position:relative}
+.logo{font:700 19px Unbounded,sans-serif;letter-spacing:.12em}
+.links{display:flex;gap:30px;font-size:14px;font-weight:500}
+.nav-r{display:flex;gap:10px;align-items:center}
+.menu-btn{display:none;height:38px;padding:0 14px;border-radius:99px;border:1.5px solid var(--ink);background:none;font:600 12px Inter;cursor:pointer;color:var(--ink)}
+nav .btn{height:40px;padding:0 18px;font-size:13px}
+.mobile-menu{position:absolute;top:100%;left:16px;right:16px;background:#fffffff8;border:1px solid var(--line);border-radius:16px;padding:8px;display:grid;box-shadow:0 20px 40px #0001}
+.mobile-menu[hidden]{display:none}
+.mobile-menu a{padding:14px 16px;font:500 20px Unbounded,sans-serif;border-bottom:1px solid var(--line)}.mobile-menu a:last-child{border:0}
+
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;min-height:620px;padding-top:30px;padding-bottom:50px}
+.hero h1{font:700 clamp(44px,5.8vw,84px)/1.02 Unbounded,sans-serif;letter-spacing:-.03em;margin:16px 0 22px}
+.hero h1 span{color:#9a958c}
+.hero p{font-size:18px;color:#45423d;max-width:480px;margin-bottom:30px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.moonstage{position:relative;aspect-ratio:1;max-width:540px;justify-self:center;width:100%}
+.moonstage:before{content:"";position:absolute;inset:6%;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff 0%,var(--moon) 60%,#cfc9be 100%);box-shadow:inset -30px -30px 60px #0000000d}
+.moonstage img{position:relative;object-fit:contain;width:84%;height:84%;margin:8%;filter:drop-shadow(0 30px 30px #0002)}
+.moonstage .lbl{position:absolute;right:2%;bottom:10%;background:var(--white);border-radius:14px;padding:12px 16px;box-shadow:0 10px 30px #0000001a;font-size:13px;max-width:220px}
+.moonstage .lbl b{display:block;font:700 14px Unbounded,sans-serif}
+
+.sec{padding:100px 0}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:44px}
+.head h2{font:700 clamp(32px,4vw,54px)/1.06 Unbounded,sans-serif;letter-spacing:-.025em;margin-top:12px}
+.head h2 span{color:#9a958c}
+.head p{max-width:420px;color:var(--mute)}
+
+.drops{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.drop{background:var(--white);border-radius:24px;padding:22px 22px 26px;border:1px solid var(--line);display:flex;flex-direction:column}
+.drop .ph{aspect-ratio:1;border-radius:16px;overflow:hidden;background:#f7f6f3;margin-bottom:18px}
+.drop .ph img{object-fit:contain}
+.drop h3{font:700 19px/1.2 Unbounded,sans-serif;letter-spacing:-.01em}
+.drop p{font-size:14.5px;color:var(--mute);margin:8px 0 14px;flex:1}
+.temps{display:flex;gap:6px}
+.temps span{font:600 11px Inter;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);border-radius:99px;padding:4px 10px}
+
+.classics{display:grid;grid-template-columns:1fr 1fr;gap:0 60px;margin-top:60px;border-top:1px solid var(--line)}
+.classics h3{grid-column:1/-1;font:700 15px Unbounded,sans-serif;letter-spacing:.06em;margin:28px 0 6px}
+.cl{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
+.cl b{font-weight:600}.cl span{color:var(--mute);text-align:right;font-size:14px}
+
+.space{background:var(--ink);color:var(--paper)}
+.space .head p{color:#b5b1a9}.space .eyebrow{color:#b5b1a9}.space .head h2 span{color:#8a867e}
+.gal{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:260px 260px;gap:14px}
+.gal figure{border-radius:18px;overflow:hidden}
+.gal figure:first-child{grid-row:span 2}
+
+.locs{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.loc{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:32px}
+.loc .top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:16px}
+.loc h3{font:700 28px/1.1 Unbounded,sans-serif;letter-spacing:-.02em}
+.loc .addr{color:var(--mute);font-size:14.5px;margin-top:4px}
+.now{font:600 12px Inter;padding:6px 12px;border-radius:99px;background:#e3f3e9;color:#1e6b3e;white-space:nowrap}
+.now.off{background:#efedea;color:#6f6c66}
+.loc dl{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;font-size:14.5px;margin-bottom:22px}
+.loc dt{color:var(--mute)}
+.loc .cta .btn{height:44px;font-size:13px}
+
+.more{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.more a{background:var(--white);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:block}
+.more .ph{aspect-ratio:4/3;background:#f7f6f3}
+.more .ph img{object-fit:contain}
+.more div.t{padding:18px 22px;display:flex;justify-content:space-between;align-items:center;font:700 16px Unbounded,sans-serif}
+
+footer{border-top:1px solid var(--line);padding:46px 36px 60px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--mute);font-size:14px}
+footer b{display:block;font:700 20px Unbounded,sans-serif;letter-spacing:.12em;color:var(--ink);margin-bottom:4px}
+footer a{color:var(--ink)}
+.moonnow{display:flex;align-items:center;gap:10px}
+.moonnow span:first-child{font-size:26px}
+
+.dock{display:none}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+@media(max-width:960px){
+ .wrap{padding:0 18px}
+ .links{display:none}.menu-btn{display:block}nav .btn{display:none}
+ nav .wrap{height:60px}.logo{font-size:16px}
+ .hero .wrap{grid-template-columns:1fr;min-height:0;padding-top:20px;padding-bottom:44px;gap:20px}
+ .moonstage{max-width:260px;order:-1}
+ .hero p{font-size:16px}
+ .sec{padding:70px 0}
+ .head{flex-direction:column;align-items:flex-start}
+ .drops{grid-template-columns:1fr 1fr;gap:12px}.drop{padding:12px 12px 16px;border-radius:18px}.drop p{display:none}.drop h3{font-size:14px}.drop .ph{margin-bottom:12px}
+ .classics{grid-template-columns:1fr}
+ .gal{grid-template-columns:1fr 1fr;grid-template-rows:220px 150px 150px}.gal figure:first-child{grid-column:span 2;grid-row:auto}
+ .locs,.more{grid-template-columns:1fr}
+ .loc{padding:24px}
+ footer{padding:40px 18px calc(40px + env(safe-area-inset-bottom));flex-direction:column}
+ footer a{display:inline-block;padding:8px 0}
+ .dock{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:8px;position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:20;background:#fffffff7;padding:8px;border-radius:99px;border:1px solid var(--line);box-shadow:0 10px 30px #0000002a;transition:transform .3s ease,opacity .3s ease}
+ .dock.away{transform:translateY(calc(100% + 24px));opacity:0;pointer-events:none}
+ .dock a{height:46px;display:grid;place-items:center;border-radius:99px;font:600 13px Inter}
+ .dock a:last-child{background:var(--ink);color:var(--paper)}
+}
+</style></head><body>
+<div class="concept-ribbon">Design concept by Mooque Studio, not the official Coffee Lunar website. <a href="https://coffeelunar.com/" target="_blank" rel="noopener">See the current site ↗</a></div>
+<div class="status" id="status"></div>
+
+<nav><div class="wrap">
+ <a class="logo" href="#">COFFEE LUNAR</a>
+ <div class="links"><a href="#drops">Signature drops</a><a href="#menu">Menu</a><a href="#space">Space</a><a href="#cafes">Locations</a></div>
+ <div class="nav-r"><a class="btn btn-ink" href="https://order.online/business/coffee-lunar-14611823" target="_blank" rel="noopener">Order ahead</a><button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu">Menu</button></div>
+ <div class="mobile-menu" id="mobileMenu" hidden><a href="#drops">Signature drops</a><a href="#menu">Menu</a><a href="#space">Space</a><a href="#cafes">Locations</a></div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+ <div>
+  <div class="eyebrow">Specialty drinks &amp; desserts · Rosedale · North York</div>
+  <h1>Minimal space.<br><span>Creative cups.</span></h1>
+  <p>Signature drops with housemade syrups and silky cream, plus the espresso classics done carefully. Two cafés on Yonge, open every day.</p>
+  <div class="cta"><a class="btn btn-ink" href="https://order.online/business/coffee-lunar-14611823" target="_blank" rel="noopener">Order ahead →</a><a class="btn btn-line" href="#cafes">Find a café</a></div>
+ </div>
+ <div class="moonstage">
+  <img src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/ac9a7fb4-f8ad-4df2-8dd8-50cc53f2c41e/Cream+Drop.png?format=750w" alt="Cream Drop in a glass" width="750" height="750">
+  <div class="lbl"><b>Cream Drop</b>Double espresso, housemade brown sugar syrup, silky cream.</div>
+ </div>
+</div></header>
+
+<main>
+<section class="sec" id="drops" style="padding-top:40px"><div class="wrap">
+ <div class="head"><div><div class="eyebrow">Signature</div><h2>The drops,<br><span>and friends.</span></h2></div><p>Every signature is built on a housemade syrup. Most come hot or cold.</p></div>
+ <div class="drops">
+  <article class="drop"><div class="ph"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/ac9a7fb4-f8ad-4df2-8dd8-50cc53f2c41e/Cream+Drop.png?format=500w" alt="Cream Drop" width="500" height="500"></div><h3>Cream Drop</h3><p>Double espresso, a hint of housemade brown sugar syrup, silky cream with condensed milk and cacao.</p><div class="temps"><span>Hot</span><span>Cold</span></div></article>
+  <article class="drop"><div class="ph"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/0715082f-b2a8-413d-8d82-b217aadb89d5/Matcha+Drop+-+adjusted.png?format=500w" alt="Matcha Drop" width="500" height="500"></div><h3>Matcha Drop</h3><p>Matcha concentrate with housemade vanilla bean syrup, silky cream and dried cornflower petals.</p><div class="temps"><span>Hot</span><span>Cold</span></div></article>
+  <article class="drop"><div class="ph"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/085afc9b-9408-48e6-9292-6fa82ee3b3cf/Vanilla+Drop+Latte.png?format=500w" alt="Vanilla Drop Latte" width="500" height="500"></div><h3>Vanilla Drop Latte</h3><p>Double espresso over chilled milk with vanilla bean syrup, topped with silky cream and turbinado sugar.</p><div class="temps"><span>Cold</span></div></article>
+  <article class="drop"><div class="ph"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/aa557da9-291e-4927-8076-c036f321f3f5/Ube+Latte.png?format=500w" alt="Ube Oat Latte" width="500" height="377"></div><h3>Ube Oat Latte</h3><p>House-blended ube concentrate with oat milk.</p><div class="temps"><span>Hot</span><span>Cold</span></div></article>
+  <article class="drop"><div class="ph"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/e63e8dc8-681e-4bd4-a3f0-80a05ae4a272/Tomjito.png?format=500w" alt="Tomjiho" width="500" height="604"></div><h3>Tomjiho</h3><p>Housemade tomato lime syrup with a hint of mint, over sparkling water and ice.</p><div class="temps"><span>Cold</span></div></article>
+  <article class="drop"><div class="ph"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/1f15a082-585c-4a8e-bdb3-73718808190c/Cascara+Tonic.png?format=500w" alt="Cascara Tonic" width="500" height="500"></div><h3>Cascara Tonic</h3><p>Housemade cascara (dried coffee cherry skin) syrup over sparkling water, with dried lemon.</p><div class="temps"><span>Cold</span></div></article>
+ </div>
+
+ <div class="classics" id="menu">
+  <h3>COFFEE</h3>
+  <div class="cl"><b>Espresso</b><span>Hot or cold</span></div>
+  <div class="cl"><b>Americano</b><span>Hot or cold</span></div>
+  <div class="cl"><b>Flat White</b><span>5 oz · hot or cold</span></div>
+  <div class="cl"><b>Cappuccino</b><span>8 oz · hot</span></div>
+  <div class="cl"><b>Latte</b><span>Hot or cold</span></div>
+  <div class="cl"><b>Vanilla Bean Latte</b><span>Hot or cold</span></div>
+  <div class="cl"><b>Mocha Latte</b><span>Housemade chocolate syrup</span></div>
+  <div class="cl"><b>Espresso Tonic</b><span>Cold</span></div>
+  <div class="cl"><b>Cold Brew</b><span>Rosedale only</span></div>
+  <h3>NON-COFFEE</h3>
+  <div class="cl"><b>Matcha Latte</b><span>Hot or cold</span></div>
+  <div class="cl"><b>London Fog</b><span>Hot</span></div>
+  <div class="cl"><b>Hot Chocolate</b><span>Hot or cold</span></div>
+  <div class="cl"><b>Tea</b><span>Various · hot</span></div>
+ </div>
+</div></section>
+
+<section class="sec space" id="space"><div class="wrap">
+ <div class="head"><div><div class="eyebrow">The space</div><h2>Quiet rooms,<br><span>good light.</span></h2></div><p>Minimal, simple and made for staying a while. Space, culture and good vibes for the neighbourhood.</p></div>
+ <div class="gal">
+  <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/973bd07f-beef-45de-a95a-72249590157f/6.jpg?format=1000w" alt="Coffee Lunar café interior"></figure>
+  <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/3d7f717b-1a7f-433d-8c22-dfd8bc76f8ac/3.jpeg?format=500w" alt="Café counter"></figure>
+  <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/461d5262-476b-4de8-af3a-c335c7eb9e01/8.jpg?format=500w" alt="Espresso being poured"></figure>
+  <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/23f81d1b-e390-419e-b85e-a670ee418fe3/5.jpg?format=500w" alt="Seating area"></figure>
+  <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/a5f61266-d97b-4ac6-80e0-5e0f6f7dc8c1/1.JPEG?format=500w" alt="Espresso machine"></figure>
+ </div>
+</div></section>
+
+<section class="sec" id="cafes"><div class="wrap">
+ <div class="head"><div><div class="eyebrow">Locations</div><h2>Two cafés<br><span>on Yonge.</span></h2></div><p>Open every day. Parking notes included, because that's always the question.</p></div>
+ <div class="locs">
+  <article class="loc" data-loc="rosedale">
+   <div class="top"><div><h3>Rosedale</h3><div class="addr">920 Yonge St, Toronto</div></div><span class="now"></span></div>
+   <dl><dt>Hours</dt><dd>Mon–Sun 8am – 5pm</dd><dt>Parking</dt><dd>Paid underground garage in our condominium. Green P street parking across the building on McMurrich St.</dd><dt>Only here</dt><dd>House cold brew</dd></dl>
+   <div class="cta"><a class="btn btn-ink" href="https://order.online/business/coffee-lunar-14611823" target="_blank" rel="noopener">Order ahead</a><a class="btn btn-line" href="https://maps.google.com/?q=Coffee+Lunar+920+Yonge+St+Toronto" target="_blank" rel="noopener">Directions</a></div>
+  </article>
+  <article class="loc" data-loc="northyork">
+   <div class="top"><div><h3>North York</h3><div class="addr">6040 Yonge St, Toronto</div></div><span class="now"></span></div>
+   <dl><dt>Hours</dt><dd>Mon–Sun 9am – 7pm</dd><dt>Parking</dt><dd>Shared lot behind the plaza. Free street parking out front on weekdays, 10am – 3pm.</dd></dl>
+   <div class="cta"><a class="btn btn-ink" href="https://order.online/business/coffee-lunar-14611823" target="_blank" rel="noopener">Order ahead</a><a class="btn btn-line" href="https://maps.google.com/?q=Coffee+Lunar+6040+Yonge+St+Toronto" target="_blank" rel="noopener">Directions</a></div>
+  </article>
+ </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="wrap">
+ <div class="head"><div><div class="eyebrow">Also at Lunar</div><h2>Something to eat,<br><span>something to take home.</span></h2></div></div>
+ <div class="more">
+  <a href="https://coffeelunar.com/foods" target="_blank" rel="noopener"><div class="ph"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/799c9d54-8200-42a3-9dca-702da55b5db8/Jambon+%26+Havarti+Croissant+Sandwich.png?format=500w" alt="Jambon and Havarti croissant sandwich"></div><div class="t">Food <span>→</span></div></a>
+  <a href="https://coffeelunar.com/store/merchandise" target="_blank" rel="noopener"><div class="ph"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/1615131543712-2PQ6CBZH8JEGUZ2ZLR57/merch.jfif?format=500w" alt="Coffee Lunar merchandise"></div><div class="t">Merch <span>→</span></div></a>
+  <a href="https://www.instagram.com/coffeelunar" target="_blank" rel="noopener"><div class="ph"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/23f81d1b-e390-419e-b85e-a670ee418fe3/5.jpg?format=500w" alt="Coffee Lunar on Instagram" style="object-fit:cover"></div><div class="t">@coffeelunar <span>→</span></div></a>
+ </div>
+</div></section>
+</main>
+
+<footer>
+ <div><b>COFFEE LUNAR</b>Specialty drinks &amp; desserts</div>
+ <div>Rosedale · 920 Yonge St · 8am – 5pm<br>North York · 6040 Yonge St · 9am – 7pm</div>
+ <div class="moonnow" title="Today's moon phase"><span id="moonIcon">🌕</span><span id="moonName">Tonight's moon</span></div>
+</footer>
+
+<div class="dock away" id="dock"><a href="#menu">Menu</a><a href="#cafes">Cafés</a><a href="https://order.online/business/coffee-lunar-14611823" target="_blank" rel="noopener">Order ahead</a></div>
+
+<script>
+// Hours from coffeelunar.com
+const CAFES={rosedale:{name:'Rosedale',open:480,close:1020},northyork:{name:'North York',open:540,close:1140}};
+const fmt=m=>{const h=Math.floor(m/60);return (h%12||12)+(h>=12?'pm':'am')};
+function renderStatus(){
+ const p=Object.fromEntries(new Intl.DateTimeFormat('en-US',{timeZone:'America/Toronto',hour:'numeric',minute:'numeric',hour12:false}).formatToParts(new Date()).map(x=>[x.type,x.value]));
+ const m=(+p.hour%24)*60+(+p.minute),out=[];
+ for(const [k,c] of Object.entries(CAFES)){
+  const open=m>=c.open&&m<c.close,label=open?`Open · until ${fmt(c.close)}`:(m<c.open?`Opens ${fmt(c.open)}`:`Closed · opens ${fmt(c.open)} tomorrow`);
+  out.push(`<span><i class="pill ${open?'':'off'}"></i>${c.name}: ${label}</span>`);
+  const el=document.querySelector(`[data-loc="${k}"] .now`);el.textContent=open?'Open now':(m<c.open?`Opens ${fmt(c.open)}`:'Closed');el.classList.toggle('off',!open);
+ }
+ document.getElementById('status').innerHTML=out.join('');
+}
+renderStatus();setInterval(renderStatus,60000);
+// Today's moon phase (synodic month from a known new moon: 2000-01-06 18:14 UTC)
+(function(){const syn=29.530588853,age=(((Date.now()-Date.UTC(2000,0,6,18,14))/864e5)%syn+syn)%syn;
+ const names=[['🌑','New moon'],['🌒','Waxing crescent'],['🌓','First quarter'],['🌔','Waxing gibbous'],['🌕','Full moon'],['🌖','Waning gibbous'],['🌗','Last quarter'],['🌘','Waning crescent']];
+ const [i,n]=names[Math.floor((age/syn)*8+.5)%8];document.getElementById('moonIcon').textContent=i;document.getElementById('moonName').textContent=n+' tonight';})();
+// Mobile dock: hidden over the hero buttons, location cards and footer
+(function(){const dock=document.getElementById('dock');if(!('IntersectionObserver' in window)){dock.classList.remove('away');return}
+ const watch=[document.querySelector('.hero .cta'),document.querySelector('.locs'),document.querySelector('footer')].filter(Boolean),seen=new Set();
+ const io=new IntersectionObserver(es=>{es.forEach(e=>e.isIntersecting?seen.add(e.target):seen.delete(e.target));dock.classList.toggle('away',seen.size>0)});watch.forEach(w=>io.observe(w));})();
+// Mobile menu
+(function(){const b=document.getElementById('menuBtn'),m=document.getElementById('mobileMenu');b.onclick=()=>{const o=m.hidden;m.hidden=!o;b.setAttribute('aria-expanded',o);b.textContent=o?'Close':'Menu'};m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{m.hidden=true;b.setAttribute('aria-expanded',false);b.textContent='Menu'}))})();
+</script>
+</body></html>

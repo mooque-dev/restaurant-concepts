@@ -146,7 +146,7 @@ footer a{color:var(--ink)}
 
 <main>
 <section class="sec" id="drops" style="padding-top:40px"><div class="wrap">
- <div class="head"><div><div class="eyebrow">Signature</div><h2>The drops,<br><span>and friends.</span></h2></div><p>Every signature is built on a housemade syrup. Most come hot or cold.</p></div>
+ <div class="head"><div><div class="eyebrow">Signature</div><h2>The drops,<br><span>and friends.</span></h2></div><p>Most are built on a housemade syrup or concentrate. Three come hot or cold; the rest are served cold.</p></div>
  <div class="drops">
   <article class="drop"><div class="ph"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/ac9a7fb4-f8ad-4df2-8dd8-50cc53f2c41e/Cream+Drop.png?format=500w" alt="Cream Drop" width="500" height="500"></div><h3>Cream Drop</h3><p>Double espresso, a hint of housemade brown sugar syrup, silky cream with condensed milk and cacao.</p><div class="temps"><span>Hot</span><span>Cold</span></div></article>
   <article class="drop"><div class="ph"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/0715082f-b2a8-413d-8d82-b217aadb89d5/Matcha+Drop+-+adjusted.png?format=500w" alt="Matcha Drop" width="500" height="500"></div><h3>Matcha Drop</h3><p>Matcha concentrate with housemade vanilla bean syrup, silky cream and dried cornflower petals.</p><div class="temps"><span>Hot</span><span>Cold</span></div></article>
@@ -241,7 +241,7 @@ renderStatus();setInterval(renderStatus,60000);
  const [i,n]=names[Math.floor((age/syn)*8+.5)%8];document.getElementById('moonIcon').textContent=i;document.getElementById('moonName').textContent=n+' tonight';})();
 // Mobile dock: hidden over the hero buttons, location cards and footer
 (function(){const dock=document.getElementById('dock');if(!('IntersectionObserver' in window)){dock.classList.remove('away');return}
- const watch=[document.querySelector('.hero .cta'),document.querySelector('.locs'),document.querySelector('footer')].filter(Boolean),seen=new Set();
+ const watch=[document.querySelector('.hero'),document.querySelector('.locs'),document.querySelector('footer')].filter(Boolean),seen=new Set();
  const io=new IntersectionObserver(es=>{es.forEach(e=>e.isIntersecting?seen.add(e.target):seen.delete(e.target));dock.classList.toggle('away',seen.size>0)});watch.forEach(w=>io.observe(w));})();
 // Mobile menu
 (function(){const b=document.getElementById('menuBtn'),m=document.getElementById('mobileMenu');b.onclick=()=>{const o=m.hidden;m.hidden=!o;b.setAttribute('aria-expanded',o);b.textContent=o?'Close':'Menu'};m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{m.hidden=true;b.setAttribute('aria-expanded',false);b.textContent='Menu'}))})();

@@ -83,7 +83,7 @@ window.CONCEPTS = [
     changes: [
       ['First screen', 'A notice about the Toronto location and online orders is the first thing visitors read.', 'The name, the herbal-simmered jokbal and an order button.'],
       ['Photos', 'Homepage dish photos appear to be generic stock images, not their own food.', 'Their own dishes, taken from their menu designs.'],
-      ['Menu', 'Six tall images. Not searchable, hard to read on a phone, invisible to Google.', 'A tabbed text menu with every price and size.'],
+      ['Menu', 'Eight images: six for jokbal and two for the 무청감자탕 gamjatang menu. Not searchable, hard to read on a phone, invisible to Google.', 'A tabbed text menu with every price and size, gamjatang included.'],
       ['Signature', 'Jokbal is explained in a paragraph of text.', 'Four ways to jokbal, plus bossam and combos, with S / M / L prices.'],
       ['Language', 'English text under a Korean logo.', 'One-tap Korean version.'],
       ['Hours', 'At the bottom of the page.', 'Live open status at the top.']

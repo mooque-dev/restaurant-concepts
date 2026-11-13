@@ -138,7 +138,7 @@ footer{border-top:1px solid var(--line);padding:30px 32px 50px;max-width:1240px;
  <div class="sechead"><div><div class="eyebrow">Concepts</div><h2>Recent work</h2></div><p>Each concept uses the business's own photos, menu, hours and reviews. Open one, or compare it with the current site side by side.</p></div>
  <div class="quick" id="quick" aria-label="All concepts at a glance"></div>
  <div class="cards" id="cards"></div>
- <div class="sechead" style="margin-top:70px"><div><div class="eyebrow">Earlier drafts</div><h2 style="font-size:40px">Not yet updated</h2></div><p>First-round concepts. They predate the mobile, speed and Korean-copy improvements and are not in the current outreach list.</p></div>
+ <div class="sechead" id="earlierHead" style="margin-top:70px"><div><div class="eyebrow">Earlier drafts</div><h2 style="font-size:40px">Not yet updated</h2></div><p>First-round concepts. They predate the mobile, speed and Korean-copy improvements and are not in the current outreach list.</p></div>
  <div class="cards" id="earlier"></div>
 </div></section>
 
@@ -196,7 +196,8 @@ footer{border-top:1px solid var(--line);padding:30px 32px 50px;max-width:1240px;
 
 <script src="data/concepts.js"></script>
 <script>
-const S=window.STUDIO,C=window.CONCEPTS;
+const S=window.STUDIO,C=window.CONCEPTS.filter(c=>c.group!=='hidden');
+const cpath=c=>c.id+'/'+(c.v2?'v2/':'');
 document.getElementById('studioName').textContent=S.name;
 document.title=S.name+' · Restaurant Website Concepts';
 document.getElementById('foot').textContent='© '+new Date().getFullYear()+' '+S.name+' · '+S.city;
@@ -205,21 +206,22 @@ if(S.email){cb.href='mailto:'+S.email+'?subject=Free%20website%20concept'}else{c
 document.getElementById('stats').innerHTML=[[C.filter(c=>c.group!=='earlier').length,'active concepts'],['$0','to see yours'],['2 days','to update your menu']].map(([b,s])=>`<div><b>${b}</b><span>${s}</span></div>`).join('');
 const ownerLink=id=>new URL('compare.html?c='+id+'&share=1',location.href).href;
 async function copyLink(btn,id){try{await navigator.clipboard.writeText(ownerLink(id));const t=btn.textContent;btn.textContent='Copied ✓';setTimeout(()=>btn.textContent=t,1600)}catch(e){prompt('Owner link:',ownerLink(id))}}
-const active=C.filter(c=>c.group!=='earlier'),earlier=C.filter(c=>c.group==='earlier');
+const active=C.filter(c=>c.group==='active'),earlier=C.filter(c=>c.group==='earlier');
 document.getElementById('quick').innerHTML='<div class="qrow"><span>Concept</span><span>Area</span><span>Pages</span><span></span><span>Share</span></div>'+[...active,...earlier].map(c=>`
- <div class="qrow"><span><span class="dot" style="background:${c.accent}"></span><b>${c.short}</b>${c.group==='earlier'?' <span class="muted">· earlier draft</span>':''}</span><span class="muted">${c.area}</span><a class="l" href="${c.id}/">Concept</a><a class="l" href="compare.html?c=${c.id}">Before / after</a><button class="copy" type="button" onclick="copyLink(this,'${c.id}')">Copy owner link</button></div>`).join('');
+ <div class="qrow"><span><span class="dot" style="background:${c.accent}"></span><b>${c.short}</b>${c.group==='earlier'?' <span class="muted">· earlier draft</span>':''}</span><span class="muted">${c.area}</span><a class="l" href="${cpath(c)}">Concept${c.v2?' <span class="muted">(new template)</span>':''}</a><a class="l" href="compare.html?c=${c.id}">Before / after</a><button class="copy" type="button" onclick="copyLink(this,'${c.id}')">Copy owner link</button></div>`).join('');
 const card=c=>`
  <article class="card" style="--acc:${c.accent}">
-  <a class="shot" href="${c.id}/" aria-label="Open the ${c.name} concept"><img loading="lazy" src="${c.id}/thumb.jpg" alt="${c.name} concept homepage"><div class="before"><span>Before</span><img loading="lazy" src="${c.id}/before-desktop.jpg" alt="${c.name} current website"></div></a>
+  <a class="shot" href="${cpath(c)}" aria-label="Open the ${c.name} concept"><img loading="lazy" src="${c.id}/thumb.jpg" alt="${c.name} concept homepage"><div class="before"><span>Before</span><img loading="lazy" src="${c.id}/before-desktop.jpg" alt="${c.name} current website"></div></a>
   <div class="info">
    <div class="tags"><span class="tag status" style="background:${c.accent}">${c.status}</span><span class="tag">${c.work}</span></div>
    <h3>${c.name}</h3><div class="area">${c.kind} · ${c.area}</div>
    <p class="pitch">${c.pitch}</p>
    <ul>${c.highlights.map(h=>`<li>${h}</li>`).join('')}</ul>
-   <div class="acts"><a class="btn fill" href="${c.id}/">View concept →</a><a class="btn" href="compare.html?c=${c.id}">Before &amp; after</a><button class="copy" type="button" onclick="copyLink(this,'${c.id}')">Copy owner link</button></div>
+   <div class="acts"><a class="btn fill" href="${cpath(c)}">View concept →</a><a class="btn" href="compare.html?c=${c.id}">Before &amp; after</a><button class="copy" type="button" onclick="copyLink(this,'${c.id}')">Copy owner link</button></div>${c.v2?`<a href="${c.id}/" style="margin-top:12px;font-size:13px;color:var(--mute);text-decoration:underline">First draft</a>`:''}
   </div>
  </article>`;
 document.getElementById('cards').innerHTML=active.map(card).join('');
 document.getElementById('earlier').innerHTML=earlier.map(card).join('');
+if(!earlier.length)document.getElementById('earlierHead').hidden=true;
 </script>
 </body></html>

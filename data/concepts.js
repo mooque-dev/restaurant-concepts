@@ -1,6 +1,7 @@
 // One entry per business. The directory (index.html) and the before/after page (compare.html?c=<id>) both read this file.
 // To add a business: make a folder <id>/ with index.html, before-desktop.jpg, before-mobile.jpg, thumb.jpg, then add an entry here.
-// group: 'active' shows in the main list; 'earlier' shows under "Earlier drafts" on the team hub.
+// group: 'active' shows in the main list; 'earlier' shows under "Earlier drafts"; 'hidden' is left out everywhere.
+// v2: true when venues/<id>.mjs builds <id>/v2/ from the shared template (node build/build.mjs).
 // Owner link for any concept: compare.html?c=<id>&share=1 (hides the other concepts and pricing).
 window.STUDIO = {
   name: 'Mooque Studio',               // placeholder: change to your studio name
@@ -17,7 +18,8 @@ window.CONCEPTS = [
     kind: 'Izakaya & sake bar',
     work: 'Full homepage redesign, bilingual',
     status: 'Free concept',
-    group: 'active',
+    group: 'active', v2: true,
+    interactions: [['Last-call countdown', 'The status bar switches from "Open until 2:30am" to "last call in 1h 20m" in the final hours.'], ['Daruma wish', 'Tap the daruma to paint one eye for a wish, the other when it comes true. Remembered on the visitor\'s phone.'], ['Size picker', 'Grilled Butter Squid switches between M and L prices with a quick tick.'], ['Bilingual', 'One tap between English and Korean; the choice is remembered.']],
     live: 'https://mikakutoronto.ca/',
     accent: '#d2352a',
     pitch: 'Built around the one thing no other izakaya nearby can say: open until 2:30am, six nights a week.',
@@ -47,7 +49,8 @@ window.CONCEPTS = [
     kind: 'Korean pocha & soju bar',
     work: 'Homepage upgrade, bilingual',
     status: 'Concept',
-    group: 'active',
+    group: 'active', v2: true,
+    interactions: [['Night meter', 'A bar shows how much of tonight\'s service is left before the 3am close.'], ['Location switcher', 'Uptown and Downtown share one card with a sliding switch: hours, reserve, menu and delivery update together.'], ['Kitchen status', 'The status bar adds "kitchen until 1:30am" or "kitchen closed" after midnight.'], ['Bilingual', 'One tap between English and Korean.']],
     live: 'https://www.ehwa.ca/index.html',
     accent: '#d9b45a',
     pitch: 'Their reservations, menu and ordering already work. This turns the landing page into a reason to come: the food, the 3am hours and two easy location paths.',
@@ -75,7 +78,8 @@ window.CONCEPTS = [
     kind: 'Korean jokbal & bossam',
     work: 'Full redesign, bilingual, web menu',
     status: 'Concept',
-    group: 'active',
+    group: 'active', v2: true,
+    interactions: [['Size picker', 'S, M and L on each dish update the price as you tap, using the real menu prices.'], ['Menu search', 'Type "bossam" or "막국수" and the menu filters across every tab.'], ['String lights', 'Tap the night-market lights above the dishes to switch them on and off.'], ['How-to-eat stepper', 'Three tappable steps with a progress bar for first-timers.']],
     live: 'https://jokbalnightmarket.com/',
     accent: '#e0352b',
     pitch: 'Turns six menu pictures into a real, readable menu and puts their own dishes at the centre of a night-market look.',
@@ -103,7 +107,8 @@ window.CONCEPTS = [
     kind: 'Specialty coffee & desserts',
     work: 'Homepage refresh',
     status: 'Concept',
-    group: 'active',
+    group: 'active', v2: true,
+    interactions: [['Tonight\'s moon', 'The hero moon and a chip show the real moon phase for today.'], ['Hot or iced', 'Drinks served both ways get a toggle; choosing hot adds a soft steam animation.'], ['Café switcher', 'Rosedale and North York share one card with live hours and parking notes.']],
     live: 'https://coffeelunar.com/',
     accent: '#121212',
     pitch: 'Keeps their minimal style and puts the signature drops, live hours and parking notes where people look first.',
@@ -128,12 +133,13 @@ window.CONCEPTS = [
     area: 'Yonge & Sheppard · Leslie & Cummer',
     kind: 'Korean, samgyetang',
     work: 'Full homepage redesign, bilingual',
-    status: 'Earlier draft',
-    group: 'earlier',
+    status: 'Concept',
+    group: 'active', v2: true,
+    interactions: [['Rising steam', 'Soft steam rises from the samgyetang in the hero; it stops for visitors who turn off motion.'], ['How-to-eat stepper', 'Three tappable steps for first-timers.'], ['Location switcher', 'Sheppard and Leslie share one card with live hours.'], ['Bilingual', 'One tap between English and Korean.']],
     live: 'http://kosam.ca/',
     accent: '#c8262d',
     pitch: 'Turns a one-photo page into a guide to both restaurants, in English and Korean.',
-    highlights: ['Live hours for both locations', 'One-tap English / 한국어 toggle', '"How to eat samgyetang" guide'],
+    highlights: ['Live hours for both locations', 'One-tap English / 한국어 toggle', 'Built only from facts on kosam.ca'],
     changes: [
       ['First screen', 'One large soup photo with "Premium Korean Restaurant" in spaced letters. Hours and locations are on another page.', 'Story, photo and two clear buttons: find a location, see the menu.'],
       ['Security', 'No HTTPS, so Chrome labels the site "Not secure".', 'HTTPS by default on modern hosting.'],
@@ -158,7 +164,7 @@ window.CONCEPTS = [
     kind: 'Specialty coffee roaster',
     work: 'Café finder add-on',
     status: 'Earlier draft',
-    group: 'earlier',
+    group: 'hidden',
     live: 'https://hellodemello.com/pages/location',
     accent: '#1d3a9e',
     pitch: 'Their online store is already strong. This adds what café visitors need: who is open now and which one is closest.',

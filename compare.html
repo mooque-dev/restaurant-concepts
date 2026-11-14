@@ -49,23 +49,32 @@ td.after{background:color-mix(in srgb,var(--acc) 7%,#fff)}
 .copy{border:1px solid var(--line);background:#fff;border-radius:99px;padding:7px 14px;font:600 12px Inter;cursor:pointer}
 .ownerNote{margin-top:40px;color:var(--mute);font-size:14px;max-width:640px}
 body.share .top{display:none}
+.pick{display:flex;align-items:center;gap:8px;font-weight:500}
+.pick select{height:40px;border-radius:99px;border:1px solid var(--line);background:#fff;padding:0 14px;font:600 14px Inter;max-width:60vw}
+.evidence{background:#fff;border-radius:14px;padding:18px 20px;max-width:880px;font-size:15.5px}
+.nobefore{padding:36px 28px;font-size:16px;line-height:1.6;color:#333}
+.nobefore b{display:block;font:400 30px/1.1 'Instrument Serif';margin-bottom:6px;color:#111}
+.nobefore small{display:block;color:#777;margin-bottom:18px}
+.nobefore li{margin:0 0 10px 18px}
 .btn{display:inline-flex;align-items:center;height:46px;padding:0 22px;border-radius:99px;font:600 14px Inter;border:1.5px solid var(--ink);text-decoration:none}
 .btn.fill{background:var(--ink);color:#fff}
 @media(max-width:1000px){.panes{grid-template-columns:1fr}body{padding:18px 16px 60px}td:first-child{white-space:normal}}
 </style></head><body>
 
-<div class="top" id="teamNav"><a href="./">← All concepts</a><div class="switch" id="switch"></div><button class="copy" id="copyOwner" type="button">Copy owner link</button></div>
+<div class="top" id="teamNav"><a href="./">← All concepts</a><label class="pick">Concept <select id="switch" aria-label="Choose a concept"></select></label><button class="copy" id="copyOwner" type="button">Copy owner link</button></div>
 <h1 id="title"></h1>
 <p class="sub" id="sub"></p>
 <div class="bar">
  <div class="seg" id="mode"><button class="on" data-m="desktop">Desktop</button><button data-m="mobile">Mobile</button></div>
- <div class="seg" id="ver" hidden><button class="on" data-v="v2">New template</button><button data-v="v1">First draft</button></div>
- <span class="hint">Before is a full-page capture of the current site. After is the working concept: scroll it, tap it, try the buttons.</span>
+
+ <span class="hint" id="hint"></span>
 </div>
 <div class="panes" id="panes">
- <div class="pane"><label>Before · current site <a id="liveLink" target="_blank" rel="noopener">open live ↗</a></label><div class="view before"><div class="scroller"><img id="beforeImg" alt="Current website, full page"></div></div></div>
+ <div class="pane"><label><span id="beforeLabel">Before</span> <a id="liveLink" target="_blank" rel="noopener">open live ↗</a></label><div class="view before"><div class="scroller"><img id="beforeImg" alt="Current website, full page"><div class="nobefore" id="noBefore" hidden></div></div></div></div>
  <div class="pane"><label><b>After · concept</b> <a id="conceptLink" target="_blank">open full screen ↗</a></label><div class="view"><iframe id="after" title="Concept"></iframe></div></div>
 </div>
+
+<div id="evWrap" hidden><h2>What we found</h2><p class="evidence" id="evidence"></p></div>
 
 <div id="ixWrap" hidden><h2>Interaction concepts</h2><div class="next" id="ix"></div></div>
 
@@ -75,30 +84,43 @@ body.share .top{display:none}
 <h2>What could come next</h2>
 <div class="next" id="next"></div>
 <div class="cta" id="teamCta"><a class="btn fill" href="./#pricing">See pricing</a><a class="btn" href="./">Back to all concepts</a></div>
+<div id="teamOnly"><h2>Team notes</h2><div class="next" id="teamNotes"></div></div>
 <p class="ownerNote" id="ownerNote" hidden>This is a design concept made with your public photos, menu and hours. Questions or changes? Reply to the message this link came with.</p>
 
 <script src="data/concepts.js"></script>
 <script>
-const Q=new URLSearchParams(location.search),C=window.CONCEPTS.filter(x=>x.group!=='hidden'),id=Q.get('c')||C[0].id,c=C.find(x=>x.id===id)||C[0];
-// Which version of the concept to show: the template build (v2) by default, the first draft with ?v=v1
-let ver=c.v2&&(Q.get('share')==='1'||Q.get('v')!=='v1')?'v2':'v1';const path=()=>c.id+'/'+(ver==='v2'?'v2/':'');
-// Owner view (?share=1): no links to other concepts, the team hub or pricing
+const Q=new URLSearchParams(location.search),C=window.CONCEPTS.filter(x=>x.group==='active'),id=Q.get('c')||C[0].id,c=C.find(x=>x.id===id)||C[0];
+const CATS=[['food','Restaurants & cafés'],['artist','Artists & musicians']];
+const artist=c.category==='artist';
+// Owner view (?share=1): no links to other concepts, the team hub, sources, archive or pricing
 const share=Q.get('share')==='1';
-if(share){document.body.classList.add('share');document.getElementById('teamCta').remove();document.getElementById('teamNav').remove();document.getElementById('ownerNote').hidden=false;}
-if(!share)document.getElementById('copyOwner').onclick=async function(){const u=new URL(location.href);u.search='?c='+c.id+'&share=1';try{await navigator.clipboard.writeText(u.href);this.textContent='Copied ✓'}catch(e){prompt('Owner link:',u.href)}};
+if(share){document.body.classList.add('share');['teamCta','teamNav','teamOnly'].forEach(i=>document.getElementById(i).remove());document.getElementById('ownerNote').hidden=false;}
+else{
+ const sel=document.getElementById('switch');
+ sel.innerHTML=CATS.map(([k,l])=>`<optgroup label="${l}">${C.filter(x=>x.category===k).map(x=>`<option value="${x.id}"${x.id===c.id?' selected':''}>${x.name}</option>`).join('')}</optgroup>`).join('');
+ sel.onchange=()=>{location.search='?c='+sel.value};
+ document.getElementById('copyOwner').onclick=async function(){const u=new URL(location.href);u.search='?c='+c.id+'&share=1';try{await navigator.clipboard.writeText(u.href);this.textContent='Copied ✓'}catch(e){prompt('Owner link:',u.href)}};
+ const notes=[];
+ if(c.sources)notes.push(['Sources',c.sources.join(' · ')]);
+ if(!artist)notes.push(['Older versions',`<a href="archive/#${c.id}">Archive: first draft and playful v2</a>`]);
+ if(artist)notes.push(['Case',c.status+' · '+c.work]);
+ notes.push(['Before captured',c.beforeDate+'. These states change; re-check before sending.']);
+ document.getElementById('teamNotes').innerHTML=notes.map(([t,d])=>`<div class="nx"><span>${t}</span><div>${d}</div></div>`).join('');
+}
 document.documentElement.style.setProperty('--acc',c.accent);
 document.title=c.name+' · Before & After';
 document.getElementById('title').innerHTML=`${c.name}, <i>before &amp; after</i>`;
 document.getElementById('sub').textContent=c.pitch;
-if(!share)document.getElementById('switch').innerHTML=[...C.filter(x=>x.group!=='earlier'),...C.filter(x=>x.group==='earlier')].map(x=>`<a href="?c=${x.id}" class="${x.id===c.id?'on':''}">${x.short||x.name}</a>`).join('');
-const live=document.getElementById('liveLink');live.href=c.live;
-document.getElementById('conceptLink').href=path();
+document.getElementById('hint').textContent=(c.noBefore?'There is no site to capture, so Before is an illustration. ':'Before is a capture of the current page. ')+'After is the working '+(artist?'sketch':'concept')+': scroll it, tap it, try the buttons.';
+document.getElementById('beforeLabel').textContent=(c.noBefore?'Before · illustration, not a screenshot':'Before · captured '+c.beforeDate);
+const live=document.getElementById('liveLink');if(c.live){live.href=c.live}else{live.remove()}
+document.getElementById('conceptLink').href=c.id+'/';
 const img=document.getElementById('beforeImg'),fr=document.getElementById('after'),panes=document.getElementById('panes');
-fr.src=path();
-if(c.v2&&!share){const vs=document.getElementById('ver');vs.hidden=false;vs.querySelectorAll('button').forEach(b=>{b.classList.toggle('on',b.dataset.v===ver);b.onclick=()=>{ver=b.dataset.v;vs.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));fr.src=path();document.getElementById('conceptLink').href=path();const u=new URL(location.href);ver==='v1'?u.searchParams.set('v','v1'):u.searchParams.delete('v');history.replaceState(null,'',u)}})}
+fr.src=c.id+'/';
+if(c.noBefore){img.remove();const nb=document.getElementById('noBefore');nb.hidden=false;nb.innerHTML=`<b>No official website</b><small>Illustration of what a search finds (${c.beforeDate})</small><ul>${c.noBefore.map(x=>`<li>${x}</li>`).join('')}</ul>`}
 function setMode(m){
  panes.classList.toggle('mobile',m==='mobile');
- img.src=`${c.id}/before-${m}.jpg`;fit();
+ if(!c.noBefore)img.src=`${c.id}/before-${m}.jpg`;fit();
 }
 function fit(){
  const v=fr.parentElement;
@@ -107,8 +129,9 @@ function fit(){
 }
 document.querySelectorAll('#mode button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#mode button').forEach(x=>x.classList.toggle('on',x===b));setMode(b.dataset.m)});
 addEventListener('resize',fit);setMode('desktop');
-document.getElementById('changes').innerHTML=c.changes.map(([a,b,f])=>`<tr><td>${a}</td><td>${b}</td><td class="after">${f}</td></tr>`).join('');
+if(c.evidence){document.getElementById('evWrap').hidden=false;document.getElementById('evidence').textContent=c.evidence}
 if(c.interactions){document.getElementById('ixWrap').hidden=false;document.getElementById('ix').innerHTML=c.interactions.map(([t,d])=>`<div class="nx"><b style="display:block;font:400 22px 'Instrument Serif';margin-bottom:4px">${t}</b><div>${d}</div></div>`).join('')}
+document.getElementById('changes').innerHTML=c.changes.map(([a,b,f])=>`<tr><td>${a}</td><td>${b}</td><td class="after">${f}</td></tr>`).join('');
 document.getElementById('next').innerHTML=c.next.map(([t,d])=>`<div class="nx"><span class="${t}">${t}</span><div>${d}</div></div>`).join('');
 </script>
 </body></html>

@@ -70,6 +70,25 @@ header nav{display:flex;gap:28px;font-size:14px;font-weight:500}
 .qrow .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px;vertical-align:1px}
 @media(max-width:960px){.qrow{grid-template-columns:1fr auto;gap:6px 12px}.qrow:first-child{display:none}.qrow .muted{grid-column:1/-1;order:5}}
 
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.filters button{height:40px;padding:0 16px;border-radius:99px;border:1.5px solid var(--line);background:none;font:600 14px Inter;cursor:pointer;color:var(--ink)}
+.filters button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.sechead.sub{margin-top:64px}.sechead.sub h2{font-size:clamp(32px,4vw,48px)}
+.qgroup{padding:12px 20px;background:#faf8f5;font:600 11px Inter;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);border-top:1px solid var(--line)}
+.acards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.acard{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:grid;grid-template-columns:200px 1fr}
+.acard .shot{position:relative;background:#ddd;min-height:220px;overflow:hidden;display:block}
+.acard .shot img{position:absolute;inset:0;height:100%;object-fit:cover;object-position:top left}
+.acard .info{padding:20px 22px;display:flex;flex-direction:column;gap:6px}
+.acard h3{font:400 28px/1.05 'Instrument Serif'}
+.acard .area{font-size:13px;color:var(--mute)}
+.acard p{font-size:14px;color:#36332f}
+.acard .acts{margin-top:auto;padding-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+.acard .btn,.acard .copy{height:38px;padding:0 14px;font-size:13px}
+.tag.strong{background:#1f6b3a;color:#fff;border:0}.tag.modest{background:#8a6a1e;color:#fff;border:0}.tag.none{background:#5b4a8a;color:#fff;border:0}
+.archnote{margin-top:40px;font-size:14px;color:var(--mute)}.archnote a{text-decoration:underline;color:var(--ink)}
+[data-cat][hidden]{display:none}
+@media(max-width:960px){.acards{grid-template-columns:1fr}.acard{grid-template-columns:110px 1fr}.acard .shot{min-height:0}}
 .how{background:var(--ink);color:#f4f2ee;padding:100px 0}
 .how .eyebrow{color:#a7a29a}
 .how .sechead p{color:#a7a29a}
@@ -127,19 +146,26 @@ footer{border-top:1px solid var(--line);padding:30px 32px 50px;max-width:1240px;
 
 <main>
 <section class="hero"><div class="wrap">
- <div class="eyebrow">Websites for independent restaurants &amp; cafés · Toronto</div>
- <h1>Your food is great. <em>Your website</em> should be too.</h1>
- <p>We redesign restaurant and café websites around what diners actually look for: are you open, what should I order, and how do I book. See a working concept of yours before you pay anything.</p>
+ <div class="eyebrow">Websites for independent restaurants, cafés and artists · Toronto</div>
+ <h1>Your work is great. <em>Your website</em> should be too.</h1>
+ <p>We design websites for Toronto restaurants, cafés, artists and musicians around what visitors look for first. See a working concept of yours before you pay anything.</p>
  <div class="cta"><a class="btn fill" href="#work">See the concepts</a><a class="btn" href="#pricing">Pricing</a></div>
  <div class="stats" id="stats"></div>
 </div></section>
 
 <section class="work" id="work"><div class="wrap">
- <div class="sechead"><div><div class="eyebrow">Concepts</div><h2>Recent work</h2></div><p>Each concept uses the business's own photos, menu, hours and reviews. Open one, or compare it with the current site side by side.</p></div>
+ <div class="sechead"><div><div class="eyebrow">Directory</div><h2>All concepts</h2></div><p>Each concept is built from public facts and compared with what exists today. Open one, compare before and after, or copy a private link for the owner.</p></div>
+ <div class="filters" id="filters" role="group" aria-label="Filter concepts"></div>
  <div class="quick" id="quick" aria-label="All concepts at a glance"></div>
- <div class="cards" id="cards"></div>
- <div class="sechead" id="earlierHead" style="margin-top:70px"><div><div class="eyebrow">Earlier drafts</div><h2 style="font-size:40px">Not yet updated</h2></div><p>First-round concepts. They predate the mobile, speed and Korean-copy improvements and are not in the current outreach list.</p></div>
- <div class="cards" id="earlier"></div>
+ <div data-cat="food">
+  <div class="sechead sub"><div><div class="eyebrow">Restaurants &amp; cafés</div><h2>Standard pages</h2></div><p>One format for every venue: live hours, real menu, booking in one tap, English and Korean where it fits.</p></div>
+  <div class="cards" id="cards-food"></div>
+ </div>
+ <div data-cat="artist">
+  <div class="sechead sub"><div><div class="eyebrow">Artists &amp; musicians</div><h2>Before &amp; after sketches</h2></div><p>Ten Toronto artists whose web presence needs work, each with dated evidence. Sketches use sourced facts and labelled placeholders, never borrowed photos.</p></div>
+  <div class="acards" id="cards-artist"></div>
+ </div>
+ <p class="archnote">Older versions of the restaurant pages are kept in the <a href="archive/">archive</a>.</p>
 </div></section>
 
 <section class="how" id="how"><div class="wrap">
@@ -196,32 +222,50 @@ footer{border-top:1px solid var(--line);padding:30px 32px 50px;max-width:1240px;
 
 <script src="data/concepts.js"></script>
 <script>
-const S=window.STUDIO,C=window.CONCEPTS.filter(c=>c.group!=='hidden');
-const cpath=c=>c.id+'/'+(c.v2?'v2/':'');
+const S=window.STUDIO,C=window.CONCEPTS.filter(c=>c.group==='active');
+const CATS=[['food','Restaurants & cafés'],['artist','Artists & musicians']];
 document.getElementById('studioName').textContent=S.name;
-document.title=S.name+' · Restaurant Website Concepts';
+document.title=S.name+' · Website Concepts';
 document.getElementById('foot').textContent='© '+new Date().getFullYear()+' '+S.name+' · '+S.city;
 const cb=document.getElementById('contactBtn');
 if(S.email){cb.href='mailto:'+S.email+'?subject=Free%20website%20concept'}else{cb.textContent='Contact email coming soon';cb.removeAttribute('href')}
-document.getElementById('stats').innerHTML=[[C.filter(c=>c.group!=='earlier').length,'active concepts'],['$0','to see yours'],['2 days','to update your menu']].map(([b,s])=>`<div><b>${b}</b><span>${s}</span></div>`).join('');
+const by=cat=>C.filter(c=>c.category===cat);
+document.getElementById('stats').innerHTML=[[by('food').length,'restaurants & cafés'],[by('artist').length,'artists & musicians'],['$0','to see yours']].map(([b,s])=>`<div><b>${b}</b><span>${s}</span></div>`).join('');
 const ownerLink=id=>new URL('compare.html?c='+id+'&share=1',location.href).href;
 async function copyLink(btn,id){try{await navigator.clipboard.writeText(ownerLink(id));const t=btn.textContent;btn.textContent='Copied ✓';setTimeout(()=>btn.textContent=t,1600)}catch(e){prompt('Owner link:',ownerLink(id))}}
-const active=C.filter(c=>c.group==='active'),earlier=C.filter(c=>c.group==='earlier');
-document.getElementById('quick').innerHTML='<div class="qrow"><span>Concept</span><span>Area</span><span>Pages</span><span></span><span>Share</span></div>'+[...active,...earlier].map(c=>`
- <div class="qrow"><span><span class="dot" style="background:${c.accent}"></span><b>${c.short}</b>${c.group==='earlier'?' <span class="muted">· earlier draft</span>':''}</span><span class="muted">${c.area}</span><a class="l" href="${cpath(c)}">Concept${c.v2?' <span class="muted">(new template)</span>':''}</a><a class="l" href="compare.html?c=${c.id}">Before / after</a><button class="copy" type="button" onclick="copyLink(this,'${c.id}')">Copy owner link</button></div>`).join('');
-const card=c=>`
+const strength=c=>c.category!=='artist'?'':`<span class="tag ${/Strong/.test(c.status)?'strong':/Modest/.test(c.status)?'modest':'none'}">${c.status}</span>`;
+// quick index, grouped
+document.getElementById('quick').innerHTML='<div class="qrow"><span>Concept</span><span>What we would do</span><span>Pages</span><span></span><span>Share</span></div>'+CATS.map(([cat,label])=>`<div class="qgroup" data-cat="${cat}">${label}</div>`+by(cat).map(c=>`
+ <div class="qrow" data-cat="${cat}"><span><span class="dot" style="background:${c.accent}"></span><b>${c.short}</b></span><span class="muted">${c.work}${c.category==='artist'?' · '+c.status:''}</span><a class="l" href="${c.id}/">Concept</a><a class="l" href="compare.html?c=${c.id}">Before / after</a><button class="copy" type="button" onclick="copyLink(this,'${c.id}')">Copy owner link</button></div>`).join('')).join('');
+// restaurant cards
+document.getElementById('cards-food').innerHTML=by('food').map(c=>`
  <article class="card" style="--acc:${c.accent}">
-  <a class="shot" href="${cpath(c)}" aria-label="Open the ${c.name} concept"><img loading="lazy" src="${c.id}/thumb.jpg" alt="${c.name} concept homepage"><div class="before"><span>Before</span><img loading="lazy" src="${c.id}/before-desktop.jpg" alt="${c.name} current website"></div></a>
+  <a class="shot" href="${c.id}/" aria-label="Open the ${c.name} concept"><img loading="lazy" src="${c.id}/thumb.jpg" alt="${c.name} concept homepage"><div class="before"><span>Before</span><img loading="lazy" src="${c.id}/before-desktop.jpg" alt="${c.name} current website"></div></a>
   <div class="info">
    <div class="tags"><span class="tag status" style="background:${c.accent}">${c.status}</span><span class="tag">${c.work}</span></div>
    <h3>${c.name}</h3><div class="area">${c.kind} · ${c.area}</div>
    <p class="pitch">${c.pitch}</p>
    <ul>${c.highlights.map(h=>`<li>${h}</li>`).join('')}</ul>
-   <div class="acts"><a class="btn fill" href="${cpath(c)}">View concept →</a><a class="btn" href="compare.html?c=${c.id}">Before &amp; after</a><button class="copy" type="button" onclick="copyLink(this,'${c.id}')">Copy owner link</button></div>${c.v2?`<a href="${c.id}/" style="margin-top:12px;font-size:13px;color:var(--mute);text-decoration:underline">First draft</a>`:''}
+   <div class="acts"><a class="btn fill" href="${c.id}/">View concept →</a><a class="btn" href="compare.html?c=${c.id}">Before &amp; after</a><button class="copy" type="button" onclick="copyLink(this,'${c.id}')">Copy owner link</button></div>
   </div>
- </article>`;
-document.getElementById('cards').innerHTML=active.map(card).join('');
-document.getElementById('earlier').innerHTML=earlier.map(card).join('');
-if(!earlier.length)document.getElementById('earlierHead').hidden=true;
+ </article>`).join('');
+// artist cards (compact)
+document.getElementById('cards-artist').innerHTML=by('artist').map(c=>`
+ <article class="acard">
+  <a class="shot" href="compare.html?c=${c.id}" aria-label="${c.name}: before and after"><img loading="lazy" src="${c.id}/thumb.jpg" alt="${c.name} sketch"></a>
+  <div class="info">
+   <div class="tags" style="margin:0">${strength(c)}<span class="tag">${c.work}</span></div>
+   <h3>${c.name}</h3><div class="area">${c.kind} · ${c.area}</div>
+   <p>${c.pitch}</p>
+   <div class="acts"><a class="btn fill" href="compare.html?c=${c.id}">Before &amp; after</a><a class="btn" href="${c.id}/">Sketch</a><button class="copy" type="button" onclick="copyLink(this,'${c.id}')">Copy owner link</button></div>
+  </div>
+ </article>`).join('');
+// filter chips (remembered in the address so a filtered view can be shared with the team)
+const F=document.getElementById('filters');
+const opts=[['all','All ('+C.length+')'],...CATS.map(([k,l])=>[k,l+' ('+by(k).length+')'])];
+function setFilter(f){F.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.f===f));document.querySelectorAll('[data-cat]').forEach(e=>e.hidden=f!=='all'&&e.dataset.cat!==f);const u=new URL(location.href);f==='all'?u.searchParams.delete('show'):u.searchParams.set('show',f);history.replaceState(null,'',u)}
+F.innerHTML=opts.map(([k,l])=>`<button type="button" data-f="${k}">${l}</button>`).join('');
+F.querySelectorAll('button').forEach(b=>b.onclick=()=>setFilter(b.dataset.f));
+const start=new URLSearchParams(location.search).get('show');setFilter(opts.some(o=>o[0]===start)?start:'all');
 </script>
 </body></html>

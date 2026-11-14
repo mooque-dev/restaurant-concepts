@@ -1,8 +1,9 @@
-// One entry per business. The directory (index.html) and the before/after page (compare.html?c=<id>) both read this file.
-// To add a business: make a folder <id>/ with index.html, before-desktop.jpg, before-mobile.jpg, thumb.jpg, then add an entry here.
-// group: 'active' shows in the main list; 'earlier' shows under "Earlier drafts"; 'hidden' is left out everywhere.
-// v2: true when venues/<id>.mjs builds <id>/v2/ from the shared template (node build/build.mjs).
-// Owner link for any concept: compare.html?c=<id>&share=1 (hides the other concepts and pricing).
+// One entry per concept. The directory (index.html) and the before/after page (compare.html?c=<id>) both read this file.
+// category: 'food' (restaurants & cafés) or 'artist' (artists & musicians).
+// group: 'active' shows in the directory; 'hidden' is left out everywhere.
+// Pages are built from venues/<id>.mjs or artists/<id>.mjs with `node build/build.mjs` into <id>/index.html.
+// Older versions live under archive/<id>/v1 and archive/<id>/v2 (see archive/index.html).
+// Owner link for any concept: compare.html?c=<id>&share=1 (hides the other concepts, sources and pricing).
 window.STUDIO = {
   name: 'Mooque Studio',               // placeholder: change to your studio name
   email: '',                           // add a contact email to show the "Get in touch" button
@@ -18,8 +19,9 @@ window.CONCEPTS = [
     kind: 'Izakaya & sake bar',
     work: 'Full homepage redesign, bilingual',
     status: 'Free concept',
-    group: 'active', v2: true,
-    interactions: [['Last-call countdown', 'The status bar switches from "Open until 2:30am" to "last call in 1h 20m" in the final hours.'], ['Daruma wish', 'Tap the daruma to paint one eye for a wish, the other when it comes true. Remembered on the visitor\'s phone.'], ['Size picker', 'Grilled Butter Squid switches between M and L prices with a quick tick.'], ['Bilingual', 'One tap between English and Korean; the choice is remembered.']],
+    category: 'food', beforeDate: '13 Nov 2026',
+    group: 'active',
+    interactions: [['Last-call countdown', 'The status bar switches from "Open until 2:30am" to "last call in 1h 20m" in the final hours.'], ['Size picker', 'Grilled Butter Squid switches between M and L prices.'], ['Bilingual', 'One tap between English and Korean; the choice is remembered.'], ['Copy address', 'One tap copies the address, with a short confirmation.']],
     live: 'https://mikakutoronto.ca/',
     accent: '#d2352a',
     pitch: 'Built around the one thing no other izakaya nearby can say: open until 2:30am, six nights a week.',
@@ -49,8 +51,9 @@ window.CONCEPTS = [
     kind: 'Korean pocha & soju bar',
     work: 'Homepage upgrade, bilingual',
     status: 'Concept',
-    group: 'active', v2: true,
-    interactions: [['Night meter', 'A bar shows how much of tonight\'s service is left before the 3am close.'], ['Location switcher', 'Uptown and Downtown share one card with a sliding switch: hours, reserve, menu and delivery update together.'], ['Kitchen status', 'The status bar adds "kitchen until 1:30am" or "kitchen closed" after midnight.'], ['Bilingual', 'One tap between English and Korean.']],
+    category: 'food', beforeDate: '13 Nov 2026',
+    group: 'active',
+    interactions: [['Night meter', 'A bar shows how much of tonight\'s service is left before the 3am close.'], ['Location switcher', 'Uptown and Downtown share one card: hours, reserve, menu and delivery update together.'], ['Kitchen status', 'The status bar adds "kitchen until 1:30am" or "kitchen closed" after midnight.'], ['Bilingual', 'One tap between English and Korean.']],
     live: 'https://www.ehwa.ca/index.html',
     accent: '#d9b45a',
     pitch: 'Their reservations, menu and ordering already work. This turns the landing page into a reason to come: the food, the 3am hours and two easy location paths.',
@@ -78,8 +81,9 @@ window.CONCEPTS = [
     kind: 'Korean jokbal & bossam',
     work: 'Full redesign, bilingual, web menu',
     status: 'Concept',
-    group: 'active', v2: true,
-    interactions: [['Size picker', 'S, M and L on each dish update the price as you tap, using the real menu prices.'], ['Menu search', 'Type "bossam" or "막국수" and the menu filters across every tab.'], ['String lights', 'Tap the night-market lights above the dishes to switch them on and off.'], ['How-to-eat stepper', 'Three tappable steps with a progress bar for first-timers.']],
+    category: 'food', beforeDate: '13 Nov 2026',
+    group: 'active',
+    interactions: [['Size picker', 'S, M and L on each dish update the price as you tap, using the real menu prices.'], ['Menu search', 'Type "bossam" or "막국수" and the menu filters across every tab.'], ['How-to-eat stepper', 'Three tappable steps with a progress bar for first-timers.'], ['Bilingual', 'One tap between English and Korean.']],
     live: 'https://jokbalnightmarket.com/',
     accent: '#e0352b',
     pitch: 'Turns six menu pictures into a real, readable menu and puts their own dishes at the centre of a night-market look.',
@@ -107,8 +111,9 @@ window.CONCEPTS = [
     kind: 'Specialty coffee & desserts',
     work: 'Homepage refresh',
     status: 'Concept',
-    group: 'active', v2: true,
-    interactions: [['Tonight\'s moon', 'The hero moon and a chip show the real moon phase for today.'], ['Hot or iced', 'Drinks served both ways get a toggle; choosing hot adds a soft steam animation.'], ['Café switcher', 'Rosedale and North York share one card with live hours and parking notes.']],
+    category: 'food', beforeDate: '13 Nov 2026',
+    group: 'active',
+    interactions: [['Café switcher', 'Rosedale and North York share one card with live hours and parking notes.'], ['Live hours', 'Both cafés show open or closed in the status bar.'], ['Copy address', 'One tap copies the address.']],
     live: 'https://coffeelunar.com/',
     accent: '#121212',
     pitch: 'Keeps their minimal style and puts the signature drops, live hours and parking notes where people look first.',
@@ -134,8 +139,9 @@ window.CONCEPTS = [
     kind: 'Korean, samgyetang',
     work: 'Full homepage redesign, bilingual',
     status: 'Concept',
-    group: 'active', v2: true,
-    interactions: [['Rising steam', 'Soft steam rises from the samgyetang in the hero; it stops for visitors who turn off motion.'], ['How-to-eat stepper', 'Three tappable steps for first-timers.'], ['Location switcher', 'Sheppard and Leslie share one card with live hours.'], ['Bilingual', 'One tap between English and Korean.']],
+    category: 'food', beforeDate: '13 Nov 2026',
+    group: 'active',
+    interactions: [['How-to-eat stepper', 'Three tappable steps for first-timers.'], ['Location switcher', 'Sheppard and Leslie share one card with live hours.'], ['Bilingual', 'One tap between English and Korean.']],
     live: 'http://kosam.ca/',
     accent: '#c8262d',
     pitch: 'Turns a one-photo page into a guide to both restaurants, in English and Korean.',
@@ -164,6 +170,7 @@ window.CONCEPTS = [
     kind: 'Specialty coffee roaster',
     work: 'Café finder add-on',
     status: 'Earlier draft',
+    category: 'food', beforeDate: '13 Nov 2026',
     group: 'hidden',
     live: 'https://hellodemello.com/pages/location',
     accent: '#1d3a9e',
@@ -182,5 +189,125 @@ window.CONCEPTS = [
       ['Add-on', 'Korean-language page for the Seoul café.'],
       ['Care', 'Keep hours consistent across the site and five Google profiles.']
     ]
+  },
+  {
+    id: 'kain', short: 'Adria Kain', name: 'Adria Kain', kind: 'R&B singer-songwriter', area: 'Toronto',
+    category: 'artist', group: 'active', beforeDate: '13 Nov 2026',
+    work: 'Website + domain recovery', status: 'Strong case', live: 'https://adriakain.com/', accent: '#9a4a25',
+    pitch: 'A JUNO-nominated artist whose old address now sends fans to a casino page. One clean page puts the music, the story and booking back under her name.',
+    evidence: 'adriakain.com was her official site in Feb 2022 (Wayback Machine). On 13 Nov 2026 the same address showed a casino page. Her music is on Bandcamp and Instagram.',
+    
+    highlights: ['A site under her own name again, or a new address if the old one cannot be recovered.', 'All four releases in one list, newest first, with a Listen button.', 'Polaris long list and JUNO nomination up front.'],
+    changes: [['Her address', 'adriakain.com showed an online-casino page on 13 Nov 2026.', 'A site under her own name again, or a new address if the old one cannot be recovered.'], ['Music', 'Split across Bandcamp, streaming and Instagram.', 'All four releases in one list, newest first, with a Listen button.'], ['Recognition', 'Not shown anywhere she controls.', 'Polaris long list and JUNO nomination up front.'], ['Booking', 'By direct message.', 'A booking and press section with a press kit.']],
+    next: [['Launch', "A one-page site on the artist's own domain, with HTTPS and a press kit."], ['CMS', 'A simple editor for shows, releases and news, so updates take a minute.'], ['Add-on', 'Press photos and a short bio written with the artist.'], ['Care', 'Domain renewal reminders and monthly updates.']],
+    sources: ['Wikipedia: Adria Kain', 'junoawards.ca (2026 Contemporary R&B Recording of the Year)', 'web.archive.org snapshot of adriakain.com, 11 Feb 2022', 'adriakain.bandcamp.com']
+  },
+  {
+    id: 'persaud', short: 'Lydia Persaud', name: 'Lydia Persaud', kind: 'Soul singer-songwriter', area: 'Toronto',
+    category: 'artist', group: 'active', beforeDate: '13 Nov 2026',
+    work: 'Website', status: 'Strong case', live: 'https://www.lydiapersaud.com/', accent: '#1f3a2c',
+    pitch: 'Her official address shows "Website Expired". A light one-page site brings back the two albums and a way to book her.',
+    evidence: 'lydiapersaud.com was her site in 2019 and 2022 (Wayback Machine). On 13 Nov 2026 it showed Squarespace\'s "Website Expired" page. Her Bandcamp page works.',
+    
+    highlights: ['A working one-page site.', 'Moody31 and Let Me Show You listed with a Listen button.', 'Booking and press section.'],
+    changes: [['Her address', 'Shows "Website Expired".', 'A working one-page site.'], ['Albums', 'Only on Bandcamp and streaming.', 'Moody31 and Let Me Show You listed with a Listen button.'], ['Booking', 'No contact point.', 'Booking and press section.']],
+    next: [['Launch', "A one-page site on the artist's own domain, with HTTPS and a press kit."], ['CMS', 'A simple editor for shows, releases and news, so updates take a minute.'], ['Add-on', 'Press photos and a short bio written with the artist.'], ['Care', 'Domain renewal reminders and monthly updates.']],
+    sources: ['NOW Toronto', 'Killbeat Music press releases', 'web.archive.org snapshots of lydiapersaud.com', 'lydiapersaud.bandcamp.com']
+  },
+  {
+    id: 'ibrahim', short: 'Zaki Ibrahim', name: 'Zaki Ibrahim', kind: 'Singer-songwriter', area: 'Toronto',
+    category: 'artist', group: 'active', beforeDate: '13 Nov 2026',
+    work: 'Website', status: 'Strong case', live: 'https://www.zakiibrahim.com/', accent: '#8b6fd1',
+    pitch: 'A Polaris-shortlisted artist whose site has expired. The sketch gives her four releases a permanent home.',
+    evidence: 'zakiibrahim.com was her site from 2019 to 2024 (Wayback Machine). On 13 Nov 2026 it showed Squarespace\'s "Website Expired" page.',
+    
+    highlights: ['A working one-page site.', 'Four releases, newest first, with the Polaris short list noted.', 'Booking and press section.'],
+    changes: [['Her address', 'Shows "Website Expired".', 'A working one-page site.'], ['Releases', 'No list she controls.', 'Four releases, newest first, with the Polaris short list noted.'], ['Booking', 'No contact point.', 'Booking and press section.']],
+    next: [['Launch', "A one-page site on the artist's own domain, with HTTPS and a press kit."], ['CMS', 'A simple editor for shows, releases and news, so updates take a minute.'], ['Add-on', 'Press photos and a short bio written with the artist.'], ['Care', 'Domain renewal reminders and monthly updates.']],
+    sources: ['Wikipedia: Zaki Ibrahim', 'web.archive.org snapshots of zakiibrahim.com']
+  },
+  {
+    id: 'witchprophet', short: 'Witch Prophet', name: 'Witch Prophet', kind: 'Musician', area: 'Toronto',
+    category: 'artist', group: 'active', beforeDate: '13 Nov 2026',
+    work: 'Website + domain recovery', status: 'Strong case', live: 'https://witchprophet.com/', accent: '#e39a66',
+    pitch: 'Three albums and a Polaris short list, but the .com now leads to a parked ad page.',
+    evidence: 'witchprophet.com was her site in 2019 and 2021 (Wayback Machine). On 13 Nov 2026 it redirected to a parked "lander" page with ads. Her Bandcamp page works.',
+    
+    highlights: ['A site under her name, or a new address if the old one cannot be recovered.', 'Three albums in one list with a Listen button.', 'A short About with the label and documentary noted.'],
+    changes: [['Her address', 'Redirects to a parked ad page.', 'A site under her name, or a new address if the old one cannot be recovered.'], ['Albums', 'On Bandcamp and streaming.', 'Three albums in one list with a Listen button.'], ['Story', 'Told by press and a documentary.', 'A short About with the label and documentary noted.']],
+    next: [['Launch', "A one-page site on the artist's own domain, with HTTPS and a press kit."], ['CMS', 'A simple editor for shows, releases and news, so updates take a minute.'], ['Add-on', 'Press photos and a short bio written with the artist.'], ['Care', 'Domain renewal reminders and monthly updates.']],
+    sources: ['Wikipedia: Witch Prophet', 'web.archive.org snapshots of witchprophet.com', 'witchprophet.bandcamp.com']
+  },
+  {
+    id: 'charter', short: 'Kyla Charter', name: 'Kyla Charter', kind: 'Singer-songwriter', area: 'Toronto',
+    category: 'artist', group: 'active', beforeDate: '13 Nov 2026',
+    work: 'Website', status: 'Strong case', live: 'https://kylacharter.com/', accent: '#7a2e1d',
+    pitch: 'Her site says "under construction". This sketch is what it could open with: the debut album, track by track.',
+    evidence: 'kylacharter.com had a full site in 2020 and 2022 (Wayback Machine). On 13 Nov 2026 it showed "We\'re under construction. Please check back for an update soon."',
+    
+    highlights: ['A finished one-page site.', 'Edible Flowers listed track by track with a Listen button.', 'Booking and press section.'],
+    changes: [['Her address', 'An "under construction" notice.', 'A finished one-page site.'], ['Album', 'On Bandcamp.', 'Edible Flowers listed track by track with a Listen button.'], ['Booking', 'No contact point.', 'Booking and press section.']],
+    next: [['Launch', "A one-page site on the artist's own domain, with HTTPS and a press kit."], ['CMS', 'A simple editor for shows, releases and news, so updates take a minute.'], ['Add-on', 'Press photos and a short bio written with the artist.'], ['Care', 'Domain renewal reminders and monthly updates.']],
+    sources: ['Exclaim!', 'Killbeat Music press releases', 'web.archive.org snapshots of kylacharter.com', 'kycharter.bandcamp.com']
+  },
+  {
+    id: 'botos', short: 'Robi Botos', name: 'Robi Botos', kind: 'Jazz pianist', area: 'Toronto',
+    category: 'artist', group: 'active', beforeDate: '13 Nov 2026',
+    work: 'Website', status: 'Strong case', live: 'https://robibotos.com/', accent: '#14213d',
+    pitch: "A JUNO-winning pianist whose address shows a domain registrar's placeholder. Wikipedia still links to it.",
+    evidence: "robibotos.com was his site in 2019 and 2022 (Wayback Machine) and is the website listed on Wikipedia. On 13 Nov 2026 it showed a Dutch registrar's placeholder page.",
+    
+    highlights: ['A working one-page site.', 'Selected recordings with labels and years.', 'JUNO and TD Grand Jazz Award up front.'],
+    changes: [['His address', 'A registrar placeholder in Dutch.', 'A working one-page site.'], ['Recordings', 'Listed on Wikipedia and Bandcamp.', 'Selected recordings with labels and years.'], ['Awards', 'Not on a page he controls.', 'JUNO and TD Grand Jazz Award up front.']],
+    next: [['Launch', "A one-page site on the artist's own domain, with HTTPS and a press kit."], ['CMS', 'A simple editor for shows, releases and news, so updates take a minute.'], ['Add-on', 'Press photos and a short bio written with the artist.'], ['Care', 'Domain renewal reminders and monthly updates.']],
+    sources: ['Wikipedia: Robi Botos', 'junoawards.ca', 'web.archive.org snapshots of robibotos.com', 'robibotos.bandcamp.com']
+  },
+  {
+    id: 'bacchus', short: 'Justin Bacchus', name: 'Justin Bacchus', kind: 'Vocalist', area: 'Toronto',
+    category: 'artist', group: 'active', beforeDate: '13 Nov 2026',
+    work: 'Website + CMS', status: 'Strong case', live: 'http://www.justinbacchus.com/', accent: '#e39a66',
+    pitch: 'His site runs on a retired builder with no HTTPS, and the bio stops in 2014. The sketch keeps his story and makes room for what came after.',
+    evidence: "justinbacchus.com is built on GoDaddy Website Builder 7, has no HTTPS, and its homepage slideshow rendered as an empty box in our tests on 13 Nov 2026. The bio's latest release is from October 2014; the homepage note is signed 2020.",
+    
+    highlights: ['A fast, secure one-page site.', 'Name, role and a clear Booking button.', 'A short About with room for newer work.'],
+    changes: [['Platform', 'GoDaddy Website Builder 7, no HTTPS.', 'A fast, secure one-page site.'], ['Homepage', 'An empty slideshow box and a short note from 2020.', 'Name, role and a clear Booking button.'], ['Bio', 'Stops at the 2014 album.', 'A short About with room for newer work.'], ['Shows', 'Not listed.', 'A dates section he can update himself.']],
+    next: [['Launch', "A one-page site on the artist's own domain, with HTTPS and a press kit."], ['CMS', 'A simple editor for shows, releases and news, so updates take a minute.'], ['Add-on', 'Press photos and a short bio written with the artist.'], ['Care', 'Domain renewal reminders and monthly updates.']],
+    sources: ['justinbacchus.com (The Artist, Contact, Home pages)']
+  },
+  {
+    id: 'manhertz', short: 'Marc Manhertz', name: 'Marc Manhertz', kind: 'Bassist', area: 'Toronto',
+    category: 'artist', group: 'active', beforeDate: '13 Nov 2026',
+    work: 'One-page site + identity', status: 'No site yet', live: null, accent: '#9a4a25',
+    pitch: 'A working bassist with a 1919 feature and no page of his own. A one-page player site gives bookers somewhere to land.',
+    evidence: 'We found no official website in a search on 13 Nov 2026. His profile in 1919 Magazine is the main public source. Spelling note: the name is Manhertz.',
+    noBefore: ['A search for his name leads to the 1919 Magazine essay.', 'No official site, link page or press kit was found.', 'Bookers have no public contact point.'],
+    highlights: ['A one-page player site: bio, credits, booking.', 'Selected work he can add to.', 'Booking section with a placeholder for his email.'],
+    changes: [['Website', 'None found.', 'A one-page player site: bio, credits, booking.'], ['Credits', 'Mentioned in press only.', 'Selected work he can add to.'], ['Booking', 'No public contact point.', 'Booking section with a placeholder for his email.']],
+    next: [['Launch', 'One page on his own domain.'], ['Identity', 'A simple wordmark and colour palette for posters and socials.'], ['Add-on', 'Live video and photos from a Listening Room night, with permission.'], ['Care', 'Updates as credits grow.']],
+    sources: ['1919 Magazine, "Listening to Artists" (22 Jan 2026)']
+  },
+  {
+    id: 'watson', short: 'Jelani Watson', name: 'Jelani Watson', kind: 'Saxophonist & pianist', area: 'Toronto',
+    category: 'artist', group: 'active', beforeDate: '13 Nov 2026',
+    work: 'One-page site + identity', status: 'No site yet', live: 'https://jazz.fm/hosts/jelani-watson', accent: '#14213d',
+    pitch: 'A saxophonist and pianist whose only public page belongs to a radio station. A one-page site makes him bookable in his own right.',
+    evidence: 'We found no personal website in a search on 13 Nov 2026. He has a profile page on jazz.fm and is featured in 1919 Magazine.',
+    noBefore: ['A search for his name leads to a jazz.fm profile and the 1919 Magazine essay.', 'No personal site, link page or press kit was found.', 'Bookers have no public contact point.'],
+    highlights: ['His own one-page site: bio, credits, booking.', 'Selected work he can add to.', 'Booking section, plus an optional lessons enquiry form.'],
+    changes: [['Website', "A profile on a radio station's site.", 'His own one-page site: bio, credits, booking.'], ['Credits', 'Mentioned in press only.', 'Selected work he can add to.'], ['Booking', 'No public contact point.', 'Booking section, plus an optional lessons enquiry form.']],
+    next: [['Launch', 'One page on his own domain.'], ['Identity', 'A simple wordmark and colour palette.'], ['Add-on', 'Live video and a lessons enquiry form.'], ['Care', 'Updates as credits grow.']],
+    sources: ['1919 Magazine, "Listening to Artists" (22 Jan 2026)', 'jazz.fm host profile']
+  },
+  {
+    id: 'evangeline', short: 'Selena E.', name: 'Selena Evangeline', kind: 'Singer & songwriter', area: 'Toronto',
+    category: 'artist', group: 'active', beforeDate: '13 Nov 2026',
+    work: 'Refresh + CMS', status: 'Modest case', live: 'https://www.selenaevangeline.com/', accent: '#1f3a2c',
+    pitch: 'Her site works and is kept up to date. The opportunity is a lighter, faster refresh, not a rescue.',
+    evidence: 'selenaevangeline.com is an active Wix site with recent news and gigs. The footer copyright reads 2017 and the homepage HTML alone is about 1.2 MB. This is a modest case.',
+    
+    highlights: ['Name, one line and a Watch button first.', 'A page under 60 KB before fonts.', 'Key recordings on the homepage.'],
+    changes: [['Design', 'A 2017-era layout with a long biography first.', 'Name, one line and a Watch button first.'], ['Weight', 'About 1.2 MB of HTML before images.', 'A page under 60 KB before fonts.'], ['Recordings', 'On a separate discography page.', 'Key recordings on the homepage.']],
+    next: [['Refresh', 'Restyle the existing content on a faster template.'], ['CMS', 'Keep her gig list and news, managed from a simple editor.'], ['Care', 'Monthly updates.']],
+    sources: ['selenaevangeline.com']
   }
 ];

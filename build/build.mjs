@@ -152,7 +152,7 @@ ${page}
 }
 
 const DIRS = ['venues', 'artists'];
-const all = DIRS.flatMap(d => { try { return readdirSync(join(ROOT, d)).filter(f => f.endsWith('.mjs')).map(f => [f.replace('.mjs', ''), d]); } catch (e) { return []; } });
+const all = DIRS.flatMap(d => { try { return readdirSync(join(ROOT, d)).filter(f => f.endsWith('.mjs') && !f.startsWith('_')).map(f => [f.replace('.mjs', ''), d]); } catch (e) { return []; } });
 const want = process.argv.slice(2);
 for (const [id, dir] of all.filter(([id]) => !want.length || want.includes(id))) {
   const v = (await import(pathToFileURL(join(ROOT, dir, id + '.mjs')).href + '?t=' + Date.now())).default;

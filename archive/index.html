@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>Archive · Older versions</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f2ee;--ink:#141414;--mute:#6b6760;--line:#14141418}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 Inter,sans-serif;padding:28px clamp(16px,4vw,40px) 80px;max-width:1000px;margin:0 auto}
+a{color:inherit}h1{font:400 clamp(40px,6vw,64px)/1 'Instrument Serif';margin:24px 0 12px}
+p.lead{color:var(--mute);max-width:640px;margin-bottom:36px}
+.row{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:12px;align-items:center;padding:18px 0;border-top:1px solid var(--line)}
+.row b{font:400 26px 'Instrument Serif'}
+.row a{display:block;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;text-decoration:none}
+.row a span{display:block;font:600 11px Inter;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.row a.now{background:var(--ink);color:#fff}.row a.now span{color:#bbb}
+@media(max-width:720px){.row{grid-template-columns:1fr}}
+</style></head><body>
+<a href="../">← All concepts</a>
+<h1>Archive</h1>
+<p class="lead">Older versions of the restaurant and café pages, kept for reference. The current standard page for each venue is the one linked from the directory.</p>
+<div id="rows"></div>
+<script>
+const V=[['mikaku','Mikaku Izakaya'],['ehwa','EHWA'],['jokbal','Jokbal Night Market'],['lunar','Coffee Lunar'],['kosam','KoSam']];
+document.getElementById('rows').innerHTML=V.map(([id,n])=>`<div class="row" id="${id}"><b>${n}</b>
+ <a href="${id}/v1/"><span>Version 1 · early Nov 2026</span>First hand-built draft</a>
+ <a href="${id}/v2/"><span>Version 2 · 13 Nov 2026</span>Template with playful extras</a>
+ <a class="now" href="../${id}/"><span>Current</span>Standard page</a></div>`).join('');
+</script>
+</body></html>

@@ -28,8 +28,7 @@ export default {
       rows: [{ k: 'Parking', v: 'Shared lot behind the plaza. Free street parking out front on weekdays, 10am – 3pm.' }],
       actions: [{ href: ORDER, label: 'Order ahead', icon: 'shopping_bag' }, { href: 'https://maps.google.com/?q=Coffee+Lunar+6040+Yonge+St+Toronto', label: 'Directions', icon: 'directions' }] }
   ],
-  strings: { en: { open: 'Open', openUntil: 'until {t}', closed: 'Closed', opens: 'opens {d} at {t}', today: 'today', tomorrow: 'tomorrow', days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], closedDay: 'Closed', copied: 'Address copied',
-    moonNames: ['New moon tonight', 'Waxing crescent tonight', 'First quarter tonight', 'Waxing gibbous tonight', 'Full moon tonight', 'Waning gibbous tonight', 'Last quarter tonight', 'Waning crescent tonight'] } },
+  strings: { en: { open: 'Open', openUntil: 'until {t}', closed: 'Closed', opens: 'opens {d} at {t}', today: 'today', tomorrow: 'tomorrow', days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], closedDay: 'Closed', copied: 'Address copied' } },
   sections: [
     { type: 'hero', eyebrow: 'Specialty drinks &amp; desserts · Rosedale · North York', title: 'Minimal space.<br><i class="accent">Creative cups.</i>',
       text: 'Signature drops made with housemade syrups and silky cream, plus carefully made espresso classics. Two cafés on Yonge, open every day.',
@@ -57,6 +56,5 @@ export default {
     { type: 'links', eyebrow: 'Also at Lunar', items: [{ href: 'https://coffeelunar.com/foods', kicker: 'Food', title: 'Sandwiches &amp; desserts', text: 'See what’s in the case today.' }, { href: 'https://coffeelunar.com/store/merchandise', kicker: 'Shop', title: 'Merch', text: 'Take a little Lunar home.' }, { href: 'https://www.instagram.com/coffeelunar', kicker: 'Instagram', title: '@coffeelunar', text: 'New drinks and café updates.' }] }
   ],
   footer: `<div><b>COFFEE LUNAR</b>Specialty drinks &amp; desserts</div><div>Rosedale · 920 Yonge St · 8am – 5pm<br>North York · 6040 Yonge St · 9am – 7pm</div>`,
-  css: `.m-card .m-seg[data-temp] .m-seg__btn{min-width:40px;padding:0 10px}
-.m-card .m-seg[data-temp] .icon{font-size:18px;vertical-align:-3px}`
+  css: ''
 };

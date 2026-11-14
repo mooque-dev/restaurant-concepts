@@ -17,12 +17,15 @@ export const THEMES = {
     fonts: F("Syne,sans-serif", "Inter,system-ui,sans-serif", 'https://fonts.googleapis.com/css2?family=Syne:wght@700&family=Inter:wght@400;500;600;700&display=swap', { displayWeight: 700, tracking: '-.03em' }) }
 };
 
+const plain = s => String(s).replace(/<[^>]+>/g, '').replace(/&amp;/g, '&');
+
 export function artist(a) {
-  const listen = (a.links || []).find(l => l.primary) || (a.links || [])[0];
+  // The hero only gets a Listen button when a link is marked primary (a page that really has the music on it).
+  const listen = (a.links || []).find(l => l.primary);
   return {
     id: a.id, langs: ['en'], micro: [],
-    title: { en: `${a.name} — ${a.role}, Toronto` },
-    description: `${a.name}: ${a.lead}`,
+    title: { en: plain(`${a.name} — ${a.role}, Toronto`) },
+    description: plain(`${a.name}: ${a.lead}`),
     theme: THEMES[a.theme],
     ribbon: `Sketch by Mooque Studio for ${a.name}. Not an official site. Photos, dates and contact details are placeholders.${a.current ? ` <a href="${a.current}" target="_blank" rel="noopener">Current page ↗</a>` : ''}`,
     brand: { wordmark: a.name.toUpperCase() },
@@ -40,7 +43,7 @@ export function artist(a) {
         label: 'Dates will appear here.', hint: a.showsHint || 'In the live site, shows are added from a simple editor: date, venue, ticket link. Past dates move to an archive on their own.' },
       ...(a.links && a.links.length ? [{ type: 'links', eyebrow: 'Listen &amp; follow', items: a.links.map(l => ({ href: l.href, kicker: l.kind, title: l.title, text: l.text })) }] : []),
       { type: 'contact', id: 'contact', eyebrow: 'Booking &amp; press', title: a.contactTitle || 'Bookings, press<br>and collaborations.',
-        text: 'One place for booking requests, press kits and high-resolution photos, so nobody has to send a DM to ask.',
+        text: a.contactText || 'One place for booking requests, press kits and high-resolution photos.',
         todos: ['Booking email (from the artist)', 'Press kit download', 'Newsletter sign-up', ...(a.todos || [])] }
     ],
     footer: `<div><b>${a.name.toUpperCase()}</b>${a.role} · Toronto</div><div>Sketch for discussion. Facts from public sources: ${a.sources.join(', ')}.</div>`,

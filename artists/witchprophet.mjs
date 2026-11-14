@@ -10,6 +10,6 @@ export default artist({
   aboutFacts: [['Based in', 'Toronto, Ontario'], ['Label', 'Heart Lake Records']],
   workTitle: 'Albums', workText: 'Newest first.',
   works: [['Gateway Experience', '2023', 'Album'], ['DNA Activation', '2020', 'Polaris short list'], ['The Golden Octave', '2018', 'Album']],
-  links: [{ kind: 'Bandcamp', title: 'Listen &amp; buy', text: 'witchprophet.bandcamp.com', href: 'https://witchprophet.bandcamp.com/', primary: true }],
+  links: [{ kind: 'Bandcamp', title: 'Listen &amp; buy', text: 'witchprophet.bandcamp.com', href: 'https://witchprophet.bandcamp.com/', primary: true }, { kind: 'Instagram', title: '@WitchProphet', text: 'News and photos', href: 'https://www.instagram.com/WitchProphet/' }],
   sources: ['Wikipedia', 'Bandcamp']
 });

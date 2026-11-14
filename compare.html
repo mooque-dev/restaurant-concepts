@@ -85,7 +85,7 @@ body.share .top{display:none}
 <div class="next" id="next"></div>
 <div class="cta" id="teamCta"><a class="btn fill" href="./#pricing">See pricing</a><a class="btn" href="./">Back to all concepts</a></div>
 <div id="teamOnly"><h2>Team notes</h2><div class="next" id="teamNotes"></div></div>
-<p class="ownerNote" id="ownerNote" hidden>This is a design concept made with your public photos, menu and hours. Questions or changes? Reply to the message this link came with.</p>
+<p class="ownerNote" id="ownerNote" hidden></p>
 
 <script src="data/concepts.js"></script>
 <script>
@@ -94,7 +94,7 @@ const CATS=[['food','Restaurants & cafés'],['artist','Artists & musicians']];
 const artist=c.category==='artist';
 // Owner view (?share=1): no links to other concepts, the team hub, sources, archive or pricing
 const share=Q.get('share')==='1';
-if(share){document.body.classList.add('share');['teamCta','teamNav','teamOnly'].forEach(i=>document.getElementById(i).remove());document.getElementById('ownerNote').hidden=false;}
+if(share){document.body.classList.add('share');['teamCta','teamNav','teamOnly'].forEach(i=>document.getElementById(i).remove());const on=document.getElementById('ownerNote');on.hidden=false;on.textContent=(artist?'This is a design sketch based on public information about your work. It uses none of your photos; photos, dates and contact details are placeholders until you supply them.':'This is a design concept made with your public photos, menu and hours.')+' Questions or changes? Reply to the message this link came with.';}
 else{
  const sel=document.getElementById('switch');
  sel.innerHTML=CATS.map(([k,l])=>`<optgroup label="${l}">${C.filter(x=>x.category===k).map(x=>`<option value="${x.id}"${x.id===c.id?' selected':''}>${x.name}</option>`).join('')}</optgroup>`).join('');
@@ -104,6 +104,7 @@ else{
  if(c.sources)notes.push(['Sources',c.sources.join(' · ')]);
  if(!artist)notes.push(['Older versions',`<a href="archive/#${c.id}">Archive: first draft and playful v2</a>`]);
  if(artist)notes.push(['Case',c.status+' · '+c.work]);
+ if(c.teamNote)notes.push(['Note',c.teamNote]);
  notes.push(['Before captured',c.beforeDate+'. These states change; re-check before sending.']);
  document.getElementById('teamNotes').innerHTML=notes.map(([t,d])=>`<div class="nx"><span>${t}</span><div>${d}</div></div>`).join('');
 }
@@ -113,7 +114,7 @@ document.getElementById('title').innerHTML=`${c.name}, <i>before &amp; after</i>
 document.getElementById('sub').textContent=c.pitch;
 document.getElementById('hint').textContent=(c.noBefore?'There is no site to capture, so Before is an illustration. ':'Before is a capture of the current page. ')+'After is the working '+(artist?'sketch':'concept')+': scroll it, tap it, try the buttons.';
 document.getElementById('beforeLabel').textContent=(c.noBefore?'Before · illustration, not a screenshot':'Before · captured '+c.beforeDate);
-const live=document.getElementById('liveLink');if(c.live){live.href=c.live}else{live.remove()}
+const live=document.getElementById('liveLink');if(c.liveUnsafe){const t=document.createElement('span');t.className='hint';t.textContent=c.live.replace(/^https?:\/\/|\/$/g,'')+' · not linked: '+c.liveUnsafe;live.replaceWith(t)}else if(c.live){live.href=c.live}else{live.remove()}
 document.getElementById('conceptLink').href=c.id+'/';
 const img=document.getElementById('beforeImg'),fr=document.getElementById('after'),panes=document.getElementById('panes');
 fr.src=c.id+'/';

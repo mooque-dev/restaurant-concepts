@@ -219,12 +219,12 @@ window.CONCEPTS = [
     category: 'artist', group: 'active', beforeDate: '13 Nov 2026',
     work: 'Website', status: 'Strong case', live: 'https://www.zakiibrahim.com/', accent: '#8b6fd1',
     pitch: 'A Polaris-shortlisted artist whose site has expired. The sketch gives her releases a permanent home.',
-    evidence: 'zakiibrahim.com was her site from 2019 to 2024 (Wayback Machine). On 13 Nov 2026 it showed Squarespace\'s "Website Expired" page. A second address listed on the Pirates Blend label page, zakiibrahim.co.za, showed a parked page the same day. Her Bandcamp page works.',
+    evidence: 'zakiibrahim.com was her site from 2019 to 2024 (Wayback Machine). On 13 Nov 2026 it showed Squarespace\'s "Website Expired" page. A second address listed on the Pirates Blend label page, zakiibrahim.co.za, showed a parked page the same day. Her Linktree (@zatakiwon) still sends its Website and Tip Jar buttons to the expired address. Her Bandcamp page works.',
     
     highlights: ['A working one-page site.', 'Selected releases, newest first, with the Polaris short list noted.', 'Booking and press section.'],
     changes: [['Her address', 'Shows "Website Expired".', 'A working one-page site.'], ['Releases', 'On Bandcamp.', 'Selected releases, newest first, with the Polaris short list noted and a Listen button.'], ['Booking', 'Not on a page of her own.', 'Booking and press section.']],
     next: [['Launch', "A one-page site on the artist's own domain, with HTTPS and a press kit."], ['CMS', 'A simple editor for shows, releases and news, so updates take a minute.'], ['Add-on', 'Press photos and a short bio written with the artist.'], ['Care', 'Domain renewal reminders and monthly updates.']],
-    sources: ['Wikipedia: Zaki Ibrahim', 'web.archive.org snapshots of zakiibrahim.com', 'zakiibrahim.bandcamp.com', 'piratesblend.com/artists/zaki-ibrahim (lists zakiibrahim.co.za)']
+    sources: ['Wikipedia: Zaki Ibrahim', 'web.archive.org snapshots of zakiibrahim.com', 'zakiibrahim.bandcamp.com', 'piratesblend.com/artists/zaki-ibrahim (lists zakiibrahim.co.za)', 'linktr.ee/zatakiwon']
   },
   {
     id: 'witchprophet', short: 'Witch Prophet', name: 'Witch Prophet', kind: 'Musician', area: 'Toronto',
@@ -243,7 +243,7 @@ window.CONCEPTS = [
     category: 'artist', group: 'active', beforeDate: '13 Nov 2026',
     work: 'Tidy-up + old address', status: 'Modest case', live: 'https://lalanoel.com/', accent: '#7a2e1d',
     pitch: 'She now performs as Lala Noel and her new site works. The small wins are pointing her old address at it and putting what she does on the first screen.',
-    evidence: 'Kyla Charter now performs as Lala Noel. lalanoel.com is a working Squarespace site with About, Press, Photo Gallery, Music, Watch and Booking pages. kylacharter.com, the address under her given name, showed "We\'re under construction" on 13 Nov 2026 and does not lead to the new site. On lalanoel.com the Music page sits at /shows and Booking at /new-page. This is a modest case.',
+    evidence: 'Kyla Charter now performs as Lala Noel. lalanoel.com is a working Squarespace site with About, Press, Photo Gallery, Music, Watch and Booking pages. kylacharter.com, the address under her given name, showed "We\'re under construction" on 13 Nov 2026 and does not lead to the new site. On lalanoel.com the Music page sits at /shows and Booking at /new-page.',
     teamNote: 'Our first pass sketched her as Kyla Charter from the under-construction page. Her Linktree led to lalanoel.com, so the sketch was renamed and the case downgraded.',
     highlights: ['Name, one line about her and a Listen button first.', 'Old address pointed at the new site.', 'A Booking button on every screen.'],
     changes: [['Old address', 'kylacharter.com shows an "under construction" notice.', 'Redirects to the Lala Noel site.'], ['First screen', 'A full-width photo, then two videos. What she does is on the About page.', 'Name, one line about her and a Listen button first.'], ['Page addresses', 'Music is at /shows and Booking at /new-page.', 'Plain addresses, such as /music and /booking.'], ['Booking', 'On its own page.', 'A Booking button on every screen.']],
@@ -292,7 +292,7 @@ window.CONCEPTS = [
     category: 'artist', group: 'active', beforeDate: '13 Nov 2026',
     work: 'Refresh + CMS', status: 'Modest case', live: 'https://jelaniwatson.ca/', accent: '#14213d',
     pitch: 'His site works and has his singles and videos. The opportunity is a sharper first screen: what he plays, his radio show and how to book him.',
-    evidence: 'jelaniwatson.ca is a working WordPress.com site with three singles, performance videos, a newsletter sign-up and an enquiry form on the About page. The newest post is from December 2024, and the pages we read do not mention the Listening Room band. This is a modest case.',
+    evidence: 'jelaniwatson.ca is a working WordPress.com site with three singles, performance videos, a newsletter sign-up and an enquiry form on the About page. The newest post is from December 2024, and the pages we read do not mention the Listening Room band.',
     teamNote: 'Our first pass listed him as having no site. A name search on 13 Nov 2026 found jelaniwatson.ca, so the case was downgraded to a refresh.',
     highlights: ['Name, instruments and a Listen button first.', 'Radio show and house band listed with the singles.', 'A Booking button on every screen.'],
     changes: [['First screen', 'A welcome message over a photo. What he plays is in small text above the menu.', 'Name, instruments and a Listen button first.'], ['Radio and band', 'The JAZZ.FM91 show is in a 2024 post. The Listening Room is not mentioned on the pages we read.', 'Both listed with the singles, newest first.'], ['Updates', 'Newest post is from December 2024.', 'Shows, releases and news from a simple editor.'], ['Booking', 'An enquiry form at the bottom of the About page.', 'A Booking button on every screen.']],
@@ -304,7 +304,7 @@ window.CONCEPTS = [
     category: 'artist', group: 'active', beforeDate: '13 Nov 2026',
     work: 'Refresh + CMS', status: 'Modest case', live: 'https://www.selenaevangeline.com/', accent: '#1f3a2c',
     pitch: 'Her site works and is kept up to date. The opportunity is a lighter, faster refresh, not a rescue.',
-    evidence: 'selenaevangeline.com is an active Wix site with recent news and gigs. The footer copyright reads 2017 and the homepage HTML alone is about 1.2 MB. This is a modest case.',
+    evidence: 'selenaevangeline.com is an active Wix site with recent news and gigs. The footer copyright reads 2017 and the homepage HTML alone is about 1.2 MB.',
     
     highlights: ['Name, one line and a Watch button first.', 'A page under 60 KB before fonts.', 'Key recordings on the homepage.'],
     changes: [['Design', 'A 2017-era layout with a long biography first.', 'Name, one line and a Watch button first.'], ['Weight', 'About 1.2 MB of HTML before images.', 'A page under 60 KB before fonts.'], ['Recordings', 'On a separate discography page.', 'Key recordings on the homepage.']],

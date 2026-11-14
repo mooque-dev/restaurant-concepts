@@ -28,10 +28,13 @@ const ctas = list => list && list.length ? `<div class="m-ctas" style="display:f
 
 // ---------- sections ----------
 const R = {};
+// Labelled placeholder frame for sketches (no borrowed photos)
+const ph = (label, ratio = '4/5') => `<div class="m-ph" data-ratio="${ratio}" role="img" aria-label="${esc(L(label).en)} placeholder">${icon('image')}${T('span', label)}</div>`;
+// One hero for every page: text plus one image in a fixed 4:5 frame; with no image it becomes a type-only hero
 R.hero = (s, v) => {
   const text = `<div class="hero__text">${T('div', s.eyebrow, 'class="t-label-m eyebrow"')}${T('h1', s.title, 'class="t-display-l"')}${T('p', s.text, 'class="t-body-l hero__lead"')}${ctas(s.ctas)}</div>`;
-  if (s.variant === 'photo') return `<header class="hero hero--photo" data-bar-hide>${img(s.image, '100vw', true)}<div class="m-container hero__in">${text}${s.aside ? `<div class="hero__aside">${s.aside}</div>` : ''}</div></header>`;
-  return `<header class="hero hero--split" data-bar-hide><div class="m-container hero__in">${text}<div class="hero__visual">${s.visual}</div></div></header>`;
+  const visual = s.image ? `<figure class="m-media hero__frame ${s.cutout ? 'm-media--cutout' : ''}" data-ratio="4/5">${img(s.image, '(max-width: 900px) 92vw, 40vw', true)}</figure>` : s.placeholder ? ph(s.placeholder) : '';
+  return `<header class="hero ${visual ? 'hero--split' : 'hero--type'}" data-bar-hide><div class="m-container hero__in">${text}${visual ? `<div class="hero__visual">${visual}</div>` : ''}</div></header>`;
 };
 R.facts = s => `<div class="m-facts" style="--n:${s.items.length}">${s.items.map(f => `<div>${T('b', f.value)}${T('span', f.label)}</div>`).join('')}</div>`;
 R.story = s => `<section class="m-section ${s.tint ? 'm-section--tint' : ''}" ${s.id ? `id="${s.id}"` : ''}><div class="m-container story">
@@ -80,6 +83,13 @@ R.locations = (s, v) => {
    ${v.locations.map(loc).join('')}</div>${s.image ? `<figure class="m-media visit__img" data-ratio="4/3">${img(s.image, '(max-width: 900px) 92vw, 45vw')}${T('figcaption', s.imageCaption, 'class="visit__cap"')}</figure>` : ''}</div></div></section>`;
 };
 R.links = s => `<section class="m-section" style="padding-top:0"><div class="m-container">${T('div', s.eyebrow, 'class="t-label-m eyebrow" style="margin-bottom:18px"')}<div class="m-grid m-grid--${s.items.length} m-links">${s.items.map(it => `<a class="m-card m-card--outlined m-interactive" href="${esc(it.href)}"${ext(it.href)} style="padding:22px">${T('div', it.kicker, `class="m-card__kicker"${/[\uac00-\ud7a3]/.test(L(it.kicker).en || '') ? ' data-native' : ''}`)}${T('h3', it.title, 'class="t-headline-s" style="margin:6px 0 4px"')}${T('p', it.text, 'class="t-body-m muted"')}</a>`).join('')}</div></div></section>`;
+// ----- editorial sections (artists) -----
+R.prose = s => `<section class="m-section ${s.tint ? 'm-section--tint' : ''}" ${s.id ? `id="${s.id}"` : ''}><div class="m-container prose">
+  <div class="prose__side">${T('div', s.eyebrow, 'class="t-label-m eyebrow"')}${s.placeholder ? ph(s.placeholder, s.ratio || '4/5') : ''}</div>
+  <div class="prose__body">${T('h2', s.title, 'class="t-display-m"')}${(s.paras || []).map(p => T('p', p, 'class="t-body-l"')).join('')}${s.facts ? `<dl class="prose__facts">${s.facts.map(f => `${T('dt', f.k)}${T('dd', f.v)}`).join('')}</dl>` : ''}${ctas(s.ctas) ? `<div style="margin-top:28px">${ctas(s.ctas)}</div>` : ''}</div></div></section>`;
+R.index = s => `<section class="m-section ${s.tint ? 'm-section--tint' : ''}" ${s.id ? `id="${s.id}"` : ''}><div class="m-container">${head(s)}<ol class="m-index">${s.rows.map((r, k) => { const tag = r.href ? 'a' : 'div'; return `<li><${tag} class="m-index__row ${r.href ? 'm-interactive' : ''}"${r.href ? ` href="${esc(r.href)}"${ext(r.href)}` : ''}><span class="m-index__n">${String(k + 1).padStart(2, '0')}</span>${T('b', r.title)}${T('span', r.meta, 'class="m-index__meta"')}${r.tag ? `<span class="m-chip">${T('span', r.tag)}</span>` : '<span></span>'}${r.href ? icon('arrow_outward') : '<span></span>'}</${tag}></li>`; }).join('')}</ol>${T('p', s.note, 'class="t-body-m muted" style="margin-top:16px"')}</div></section>`;
+R.empty = s => `<section class="m-section ${s.tint ? 'm-section--tint' : ''}" ${s.id ? `id="${s.id}"` : ''}><div class="m-container">${head(s)}<div class="m-empty">${icon(s.icon || 'event')}<div>${T('b', s.label)}${T('p', s.hint)}</div></div></div></section>`;
+R.contact = s => `<section class="m-section m-section--accent band" ${s.id ? `id="${s.id}"` : ''}><div class="m-container">${T('div', s.eyebrow, 'class="t-label-m"')}${T('h2', s.title, 'class="t-display-m" style="margin:10px 0 0;max-width:16ch"')}${T('p', s.text, 'class="t-body-l" style="max-width:52ch;margin:18px 0 26px;opacity:.9"')}<div class="m-todos">${(s.todos || []).map(t => `<span class="m-todo">${icon('edit_note')}${T('span', t)}</span>`).join('')}</div></div></section>`;
 R.raw = s => s.html;
 
 // ---------- page ----------
@@ -91,12 +101,14 @@ function themeCss(v) {
   return `:root{${vars};--md-ref-typeface-brand:${f.brand};--md-ref-typeface-plain:${f.plain};--md-ref-typeface-ko:${f.ko || "'Apple SD Gothic Neo',sans-serif"};${f.wordmark ? `--md-ref-typeface-wordmark:${f.wordmark};` : ''}${f.card ? `--md-ref-typeface-card:${f.card};` : ''}--md-ref-display-weight:${f.displayWeight || 400};--md-ref-display-tracking:${f.tracking || '-.02em'};--md-ref-brand-tracking:${f.brandTracking || '.2em'};--md-ref-accent-style:${f.accentStyle || 'italic'};--md-sys-shape-corner-xs:${sh[0]}px;--md-sys-shape-corner-s:${sh[1]}px;--md-sys-shape-corner-m:${sh[2]}px;--md-sys-shape-corner-l:${sh[3]}px;--md-sys-shape-corner-xl:${sh[4]}px;--md-sys-shape-corner-full:${sh[5] ?? 999}px;${v.theme.cutoutBg ? `--md-ref-cutout-bg:${v.theme.cutoutBg};` : ''}color-scheme:${v.theme.colors.scheme}}`;
 }
 function render(v) {
+  v.locations = v.locations || []; v.bar = v.bar || []; v.micro = v.micro || []; v.langs = v.langs || ['en'];
+  v.strings = v.strings || { en: { copied: 'Copied', days: [] } };
   const body = v.sections.map(s => { if (!R[s.type]) throw new Error('unknown section ' + s.type); return R[s.type](s, v); }).join('\n');
   const nav = v.nav.map(n => `<a class="m-interactive" href="${n.href}">${T('span', n.label)}</a>`).join('');
   const langSeg = v.langs.length > 1 ? `<div class="m-seg" data-lang role="group" aria-label="Language">${v.langs.map(l => `<button class="m-seg__btn" type="button" data-value="${l}" aria-pressed="${l === 'en'}">${l === 'en' ? 'EN' : '한국어'}</button>`).join('')}</div>` : '';
   const page = `
 <div class="m-ribbon">${T('span', v.ribbon)}</div>
-<div class="m-status" aria-live="polite"></div>
+${v.locations.length ? '<div class="m-status" aria-live="polite"></div>' : ''}
 <nav class="m-topbar"><div class="m-container m-topbar__in">
  <a class="m-brand" href="#"><span>${v.brand.wordmark}</span>${v.brand.mark ? `<small>${v.brand.mark}</small>` : ''}</a>
  <div class="m-nav">${nav}</div>
@@ -106,7 +118,7 @@ function render(v) {
 ${body}
 </main>
 <footer class="m-footer" data-bar-hide><div class="m-container">${v.footer}</div></footer>
-<nav class="m-bar" data-away="true" aria-label="Quick actions">${v.bar.map(b => `<a class="m-interactive" href="${esc(b.href)}"${ext(b.href)}${b.primary ? ' data-primary' : ''}>${icon(b.icon)}${T('span', b.label)}</a>`).join('')}</nav>
+${v.bar.length ? '<nav class="m-bar" data-away="true" aria-label="Quick actions">' : '<nav hidden>'}${v.bar.map(b => `<a class="m-interactive" href="${esc(b.href)}"${ext(b.href)}${b.primary ? ' data-primary' : ''}>${icon(b.icon)}${T('span', b.label)}</a>`).join('')}</nav>
 <div class="m-scrim"></div>
 <div class="m-sheet" role="dialog" aria-label="Menu"><div class="m-sheet__handle"></div>${v.nav.map(n => `<a class="m-interactive" href="${n.href}">${T('span', n.label)}${icon('arrow_forward')}</a>`).join('')}<div style="padding:12px 16px 0">${btn(v.primary, 'm-btn--filled')}</div></div>
 <div class="m-snackbar" role="status"></div>`;
@@ -139,10 +151,12 @@ ${page}
 </body></html>`;
 }
 
-const ids = process.argv.slice(2).length ? process.argv.slice(2) : readdirSync(join(ROOT, 'venues')).filter(f => f.endsWith('.mjs')).map(f => f.replace('.mjs', ''));
-for (const id of ids) {
-  const v = (await import(pathToFileURL(join(ROOT, 'venues', id + '.mjs')).href + '?t=' + Date.now())).default;
-  const out = join(ROOT, id, 'v2', 'index.html');
+const DIRS = ['venues', 'artists'];
+const all = DIRS.flatMap(d => { try { return readdirSync(join(ROOT, d)).filter(f => f.endsWith('.mjs')).map(f => [f.replace('.mjs', ''), d]); } catch (e) { return []; } });
+const want = process.argv.slice(2);
+for (const [id, dir] of all.filter(([id]) => !want.length || want.includes(id))) {
+  const v = (await import(pathToFileURL(join(ROOT, dir, id + '.mjs')).href + '?t=' + Date.now())).default;
+  const out = join(ROOT, id, 'index.html');
   mkdirSync(dirname(out), { recursive: true });
   const html = render(v);
   writeFileSync(out, html);

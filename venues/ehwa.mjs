@@ -39,7 +39,7 @@ export default {
       title: { en: 'Korean food &amp; soju,<br><i class="accent">until 3am.</i>', ko: '한식과 소주,<br><i class="accent">새벽 3시까지.</i>' },
       text: { en: 'Crispy chicken, tteokbokki and hot pots to share, at Yonge &amp; Sheppard and downtown on Isabella. The kitchen takes last orders at 1:30am.', ko: '바삭한 치킨, 떡볶이, 함께 나눠 먹는 탕까지. 영 &amp; 쉐퍼드와 다운타운 이사벨라 두 곳에서 만나요. 주방 마감은 새벽 1시 30분이에요.' },
       ctas: [{ href: '#visit', label: { en: 'Reserve a table', ko: '예약하기' }, icon: 'event_available' }, { href: '#menu', label: { en: 'See what to order', ko: '대표 메뉴 보기' } }],
-      visual: `<div class="host"><img src="https://www.ehwa.ca/assets/woman.webp" alt="EHWA’s illustrated host in a red hanbok" width="682" height="1208" fetchpriority="high"><div class="host__plates" aria-hidden="true"><span><img src="${R2}ssagaji-dak.webp" alt=""></span><span><img src="${R2}rose-tteokbokki.webp" alt=""></span><span><img src="${R2}army-soup.webp" alt=""></span></div></div>` },
+      image: P('ssagaji-dak', { en: 'Ssagaji Dak, four-flavour chicken', ko: '싸가지 닭' }, { focal: '50% 50%' }) },
     { type: 'facts', items: [{ value: { en: '3am', ko: '새벽 3시' }, label: { en: 'Close, every night', ko: '매일 영업 마감' } }, { value: { en: '1:30am', ko: '새벽 1:30' }, label: { en: 'Kitchen last orders', ko: '주방 라스트 오더' } }, { value: '2', label: { en: 'Uptown &amp; Downtown', ko: '업타운 · 다운타운' } }, { value: { en: 'Online', ko: '온라인' }, label: { en: 'Reservations &amp; delivery', ko: '예약 · 배달 주문' } }] },
     { type: 'cards', id: 'menu', media: 'photo', ratio: '4/3', cols: 4,
       eyebrow: { en: 'What to order', ko: '대표 메뉴' }, title: { en: 'Start with<br><i class="accent">the favourites.</i>', ko: '처음이라면,<br><i class="accent">인기 메뉴부터.</i>' },
@@ -69,15 +69,8 @@ export default {
       text: { en: 'Both open 5:30pm to 3am, every day. Reserve, check the menu or order delivery for the location you want.', ko: '두 매장 모두 매일 오후 5시 30분부터 새벽 3시까지. 매장별로 예약, 메뉴, 배달 주문을 바로 이용할 수 있어요.' } }
   ],
   footer: `<div><b>EHWA</b><span data-ko="한식 주점 · 매일 오후 5:30 – 새벽 3:00">Korean Kitchen &amp; Soju Bar · daily 5:30pm – 3am</span></div><div><span data-ko="업타운">Uptown</span> · <a href="tel:+14376659995">(437) 665-9995</a><br><span data-ko="다운타운">Downtown</span> · <a href="tel:+14372672266">(437) 267-2266</a></div><div><a href="https://www.instagram.com/ehwa_restaurant" target="_blank" rel="noopener">Instagram</a></div>`,
-  css: `.hero--split{background:radial-gradient(ellipse at 75% 45%,#5a1d17 0%,transparent 55%),var(--md-sys-color-surface)}
-.m-brand{align-items:center}
-.host{position:relative;height:min(600px,70vh);width:100%}
-.host>img{width:100%;height:100%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 30px 50px #0009)}
-.host__plates{position:absolute;left:0;bottom:24px;display:flex}
-.host__plates span{width:112px;height:112px;border-radius:50%;overflow:hidden;border:4px solid var(--md-sys-color-surface);margin-right:-22px;box-shadow:var(--md-sys-elevation-3)}
-.host__plates img{width:100%;height:100%;object-fit:cover}
+  css: `.m-brand{align-items:center}
 .night{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:28px}
 .night__bar{width:min(420px,80vw);height:10px;border-radius:10px;background:color-mix(in srgb,var(--md-sys-color-on-primary) 18%,transparent);overflow:hidden}
-.night__bar i{display:block;height:100%;width:calc(var(--left,1) * 100%);background:var(--md-sys-color-on-primary);border-radius:10px;transition:width var(--md-sys-motion-duration-long) var(--md-sys-motion-easing-emphasized)}
-@media(max-width:900px){.host{height:300px}.host__plates span{width:80px;height:80px}}`
+.night__bar i{display:block;height:100%;width:calc(var(--left,1) * 100%);background:var(--md-sys-color-on-primary);border-radius:10px;transition:width var(--md-sys-motion-duration-long) var(--md-sys-motion-easing-emphasized)}`
 };

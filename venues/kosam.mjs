@@ -35,7 +35,7 @@ export default {
       title: { en: 'Samgyetang,<br><i class="accent">forty years in the making.</i>', ko: '40년 전통의<br><i class="accent">삼계탕.</i>' },
       text: { en: 'From the owners of a restaurant that ran for more than 40 years in South Korea. Ginseng chicken soup, bibimbap and soft tofu stew at two North York locations.', ko: '한국에서 40년 넘게 사랑받은 식당의 주인이 토론토에 문을 열었어요. 삼계탕, 비빔밥, 순두부를 노스욕 두 곳에서 만나보세요.' },
       ctas: [{ href: '#visit', label: { en: 'Find a location', ko: '매장 찾기' }, icon: 'location_on' }, { href: '#dishes', label: { en: 'See the dishes', ko: '대표 메뉴 보기' } }],
-      visual: `<div class="bowl"><img src="${K}team/samgyetang.jpg" alt="Samgyetang, whole ginseng chicken soup in a stone pot" width="1200" height="900" fetchpriority="high"><span class="steam" aria-hidden="true"><i></i><i></i><i></i></span></div>` },
+      image: { src: K + 'team/samgyetang.jpg', w: 1200, h: 900, focal: '50% 45%', alt: { en: 'Samgyetang, whole ginseng chicken soup in a stone pot', ko: '뚝배기에 담긴 삼계탕' } } },
     { type: 'facts', items: [{ value: { en: '40+ yrs', ko: '40년+' }, label: { en: 'Restaurant roots in South Korea', ko: '한국에서 이어온 식당' } }, { value: '2', label: { en: 'North York locations', ko: '노스욕 매장' } }, { value: { en: '11am', ko: '오전 11시' }, label: { en: 'Open daily from', ko: '매일 오픈' } }, { value: { en: 'Patio', ko: '테라스' }, label: { en: 'At Yonge &amp; Sheppard', ko: '영 &amp; 쉐퍼드점' } }] },
     { type: 'cards', id: 'dishes', media: 'photo', ratio: '4/3', cols: 3, scroll: false,
       eyebrow: { en: 'Our dishes', ko: '대표 메뉴' }, title: { en: 'Three bowls<br><i class="accent">to know.</i>', ko: 'KoSam의<br><i class="accent">대표 메뉴 세 가지.</i>' },
@@ -53,12 +53,5 @@ export default {
       text: { en: 'Sheppard stays open until midnight Thursday to Saturday. Leslie is also known as Koryo Samgyetang.', ko: '쉐퍼드점은 목·금·토 자정까지 영업해요. 레슬리점은 고려삼계탕이라는 이름으로도 알려져 있어요.' } }
   ],
   footer: `<div><b>KoSam</b><span data-ko="KoSam 한식당 &amp; 바 · info@kosam.ca">KoSam Korean Restaurant &amp; Bar · info@kosam.ca</span></div><div><span data-ko="쉐퍼드점">Sheppard</span> · <a href="tel:+14165512826">416-551-2826</a><br><span data-ko="레슬리점">Leslie</span> · <a href="tel:+14164930880">416-493-0880</a></div>`,
-  css: `.bowl{position:relative;width:min(520px,100%);aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 30px 60px #1d1a1733}
-.bowl img{width:100%;height:100%;object-fit:cover;object-position:50% 45%}
-.steam{position:absolute;left:30%;right:30%;top:6%;height:40%;pointer-events:none}
-.steam i{position:absolute;bottom:0;width:30%;height:70%;border-radius:50%;background:radial-gradient(ellipse at 50% 80%,#ffffffcc 0,#fff0 65%);filter:blur(8px);animation:rise 3.2s ease-in-out infinite}
-.steam i:nth-child(1){left:5%}.steam i:nth-child(2){left:36%;animation-delay:1.1s}.steam i:nth-child(3){left:66%;animation-delay:2.1s}
-@keyframes rise{0%{transform:translateY(30%) scale(.8);opacity:0}35%{opacity:.85}100%{transform:translateY(-60%) scale(1.25);opacity:0}}
-.m-brand small{font-size:13px;letter-spacing:0}
-@media(max-width:900px){.bowl{width:min(300px,78vw)}}`
+  css: `.m-brand small{font-size:13px;letter-spacing:0}`
 };

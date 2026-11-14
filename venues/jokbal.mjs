@@ -9,7 +9,7 @@ const r = (name, ko, price, desc, tag) => ({ name, ko, price, desc, tag });
 const sz = (...p) => p.map(([s, v]) => `<em>${s}</em>${v}`).join('');
 
 export default {
-  id: 'jokbal', langs: ['en', 'ko'], micro: ['lights'],
+  id: 'jokbal', langs: ['en', 'ko'], micro: [],
   title: { en: 'Jokbal Night Market — Korean jokbal & bossam, Sheppard & Yonge', ko: '족발야시장 | 토론토 노스욕 족발 · 보쌈' },
   description: 'Jokbal Night Market (족발야시장): Korean jokbal and bossam simmered with ten herbal ingredients, plus gamjatang. 41 Sheppard Ave E, North York. Open daily 11:30am to midnight.',
   theme: {
@@ -35,7 +35,7 @@ export default {
       title: { en: 'Jokbal, simmered<br><i class="accent">with ten herbs.</i>', ko: '열 가지 한약재로<br><i class="accent">삶아낸 족발.</i>' },
       text: { en: 'Pork trotters simmered for hours in our secret soy recipe, served with lettuce and sides for wrapping. Bossam and gamjatang too, every day until midnight.', ko: '비법 간장 육수와 열 가지 한약재로 오래 삶아낸 족발. 보쌈과 감자탕도 함께, 매일 자정까지 영업해요.' },
       ctas: [{ href: ORDER, label: { en: 'Order for pickup', ko: '픽업 주문하기' }, icon: 'shopping_bag' }, { href: '#menu', label: { en: 'See the menu', ko: '메뉴 보기' } }],
-      visual: `<div class="stage"><button class="lights" type="button" data-lights data-on="true" aria-label="Toggle the string lights"><span></span></button><div class="m-plate stage__main" role="img" aria-label="Jokmahawk" style="--src:url(${pg[2]});--cx:296;--cy:540;--r:200;--s:400"></div><div class="m-plate stage__side" role="img" aria-label="Original jokbal" style="--src:url(${pg[3]});--cx:165;--cy:525;--r:118;--s:210"></div><span class="stage__new" data-ko="신메뉴<br>족마호크">New<br>Jokmahawk</span></div>` },
+      image: { src: pg[2], w: 555, h: 1323, focal: '50% 66%', alt: { en: 'Jokmahawk and crispy jokbal', ko: '족마호크와 크리스피 족발' } } },
     { type: 'facts', items: [{ value: '10', label: { en: 'Herbal ingredients in the broth', ko: '육수에 들어가는 한약재' } }, { value: 'S · M · L', label: { en: 'Sizes for any table', ko: '인원에 맞는 사이즈' } }, { value: { en: '11:30–12', ko: '11:30–24:00' }, label: { en: 'Open daily until midnight', ko: '매일 자정까지 영업' } }, { value: { en: 'Pickup', ko: '픽업' }, label: { en: 'Order online', ko: '온라인 주문 가능' } }] },
     { type: 'cards', id: 'jokbal', media: 'plate', plateSize: 176, cols: 4,
       eyebrow: { en: 'Jokbal', ko: '족발' }, title: { en: 'Original, spicy<br><i class="accent">or both.</i>', ko: '오리지널, 불족발,<br><i class="accent">아니면 반반.</i>' },
@@ -71,19 +71,8 @@ export default {
     { type: 'locations', id: 'visit', eyebrow: { en: 'Visit', ko: '오시는 길' }, title: { en: 'Open every day<br><i class="accent">until midnight.</i>', ko: '매일<br><i class="accent">자정까지 영업.</i>' } }
   ],
   footer: `<div><b>족발야시장</b>Jokbal Night Market · 41 Sheppard Ave E</div><div><span data-ko="매일 오전 11:30 – 자정">Every day 11:30am – midnight</span><br><a href="tel:+14165127211">(416) 512-7211</a></div>`,
-  css: `.hero--split{background:radial-gradient(ellipse at 70% 60%,#2a2350 0%,transparent 60%),var(--md-sys-color-surface)}
-.m-brand{font-size:26px}
-.stage{position:relative;width:100%;height:520px}
-.stage .m-plate{position:absolute;margin:0;box-shadow:0 0 0 6px var(--md-sys-color-surface),0 24px 48px #000a}
-.stage__main{right:10px;top:34px}.stage__side{left:0;bottom:0}
-.stage__new{position:absolute;right:26px;top:24px;width:96px;height:96px;border-radius:50%;display:grid;place-items:center;text-align:center;background:var(--md-sys-color-primary);color:var(--md-sys-color-on-primary);font:400 18px/1.05 'Black Han Sans',sans-serif;transform:rotate(10deg);box-shadow:var(--md-sys-elevation-3)}
-.lights{position:absolute;left:-10px;right:-10px;top:-6px;height:34px;z-index:2}
-.lights span{position:absolute;inset:0;background:radial-gradient(circle at 18px 18px,#ffd77a 4px,#ffd77a66 7px,transparent 11px) 0 0/36px 34px repeat-x;filter:drop-shadow(0 0 6px #ffcf6a99);transition:opacity var(--md-sys-motion-duration-medium)}
-.lights[data-on="true"] span{animation:twinkle 2.4s ease-in-out infinite}
-.lights[data-on="false"] span{opacity:.18;filter:none}
-@keyframes twinkle{50%{opacity:.65}}
+  css: `.m-brand{font-size:26px}
 .m-card--plate{background:var(--md-sys-color-surface-container)}
 .m-card--plate .m-card__title h3{font-size:22px;font-weight:400}
-.m-section--tint .m-card--plate{background:var(--md-sys-color-surface-container-high)}
-@media(max-width:900px){.stage{height:330px}.stage__main{--s:250!important;right:0;top:30px}.stage__side{--s:140!important}.stage__new{width:72px;height:72px;font-size:12px;right:14px;top:16px}}`
+.m-section--tint .m-card--plate{background:var(--md-sys-color-surface-container-high)}`
 };

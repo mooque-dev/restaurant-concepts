@@ -6,7 +6,7 @@ const ORDER = 'https://order.online/business/coffee-lunar-14611823';
 const day = (o, c) => Array(7).fill([o, c]);
 
 export default {
-  id: 'lunar', langs: ['en'], micro: ['moon'],
+  id: 'lunar', langs: ['en'], micro: [],
   title: { en: 'Coffee Lunar — specialty drinks & desserts, Rosedale and North York' },
   description: 'Coffee Lunar: signature drops, espresso and desserts at 920 Yonge St (Rosedale) and 6040 Yonge St (North York), Toronto. Order ahead online.',
   theme: {
@@ -34,17 +34,17 @@ export default {
     { type: 'hero', eyebrow: 'Specialty drinks &amp; desserts · Rosedale · North York', title: 'Minimal space.<br><i class="accent">Creative cups.</i>',
       text: 'Signature drops made with housemade syrups and silky cream, plus carefully made espresso classics. Two cafés on Yonge, open every day.',
       ctas: [{ href: ORDER, label: 'Order ahead', icon: 'shopping_bag' }, { href: '#visit', label: 'Find a café' }],
-      visual: `<div class="moonstage" data-moon><div class="moon"><span class="moon__shadow"></span></div><img src="${Q}ac9a7fb4-f8ad-4df2-8dd8-50cc53f2c41e/Cream+Drop.png?format=750w" alt="Cream Drop in a glass" width="750" height="750" fetchpriority="high"><span class="moonchip m-chip"><span class="mini-moon"><span class="moon__shadow"></span></span><span data-moon-label>Tonight's moon</span></span></div>` },
+      cutout: true, image: C('ac9a7fb4-f8ad-4df2-8dd8-50cc53f2c41e/Cream+Drop.png', 'Cream Drop in a glass', 1.45) },
     { type: 'facts', items: [{ value: '2', label: 'Cafés on Yonge' }, { value: '6', label: 'Signature drinks' }, { value: 'Daily', label: 'Open every day' }, { value: 'Online', label: 'Order ahead for pickup' }] },
     { type: 'cards', id: 'drops', media: 'cutout', ratio: '1/1', cols: 3, eyebrow: 'Signature', title: 'Signature<br><i class="accent">drops.</i>',
       text: 'Most are built on a housemade syrup or concentrate. Three come hot or iced; the rest are served cold.',
       items: [
-        { image: C('ac9a7fb4-f8ad-4df2-8dd8-50cc53f2c41e/Cream+Drop.png', 'Cream Drop', 1.7), title: 'Cream Drop', desc: 'Double espresso, a hint of housemade brown sugar syrup, silky cream with condensed milk and cacao.', temps: ['hot', 'iced'] },
-        { image: C('0715082f-b2a8-413d-8d82-b217aadb89d5/Matcha+Drop+-+adjusted.png', 'Matcha Drop', 1.85), title: 'Matcha Drop', desc: 'Matcha with housemade vanilla bean syrup, silky cream and dried cornflower petals.', temps: ['hot', 'iced'] },
-        { image: C('085afc9b-9408-48e6-9292-6fa82ee3b3cf/Vanilla+Drop+Latte.png', 'Vanilla Drop Latte', 1.6), title: 'Vanilla Drop Latte', desc: 'Double espresso over chilled milk with vanilla bean syrup, silky cream and turbinado sugar.', temps: ['iced'] },
-        { image: { ...C('aa557da9-291e-4927-8076-c036f321f3f5/Ube+Latte.png', 'Ube Oat Latte', 1.8), w: 723, h: 545 }, title: 'Ube Oat Latte', desc: 'House-blended ube concentrate with oat milk.', temps: ['hot', 'iced'] },
-        { image: { ...C('e63e8dc8-681e-4bd4-a3f0-80a05ae4a272/Tomjito.png', 'Tomjiho', 0.72), w: 750, h: 905 }, title: 'Tomjiho', desc: 'Housemade tomato lime syrup with a hint of mint, over sparkling water and ice.', temps: ['iced'] },
-        { image: { ...C('1f15a082-585c-4a8e-bdb3-73718808190c/Cascara+Tonic.png', 'Cascara Tonic', 1.3), w: 539, h: 539 }, title: 'Cascara Tonic', desc: 'Housemade cascara (dried coffee cherry skin) syrup over sparkling water, with dried lemon.', temps: ['iced'] }
+        { image: C('ac9a7fb4-f8ad-4df2-8dd8-50cc53f2c41e/Cream+Drop.png', 'Cream Drop', 1.7), title: 'Cream Drop', desc: 'Double espresso, a hint of housemade brown sugar syrup, silky cream with condensed milk and cacao.', tags: ['Hot or iced'] },
+        { image: C('0715082f-b2a8-413d-8d82-b217aadb89d5/Matcha+Drop+-+adjusted.png', 'Matcha Drop', 1.85), title: 'Matcha Drop', desc: 'Matcha with housemade vanilla bean syrup, silky cream and dried cornflower petals.', tags: ['Hot or iced'] },
+        { image: C('085afc9b-9408-48e6-9292-6fa82ee3b3cf/Vanilla+Drop+Latte.png', 'Vanilla Drop Latte', 1.6), title: 'Vanilla Drop Latte', desc: 'Double espresso over chilled milk with vanilla bean syrup, silky cream and turbinado sugar.', tags: ['Iced'] },
+        { image: { ...C('aa557da9-291e-4927-8076-c036f321f3f5/Ube+Latte.png', 'Ube Oat Latte', 1.8), w: 723, h: 545 }, title: 'Ube Oat Latte', desc: 'House-blended ube concentrate with oat milk.', tags: ['Hot or iced'] },
+        { image: { ...C('e63e8dc8-681e-4bd4-a3f0-80a05ae4a272/Tomjito.png', 'Tomjiho', 0.72), w: 750, h: 905 }, title: 'Tomjiho', desc: 'Housemade tomato lime syrup with a hint of mint, over sparkling water and ice.', tags: ['Iced'] },
+        { image: { ...C('1f15a082-585c-4a8e-bdb3-73718808190c/Cascara+Tonic.png', 'Cascara Tonic', 1.3), w: 539, h: 539 }, title: 'Cascara Tonic', desc: 'Housemade cascara (dried coffee cherry skin) syrup over sparkling water, with dried lemon.', tags: ['Iced'] }
       ] },
     { type: 'menu', id: 'menu', tint: true, eyebrow: 'Menu', title: 'The classics,<br><i class="accent">done carefully.</i>', text: 'Espresso drinks and non-coffee favourites. Ask in the café for today’s desserts.',
       tabs: [
@@ -57,17 +57,6 @@ export default {
     { type: 'links', eyebrow: 'Also at Lunar', items: [{ href: 'https://coffeelunar.com/foods', kicker: 'Food', title: 'Sandwiches &amp; desserts', text: 'See what’s in the case today.' }, { href: 'https://coffeelunar.com/store/merchandise', kicker: 'Shop', title: 'Merch', text: 'Take a little Lunar home.' }, { href: 'https://www.instagram.com/coffeelunar', kicker: 'Instagram', title: '@coffeelunar', text: 'New drinks and café updates.' }] }
   ],
   footer: `<div><b>COFFEE LUNAR</b>Specialty drinks &amp; desserts</div><div>Rosedale · 920 Yonge St · 8am – 5pm<br>North York · 6040 Yonge St · 9am – 7pm</div>`,
-  css: `.moonstage{position:relative;width:min(520px,100%);aspect-ratio:1}
-.moon{position:absolute;inset:6%;border-radius:50%;overflow:hidden;background:radial-gradient(circle at 36% 34%,#fff 0%,#e6e1d8 58%,#cfc8bc 100%);box-shadow:inset -24px -24px 60px #0000000f}
-.moon__shadow{position:absolute;inset:0;border-radius:50%;background:#2a2a2a;opacity:.08;transform:translateX(var(--shift,0%));transition:transform var(--md-sys-motion-duration-long) var(--md-sys-motion-easing-emphasized)}
-.moonstage>img{position:absolute;inset:14%;width:72%;height:72%;object-fit:contain;transform:scale(1.55);filter:drop-shadow(0 30px 24px #0000002a)}
-.moonchip{position:absolute;right:4%;bottom:8%;background:var(--md-sys-color-surface-container-lowest);box-shadow:var(--md-sys-elevation-2);border:0;min-height:40px;padding:0 14px;color:var(--md-sys-color-on-surface)}
-.mini-moon{position:relative;width:18px;height:18px;border-radius:50%;overflow:hidden;background:#e6e1d8;box-shadow:inset 0 0 0 1px #0002}
-.mini-moon .moon__shadow{opacity:.85}
-.m-card[data-temp] .m-media::after{content:"";position:absolute;left:50%;top:18%;width:40%;height:30%;transform:translateX(-50%);pointer-events:none;opacity:0;transition:opacity var(--md-sys-motion-duration-medium)}
-.m-card[data-temp="hot"] .m-media::after{opacity:.55;background:radial-gradient(ellipse at 40% 80%,#fff 0,#fff0 60%),radial-gradient(ellipse at 62% 60%,#fff 0,#fff0 55%);filter:blur(6px);animation:steam 2.6s ease-in-out infinite}
-@keyframes steam{0%{transform:translate(-50%,10%);opacity:0}40%{opacity:.6}100%{transform:translate(-50%,-30%);opacity:0}}
-.m-card .m-seg[data-temp] .m-seg__btn{min-width:40px;padding:0 10px}
-.m-card .m-seg[data-temp] .icon{font-size:18px;vertical-align:-3px}
-@media(max-width:900px){.moonstage{width:min(300px,80vw)}}`
+  css: `.m-card .m-seg[data-temp] .m-seg__btn{min-width:40px;padding:0 10px}
+.m-card .m-seg[data-temp] .icon{font-size:18px;vertical-align:-3px}`
 };

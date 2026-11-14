@@ -1,14 +1,14 @@
 // Mikaku Izakaya — copy carried over from the approved v1 page (English + Korean).
 const D = { 'beef-tartare': [1200, 943], 'beef-tataki': [958, 1200], buta: [1200, 1086], 'cream-cheese-tekbokki': [1200, 800], 'grilled-butter-squid': [1200, 1505], img_1961: [899, 1200], img_1965: [1200, 892], img_1967: [801, 1200], img_1973: [799, 1200], 'maze-udon': [1200, 800], 'mikaku-1535': [1200, 800], 'mikaku-interior': [1200, 900], 'rose-teokbokki': [1200, 911], 'salmon-tataki': [1008, 1200], 'spicy-cream-udon': [1200, 800] };
-const P = (n, alt, extra = {}) => ({ src: `../img/${n}-1200.webp`, srcset: `../img/${n}-640.webp 640w, ../img/${n}-1200.webp 1200w`, w: D[n][0], h: D[n][1], alt, ...extra });
+const P = (n, alt, extra = {}) => ({ src: `img/${n}-1200.webp`, srcset: `img/${n}-640.webp 640w, img/${n}-1200.webp 1200w`, w: D[n][0], h: D[n][1], alt, ...extra });
 const S5 = [1050, 1590];                          // 5:30pm – 2:30am
 const BOOK = 'https://mikaku.setmore.com/', TEL = 'tel:+16477482340', MAP = 'https://maps.google.com/?q=6180+Yonge+St+North+York+ON';
 
 export default {
-  id: 'mikaku', langs: ['en', 'ko'], micro: ['lastCall', 'daruma'],
+  id: 'mikaku', langs: ['en', 'ko'], micro: ['lastCall'],
   title: { en: 'Mikaku Izakaya — Late-night sake bar, Yonge & Finch', ko: '미카쿠 이자카야 | 영 & 핀치 심야 이자카야 · 사케 바' },
   description: 'Mikaku Izakaya: a late-night Japanese izakaya and sake bar at 6180 Yonge St, North York. Open Tuesday to Sunday until 2:30am. Book a table.',
-  preload: { href: '../img/grilled-butter-squid-1200.webp', srcset: '../img/grilled-butter-squid-640.webp 640w, ../img/grilled-butter-squid-1200.webp 1200w' },
+  preload: { href: 'img/grilled-butter-squid-1200.webp', srcset: 'img/grilled-butter-squid-640.webp 640w, img/grilled-butter-squid-1200.webp 1200w' },
   theme: {
     colors: { scheme: 'dark', primary: '#d2352a', secondary: '#d8b56a', tertiary: '#7fae8a', neutral: '#0f0d0c' },
     fonts: {
@@ -39,20 +39,18 @@ export default {
       darumaWish: '다루마를 눌러 소원을 빌어 보세요. 소원을 빌 때 한쪽 눈을, 이루어지면 나머지 눈을 그리는 전통이 있어요.', darumaOne: '한쪽 눈을 그렸어요. 소원을 빌었어요.', darumaTwo: '두 눈을 모두 그렸어요. 소원 성취. 다시 누르면 처음부터예요.' }
   },
   sections: [
-    { type: 'hero', variant: 'photo', image: P('grilled-butter-squid', { en: 'Grilled butter squid beside daruma dolls and a bottle of sake', ko: '다루마 인형과 사케 옆의 버터 오징어구이' }, { focal: '50% 40%' }),
+    { type: 'hero', image: P('grilled-butter-squid', { en: 'Grilled butter squid beside daruma dolls and a bottle of sake', ko: '다루마 인형과 사케 옆의 버터 오징어구이' }, { focal: '50% 40%' }),
       eyebrow: { en: 'Izakaya &amp; Sake Bar · Yonge &amp; Finch', ko: '이자카야 &amp; 사케 바 · 영 &amp; 핀치' },
       title: { en: 'Good food,<br><i class="accent">better</i> sake,<br>open ’til 2:30.', ko: '늦은 밤,<br><i class="accent">한 잔 더</i><br>하고 싶을 때.' },
       text: { en: 'North York’s late-night izakaya. Japanese bar plates with a Korean accent, seven pages of sake, and a shelf of daruma dolls who have seen it all.', ko: '새벽 2시 30분까지 문을 여는 노스욕의 작은 이자카야. 한국인 입맛에 맞춘 일본식 안주와 일곱 페이지 분량의 사케를 준비했어요.' },
-      ctas: [{ href: BOOK, label: { en: 'Book a table', ko: '예약하기' }, icon: 'event_available' }, { href: '#menu', label: { en: 'See what to order', ko: '대표 메뉴 보기' } }],
-      aside: '<div data-ko="화 – 일<br>오후 5:30 – 새벽 2:30<br>월요일 휴무">Tue – Sun<br>5:30pm – 2:30am<br>Closed Mondays</div>' },
+      ctas: [{ href: BOOK, label: { en: 'Book a table', ko: '예약하기' }, icon: 'event_available' }, { href: '#menu', label: { en: 'See what to order', ko: '대표 메뉴 보기' } }] },
     { type: 'facts', items: [{ value: { en: '2:30', ko: '2:30' }, label: { en: 'Last call, a.m.', ko: '새벽 마감' } }, { value: '7', label: { en: 'Pages of sake', ko: '페이지 분량의 사케 리스트' } }, { value: '1', label: { en: 'Heated tatami room', ko: '난방되는 다다미 좌식 룸' } }] },
     { type: 'story', id: 'story',
       eyebrow: { en: '<span class="jp">味覚</span> mi·ka·ku — <i>n.</i> the sense of taste.', ko: '<span class="jp">味覚</span> 미카쿠 — 일본어로 ‘미각’, 맛을 느끼는 감각.' },
       title: { en: 'Miraculously good times.<br><i class="accent">Mikakulously</i> late nights.', ko: '다른 곳이 문을 닫을 때,<br><i class="accent">미카쿠</i>는 이제 시작.' },
       paras: [{ en: 'We’re where you end up after work, after the movie, after everywhere else has closed. Plates come out fast. Sake gets poured generously. The daruma dolls keep watch, and they never judge.', ko: '퇴근 후 한 잔, 영화 끝나고 한 잔, 다른 가게들이 모두 문을 닫은 뒤의 한 잔까지. 안주는 빠르게, 사케는 넉넉하게 준비해 드려요.' },
               { en: 'We cook Japanese bar food the way we like to eat it: smoky, buttery, a little spicy, and made for passing around the table.', ko: '불향 가득한 삼겹살 구이, 버터 향 진한 오징어구이, 은근히 매콤한 크림 우동까지. 여럿이 나눠 먹기 좋은 메뉴로 채웠어요.' }],
-      images: [P('mikaku-interior', { en: 'Mikaku dining room at night', ko: '밤의 미카쿠 매장' }), P('beef-tataki', { en: 'Beef tataki', ko: '소고기 타다키' })],
-      extra: `<button class="daruma m-interactive" type="button" data-daruma data-eyes="0" aria-label="Daruma"><svg viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="35" rx="25" ry="27" fill="var(--md-sys-color-primary)"/><ellipse cx="32" cy="28" rx="16" ry="12" fill="#f4ede2"/><circle class="eye eye1" cx="25.5" cy="27" r="4.2"/><circle class="eye eye2" cx="38.5" cy="27" r="4.2"/><path d="M26 49c4 3 8 3 12 0" stroke="#f4ede2" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg><span class="t-body-m" data-daruma-label></span></button>` },
+      images: [P('mikaku-interior', { en: 'Mikaku dining room at night', ko: '밤의 미카쿠 매장' }), P('beef-tataki', { en: 'Beef tataki', ko: '소고기 타다키' })] },
     { type: 'cards', id: 'menu', media: 'photo', ratio: '4/3', cols: 3,
       eyebrow: { en: 'The Order', ko: '대표 메뉴' }, title: { en: 'Don’t overthink it.<br><i class="accent">Start here.</i>', ko: '처음이라면,<br><i class="accent">이 여섯 가지부터.</i>' },
       text: { en: 'Six plates our regulars keep coming back for. Add a bottle of yuzu sake. Fight over the last bite. Still stuck? Ask your server. Reviewers say their picks were the best part of the night.', ko: '리뷰에서 자주 언급되는 메뉴들이에요. 유자 사케 한 병과 함께 즐겨 보세요. 메뉴가 고민될 땐 직원에게 추천을 부탁하셔도 좋아요.' },
@@ -96,10 +94,5 @@ export default {
 .m-brand small{color:var(--md-sys-color-primary-text)}
 .story__text .eyebrow{text-transform:none;letter-spacing:0;font:400 20px/1.4 var(--md-ref-typeface-brand);color:var(--md-sys-color-on-surface-variant)}
 .story__text .eyebrow .jp{color:var(--md-sys-color-primary-text);font-size:22px;margin-right:8px}
-.daruma{display:flex;align-items:center;gap:14px;margin-top:28px;padding:12px 18px 12px 12px;border-radius:var(--md-sys-shape-corner-l);background:var(--md-sys-color-surface-container);text-align:left;max-width:460px}
-.daruma svg{width:52px;height:52px;flex:none;transition:transform var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-emphasized)}
-.daruma:active svg{transform:rotate(-8deg) scale(.95)}
-.daruma .eye{fill:#f4ede2;stroke:#1a1a1a;stroke-width:1.2;transition:fill var(--md-sys-motion-duration-medium)}
-.daruma[data-eyes="1"] .eye1,.daruma[data-eyes="2"] .eye{fill:#141414}
 .m-quote blockquote{max-width:22ch}`
 };

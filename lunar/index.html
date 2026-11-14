@@ -4,246 +4,597 @@
 <title>Coffee Lunar — specialty drinks &amp; desserts, Rosedale and North York</title>
 <meta name="description" content="Coffee Lunar: signature drops, espresso and desserts at 920 Yonge St (Rosedale) and 6040 Yonge St (North York), Toronto. Order ahead online.">
 <meta name="theme-color" content="#f4f2ee">
+
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{--paper:#f4f2ee;--white:#fff;--ink:#121212;--mute:#6f6c66;--line:#1212121c;--moon:#dedad2;--cream:#efe4d2}
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..24,400..500,0..1,0&icon_names=ac_unit,arrow_forward,content_copy,directions,local_cafe,local_fire_department,location_on,menu,shopping_bag&display=block" rel="stylesheet">
+<style>:root{--md-sys-color-surface:#f4f2ee;--md-sys-color-surface-dim:#e1dfdb;--md-sys-color-surface-container-lowest:#ffffff;--md-sys-color-surface-container-low:#efede9;--md-sys-color-surface-container:#e9e7e3;--md-sys-color-surface-container-high:#e1dfdb;--md-sys-color-surface-container-highest:#d7d6d2;--md-sys-color-on-surface:#020101;--md-sys-color-on-surface-variant:#353433;--md-sys-color-outline:#7a7977;--md-sys-color-outline-variant:#cbc9c6;--md-sys-color-primary:#151515;--md-sys-color-on-primary:#ffffff;--md-sys-color-primary-container:#bdbbb8;--md-sys-color-on-primary-container:#020202;--md-sys-color-primary-text:#151515;--md-sys-color-primary-text-on-low:#151515;--md-sys-color-secondary:#7a7268;--md-sys-color-on-secondary:#ffffff;--md-sys-color-secondary-container:#d8d4cf;--md-sys-color-on-secondary-container:#24211d;--md-sys-color-secondary-text:#726a61;--md-sys-color-secondary-text-on-low:#696259;--md-sys-color-tertiary:#1f7a47;--md-sys-color-on-tertiary:#ffffff;--md-sys-color-tertiary-container:#c7d7c7;--md-sys-color-on-tertiary-container:#042411;--md-sys-color-tertiary-text:#1f7a47;--md-sys-color-tertiary-text-on-low:#1c7242;--md-sys-color-scrim:#000000;--md-sys-color-inverse-surface:#1d1b18;--md-sys-color-inverse-on-surface:#f4f0ea;--md-ref-typeface-brand:Unbounded,sans-serif;--md-ref-typeface-plain:Inter,system-ui,sans-serif;--md-ref-typeface-ko:'Apple SD Gothic Neo',sans-serif;--md-ref-display-weight:700;--md-ref-display-tracking:-.035em;--md-ref-brand-tracking:.14em;--md-ref-accent-style:normal;--md-sys-shape-corner-xs:8px;--md-sys-shape-corner-s:12px;--md-sys-shape-corner-m:16px;--md-sys-shape-corner-l:24px;--md-sys-shape-corner-xl:28px;--md-sys-shape-corner-full:999px;--md-ref-cutout-bg:#ffffff;color-scheme:light}
+/* Restaurant template design system (Material 3–style).
+   Tokens come from each venue's theme (colour roles, fonts, shape); components below only read tokens. */
+
+/* ---------- base ---------- */
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--ink);font:400 16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-img{display:block;width:100%;height:100%;object-fit:cover}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--md-sys-color-surface);color:var(--md-sys-color-on-surface);font:400 var(--md-sys-typescale-body-large-size)/var(--md-sys-typescale-body-large-line) var(--md-ref-typeface-plain);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
-a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
-.wrap{max-width:1200px;margin:0 auto;padding:0 36px}
-.eyebrow{font:600 11.5px/1.4 Inter;letter-spacing:.24em;text-transform:uppercase;color:var(--mute)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 24px;border-radius:99px;font:600 14px Inter;transition:.2s;white-space:nowrap}
-.btn-ink{background:var(--ink);color:var(--paper)}.btn-ink:hover{background:#333}
-.btn-line{border:1.5px solid var(--ink)}.btn-line:hover{background:var(--ink);color:var(--paper)}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--md-sys-color-primary-text);outline-offset:3px;border-radius:4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.icon{font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;font-size:20px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;-webkit-font-feature-settings:'liga';font-feature-settings:'liga';font-variation-settings:'FILL' 0,'wght' 450,'GRAD' 0,'opsz' 24;vertical-align:-4px}
 
-.concept-ribbon{background:var(--ink);color:#f4f2ee;font:500 12.5px/1.4 system-ui,sans-serif;text-align:center;padding:8px 14px}
-.concept-ribbon a{text-decoration:underline}
-.status{border-bottom:1px solid var(--line);font:500 13px Inter;padding:9px 16px;display:flex;justify-content:center;gap:6px 26px;flex-wrap:wrap;color:#3a3833}
-.status span{display:inline-flex;align-items:center;gap:8px}
-.pill{width:8px;height:8px;border-radius:50%;background:#2e9d5b}.pill.off{background:#c9c6bf}
-
-nav{position:sticky;top:0;z-index:15;background:#f4f2eef2;border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:70px;position:relative}
-.logo{font:700 19px Unbounded,sans-serif;letter-spacing:.12em}
-.links{display:flex;gap:30px;font-size:14px;font-weight:500}
-.nav-r{display:flex;gap:10px;align-items:center}
-.menu-btn{display:none;height:38px;padding:0 14px;border-radius:99px;border:1.5px solid var(--ink);background:none;font:600 12px Inter;cursor:pointer;color:var(--ink)}
-nav .btn{height:40px;padding:0 18px;font-size:13px}
-.mobile-menu{position:absolute;top:100%;left:16px;right:16px;background:#fffffff8;border:1px solid var(--line);border-radius:16px;padding:8px;display:grid;box-shadow:0 20px 40px #0001}
-.mobile-menu[hidden]{display:none}
-.mobile-menu a{padding:14px 16px;font:500 20px Unbounded,sans-serif;border-bottom:1px solid var(--line)}.mobile-menu a:last-child{border:0}
-
-.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;min-height:620px;padding-top:30px;padding-bottom:50px}
-.hero h1{font:700 clamp(44px,5.8vw,84px)/1.02 Unbounded,sans-serif;letter-spacing:-.03em;margin:16px 0 22px}
-.hero h1 span{color:#9a958c}
-.hero p{font-size:18px;color:#45423d;max-width:480px;margin-bottom:30px}
-.cta{display:flex;gap:12px;flex-wrap:wrap}
-.moonstage{position:relative;aspect-ratio:1;max-width:540px;justify-self:center;width:100%}
-.moonstage:before{content:"";position:absolute;inset:6%;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff 0%,var(--moon) 60%,#cfc9be 100%);box-shadow:inset -30px -30px 60px #0000000d}
-.moonstage img{position:relative;object-fit:contain;width:84%;height:84%;margin:8%;filter:drop-shadow(0 30px 30px #0002)}
-.moonstage .lbl{position:absolute;right:2%;bottom:10%;background:var(--white);border-radius:14px;padding:12px 16px;box-shadow:0 10px 30px #0000001a;font-size:13px;max-width:220px}
-.moonstage .lbl b{display:block;font:700 14px Unbounded,sans-serif}
-
-.sec{padding:100px 0}
-.head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:44px}
-.head h2{font:700 clamp(32px,4vw,54px)/1.06 Unbounded,sans-serif;letter-spacing:-.025em;margin-top:12px}
-.head h2 span{color:#9a958c}
-.head p{max-width:420px;color:var(--mute)}
-
-.drops{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.drop{background:var(--white);border-radius:24px;padding:22px 22px 26px;border:1px solid var(--line);display:flex;flex-direction:column}
-.drop .ph{aspect-ratio:1;border-radius:16px;overflow:hidden;background:#f7f6f3;margin-bottom:18px}
-.drop .ph img{object-fit:contain}
-.drop h3{font:700 19px/1.2 Unbounded,sans-serif;letter-spacing:-.01em}
-.drop p{font-size:14.5px;color:var(--mute);margin:8px 0 14px;flex:1}
-.temps{display:flex;gap:6px}
-.temps span{font:600 11px Inter;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);border-radius:99px;padding:4px 10px}
-
-.classics{display:grid;grid-template-columns:1fr 1fr;gap:0 60px;margin-top:60px;border-top:1px solid var(--line)}
-.classics h3{grid-column:1/-1;font:700 15px Unbounded,sans-serif;letter-spacing:.06em;margin:28px 0 6px}
-.cl{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
-.cl b{font-weight:600}.cl span{color:var(--mute);text-align:right;font-size:14px}
-
-.space{background:var(--ink);color:var(--paper)}
-.space .head p{color:#b5b1a9}.space .eyebrow{color:#b5b1a9}.space .head h2 span{color:#8a867e}
-.gal{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:260px 260px;gap:14px}
-.gal figure{border-radius:18px;overflow:hidden}
-.gal figure:first-child{grid-row:span 2}
-
-.locs{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.loc{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:32px}
-.loc .top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:16px}
-.loc h3{font:700 28px/1.1 Unbounded,sans-serif;letter-spacing:-.02em}
-.loc .addr{color:var(--mute);font-size:14.5px;margin-top:4px}
-.now{font:600 12px Inter;padding:6px 12px;border-radius:99px;background:#e3f3e9;color:#1e6b3e;white-space:nowrap}
-.now.off{background:#efedea;color:#6f6c66}
-.loc dl{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;font-size:14.5px;margin-bottom:22px}
-.loc dt{color:var(--mute)}
-.loc .cta .btn{height:44px;font-size:13px}
-
-.more{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
-.more a{background:var(--white);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:block}
-.more .ph{aspect-ratio:4/3;background:#f7f6f3}
-.more .ph img{object-fit:contain}
-.more div.t{padding:18px 22px;display:flex;justify-content:space-between;align-items:center;font:700 16px Unbounded,sans-serif}
-
-footer{border-top:1px solid var(--line);padding:46px 36px 60px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--mute);font-size:14px}
-footer b{display:block;font:700 20px Unbounded,sans-serif;letter-spacing:.12em;color:var(--ink);margin-bottom:4px}
-footer a{color:var(--ink)}
-.moonnow{display:flex;align-items:center;gap:10px}
-.moonnow span:first-child{font-size:26px}
-
-.dock{display:none}
-@media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
-@media(max-width:960px){
- .wrap{padding:0 18px}
- .links{display:none}.menu-btn{display:block}nav .btn{display:none}
- nav .wrap{height:60px}.logo{font-size:16px}
- .hero .wrap{grid-template-columns:1fr;min-height:0;padding-top:20px;padding-bottom:44px;gap:20px}
- .moonstage{max-width:260px;order:-1}
- .hero p{font-size:16px}
- .sec{padding:70px 0}
- .head{flex-direction:column;align-items:flex-start}
- .drops{grid-template-columns:1fr 1fr;gap:12px}.drop{padding:12px 12px 16px;border-radius:18px}.drop p{display:none}.drop h3{font-size:14px}.drop .ph{margin-bottom:12px}
- .classics{grid-template-columns:1fr}
- .gal{grid-template-columns:1fr 1fr;grid-template-rows:220px 150px 150px}.gal figure:first-child{grid-column:span 2;grid-row:auto}
- .locs,.more{grid-template-columns:1fr}
- .loc{padding:24px}
- footer{padding:40px 18px calc(40px + env(safe-area-inset-bottom));flex-direction:column}
- footer a{display:inline-block;padding:8px 0}
- .dock{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:8px;position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:20;background:#fffffff7;padding:8px;border-radius:99px;border:1px solid var(--line);box-shadow:0 10px 30px #0000002a;transition:transform .3s ease,opacity .3s ease}
- .dock.away{transform:translateY(calc(100% + 24px));opacity:0;pointer-events:none}
- .dock a{height:46px;display:grid;place-items:center;border-radius:99px;font:600 13px Inter}
- .dock a:last-child{background:var(--ink);color:var(--paper)}
+/* ---------- tokens shared by all venues ---------- */
+:root{
+ --md-sys-typescale-display-large-size:clamp(44px,7.4vw,104px);--md-sys-typescale-display-large-line:1;
+ --md-sys-typescale-display-medium-size:clamp(36px,5vw,68px);--md-sys-typescale-display-medium-line:1.06;
+ --md-sys-typescale-headline-large-size:clamp(28px,3.2vw,40px);--md-sys-typescale-headline-large-line:1.15;
+ --md-sys-typescale-headline-small-size:24px;--md-sys-typescale-headline-small-line:1.25;
+ --md-sys-typescale-title-large-size:22px;--md-sys-typescale-title-large-line:1.27;
+ --md-sys-typescale-title-medium-size:16px;--md-sys-typescale-title-medium-line:1.5;
+ --md-sys-typescale-body-large-size:16px;--md-sys-typescale-body-large-line:1.6;
+ --md-sys-typescale-body-medium-size:14.5px;--md-sys-typescale-body-medium-line:1.55;
+ --md-sys-typescale-label-large-size:14px;--md-sys-typescale-label-medium-size:12px;
+ --md-sys-motion-easing-standard:cubic-bezier(.2,0,0,1);
+ --md-sys-motion-easing-emphasized:cubic-bezier(.05,.7,.1,1);
+ --md-sys-motion-duration-short:150ms;--md-sys-motion-duration-medium:300ms;--md-sys-motion-duration-long:500ms;
+ --md-sys-elevation-1:0 1px 2px #0000004d,0 1px 3px 1px #00000026;
+ --md-sys-elevation-2:0 1px 2px #0000004d,0 2px 6px 2px #00000026;
+ --md-sys-elevation-3:0 4px 8px 3px #00000026,0 1px 3px #0000004d;
+ --gutter:clamp(16px,4vw,40px);--maxw:1200px;
 }
-</style></head><body>
-<div class="concept-ribbon">Design concept by Mooque Studio, not the official Coffee Lunar website. <a href="https://coffeelunar.com/" target="_blank" rel="noopener">See the current site ↗</a></div>
-<div class="status" id="status"></div>
 
-<nav><div class="wrap">
- <a class="logo" href="#">COFFEE LUNAR</a>
- <div class="links"><a href="#drops">Signature drops</a><a href="#menu">Menu</a><a href="#space">Space</a><a href="#cafes">Locations</a></div>
- <div class="nav-r"><a class="btn btn-ink" href="https://order.online/business/coffee-lunar-14611823" target="_blank" rel="noopener">Order ahead</a><button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu">Menu</button></div>
- <div class="mobile-menu" id="mobileMenu" hidden><a href="#drops">Signature drops</a><a href="#menu">Menu</a><a href="#space">Space</a><a href="#cafes">Locations</a></div>
+/* ---------- type ---------- */
+.t-display-l{font:var(--md-ref-display-weight,400) var(--md-sys-typescale-display-large-size)/var(--md-sys-typescale-display-large-line) var(--md-ref-typeface-brand);letter-spacing:var(--md-ref-display-tracking,-.02em)}
+.t-display-m{font:var(--md-ref-display-weight,400) var(--md-sys-typescale-display-medium-size)/var(--md-sys-typescale-display-medium-line) var(--md-ref-typeface-brand);letter-spacing:var(--md-ref-display-tracking,-.015em)}
+.t-headline-l{font:var(--md-ref-display-weight,400) var(--md-sys-typescale-headline-large-size)/var(--md-sys-typescale-headline-large-line) var(--md-ref-typeface-brand)}
+.t-headline-s{font:var(--md-ref-display-weight,400) var(--md-sys-typescale-headline-small-size)/var(--md-sys-typescale-headline-small-line) var(--md-ref-typeface-brand)}
+.t-title-l{font:500 var(--md-sys-typescale-title-large-size)/var(--md-sys-typescale-title-large-line) var(--md-ref-typeface-plain)}
+.t-title-m{font:600 var(--md-sys-typescale-title-medium-size)/var(--md-sys-typescale-title-medium-line) var(--md-ref-typeface-plain)}
+.t-body-l{font-size:var(--md-sys-typescale-body-large-size);line-height:var(--md-sys-typescale-body-large-line)}
+.t-body-m{font-size:var(--md-sys-typescale-body-medium-size);line-height:var(--md-sys-typescale-body-medium-line)}
+.t-label-l{font:600 var(--md-sys-typescale-label-large-size)/1.4 var(--md-ref-typeface-plain);letter-spacing:.01em}
+.t-label-m{font:600 var(--md-sys-typescale-label-medium-size)/1.4 var(--md-ref-typeface-plain);letter-spacing:.08em;text-transform:uppercase}
+.t-display-l,.t-display-m,.t-headline-l,.m-facts b,.m-price,.m-hours td{font-variant-numeric:lining-nums tabular-nums}
+.accent{color:var(--md-sys-color-secondary-text);font-style:var(--md-ref-accent-style,italic)}
+.muted{color:var(--md-sys-color-on-surface-variant)}
+.eyebrow{color:var(--md-sys-color-secondary-text)}
+
+/* ---------- layout ---------- */
+.m-container{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
+.m-section{padding:clamp(64px,9vw,112px) 0}
+.m-section--tint{background:var(--md-sys-color-surface-container-low)}
+.m-section--inverse{background:var(--md-sys-color-inverse-surface);color:var(--md-sys-color-inverse-on-surface)}
+.m-section--inverse .muted{color:color-mix(in srgb,var(--md-sys-color-inverse-on-surface) 72%,transparent)}
+.m-section--inverse .eyebrow,.m-section--inverse .accent{color:inherit;opacity:.8}
+.m-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px 40px;margin-bottom:clamp(28px,4vw,44px);flex-wrap:wrap}
+.m-head h2{margin-top:10px;max-width:16ch}
+.m-head p{max-width:46ch}
+.m-grid{display:grid;gap:clamp(12px,2vw,20px)}
+.m-grid--2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.m-grid--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.m-grid--4{grid-template-columns:repeat(4,minmax(0,1fr))}
+
+/* ---------- state layer + ripple (shared by interactive components) ---------- */
+.m-interactive{position:relative;overflow:hidden;isolation:isolate;-webkit-tap-highlight-color:transparent}
+.m-interactive::before{content:"";position:absolute;inset:0;background:currentColor;opacity:0;transition:opacity var(--md-sys-motion-duration-short) linear;z-index:-1;pointer-events:none}
+@media(hover:hover){.m-interactive:hover::before{opacity:.08}}
+.m-interactive:focus-visible::before{opacity:.12}
+.m-interactive:active::before{opacity:.12}
+.m-ripple{position:absolute;border-radius:50%;background:currentColor;opacity:.18;transform:scale(0);pointer-events:none;animation:m-ripple var(--md-sys-motion-duration-long) var(--md-sys-motion-easing-standard) forwards;z-index:-1}
+@keyframes m-ripple{to{transform:scale(1);opacity:0}}
+
+/* ---------- buttons ---------- */
+.m-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 24px;border-radius:var(--md-sys-shape-corner-full);font:600 var(--md-sys-typescale-label-large-size)/1 var(--md-ref-typeface-plain);letter-spacing:.02em;white-space:nowrap;transition:box-shadow var(--md-sys-motion-duration-short),transform var(--md-sys-motion-duration-short)}
+.m-btn .icon{font-size:18px;vertical-align:0}
+.m-btn--filled{background:var(--md-sys-color-primary);color:var(--md-sys-color-on-primary)}
+@media(hover:hover){.m-btn--filled:hover{box-shadow:var(--md-sys-elevation-1)}}
+.m-btn--tonal{background:var(--md-sys-color-secondary-container);color:var(--md-sys-color-on-secondary-container)}
+.m-btn--outlined{border:1px solid var(--md-sys-color-outline);color:var(--md-sys-color-on-surface)}
+.m-btn--text{padding:0 12px;color:var(--md-sys-color-primary-text)}
+.m-btn--sm{min-height:40px;padding:0 18px}
+.m-btn--icon{width:48px;min-height:48px;padding:0;border-radius:50%}
+.m-btn:active{transform:scale(.98)}
+
+/* ---------- concept ribbon + live status ---------- */
+.m-ribbon{background:#0b0b0b;color:#f2f0ec;font:500 12.5px/1.4 system-ui,sans-serif;text-align:center;padding:8px 16px}
+.m-ribbon a{text-decoration:underline;text-underline-offset:2px}
+.m-status{background:var(--md-sys-color-primary);color:var(--md-sys-color-on-primary);padding:8px 16px;display:flex;justify-content:center;gap:4px 24px;flex-wrap:wrap;font:500 13px/1.4 var(--md-ref-typeface-plain)}
+.m-status__item{display:inline-flex;align-items:center;gap:8px}
+.m-status__dot{width:8px;height:8px;border-radius:50%;background:currentColor;opacity:.45;flex:none}
+.m-status__item[data-open="true"] .m-status__dot{opacity:1;animation:m-pulse 2s ease-in-out infinite}
+@keyframes m-pulse{50%{box-shadow:0 0 0 5px color-mix(in srgb,currentColor 25%,transparent)}}
+
+/* ---------- top app bar ---------- */
+.m-topbar{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--md-sys-color-surface) 92%,transparent);backdrop-filter:saturate(1.2) blur(10px);-webkit-backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid transparent;transition:border-color var(--md-sys-motion-duration-medium),background var(--md-sys-motion-duration-medium)}
+.m-topbar[data-scrolled="true"]{border-color:var(--md-sys-color-outline-variant)}
+.m-topbar__in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.m-brand{display:flex;align-items:baseline;gap:10px;font:var(--md-ref-brand-weight,700) 20px/1 var(--md-ref-typeface-wordmark,var(--md-ref-typeface-brand));letter-spacing:var(--md-ref-brand-tracking,.2em)}
+.m-brand small{font:inherit;font-size:14px;letter-spacing:.04em;color:var(--md-sys-color-primary-text)}
+.m-nav{display:flex;gap:4px}
+.m-nav a{padding:10px 14px;border-radius:var(--md-sys-shape-corner-full);font:500 14px/1 var(--md-ref-typeface-plain)}
+.m-topbar__actions{display:flex;align-items:center;gap:8px}
+
+/* ---------- segmented button (language, location, size, temperature) ---------- */
+.m-seg{display:inline-flex;position:relative;border:1px solid var(--md-sys-color-outline);border-radius:var(--md-sys-shape-corner-full);padding:3px;isolation:isolate}
+.m-seg__btn{position:relative;z-index:1;min-height:34px;min-width:44px;padding:0 14px;border-radius:var(--md-sys-shape-corner-full);font:600 13px/1 var(--md-ref-typeface-plain);color:var(--md-sys-color-on-surface-variant);transition:color var(--md-sys-motion-duration-medium)}
+.m-seg__btn[aria-pressed="true"]{color:var(--md-sys-color-on-secondary-container)}
+.m-seg__ind{position:absolute;z-index:0;top:3px;bottom:3px;left:0;width:0;border-radius:var(--md-sys-shape-corner-full);background:var(--md-sys-color-secondary-container);transition:transform var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-emphasized),width var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-emphasized)}
+.m-seg--lg .m-seg__btn{min-height:44px;padding:0 20px;font-size:14px}
+
+/* ---------- chips ---------- */
+.m-chips{display:flex;gap:8px;flex-wrap:wrap}
+.m-chip{display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:0 12px;border:1px solid var(--md-sys-color-outline-variant);border-radius:var(--md-sys-shape-corner-s);font:600 13px/1 var(--md-ref-typeface-plain);color:var(--md-sys-color-on-surface-variant)}
+.m-chip .icon{font-size:16px;vertical-align:0}
+.m-chip[aria-pressed="true"]{background:var(--md-sys-color-secondary-container);color:var(--md-sys-color-on-secondary-container);border-color:transparent}
+.m-chip--badge{background:var(--md-sys-color-tertiary);color:var(--md-sys-color-on-tertiary);border:0}
+
+/* ---------- cards with consistent media ---------- */
+.m-card{display:flex;flex-direction:column;border-radius:var(--md-sys-shape-corner-l);overflow:hidden;background:var(--md-sys-color-surface-container);color:var(--md-sys-color-on-surface)}
+.m-card--outlined{background:var(--md-sys-color-surface);border:1px solid var(--md-sys-color-outline-variant)}
+.m-media{position:relative;overflow:hidden;background:var(--md-sys-color-surface-container-high)}
+.m-media[data-ratio="4/5"]{aspect-ratio:4/5}.m-media[data-ratio="4/3"]{aspect-ratio:4/3}.m-media[data-ratio="1/1"]{aspect-ratio:1/1}.m-media[data-ratio="3/2"]{aspect-ratio:3/2}.m-media[data-ratio="16/9"]{aspect-ratio:16/9}
+.m-media img{width:100%;height:100%;object-fit:cover;object-position:var(--focal,50% 50%);transform:scale(var(--zoom,1));transform-origin:var(--focal,50% 50%);transition:transform var(--md-sys-motion-duration-long) var(--md-sys-motion-easing-standard)}
+.m-media--cutout{background:var(--md-ref-cutout-bg,var(--md-sys-color-surface-container-low))}
+.m-media--cutout img{object-fit:contain;padding:10%}
+@media(hover:hover){a.m-card:hover .m-media img,.m-card[data-zoom-hover]:hover .m-media img{transform:scale(calc(var(--zoom,1) * 1.04))}}
+.m-media__badge{position:absolute;top:12px;left:12px}
+.m-card__body{padding:16px 18px 20px;display:flex;flex-direction:column;gap:4px;flex:1}
+.m-card__kicker{color:var(--md-sys-color-secondary-text);font:600 12px/1.4 var(--md-ref-typeface-plain);letter-spacing:.06em}
+.m-card__title{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.m-card__title h3{font:var(--md-ref-card-title-weight,600) 19px/1.25 var(--md-ref-typeface-card,var(--md-ref-typeface-plain))}
+.m-price{font:600 15px/1 var(--md-ref-typeface-plain);white-space:nowrap;font-variant-numeric:tabular-nums}
+.m-card__body p{color:var(--md-sys-color-on-surface-variant);font-size:var(--md-sys-typescale-body-medium-size);line-height:var(--md-sys-typescale-body-medium-line)}
+.m-card__foot{margin-top:auto;padding-top:12px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+/* plates cut from a menu sprite: --cx/--cy/--r in source px, --sw = source width */
+.m-plate{--s:180;width:calc(var(--s)*1px);height:calc(var(--s)*1px);border-radius:50%;margin:20px auto 0;flex:none;background-image:var(--src);background-repeat:no-repeat;background-size:calc(var(--sw,555) * 1px * var(--s) / (2 * var(--r))) auto;background-position:calc((var(--r) - var(--cx)) * var(--s) / (2 * var(--r)) * 1px) calc((var(--r) - var(--cy)) * var(--s) / (2 * var(--r)) * 1px);box-shadow:0 12px 30px #0006}
+
+/* ---------- lists (menus, hours) ---------- */
+.m-list{border-top:1px solid var(--md-sys-color-outline-variant)}
+.m-list__row{display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding:14px 0;border-bottom:1px solid var(--md-sys-color-outline-variant);align-items:baseline}
+.m-list__row b{font:600 16px/1.35 var(--md-ref-typeface-plain)}
+.m-list__row small{font-size:13.5px;color:var(--md-sys-color-on-surface-variant);grid-column:1/-1}
+.m-list__row .m-price em{font-style:normal;font-weight:500;color:var(--md-sys-color-on-surface-variant);font-size:12.5px;margin:0 3px 0 10px}
+.m-list__row[hidden]{display:none}
+.m-hours{width:100%;border-collapse:collapse;font-size:14.5px}
+.m-hours td{padding:9px 0;border-bottom:1px solid var(--md-sys-color-outline-variant)}
+.m-hours td:last-child{text-align:right;color:var(--md-sys-color-on-surface-variant);font-variant-numeric:tabular-nums}
+.m-hours tr[data-today] td{color:var(--md-sys-color-primary-text);font-weight:600}
+
+/* ---------- tabs (scroll, never wrap) ---------- */
+.m-tabs{position:relative;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--md-sys-color-outline-variant);margin-bottom:20px;-webkit-overflow-scrolling:touch}
+.m-tabs::-webkit-scrollbar{display:none}
+.m-tab{flex:none;min-height:48px;padding:0 16px;font:600 14px/1 var(--md-ref-typeface-plain);color:var(--md-sys-color-on-surface-variant);border-radius:8px 8px 0 0}
+.m-tab[aria-selected="true"]{color:var(--md-sys-color-primary-text)}
+.m-tabs__ind{position:absolute;bottom:0;left:0;height:3px;border-radius:3px 3px 0 0;background:var(--md-sys-color-primary-text);transition:transform var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-emphasized),width var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-emphasized)}
+.m-panel[hidden]{display:none}
+.m-search{display:flex;align-items:center;gap:10px;min-height:52px;padding:0 18px;border-radius:var(--md-sys-shape-corner-full);background:var(--md-sys-color-surface-container-high);margin-bottom:12px}
+.m-search input{flex:1;border:0;background:none;font:inherit;color:inherit;outline:none;min-width:0}
+
+/* ---------- location card ---------- */
+.m-loc{border-radius:var(--md-sys-shape-corner-xl);background:var(--md-sys-color-surface-container);padding:clamp(20px,3vw,32px)}
+.m-loc__top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:14px}
+.m-loc__badge{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:var(--md-sys-shape-corner-full);font:600 12px/1 var(--md-ref-typeface-plain);background:var(--md-sys-color-surface-container-highest);color:var(--md-sys-color-on-surface-variant);white-space:nowrap}
+.m-loc__badge[data-open="true"]{background:var(--md-sys-color-tertiary-container);color:var(--md-sys-color-on-tertiary-container)}
+.m-loc dl{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;font-size:14.5px;margin:16px 0 20px}
+.m-loc dt{color:var(--md-sys-color-on-surface-variant)}
+.m-loc__acts{display:flex;gap:8px;flex-wrap:wrap}
+.m-locs-switch{margin-bottom:20px}
+.m-locs[data-switch] .m-loc{display:none}
+.m-locs[data-switch] .m-loc[data-active]{display:block;animation:m-fade var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-emphasized)}
+@keyframes m-fade{from{opacity:0;transform:translateY(6px)}}
+
+/* ---------- quotes ---------- */
+.m-quote{text-align:center}
+.m-quote blockquote{font:var(--md-ref-display-weight,400) clamp(28px,4vw,52px)/1.15 var(--md-ref-typeface-brand);max-width:20ch;margin:18px auto;min-height:2.3em;transition:opacity var(--md-sys-motion-duration-medium)}
+.m-dots{display:flex;justify-content:center;gap:6px;margin-top:20px}
+.m-dots button{width:28px;height:24px;background:linear-gradient(currentColor,currentColor) center/100% 3px no-repeat;opacity:.3}
+.m-dots button[aria-current="true"]{opacity:1}
+
+/* ---------- stepper (guides) ---------- */
+.m-stepper{display:grid;grid-template-columns:repeat(var(--n,3),minmax(0,1fr));gap:16px}
+.m-step{border-radius:var(--md-sys-shape-corner-l);padding:22px;background:var(--md-sys-color-surface-container);border:1px solid transparent;text-align:left;transition:border-color var(--md-sys-motion-duration-medium),background var(--md-sys-motion-duration-medium)}
+.m-step__n{font:var(--md-ref-display-weight,400) 34px/1 var(--md-ref-typeface-brand);color:var(--md-sys-color-secondary-text)}
+.m-step b{display:block;font:600 18px/1.3 var(--md-ref-typeface-plain);margin:10px 0 6px}
+.m-step p{color:var(--md-sys-color-on-surface-variant);font-size:14.5px}
+.m-step[aria-current="true"]{border-color:var(--md-sys-color-secondary-text);background:var(--md-sys-color-surface-container-high)}
+.m-progress{height:4px;border-radius:4px;background:var(--md-sys-color-surface-container-highest);margin-top:18px;overflow:hidden}
+.m-progress i{display:block;height:100%;width:0;background:var(--md-sys-color-secondary-text);transition:width var(--md-sys-motion-duration-long) var(--md-sys-motion-easing-emphasized)}
+
+/* ---------- gallery ---------- */
+.m-gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:12px}
+.m-gallery figure{border-radius:var(--md-sys-shape-corner-m);overflow:hidden;position:relative;aspect-ratio:1}
+.m-gallery figure:first-child{grid-column:span 2;grid-row:span 2}
+.m-gallery img{width:100%;height:100%;object-fit:cover;object-position:var(--focal,50% 50%)}
+.m-gallery figcaption{position:absolute;left:12px;bottom:10px;font:600 12px/1.3 var(--md-ref-typeface-plain);color:#fff;text-shadow:0 1px 8px #000c}
+
+/* ---------- facts strip ---------- */
+.m-facts{display:grid;grid-template-columns:repeat(var(--n,4),1fr);border-block:1px solid var(--md-sys-color-outline-variant)}
+.m-facts div{padding:22px clamp(16px,2.5vw,28px);border-right:1px solid var(--md-sys-color-outline-variant)}
+.m-facts div:last-child{border-right:0}
+.m-facts b{display:block;font:var(--md-ref-display-weight,400) clamp(26px,2.6vw,34px)/1.1 var(--md-ref-typeface-brand);color:var(--md-sys-color-secondary-text)}
+.m-facts span{font-size:14px;color:var(--md-sys-color-on-surface-variant)}
+
+/* ---------- bottom sheet (mobile nav) ---------- */
+.m-scrim{position:fixed;inset:0;background:#0007;z-index:60;opacity:0;pointer-events:none;transition:opacity var(--md-sys-motion-duration-medium)}
+.m-sheet{position:fixed;left:0;right:0;bottom:0;z-index:61;background:var(--md-sys-color-surface-container-low);color:var(--md-sys-color-on-surface);border-radius:28px 28px 0 0;padding:12px 16px calc(24px + env(safe-area-inset-bottom));transform:translateY(105%);visibility:hidden;transition:transform var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-emphasized),visibility 0s linear var(--md-sys-motion-duration-medium);max-height:85vh;overflow:auto}
+.m-sheet__handle{width:32px;height:4px;border-radius:2px;background:var(--md-sys-color-outline);margin:4px auto 14px}
+.m-sheet a{display:flex;align-items:center;justify-content:space-between;min-height:56px;padding:0 16px;border-radius:16px;font:500 18px/1 var(--md-ref-typeface-plain)}
+body[data-sheet="open"] .m-scrim{opacity:1;pointer-events:auto}
+body[data-sheet="open"] .m-sheet{transform:none;visibility:visible;transition-delay:0s}
+
+/* ---------- bottom action bar (mobile) ---------- */
+.m-bar{display:none}
+@media(max-width:900px){
+ .m-bar{display:flex;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:40;gap:6px;padding:6px;border-radius:var(--md-sys-shape-corner-full);background:var(--md-sys-color-surface-container-high);box-shadow:var(--md-sys-elevation-3);transition:transform var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-emphasized),opacity var(--md-sys-motion-duration-medium)}
+ .m-bar[data-away="true"]{transform:translateY(calc(100% + 28px));opacity:0;pointer-events:none}
+ .m-bar a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:52px;border-radius:var(--md-sys-shape-corner-full);font:600 12px/1 var(--md-ref-typeface-plain);color:var(--md-sys-color-on-surface-variant)}
+ .m-bar a .icon{font-size:22px}
+ .m-bar a[data-primary]{flex:1.4;flex-direction:row;gap:8px;background:var(--md-sys-color-primary);color:var(--md-sys-color-on-primary);font-size:14px}
+}
+
+/* ---------- snackbar ---------- */
+.m-snackbar{position:fixed;left:50%;bottom:calc(88px + env(safe-area-inset-bottom));z-index:70;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--md-sys-color-inverse-surface);color:var(--md-sys-color-inverse-on-surface);border-radius:var(--md-sys-shape-corner-xs);padding:14px 18px;font:500 14px/1.3 var(--md-ref-typeface-plain);box-shadow:var(--md-sys-elevation-3);transition:transform var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-emphasized),opacity var(--md-sys-motion-duration-medium);max-width:calc(100vw - 32px)}
+.m-snackbar[data-show="true"]{transform:translate(-50%,0);opacity:1}
+
+/* ---------- number tick (price changes) ---------- */
+.m-tick{display:inline-block;animation:m-tick var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-emphasized)}
+@keyframes m-tick{from{transform:translateY(-40%);opacity:0}}
+
+/* ---------- footer ---------- */
+.m-footer{border-top:1px solid var(--md-sys-color-outline-variant);padding:44px 0 56px;font-size:14px;color:var(--md-sys-color-on-surface-variant)}
+.m-footer .m-container{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.m-footer b{display:block;color:var(--md-sys-color-on-surface);font:var(--md-ref-brand-weight,700) 20px/1.2 var(--md-ref-typeface-wordmark,var(--md-ref-typeface-brand));letter-spacing:var(--md-ref-brand-tracking,.2em);margin-bottom:6px}
+.m-footer a{color:var(--md-sys-color-on-surface);text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- Korean ---------- */
+html[lang=ko] body{word-break:keep-all}
+html[lang=ko] .t-display-l,html[lang=ko] .t-display-m,html[lang=ko] .t-headline-l,html[lang=ko] .m-quote blockquote{font-family:var(--md-ref-typeface-brand),var(--md-ref-typeface-ko);line-height:1.22;letter-spacing:-.01em}
+html[lang=ko] .t-display-l{font-size:calc(var(--md-sys-typescale-display-large-size) * .82)}
+html[lang=ko] .t-label-m{letter-spacing:.04em}
+html[lang=ko] .m-card__kicker[data-native]{display:none}
+
+/* ---------- responsive ---------- */
+@media(max-width:900px){
+ .m-nav,.m-topbar__actions .m-btn--filled{display:none}
+ .m-topbar__in{height:60px}
+ .m-grid--3,.m-grid--4{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .m-gallery{grid-template-columns:repeat(2,1fr)}
+ .m-facts{grid-template-columns:repeat(2,1fr)}
+ .m-facts div:nth-child(2n){border-right:0}
+ .m-facts div{border-bottom:1px solid var(--md-sys-color-outline-variant)}
+ .m-stepper{grid-template-columns:1fr}
+ .m-footer{padding-bottom:calc(110px + env(safe-area-inset-bottom))}
+ .m-scroll-x{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 calc(var(--gutter) * -1);padding:0 var(--gutter) 6px;scrollbar-width:none}
+ .m-scroll-x::-webkit-scrollbar{display:none}
+ .m-scroll-x>*{flex:0 0 78%;scroll-snap-align:start}
+}
+@media(min-width:901px){.m-menu-btn{display:none}}
+@media(max-width:560px){.m-grid--2{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* ---------- page patterns (shared section layouts) ---------- */
+.hero{position:relative;overflow:hidden}
+.hero__text .eyebrow{display:block;margin-bottom:16px}
+.hero__lead{max-width:46ch;margin:20px 0 28px;color:var(--md-sys-color-on-surface-variant)}
+.hero--photo{min-height:min(88vh,860px);min-height:min(88svh,860px);display:flex;align-items:flex-end;background:#000;color:#fff}
+.hero--photo>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--focal,50% 50%)}
+.hero--photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0009 0%,#0000 32%,#0004 58%,#000e 100%)}
+.hero--photo .hero__in{position:relative;z-index:1;width:100%;display:flex;justify-content:space-between;align-items:flex-end;gap:32px;padding-bottom:clamp(36px,6vw,64px)}
+.hero--photo .hero__lead{color:#ece6dc}
+.hero--photo .eyebrow,.hero--photo .accent{color:var(--md-sys-color-secondary)}
+.hero--photo .m-btn--outlined{border-color:#ffffff99;color:#fff}
+.hero__aside{text-align:right;font:600 12px/1.9 var(--md-ref-typeface-plain);letter-spacing:.14em;text-transform:uppercase;color:#d8d2c7}
+.hero--split .hero__in{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;min-height:min(78vh,720px);padding-top:32px;padding-bottom:48px}
+.hero__visual{position:relative;display:grid;place-items:center}
+.story{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,6vw,80px);align-items:center}
+.story__text h2{margin:10px 0 20px}
+.story__text p+p{margin-top:12px}
+.story__media{position:relative;padding-bottom:18%}
+.story__media figure{border-radius:var(--md-sys-shape-corner-l)}
+.story__media figure:nth-child(2){position:absolute;width:46%;right:-4%;bottom:0;border:6px solid var(--md-sys-color-surface);box-shadow:var(--md-sys-elevation-2)}
+.feature{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,72px);align-items:center}
+.feature__media{border-radius:var(--md-sys-shape-corner-l)}
+.visit__grid--img{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:start}
+.visit__img{border-radius:var(--md-sys-shape-corner-xl);position:sticky;top:96px}
+.visit__cap{position:absolute;left:20px;right:20px;bottom:18px;color:#fff;font:600 15px/1.35 var(--md-ref-typeface-plain);text-shadow:0 1px 10px #000c}
+.m-section--accent{background:var(--md-sys-color-primary);color:var(--md-sys-color-on-primary)}
+.m-section--accent .t-label-m{opacity:.85}
+.band .m-ctas{justify-content:center}
+.m-media--type{display:grid;place-items:center;background:var(--md-sys-color-secondary-container)}
+.type-mark{font:var(--md-ref-display-weight,400) clamp(40px,5vw,64px)/1 var(--md-ref-typeface-brand),var(--md-ref-typeface-ko);color:var(--md-sys-color-on-secondary-container)}
+.m-card--plate{text-align:center}
+.m-card--plate .m-card__title{justify-content:center;flex-direction:column;align-items:center;gap:6px}
+.m-card--plate .m-card__foot{justify-content:center}
+.perks b{color:var(--md-sys-color-on-surface)}
+@media(max-width:900px){
+ .hero--photo{min-height:86vh;min-height:86svh}
+ .hero--photo::after{background:linear-gradient(180deg,#000a 0%,#0003 22%,#000c 52%,#000f 100%)}
+ .m-links{grid-template-columns:1fr!important}
+ .hero--photo .hero__in{flex-direction:column;align-items:flex-start}
+ .hero__aside{display:none}
+ .hero--split .hero__in{grid-template-columns:1fr;min-height:0;gap:20px;padding-top:16px}
+ .hero__visual{order:-1}
+ .story,.feature,.visit__grid--img{grid-template-columns:1fr}
+ .visit__img{position:relative;top:0}
+ .story__media{padding-bottom:0}
+ .story__media figure:nth-child(2){display:none}
+}
+@media(max-width:400px){
+ .m-brand{font-size:18px;letter-spacing:calc(var(--md-ref-brand-tracking,.2em) * .6)}
+ .m-topbar__actions{gap:4px}
+ .m-seg__btn{padding:0 10px;min-width:40px}
+ .m-btn--icon{width:44px;min-height:44px}
+}
+
+/* ---------- standard hero frame + type-only hero ---------- */
+.hero__frame{width:min(460px,100%);border-radius:var(--md-sys-shape-corner-xl)}
+.hero--split .hero__visual{justify-items:end}
+.hero--type .hero__in{padding:clamp(56px,10vw,140px) var(--gutter) clamp(40px,6vw,80px)}
+.hero--type .t-display-l{font-size:clamp(52px,11vw,168px);max-width:12ch}
+.hero--type .hero__lead{max-width:52ch;font-size:clamp(17px,1.6vw,21px)}
+/* ---------- sketch placeholders ---------- */
+.m-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;width:min(460px,100%);border:1.5px dashed var(--md-sys-color-outline);border-radius:var(--md-sys-shape-corner-xl);color:var(--md-sys-color-on-surface-variant);font:600 12px/1.4 var(--md-ref-typeface-plain);letter-spacing:.08em;text-transform:uppercase;background:repeating-linear-gradient(135deg,transparent 0 14px,color-mix(in srgb,var(--md-sys-color-on-surface) 4%,transparent) 14px 15px)}
+.m-ph[data-ratio="4/5"]{aspect-ratio:4/5}.m-ph[data-ratio="1/1"]{aspect-ratio:1}.m-ph[data-ratio="4/3"]{aspect-ratio:4/3}
+.m-ph .icon{font-size:28px}
+.m-empty{display:flex;gap:18px;align-items:flex-start;padding:clamp(20px,3vw,32px);border:1.5px dashed var(--md-sys-color-outline);border-radius:var(--md-sys-shape-corner-l);color:var(--md-sys-color-on-surface-variant)}
+.m-empty .icon{font-size:28px;color:var(--md-sys-color-secondary-text)}
+.m-empty b{display:block;color:var(--md-sys-color-on-surface);font:600 17px/1.4 var(--md-ref-typeface-plain);margin-bottom:4px}
+.m-todos{display:flex;gap:8px;flex-wrap:wrap}
+.m-todo{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border:1.5px dashed currentColor;border-radius:var(--md-sys-shape-corner-full);font:600 13.5px/1.2 var(--md-ref-typeface-plain);opacity:.92}
+.m-todo .icon{font-size:18px;vertical-align:0}
+/* ---------- editorial prose + index list ---------- */
+.prose{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:clamp(24px,6vw,96px);align-items:start}
+.prose__side{display:grid;gap:20px}
+.prose__body h2{margin-bottom:22px;max-width:18ch}
+.prose__body p{max-width:60ch}
+.prose__body p+p{margin-top:14px}
+.prose__facts{display:grid;grid-template-columns:auto 1fr;gap:10px 24px;margin-top:28px;padding-top:20px;border-top:1px solid var(--md-sys-color-outline-variant);font-size:15px}
+.prose__facts dt{color:var(--md-sys-color-on-surface-variant)}
+.m-index{list-style:none;border-top:1px solid var(--md-sys-color-outline)}
+.m-index__row{display:grid;grid-template-columns:48px minmax(0,1.6fr) minmax(0,1fr) auto 24px;gap:16px;align-items:baseline;padding:18px 4px;border-bottom:1px solid var(--md-sys-color-outline-variant)}
+.m-index__n{font:500 13px/1 var(--md-ref-typeface-plain);color:var(--md-sys-color-on-surface-variant);font-variant-numeric:tabular-nums}
+.m-index__row b{font:var(--md-ref-display-weight,400) clamp(20px,2.4vw,30px)/1.15 var(--md-ref-typeface-brand)}
+.m-index__meta{color:var(--md-sys-color-on-surface-variant);font-size:14.5px}
+.m-index__row .icon{color:var(--md-sys-color-on-surface-variant)}
+@media(max-width:900px){
+ .hero__frame{aspect-ratio:16/11!important;width:100%}
+ .hero--split .hero__visual{justify-items:stretch}
+ .m-ph{width:100%}.hero .m-ph{aspect-ratio:16/11}
+ .prose{grid-template-columns:1fr}
+ .prose__side .m-ph{aspect-ratio:16/11}
+ .m-index__row{grid-template-columns:32px 1fr 24px;gap:4px 12px}
+ .m-index__meta{grid-column:2;grid-row:2}
+ .m-index__row .m-chip{grid-column:2;grid-row:3;justify-self:start;margin-top:4px}
+ .m-index__row>span:empty{display:none}
+ .m-index__row .icon{grid-column:3;grid-row:1}
+}
+
+.m-card .m-seg[data-temp] .m-seg__btn{min-width:40px;padding:0 10px}
+.m-card .m-seg[data-temp] .icon{font-size:18px;vertical-align:-3px}</style></head><body>
+
+<div class="m-ribbon"><span>Design concept by Mooque Studio, not the official Coffee Lunar website. <a href="https://coffeelunar.com/" target="_blank" rel="noopener">See the current site ↗</a></span></div>
+<div class="m-status" aria-live="polite"></div>
+<nav class="m-topbar"><div class="m-container m-topbar__in">
+ <a class="m-brand" href="#"><span>COFFEE LUNAR</span></a>
+ <div class="m-nav"><a class="m-interactive" href="#drops"><span>Signature</span></a><a class="m-interactive" href="#menu"><span>Menu</span></a><a class="m-interactive" href="#space"><span>Space</span></a><a class="m-interactive" href="#visit"><span>Locations</span></a></div>
+ <div class="m-topbar__actions"><a class="m-btn m-btn--filled m-btn--sm m-interactive" href="https://order.online/business/coffee-lunar-14611823" target="_blank" rel="noopener"><span>Order ahead</span></a><button class="m-btn m-btn--icon m-interactive m-menu-btn" type="button" data-sheet-open aria-expanded="false" aria-label="Menu"><span class="icon" aria-hidden="true">menu</span></button></div>
 </div></nav>
-
-<header class="hero"><div class="wrap">
- <div>
-  <div class="eyebrow">Specialty drinks &amp; desserts · Rosedale · North York</div>
-  <h1>Minimal space.<br><span>Creative cups.</span></h1>
-  <p>Signature drops with housemade syrups and silky cream, plus the espresso classics done carefully. Two cafés on Yonge, open every day.</p>
-  <div class="cta"><a class="btn btn-ink" href="https://order.online/business/coffee-lunar-14611823" target="_blank" rel="noopener">Order ahead →</a><a class="btn btn-line" href="#cafes">Find a café</a></div>
- </div>
- <div class="moonstage">
-  <img src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/ac9a7fb4-f8ad-4df2-8dd8-50cc53f2c41e/Cream+Drop.png?format=750w" alt="Cream Drop in a glass" width="750" height="750">
-  <div class="lbl"><b>Cream Drop</b>Double espresso, housemade brown sugar syrup, silky cream.</div>
- </div>
-</div></header>
-
 <main>
-<section class="sec" id="drops" style="padding-top:40px"><div class="wrap">
- <div class="head"><div><div class="eyebrow">Signature</div><h2>The drops,<br><span>and friends.</span></h2></div><p>Most are built on a housemade syrup or concentrate. Three come hot or cold; the rest are served cold.</p></div>
- <div class="drops">
-  <article class="drop"><div class="ph"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/ac9a7fb4-f8ad-4df2-8dd8-50cc53f2c41e/Cream+Drop.png?format=500w" alt="Cream Drop" width="500" height="500"></div><h3>Cream Drop</h3><p>Double espresso, a hint of housemade brown sugar syrup, silky cream with condensed milk and cacao.</p><div class="temps"><span>Hot</span><span>Cold</span></div></article>
-  <article class="drop"><div class="ph"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/0715082f-b2a8-413d-8d82-b217aadb89d5/Matcha+Drop+-+adjusted.png?format=500w" alt="Matcha Drop" width="500" height="500"></div><h3>Matcha Drop</h3><p>Matcha concentrate with housemade vanilla bean syrup, silky cream and dried cornflower petals.</p><div class="temps"><span>Hot</span><span>Cold</span></div></article>
-  <article class="drop"><div class="ph"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/085afc9b-9408-48e6-9292-6fa82ee3b3cf/Vanilla+Drop+Latte.png?format=500w" alt="Vanilla Drop Latte" width="500" height="500"></div><h3>Vanilla Drop Latte</h3><p>Double espresso over chilled milk with vanilla bean syrup, topped with silky cream and turbinado sugar.</p><div class="temps"><span>Cold</span></div></article>
-  <article class="drop"><div class="ph"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/aa557da9-291e-4927-8076-c036f321f3f5/Ube+Latte.png?format=500w" alt="Ube Oat Latte" width="500" height="377"></div><h3>Ube Oat Latte</h3><p>House-blended ube concentrate with oat milk.</p><div class="temps"><span>Hot</span><span>Cold</span></div></article>
-  <article class="drop"><div class="ph"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/e63e8dc8-681e-4bd4-a3f0-80a05ae4a272/Tomjito.png?format=500w" alt="Tomjiho" width="500" height="604"></div><h3>Tomjiho</h3><p>Housemade tomato lime syrup with a hint of mint, over sparkling water and ice.</p><div class="temps"><span>Cold</span></div></article>
-  <article class="drop"><div class="ph"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/1f15a082-585c-4a8e-bdb3-73718808190c/Cascara+Tonic.png?format=500w" alt="Cascara Tonic" width="500" height="500"></div><h3>Cascara Tonic</h3><p>Housemade cascara (dried coffee cherry skin) syrup over sparkling water, with dried lemon.</p><div class="temps"><span>Cold</span></div></article>
- </div>
-
- <div class="classics" id="menu">
-  <h3>COFFEE</h3>
-  <div class="cl"><b>Espresso</b><span>Hot or cold</span></div>
-  <div class="cl"><b>Americano</b><span>Hot or cold</span></div>
-  <div class="cl"><b>Flat White</b><span>5 oz · hot or cold</span></div>
-  <div class="cl"><b>Cappuccino</b><span>8 oz · hot</span></div>
-  <div class="cl"><b>Latte</b><span>Hot or cold</span></div>
-  <div class="cl"><b>Vanilla Bean Latte</b><span>Hot or cold</span></div>
-  <div class="cl"><b>Mocha Latte</b><span>Housemade chocolate syrup</span></div>
-  <div class="cl"><b>Espresso Tonic</b><span>Cold</span></div>
-  <div class="cl"><b>Cold Brew</b><span>Rosedale only</span></div>
-  <h3>NON-COFFEE</h3>
-  <div class="cl"><b>Matcha Latte</b><span>Hot or cold</span></div>
-  <div class="cl"><b>London Fog</b><span>Hot</span></div>
-  <div class="cl"><b>Hot Chocolate</b><span>Hot or cold</span></div>
-  <div class="cl"><b>Tea</b><span>Various · hot</span></div>
- </div>
-</div></section>
-
-<section class="sec space" id="space"><div class="wrap">
- <div class="head"><div><div class="eyebrow">The space</div><h2>Quiet rooms,<br><span>good light.</span></h2></div><p>Minimal, simple and made for staying a while. Space, culture and good vibes for the neighbourhood.</p></div>
- <div class="gal">
-  <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/973bd07f-beef-45de-a95a-72249590157f/6.jpg?format=1000w" alt="Coffee Lunar café interior"></figure>
-  <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/3d7f717b-1a7f-433d-8c22-dfd8bc76f8ac/3.jpeg?format=500w" alt="Café counter"></figure>
-  <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/461d5262-476b-4de8-af3a-c335c7eb9e01/8.jpg?format=500w" alt="Espresso being poured"></figure>
-  <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/23f81d1b-e390-419e-b85e-a670ee418fe3/5.jpg?format=500w" alt="Seating area"></figure>
-  <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/a5f61266-d97b-4ac6-80e0-5e0f6f7dc8c1/1.JPEG?format=500w" alt="Espresso machine"></figure>
- </div>
-</div></section>
-
-<section class="sec" id="cafes"><div class="wrap">
- <div class="head"><div><div class="eyebrow">Locations</div><h2>Two cafés<br><span>on Yonge.</span></h2></div><p>Open every day. Parking notes included, because that's always the question.</p></div>
- <div class="locs">
-  <article class="loc" data-loc="rosedale">
-   <div class="top"><div><h3>Rosedale</h3><div class="addr">920 Yonge St, Toronto</div></div><span class="now"></span></div>
-   <dl><dt>Hours</dt><dd>Mon–Sun 8am – 5pm</dd><dt>Parking</dt><dd>Paid underground garage in our condominium. Green P street parking across the building on McMurrich St.</dd><dt>Only here</dt><dd>House cold brew</dd></dl>
-   <div class="cta"><a class="btn btn-ink" href="https://order.online/business/coffee-lunar-14611823" target="_blank" rel="noopener">Order ahead</a><a class="btn btn-line" href="https://maps.google.com/?q=Coffee+Lunar+920+Yonge+St+Toronto" target="_blank" rel="noopener">Directions</a></div>
-  </article>
-  <article class="loc" data-loc="northyork">
-   <div class="top"><div><h3>North York</h3><div class="addr">6040 Yonge St, Toronto</div></div><span class="now"></span></div>
-   <dl><dt>Hours</dt><dd>Mon–Sun 9am – 7pm</dd><dt>Parking</dt><dd>Shared lot behind the plaza. Free street parking out front on weekdays, 10am – 3pm.</dd></dl>
-   <div class="cta"><a class="btn btn-ink" href="https://order.online/business/coffee-lunar-14611823" target="_blank" rel="noopener">Order ahead</a><a class="btn btn-line" href="https://maps.google.com/?q=Coffee+Lunar+6040+Yonge+St+Toronto" target="_blank" rel="noopener">Directions</a></div>
-  </article>
- </div>
-</div></section>
-
-<section class="sec" style="padding-top:0"><div class="wrap">
- <div class="head"><div><div class="eyebrow">Also at Lunar</div><h2>Something to eat,<br><span>something to take home.</span></h2></div></div>
- <div class="more">
-  <a href="https://coffeelunar.com/foods" target="_blank" rel="noopener"><div class="ph"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/799c9d54-8200-42a3-9dca-702da55b5db8/Jambon+%26+Havarti+Croissant+Sandwich.png?format=500w" alt="Jambon and Havarti croissant sandwich"></div><div class="t">Food <span>→</span></div></a>
-  <a href="https://coffeelunar.com/store/merchandise" target="_blank" rel="noopener"><div class="ph"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/1615131543712-2PQ6CBZH8JEGUZ2ZLR57/merch.jfif?format=500w" alt="Coffee Lunar merchandise"></div><div class="t">Merch <span>→</span></div></a>
-  <a href="https://www.instagram.com/coffeelunar" target="_blank" rel="noopener"><div class="ph"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/23f81d1b-e390-419e-b85e-a670ee418fe3/5.jpg?format=500w" alt="Coffee Lunar on Instagram" style="object-fit:cover"></div><div class="t">@coffeelunar <span>→</span></div></a>
- </div>
-</div></section>
+<header class="hero hero--split" data-bar-hide><div class="m-container hero__in"><div class="hero__text"><div class="t-label-m eyebrow">Specialty drinks &amp; desserts · Rosedale · North York</div><h1 class="t-display-l">Minimal space.<br><i class="accent">Creative cups.</i></h1><p class="t-body-l hero__lead">Signature drops made with housemade syrups and silky cream, plus carefully made espresso classics. Two cafés on Yonge, open every day.</p><div class="m-ctas" style="display:flex;gap:10px;flex-wrap:wrap"><a class="m-btn m-btn--filled m-interactive" href="https://order.online/business/coffee-lunar-14611823" target="_blank" rel="noopener"><span class="icon" aria-hidden="true">shopping_bag</span><span>Order ahead</span></a><a class="m-btn m-btn--outlined m-interactive" href="#visit"><span>Find a café</span></a></div></div><div class="hero__visual"><figure class="m-media hero__frame m-media--cutout" data-ratio="4/5"><img src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/ac9a7fb4-f8ad-4df2-8dd8-50cc53f2c41e/Cream+Drop.png?format=750w" width="750" height="750" alt="Cream Drop in a glass" fetchpriority="high" decoding="async" style="--zoom:1.45"></figure></div></div></header>
+<div class="m-facts" style="--n:4"><div><b>2</b><span>Cafés on Yonge</span></div><div><b>6</b><span>Signature drinks</span></div><div><b>Daily</b><span>Open every day</span></div><div><b>Online</b><span>Order ahead for pickup</span></div></div>
+<section class="m-section " id="drops"><div class="m-container"><div class="m-head "><div><div class="t-label-m eyebrow">Signature</div><h2 class="t-display-m">Signature<br><i class="accent">drops.</i></h2></div><p class="t-body-l muted">Most are built on a housemade syrup or concentrate. Three come hot or iced; the rest are served cold.</p></div><div class="m-grid m-grid--3 m-scroll-x"><article class="m-card " data-zoom-hover ><div class="m-media m-media--cutout" data-ratio="1/1"><img src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/ac9a7fb4-f8ad-4df2-8dd8-50cc53f2c41e/Cream+Drop.png?format=750w" width="750" height="750" alt="Cream Drop" loading="lazy" decoding="async" style="--zoom:1.7"></div><div class="m-card__body"><div class="m-card__title"><h3>Cream Drop</h3></div><p>Double espresso, a hint of housemade brown sugar syrup, silky cream with condensed milk and cacao.</p><div class="m-card__foot"><span class="m-chip"><span>Hot or iced</span></span></div></div></article><article class="m-card " data-zoom-hover ><div class="m-media m-media--cutout" data-ratio="1/1"><img src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/0715082f-b2a8-413d-8d82-b217aadb89d5/Matcha+Drop+-+adjusted.png?format=750w" width="750" height="750" alt="Matcha Drop" loading="lazy" decoding="async" style="--zoom:1.85"></div><div class="m-card__body"><div class="m-card__title"><h3>Matcha Drop</h3></div><p>Matcha with housemade vanilla bean syrup, silky cream and dried cornflower petals.</p><div class="m-card__foot"><span class="m-chip"><span>Hot or iced</span></span></div></div></article><article class="m-card " data-zoom-hover ><div class="m-media m-media--cutout" data-ratio="1/1"><img src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/085afc9b-9408-48e6-9292-6fa82ee3b3cf/Vanilla+Drop+Latte.png?format=750w" width="750" height="750" alt="Vanilla Drop Latte" loading="lazy" decoding="async" style="--zoom:1.6"></div><div class="m-card__body"><div class="m-card__title"><h3>Vanilla Drop Latte</h3></div><p>Double espresso over chilled milk with vanilla bean syrup, silky cream and turbinado sugar.</p><div class="m-card__foot"><span class="m-chip"><span>Iced</span></span></div></div></article><article class="m-card " data-zoom-hover ><div class="m-media m-media--cutout" data-ratio="1/1"><img src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/aa557da9-291e-4927-8076-c036f321f3f5/Ube+Latte.png?format=750w" width="723" height="545" alt="Ube Oat Latte" loading="lazy" decoding="async" style="--zoom:1.8"></div><div class="m-card__body"><div class="m-card__title"><h3>Ube Oat Latte</h3></div><p>House-blended ube concentrate with oat milk.</p><div class="m-card__foot"><span class="m-chip"><span>Hot or iced</span></span></div></div></article><article class="m-card " data-zoom-hover ><div class="m-media m-media--cutout" data-ratio="1/1"><img src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/e63e8dc8-681e-4bd4-a3f0-80a05ae4a272/Tomjito.png?format=750w" width="750" height="905" alt="Tomjiho" loading="lazy" decoding="async" style="--zoom:0.72"></div><div class="m-card__body"><div class="m-card__title"><h3>Tomjiho</h3></div><p>Housemade tomato lime syrup with a hint of mint, over sparkling water and ice.</p><div class="m-card__foot"><span class="m-chip"><span>Iced</span></span></div></div></article><article class="m-card " data-zoom-hover ><div class="m-media m-media--cutout" data-ratio="1/1"><img src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/1f15a082-585c-4a8e-bdb3-73718808190c/Cascara+Tonic.png?format=750w" width="539" height="539" alt="Cascara Tonic" loading="lazy" decoding="async" style="--zoom:1.3"></div><div class="m-card__body"><div class="m-card__title"><h3>Cascara Tonic</h3></div><p>Housemade cascara (dried coffee cherry skin) syrup over sparkling water, with dried lemon.</p><div class="m-card__foot"><span class="m-chip"><span>Iced</span></span></div></div></article></div></div></section>
+<section class="m-section m-section--tint" id="menu"><div class="m-container" data-search-scope><div class="m-head "><div><div class="t-label-m eyebrow">Menu</div><h2 class="t-display-m">The classics,<br><i class="accent">done carefully.</i></h2></div><p class="t-body-l muted">Espresso drinks and non-coffee favourites. Ask in the café for today’s desserts.</p></div>
+  
+  <div class="m-tabs" role="tablist"><button class="m-tab m-interactive" role="tab" id="tab-coffee" aria-controls="panel-coffee" aria-selected="true" tabindex="0"><span>Coffee</span></button><button class="m-tab m-interactive" role="tab" id="tab-noncoffee" aria-controls="panel-noncoffee" aria-selected="false" tabindex="-1"><span>Non-coffee</span></button></div>
+  <div class="m-panel" role="tabpanel" id="panel-coffee" aria-labelledby="tab-coffee"><div class="m-list"><div class="m-list__row"><b>Espresso</b><span class="m-price"></span><small>Hot or iced</small></div><div class="m-list__row"><b>Americano</b><span class="m-price"></span><small>Double espresso with water · hot or iced</small></div><div class="m-list__row"><b>Flat White</b><span class="m-price">5 oz</span><small>Double espresso, thin milk foam · hot or iced</small></div><div class="m-list__row"><b>Cappuccino</b><span class="m-price">8 oz</span><small>Double espresso, thick milk foam · hot</small></div><div class="m-list__row"><b>Latte</b><span class="m-price"></span><small>Double espresso with 10 oz milk · hot or iced</small></div><div class="m-list__row"><b>Vanilla Bean Latte</b><span class="m-price"></span><small>Housemade vanilla bean syrup · hot or iced</small></div><div class="m-list__row"><b>Mocha Latte</b><span class="m-price"></span><small>Housemade chocolate syrup · hot or iced</small></div><div class="m-list__row"><b>Espresso Tonic</b><span class="m-price"></span><small>Brown sugar syrup and sparkling water · iced</small></div><div class="m-list__row"><b>Cold Brew</b><span class="m-price"></span><small>House-brewed · Rosedale only</small></div></div></div><div class="m-panel" role="tabpanel" id="panel-noncoffee" aria-labelledby="tab-noncoffee" hidden><div class="m-list"><div class="m-list__row"><b>Matcha Latte</b><span class="m-price"></span><small>Spring/summer harvest matcha · hot or iced</small></div><div class="m-list__row"><b>London Fog</b><span class="m-price"></span><small>Cream of Earl Grey with steamed milk · hot</small></div><div class="m-list__row"><b>Hot Chocolate</b><span class="m-price"></span><small>Housemade chocolate syrup · hot or iced</small></div><div class="m-list__row"><b>Tea</b><span class="m-price"></span><small>Various options · hot</small></div></div></div>
+  
+  </div></section>
+<section class="m-section " id="space"><div class="m-container"><div class="m-head "><div><div class="t-label-m eyebrow">The space</div><h2 class="t-display-m">Quiet rooms,<br><i class="accent">good light.</i></h2></div><p class="t-body-l muted">Minimal and simple, made for staying a while.</p></div><div class="m-gallery"><figure><img src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/973bd07f-beef-45de-a95a-72249590157f/6.jpg?format=1200w" alt="Coffee Lunar café interior" loading="lazy" decoding="async"></figure><figure><img src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/3d7f717b-1a7f-433d-8c22-dfd8bc76f8ac/3.jpeg?format=600w" alt="Café counter" loading="lazy" decoding="async"></figure><figure><img src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/461d5262-476b-4de8-af3a-c335c7eb9e01/8.jpg?format=600w" alt="Espresso being poured" loading="lazy" decoding="async"></figure><figure><img src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/23f81d1b-e390-419e-b85e-a670ee418fe3/5.jpg?format=600w" alt="Seating area" loading="lazy" decoding="async"></figure><figure><img src="https://images.squarespace-cdn.com/content/v1/5e90adc492be525031fab7ad/a5f61266-d97b-4ac6-80e0-5e0f6f7dc8c1/1.JPEG?format=600w" alt="Espresso machine" loading="lazy" decoding="async"></figure></div></div></section>
+<section class="m-section m-section--tint" id="visit"><div class="m-container visit"><div class="m-head "><div><div class="t-label-m eyebrow">Locations</div><h2 class="t-display-m">Two cafés<br><i class="accent">on Yonge.</i></h2></div><p class="t-body-l muted">Open every day. Parking notes included, because that’s always the question.</p></div>
+   <div class="visit__grid "><div class="m-locs" data-switch data-bar-hide>
+   <div class="m-seg m-seg--lg m-locs-switch" role="group" aria-label="Location"><button class="m-seg__btn" type="button" data-value="rosedale" aria-pressed="true"><span>Rosedale</span></button><button class="m-seg__btn" type="button" data-value="northyork" aria-pressed="false"><span>North York</span></button></div>
+   <article class="m-loc" data-loc="rosedale" data-active>
+    <div class="m-loc__top"><div><div class="t-label-m eyebrow">Rosedale</div><h3 class="t-headline-l" style="margin-top:6px">920 Yonge St</h3><div class="t-body-m muted">Yonge & Davenport, Toronto</div></div><span class="m-loc__badge" data-loc-badge="rosedale"></span></div>
+    <table class="m-hours" data-hours="rosedale" aria-label="Opening hours"></table>
+    <dl><dt>Parking</dt><dd><span>Paid underground garage in the condominium. Green P street parking across the building on McMurrich St.</span></dd><dt>Only here</dt><dd><span>House cold brew</span></dd></dl>
+    <div class="m-loc__acts"><a class="m-btn m-btn--filled m-interactive" href="https://order.online/business/coffee-lunar-14611823" target="_blank" rel="noopener"><span class="icon" aria-hidden="true">shopping_bag</span><span>Order ahead</span></a><a class="m-btn m-btn--outlined m-interactive" href="https://maps.google.com/?q=Coffee+Lunar+920+Yonge+St+Toronto" target="_blank" rel="noopener"><span class="icon" aria-hidden="true">directions</span><span>Directions</span></a><button class="m-btn m-btn--text m-interactive" type="button" data-copy="920 Yonge St, Toronto, ON"><span class="icon" aria-hidden="true">content_copy</span><span data-ko="주소 복사">Copy address</span></button></div></article><article class="m-loc" data-loc="northyork">
+    <div class="m-loc__top"><div><div class="t-label-m eyebrow">North York</div><h3 class="t-headline-l" style="margin-top:6px">6040 Yonge St</h3><div class="t-body-m muted">Yonge & Finch, North York</div></div><span class="m-loc__badge" data-loc-badge="northyork"></span></div>
+    <table class="m-hours" data-hours="northyork" aria-label="Opening hours"></table>
+    <dl><dt>Parking</dt><dd><span>Shared lot behind the plaza. Free street parking out front on weekdays, 10am – 3pm.</span></dd></dl>
+    <div class="m-loc__acts"><a class="m-btn m-btn--filled m-interactive" href="https://order.online/business/coffee-lunar-14611823" target="_blank" rel="noopener"><span class="icon" aria-hidden="true">shopping_bag</span><span>Order ahead</span></a><a class="m-btn m-btn--outlined m-interactive" href="https://maps.google.com/?q=Coffee+Lunar+6040+Yonge+St+Toronto" target="_blank" rel="noopener"><span class="icon" aria-hidden="true">directions</span><span>Directions</span></a><button class="m-btn m-btn--text m-interactive" type="button" data-copy="6040 Yonge St, Toronto, ON"><span class="icon" aria-hidden="true">content_copy</span><span data-ko="주소 복사">Copy address</span></button></div></article></div></div></div></section>
+<section class="m-section" style="padding-top:0"><div class="m-container"><div class="t-label-m eyebrow" style="margin-bottom:18px">Also at Lunar</div><div class="m-grid m-grid--3 m-links"><a class="m-card m-card--outlined m-interactive" href="https://coffeelunar.com/foods" target="_blank" rel="noopener" style="padding:22px"><div class="m-card__kicker">Food</div><h3 class="t-headline-s" style="margin:6px 0 4px">Sandwiches &amp; desserts</h3><p class="t-body-m muted">See what’s in the case today.</p></a><a class="m-card m-card--outlined m-interactive" href="https://coffeelunar.com/store/merchandise" target="_blank" rel="noopener" style="padding:22px"><div class="m-card__kicker">Shop</div><h3 class="t-headline-s" style="margin:6px 0 4px">Merch</h3><p class="t-body-m muted">Take a little Lunar home.</p></a><a class="m-card m-card--outlined m-interactive" href="https://www.instagram.com/coffeelunar" target="_blank" rel="noopener" style="padding:22px"><div class="m-card__kicker">Instagram</div><h3 class="t-headline-s" style="margin:6px 0 4px">@coffeelunar</h3><p class="t-body-m muted">New drinks and café updates.</p></a></div></div></section>
 </main>
+<footer class="m-footer" data-bar-hide><div class="m-container"><div><b>COFFEE LUNAR</b>Specialty drinks &amp; desserts</div><div>Rosedale · 920 Yonge St · 8am – 5pm<br>North York · 6040 Yonge St · 9am – 7pm</div></div></footer>
+<nav class="m-bar" data-away="true" aria-label="Quick actions"><a class="m-interactive" href="#menu"><span class="icon" aria-hidden="true">local_cafe</span><span>Menu</span></a><a class="m-interactive" href="#visit"><span class="icon" aria-hidden="true">location_on</span><span>Cafés</span></a><a class="m-interactive" href="https://order.online/business/coffee-lunar-14611823" target="_blank" rel="noopener" data-primary><span class="icon" aria-hidden="true">shopping_bag</span><span>Order ahead</span></a></nav>
+<div class="m-scrim"></div>
+<div class="m-sheet" role="dialog" aria-label="Menu"><div class="m-sheet__handle"></div><a class="m-interactive" href="#drops"><span>Signature</span><span class="icon" aria-hidden="true">arrow_forward</span></a><a class="m-interactive" href="#menu"><span>Menu</span><span class="icon" aria-hidden="true">arrow_forward</span></a><a class="m-interactive" href="#space"><span>Space</span><span class="icon" aria-hidden="true">arrow_forward</span></a><a class="m-interactive" href="#visit"><span>Locations</span><span class="icon" aria-hidden="true">arrow_forward</span></a><div style="padding:12px 16px 0"><a class="m-btn m-btn--filled m-interactive" href="https://order.online/business/coffee-lunar-14611823" target="_blank" rel="noopener"><span>Order ahead</span></a></div></div>
+<div class="m-snackbar" role="status"></div>
+<script type="application/json" id="venue">{"id":"lunar","tz":"America/Toronto","langs":["en"],"title":{"en":"Coffee Lunar — specialty drinks & desserts, Rosedale and North York"},"micro":[],"koFont":null,"strings":{"en":{"open":"Open","openUntil":"until {t}","closed":"Closed","opens":"opens {d} at {t}","today":"today","tomorrow":"tomorrow","days":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"closedDay":"Closed","copied":"Address copied","moonNames":["New moon tonight","Waxing crescent tonight","First quarter tonight","Waxing gibbous tonight","Full moon tonight","Waning gibbous tonight","Last quarter tonight","Waning crescent tonight"]}},"locations":[{"id":"rosedale","name":"Rosedale","hours":[[480,1020],[480,1020],[480,1020],[480,1020],[480,1020],[480,1020],[480,1020]]},{"id":"northyork","name":"North York","hours":[[540,1140],[540,1140],[540,1140],[540,1140],[540,1140],[540,1140],[540,1140]]}]}</script>
+<script>/* Restaurant template runtime. Reads venue data from <script id="venue" type="application/json">. */
+(function () {
+  const V = JSON.parse(document.getElementById('venue').textContent);
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let LANG = 'en';
+  const S = k => (V.strings[LANG] && V.strings[LANG][k]) || V.strings.en[k] || '';
+  // Light haptic tick on phones, only after a real tap (browsers block it otherwise)
+  const buzz = p => { if (still || !navigator.vibrate || !(navigator.userActivation && navigator.userActivation.isActive)) return; try { navigator.vibrate(p); } catch (e) {} };
+  const pick = o => (o && typeof o === 'object' ? o[LANG] || o.en : o);
 
-<footer>
- <div><b>COFFEE LUNAR</b>Specialty drinks &amp; desserts</div>
- <div>Rosedale · 920 Yonge St · 8am – 5pm<br>North York · 6040 Yonge St · 9am – 7pm</div>
- <div class="moonnow" title="Today's moon phase"><span id="moonIcon">🌕</span><span id="moonName">Tonight's moon</span></div>
-</footer>
+  /* ---------- time ---------- */
+  function now() {
+    const p = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: V.tz, weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false }).formatToParts(new Date()).map(x => [x.type, x.value]));
+    return { day: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(p.weekday), min: (+p.hour % 24) * 60 + +p.minute };
+  }
+  function fmt(m) {
+    m = ((m % 1440) + 1440) % 1440; const h = Math.floor(m / 60), mm = m % 60, pad = mm ? ':' + String(mm).padStart(2, '0') : '';
+    if (LANG === 'ko') { if (h === 0 && !mm) return '자정'; const part = h < 6 ? '새벽' : h < 12 ? '오전' : '오후'; return `${part} ${h % 12 || 12}${mm ? ':' + String(mm).padStart(2, '0') : '시'}`; }
+    if (h === 0 && !mm) return 'midnight';
+    return `${h % 12 || 12}${pad}${h >= 12 ? 'pm' : 'am'}`;
+  }
+  const dur = m => { const h = Math.floor(m / 60), mm = m % 60; return LANG === 'ko' ? [h && `${h}시간`, (mm || !h) && `${mm}분`].filter(Boolean).join(' ') : [h && `${h}h`, (mm || !h) && `${mm}m`].filter(Boolean).join(' '); };
+  function hoursState(week,day,min){const t=week[day],y=week[(day+6)%7];if(y&&y[1]>1440&&min<y[1]-1440)return{open:true,closesAt:y[1]-1440,closesIn:y[1]-1440-min};if(t&&min>=t[0]&&min<t[1])return{open:true,closesAt:t[1],closesIn:t[1]-min};if(t&&min<t[0])return{open:false,opensAt:t[0],opensDay:0};for(let i=1;i<=7;i++){const d=week[(day+i)%7];if(d)return{open:false,opensAt:d[0],opensDay:i}}return{open:false}}
+  function stateText(st, loc, short) {
+    if (st.open) {
+      const until = S('openUntil').replace('{t}', fmt(st.closesAt));
+      if (V.micro.includes('lastCall') && st.closesIn <= 240) return `${S('open')} · ${S('lastCallIn').replace('{d}', dur(st.closesIn))}`;
+      return short ? S('open') : `${S('open')} · ${until}`;
+    }
+    if (st.opensAt == null) return S('closed');
+    const day = st.opensDay === 0 ? S('today') : st.opensDay === 1 ? S('tomorrow') : S('days')[(now().day + st.opensDay) % 7];
+    return short ? S('closed') : `${S('closed')} · ${S('opens').replace('{d}', day).replace('{t}', fmt(st.opensAt))}`;
+  }
+  function renderHours() {
+    const n = now();
+    const items = V.locations.map(l => { const st = hoursState(l.hours, n.day, n.min); return { l, st }; });
+    const bar = $('.m-status');
+    if (bar) bar.innerHTML = items.map(({ l, st }) => `<span class="m-status__item" data-open="${st.open}"><span class="m-status__dot"></span>${V.locations.length > 1 ? pick(l.name) + ': ' : ''}${stateText(st, l)}${l.kitchen && st.open ? ' · ' + (hoursState(l.kitchen, n.day, n.min).open ? S('kitchenUntil').replace('{t}', fmt(hoursState(l.kitchen, n.day, n.min).closesAt)) : S('kitchenClosed')) : ''}</span>`).join('');
+    items.forEach(({ l, st }) => {
+      $$(`[data-loc-badge="${l.id}"]`).forEach(b => { b.dataset.open = st.open; b.textContent = stateText(st, l, true); });
+      $$(`[data-hours="${l.id}"]`).forEach(t => {
+        t.innerHTML = [1, 2, 3, 4, 5, 6, 0].map(d => `<tr${d === n.day ? ' data-today' : ''}><td>${S('days')[d]}${d === n.day ? ' · ' + S('today') : ''}</td><td>${l.hours[d] ? fmt(l.hours[d][0]) + ' – ' + fmt(l.hours[d][1]) : S('closedDay')}</td></tr>`).join('');
+      });
+    });
+    micro.tick && micro.tick(items, n);
+  }
 
-<div class="dock away" id="dock"><a href="#menu">Menu</a><a href="#cafes">Cafés</a><a href="https://order.online/business/coffee-lunar-14611823" target="_blank" rel="noopener">Order ahead</a></div>
+  /* ---------- ripple + top bar ---------- */
+  document.addEventListener('pointerdown', e => {
+    const el = e.target.closest('.m-interactive'); if (!el || still) return;
+    const r = el.getBoundingClientRect(), d = Math.max(r.width, r.height) * 2.2, s = document.createElement('span');
+    s.className = 'm-ripple'; s.style.cssText = `width:${d}px;height:${d}px;left:${e.clientX - r.left - d / 2}px;top:${e.clientY - r.top - d / 2}px`;
+    el.appendChild(s); setTimeout(() => s.remove(), 600);
+  });
+  const top = $('.m-topbar'); const onScroll = () => top && (top.dataset.scrolled = scrollY > 8); addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
-<script>
-// Hours from coffeelunar.com
-const CAFES={rosedale:{name:'Rosedale',open:480,close:1020},northyork:{name:'North York',open:540,close:1140}};
-const fmt=m=>{const h=Math.floor(m/60);return (h%12||12)+(h>=12?'pm':'am')};
-function renderStatus(){
- const p=Object.fromEntries(new Intl.DateTimeFormat('en-US',{timeZone:'America/Toronto',hour:'numeric',minute:'numeric',hour12:false}).formatToParts(new Date()).map(x=>[x.type,x.value]));
- const m=(+p.hour%24)*60+(+p.minute),out=[];
- for(const [k,c] of Object.entries(CAFES)){
-  const open=m>=c.open&&m<c.close,label=open?`Open · until ${fmt(c.close)}`:(m<c.open?`Opens ${fmt(c.open)}`:`Closed · opens ${fmt(c.open)} tomorrow`);
-  out.push(`<span><i class="pill ${open?'':'off'}"></i>${c.name}: ${label}</span>`);
-  const el=document.querySelector(`[data-loc="${k}"] .now`);el.textContent=open?'Open now':(m<c.open?`Opens ${fmt(c.open)}`:'Closed');el.classList.toggle('off',!open);
- }
- document.getElementById('status').innerHTML=out.join('');
-}
-renderStatus();setInterval(renderStatus,60000);
-// Today's moon phase (synodic month from a known new moon: 2000-01-06 18:14 UTC)
-(function(){const syn=29.530588853,age=(((Date.now()-Date.UTC(2000,0,6,18,14))/864e5)%syn+syn)%syn;
- const names=[['🌑','New moon'],['🌒','Waxing crescent'],['🌓','First quarter'],['🌔','Waxing gibbous'],['🌕','Full moon'],['🌖','Waning gibbous'],['🌗','Last quarter'],['🌘','Waning crescent']];
- const [i,n]=names[Math.floor((age/syn)*8+.5)%8];document.getElementById('moonIcon').textContent=i;document.getElementById('moonName').textContent=n+' tonight';})();
-// Mobile dock: hidden over the hero buttons, location cards and footer
-(function(){const dock=document.getElementById('dock');if(!('IntersectionObserver' in window)){dock.classList.remove('away');return}
- const watch=[document.querySelector('.hero'),document.querySelector('.locs'),document.querySelector('footer')].filter(Boolean),seen=new Set();
- const io=new IntersectionObserver(es=>{es.forEach(e=>e.isIntersecting?seen.add(e.target):seen.delete(e.target));dock.classList.toggle('away',seen.size>0)});watch.forEach(w=>io.observe(w));})();
-// Mobile menu
-(function(){const b=document.getElementById('menuBtn'),m=document.getElementById('mobileMenu');b.onclick=()=>{const o=m.hidden;m.hidden=!o;b.setAttribute('aria-expanded',o);b.textContent=o?'Close':'Menu'};m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{m.hidden=true;b.setAttribute('aria-expanded',false);b.textContent='Menu'}))})();
+  /* ---------- bottom sheet ---------- */
+  const sheetEl = $('.m-sheet'); if (sheetEl) sheetEl.inert = true;
+  const openSheet = o => { document.body.dataset.sheet = o ? 'open' : ''; if (sheetEl) sheetEl.inert = !o; const b = $('[data-sheet-open]'); b && b.setAttribute('aria-expanded', o); if (o) { const f = $('.m-sheet a'); f && f.focus(); } };
+  $$('[data-sheet-open]').forEach(b => b.addEventListener('click', () => openSheet(true)));
+  $$('.m-scrim,[data-sheet-close],.m-sheet a').forEach(b => b.addEventListener('click', () => openSheet(false)));
+  addEventListener('keydown', e => e.key === 'Escape' && openSheet(false));
+
+  /* ---------- segmented buttons ---------- */
+  function placeInd(seg) {
+    const on = $('[aria-pressed="true"]', seg), ind = $('.m-seg__ind', seg); if (!on || !ind) return;
+    ind.style.width = on.offsetWidth + 'px'; ind.style.transform = `translateX(${on.offsetLeft}px)`;
+  }
+  function initSeg(seg) {
+    if (!$('.m-seg__ind', seg)) seg.insertAdjacentHTML('afterbegin', '<span class="m-seg__ind" aria-hidden="true"></span>');
+    $$('.m-seg__btn', seg).forEach(b => b.addEventListener('click', () => {
+      $$('.m-seg__btn', seg).forEach(x => x.setAttribute('aria-pressed', x === b)); placeInd(seg);
+      seg.dispatchEvent(new CustomEvent('seg', { detail: b.dataset.value, bubbles: true }));
+      buzz(8);
+    }));
+    requestAnimationFrame(() => placeInd(seg));
+  }
+  $$('.m-seg').forEach(initSeg);
+  addEventListener('resize', () => $$('.m-seg').forEach(placeInd));
+  if (document.fonts) document.fonts.ready.then(() => $$('.m-seg').forEach(placeInd));
+
+  /* ---------- tabs + menu search ---------- */
+  $$('.m-tabs').forEach(tabs => {
+    const btns = $$('[role=tab]', tabs), ind = document.createElement('span'); ind.className = 'm-tabs__ind'; tabs.appendChild(ind);
+    const place = () => { const on = btns.find(b => b.getAttribute('aria-selected') === 'true'); if (on) { ind.style.width = on.offsetWidth + 'px'; ind.style.transform = `translateX(${on.offsetLeft}px)`; } };
+    const select = b => { btns.forEach(x => { const sel = x === b; x.setAttribute('aria-selected', sel); x.tabIndex = sel ? 0 : -1; $('#' + x.getAttribute('aria-controls')).hidden = !sel; }); place(); b.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: still ? 'auto' : 'smooth' }); };
+    btns.forEach((b, i) => { b.addEventListener('click', () => select(b)); b.addEventListener('keydown', e => { const k = { ArrowRight: 1, ArrowLeft: -1 }[e.key]; if (k) { const n = btns[(i + k + btns.length) % btns.length]; n.focus(); select(n); } }); });
+    requestAnimationFrame(place); addEventListener('resize', place); document.fonts && document.fonts.ready.then(place);
+  });
+  $$('[data-search]').forEach(inp => {
+    const scope = inp.closest('[data-search-scope]'), tabs = $('.m-tabs', scope), empty = $('[data-search-empty]', scope);
+    inp.addEventListener('input', () => {
+      const q = inp.value.trim().toLowerCase(); let hits = 0;
+      $$('.m-list__row', scope).forEach(r => { const ok = !q || r.textContent.toLowerCase().includes(q); r.hidden = !ok; if (ok && q) hits++; });
+      if (q) { $$('.m-panel', scope).forEach(p => p.hidden = !$$('.m-list__row', p).some(r => !r.hidden)); tabs && (tabs.style.visibility = 'hidden'); }
+      else { tabs && (tabs.style.visibility = ''); const on = $('[role=tab][aria-selected="true"]', scope); $$('.m-panel', scope).forEach(p => p.hidden = on && p.id !== on.getAttribute('aria-controls')); }
+      if (empty) empty.hidden = !(q && !hits);
+    });
+  });
+
+  /* ---------- location switcher ---------- */
+  $$('.m-locs[data-switch]').forEach(w => w.addEventListener('seg', e => $$('.m-loc', w).forEach(l => l.toggleAttribute('data-active', l.dataset.loc === e.detail))));
+
+  /* ---------- variant price picker + temperature toggle ---------- */
+  document.addEventListener('seg', e => {
+    const card = e.target.closest('.m-card'); if (!card) return;
+    const out = $('[data-price-out]', card);
+    if (e.target.matches('[data-variant]') && out) { const b = $(`[data-value="${e.detail}"]`, e.target); out.textContent = b.dataset.price; out.classList.remove('m-tick'); void out.offsetWidth; out.classList.add('m-tick'); }
+    if (e.target.matches('[data-temp]')) card.dataset.temp = e.detail;
+  });
+
+  /* ---------- bottom action bar ---------- */
+  const bar = $('.m-bar');
+  if (bar && 'IntersectionObserver' in window) {
+    const seen = new Set();
+    const io = new IntersectionObserver(es => { es.forEach(x => x.isIntersecting ? seen.add(x.target) : seen.delete(x.target)); bar.dataset.away = seen.size > 0; });
+    $$('[data-bar-hide]').forEach(el => io.observe(el));
+  }
+
+  /* ---------- snackbar + copy ---------- */
+  const snack = $('.m-snackbar'); let st;
+  const toast = msg => { if (!snack) return; snack.textContent = msg; snack.dataset.show = true; clearTimeout(st); st = setTimeout(() => snack.dataset.show = false, 2400); };
+  $$('[data-copy]').forEach(b => b.addEventListener('click', async () => { try { await navigator.clipboard.writeText(b.dataset.copy); toast(S('copied')); } catch (e) { toast(b.dataset.copy); } }));
+
+  /* ---------- quotes carousel ---------- */
+  $$('.m-quote[data-quotes]').forEach(box => {
+    const Q = JSON.parse(box.dataset.quotes), q = $('blockquote', box), who = $('[data-who]', box), dots = $('.m-dots', box); let i = 0, t, paused = false;
+    Q.forEach((_, k) => { const b = document.createElement('button'); b.setAttribute('aria-label', (k + 1) + ' / ' + Q.length); b.onclick = () => show(k); dots.appendChild(b); });
+    function show(k) { i = k; q.style.opacity = 0; setTimeout(() => { q.textContent = Q[k].q; who.textContent = Q[k].who + ' · ' + S('reviewSource'); q.style.opacity = 1; }, still ? 0 : 250); $$('button', dots).forEach((b, j) => b.setAttribute('aria-current', j === k)); clearInterval(t); if (!still && !paused) t = setInterval(() => show((i + 1) % Q.length), 5500); }
+    ['mouseenter', 'focusin'].forEach(ev => box.addEventListener(ev, () => { paused = true; clearInterval(t); }));
+    ['mouseleave', 'focusout'].forEach(ev => box.addEventListener(ev, () => { paused = false; show(i); }));
+    box._refresh = () => show(i); show(0);
+  });
+
+  /* ---------- stepper ---------- */
+  $$('.m-stepper').forEach(sp => {
+    const steps = $$('.m-step', sp), bar = $('.m-progress i', sp.parentElement);
+    const go = k => { steps.forEach((s, j) => s.setAttribute('aria-current', j === k)); if (bar) bar.style.width = ((k + 1) / steps.length * 100) + '%'; };
+    steps.forEach((s, k) => s.addEventListener('click', () => go(k))); go(0);
+  });
+
+  /* ---------- venue micro-interactions ---------- */
+  const micro = {};
+  // Night meter: how much of tonight's service is left (EHWA)
+  if (V.micro.includes('nightMeter')) micro.tick = (items, n) => {
+    const m = $('[data-night-meter]'); if (!m) return; const { st, l } = items[0];
+    const span = (l.hours[n.day] || l.hours[(n.day + 6) % 7]); const total = span ? span[1] - span[0] : 1;
+    const left = st.open ? st.closesIn : total; m.style.setProperty('--left', Math.max(0, Math.min(1, left / total)));
+    const lbl = $('[data-night-label]'); if (lbl) lbl.textContent = st.open ? S('nightLeft').replace('{d}', dur(st.closesIn)) : S('nightBefore').replace('{t}', fmt(span ? span[0] : 0));
+  };
+  // Daruma: paint one eye when you make a wish; the other when it comes true (Mikaku)
+  if (V.micro.includes('daruma')) $$('[data-daruma]').forEach(d => {
+    const key = V.id + '-daruma'; let s = 0; try { s = +localStorage.getItem(key) || 0; } catch (e) {}
+    const paint = () => { d.dataset.eyes = s; const l = $('[data-daruma-label]'); if (l) l.textContent = S(['darumaWish', 'darumaOne', 'darumaTwo'][s]); };
+    d.addEventListener('click', () => { s = (s + 1) % 3; try { localStorage.setItem(key, s); } catch (e) {} paint(); buzz([10, 40, 10]); });
+    paint();
+  });
+  // Moon phase (Coffee Lunar)
+  if (V.micro.includes('moon')) $$('[data-moon]').forEach(el => {
+    const syn = 29.530588853, age = (((Date.now() - Date.UTC(2000, 0, 6, 18, 14)) / 864e5) % syn + syn) % syn, k = Math.floor((age / syn) * 8 + .5) % 8;
+    const ph = age / syn; el.style.setProperty('--phase', ph.toFixed(3)); el.style.setProperty('--shift', (ph <= .5 ? -ph * 2 : (1 - ph) * 2) * 100 + '%'); const l = $('[data-moon-label]'); if (l) l.textContent = S('moonNames')[k];
+  });
+  // String lights: tap to switch the lights on and off (Jokbal)
+  if (V.micro.includes('lights')) $$('[data-lights]').forEach(el => el.addEventListener('click', () => { el.dataset.on = el.dataset.on === 'false' ? 'true' : 'false'; }));
+
+  /* ---------- language ---------- */
+  const koEls = $$('[data-ko]'); koEls.forEach(e => e.dataset.en = e.innerHTML);
+  function setLang(l, save) {
+    LANG = l; document.documentElement.lang = l;
+    if (l === 'ko' && V.koFont && !$('#koFont')) { const k = document.createElement('link'); k.id = 'koFont'; k.rel = 'stylesheet'; k.href = V.koFont; document.head.appendChild(k); }
+    koEls.forEach(e => e.innerHTML = l === 'ko' ? e.dataset.ko : e.dataset.en);
+    $$('[data-ko-attr]').forEach(e => { const [a, en, ko] = JSON.parse(e.dataset.koAttr); e.setAttribute(a, l === 'ko' ? ko : en); });
+    document.title = pick(V.title);
+    $$('.m-seg[data-lang] .m-seg__btn').forEach(b => b.setAttribute('aria-pressed', b.dataset.value === l));
+    $$('.m-seg').forEach(placeInd);
+    renderHours(); $$('.m-quote[data-quotes]').forEach(b => b._refresh && b._refresh());
+    $$('[data-daruma]').forEach(d => { const lb = $('[data-daruma-label]'); if (lb) lb.textContent = S(['darumaWish', 'darumaOne', 'darumaTwo'][+d.dataset.eyes || 0]); });
+    $$('[data-moon]').forEach(() => { const syn = 29.530588853, age = (((Date.now() - Date.UTC(2000, 0, 6, 18, 14)) / 864e5) % syn + syn) % syn; const lb = $('[data-moon-label]'); if (lb) lb.textContent = S('moonNames')[Math.floor((age / syn) * 8 + .5) % 8]; });
+    if (save) { try { localStorage.setItem(V.id + '-lang', l); } catch (e) {} const u = new URL(location.href); l === 'ko' ? u.searchParams.set('lang', 'ko') : u.searchParams.delete('lang'); history.replaceState(null, '', u); }
+  }
+  document.addEventListener('seg', e => { if (e.target.matches('[data-lang]')) setLang(e.detail, true); });
+  let start = new URLSearchParams(location.search).get('lang'); if (!start) { try { start = localStorage.getItem(V.id + '-lang'); } catch (e) {} }
+  setLang(V.langs.includes(start) ? start : 'en', false);
+  setInterval(renderHours, 30000);
+})();
 </script>
 </body></html>

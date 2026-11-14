@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>KoSam — Korean ginseng chicken soup, Yonge &amp; Sheppard and Leslie &amp; Cummer</title>
+<meta name="description" content="KoSam Korean Restaurant &amp; Bar: samgyetang, bibimbap and Korean comfort food from a family with 40+ years in South Korea. Two North York locations.">
+<meta name="theme-color" content="#f6f0e6">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f6f0e6;--paper2:#ece3d3;--ink:#1d1a17;--red:#c8262d;--jade:#5f7f6d;--jade2:#e3ebe4;--broth:#e9dcc2;--mute:#6d655b;--line:#1d1a1720}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.65 'IBM Plex Sans KR',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Gowun Batang',serif}
+.wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+.eyebrow{font:600 12px/1 'IBM Plex Sans KR';letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+.btn{display:inline-flex;align-items:center;gap:8px;height:50px;padding:0 24px;border-radius:6px;font:600 14px 'IBM Plex Sans KR';transition:.2s}
+.btn-red{background:var(--red);color:#fff}.btn-red:hover{background:#a81e24}
+.btn-line{border:1.5px solid var(--ink)}.btn-line:hover{background:var(--ink);color:var(--paper)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+
+/* stripe nod to the logo's saekdong bars */
+.saek{height:6px;background:linear-gradient(90deg,#c8262d 0 14%,#f2b51d 14% 28%,#2f6db5 28% 42%,#5f7f6d 42% 56%,#e8e2d6 56% 70%,#c8262d 70% 84%,#1d1a17 84%)}
+.status{background:var(--ink);color:var(--paper);font:500 13px 'IBM Plex Sans KR';padding:9px 20px;display:flex;justify-content:center;gap:26px;flex-wrap:wrap}
+.status span{display:inline-flex;align-items:center;gap:8px}
+.pill{width:8px;height:8px;border-radius:50%;background:#7bd389}.pill.off{background:#e06b6b}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:20px 40px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#f6f0e6f2;backdrop-filter:blur(8px);z-index:10}
+.logo{display:flex;align-items:baseline;gap:12px}
+.logo b{font:700 28px 'Gowun Batang';letter-spacing:-.01em}
+.logo b i{font-style:normal;color:var(--red)}
+.logo span{font:400 15px 'Gowun Batang';color:var(--mute)}
+.links{display:flex;gap:30px;font-size:14px;font-weight:500}
+.right{display:flex;align-items:center;gap:14px}
+.lang{border:1.5px solid var(--ink);background:none;border-radius:99px;height:36px;padding:0 14px;font:600 13px 'IBM Plex Sans KR';cursor:pointer}
+nav .btn{height:40px;padding:0 18px;font-size:13px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 1.05fr;min-height:640px;border-bottom:1px solid var(--line)}
+.hero .txt{padding:80px 56px 70px 40px;display:flex;flex-direction:column;justify-content:center;max-width:620px;margin-left:auto}
+.since{display:inline-flex;align-items:center;gap:12px;font:400 15px 'Gowun Batang';color:var(--mute);margin-bottom:22px}
+.seal{width:44px;height:44px;border:2px solid var(--red);color:var(--red);border-radius:4px;display:grid;place-items:center;font:700 13px/1.05 'Gowun Batang';text-align:center;transform:rotate(-4deg)}
+.hero h1{font:700 clamp(44px,5.4vw,76px)/1.08 'Gowun Batang';letter-spacing:-.02em;margin-bottom:22px}
+.hero h1 em{font-style:normal;color:var(--red)}
+.hero p{font-size:18px;color:#3d3832;max-width:500px;margin-bottom:32px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero .pic{position:relative;overflow:hidden;background:var(--broth)}
+.hero .pic img{object-position:50% 45%}
+.tag{position:absolute;left:24px;bottom:24px;background:var(--paper);padding:14px 18px;border-radius:6px;box-shadow:0 10px 30px #0002;max-width:300px}
+.tag b{display:block;font:700 18px 'Gowun Batang'}
+.tag span{font-size:13px;color:var(--mute)}
+
+.proof{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.proof div{padding:28px 30px;border-right:1px solid var(--line)}
+.proof div:last-child{border:0}
+.proof b{display:block;font:700 22px 'Gowun Batang';margin-bottom:2px}
+.proof span{font-size:14px;color:var(--mute)}
+
+/* dishes */
+.sec{padding:110px 0}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:48px}
+.head h2{font:700 clamp(36px,4vw,54px)/1.12 'Gowun Batang';letter-spacing:-.01em;margin-top:14px}
+.head p{max-width:400px;color:var(--mute)}
+.menu{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.dish{background:#fff;border-radius:10px;overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column}
+.dish .ph{height:250px;position:relative;background:var(--broth)}
+.dish .ph.type{display:grid;place-items:center;background:var(--jade2)}
+.dish .ph.type.warm{background:#f3e1cf}.dish .ph.type.red{background:#f4d9d3}
+.dish .ph.type b{font:700 64px 'Gowun Batang';color:var(--jade);letter-spacing:.04em}
+.dish .ph.type.warm b{color:#a8652d}.dish .ph.type.red b{color:var(--red)}
+.dish .badge{position:absolute;top:14px;left:14px;background:var(--red);color:#fff;font:600 11px 'IBM Plex Sans KR';letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:4px}
+.dish .body{padding:22px 24px 26px}
+.dish h3{font:700 22px 'Gowun Batang';display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.dish h3 small{font:400 15px 'Gowun Batang';color:var(--mute)}
+.dish p{font-size:14.5px;color:#4a443d;margin-top:6px}
+.menu-cta{display:flex;gap:12px;justify-content:center;margin-top:44px;flex-wrap:wrap}
+
+/* how to eat */
+.how{background:var(--ink);color:var(--paper)}
+.how .head p{color:#bdb3a5}
+.how .eyebrow{color:#f2b51d}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;counter-reset:s}
+.step{border-top:1px solid #f6f0e633;padding-top:22px}
+.step:before{counter-increment:s;content:"0" counter(s);font:700 15px 'Gowun Batang';color:#f2b51d}
+.step b{display:block;font:700 22px 'Gowun Batang';margin:10px 0 8px}
+.step p{font-size:14.5px;color:#cfc6b8}
+
+/* locations */
+.locs{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.loc{background:#fff;border:1px solid var(--line);border-radius:10px;padding:34px}
+.loc .top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:18px}
+.loc h3{font:700 30px 'Gowun Batang';line-height:1.15}
+.loc .aka{font-size:13px;color:var(--mute);margin-top:4px}
+.now{font:600 12px 'IBM Plex Sans KR';padding:6px 12px;border-radius:99px;white-space:nowrap;background:var(--jade2);color:#2f5a42}
+.now.off{background:#f4d9d3;color:#8e1d22}
+.loc table{width:100%;border-collapse:collapse;font-size:14.5px;margin:6px 0 22px}
+.loc td{padding:9px 0;border-bottom:1px solid var(--line)}
+.loc td:last-child{text-align:right;color:#4a443d}
+.loc tr.today td{font-weight:600;color:var(--red)}
+.loc .meta{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:14.5px;margin-bottom:22px}
+.loc .acts{display:flex;gap:10px;flex-wrap:wrap}
+.loc .acts .btn{height:44px;font-size:13px}
+.note{display:inline-block;background:var(--jade2);color:#2f5a42;font-size:13px;font-weight:500;padding:6px 12px;border-radius:6px;margin-bottom:18px}
+
+/* reviews */
+.reviews{background:var(--paper2)}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.quote{background:var(--paper);border-radius:10px;padding:30px}
+.quote p{font:400 19px/1.55 'Gowun Batang'}
+.quote cite{display:block;margin-top:18px;font:600 13px 'IBM Plex Sans KR';font-style:normal;color:var(--mute)}
+
+/* story */
+.story .grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.story .ph{height:480px;border-radius:10px;overflow:hidden}
+.story h2{font:700 clamp(34px,3.6vw,48px)/1.15 'Gowun Batang';margin:14px 0 20px}
+.story p{color:#4a443d;margin-bottom:14px;max-width:520px}
+
+footer{background:var(--ink);color:#bdb3a5;padding:56px 40px 110px;font-size:14px}
+footer .row{max-width:1240px;margin:0 auto;display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+footer b{color:var(--paper);font:700 26px 'Gowun Batang'}
+footer a{color:var(--paper)}
+
+.dock{display:none}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+@media(max-width:900px){
+ .wrap{padding:0 20px}
+ nav{padding:14px 20px}.links{display:none}.logo span{display:none}
+ nav .btn{display:none}
+ .status{gap:6px 16px;font-size:12px}
+ .hero{grid-template-columns:1fr}
+ .hero .pic{height:340px;order:-1}
+ .hero .txt{padding:36px 20px 44px}
+ .hero p{font-size:16px}
+ .proof{grid-template-columns:1fr 1fr}.proof div:nth-child(2){border-right:0}.proof div{border-bottom:1px solid var(--line);padding:20px}
+ .sec{padding:72px 0}
+ .head{flex-direction:column;align-items:flex-start}
+ .menu,.quotes,.locs{grid-template-columns:1fr}
+ .steps{grid-template-columns:1fr 1fr}
+ .story .grid{grid-template-columns:1fr;gap:30px}.story .ph{height:300px}
+ .loc{padding:24px}
+ .dock{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;position:fixed;left:10px;right:10px;bottom:10px;z-index:20;background:#1d1a17f2;padding:8px;border-radius:12px}
+ .dock a{height:46px;display:grid;place-items:center;border-radius:8px;color:var(--paper);font:600 13px 'IBM Plex Sans KR'}
+ .dock a:last-child{background:var(--red)}
+}
+</style></head><body>
+<div class="concept-ribbon" style="background:#141414;color:#f4f2ee;font:500 12.5px/1.4 system-ui,sans-serif;text-align:center;padding:8px 14px">Design concept by Mooque Studio, not the official KoSam website. <a href="http://kosam.ca/" target="_blank" rel="noopener" style="color:#f4f2ee;text-decoration:underline">Visit the real site ↗</a></div>
+
+
+<div class="saek"></div>
+<div class="status" id="status"></div>
+
+<nav>
+ <a class="logo" href="#"><b>Ko<i>Sam</i></b><span>고려삼계탕</span></a>
+ <div class="links"><a href="#menu" data-ko="메뉴">Menu</a><a href="#how" data-ko="먹는 법">How to eat it</a><a href="#locations" data-ko="매장 안내">Locations</a><a href="#story" data-ko="이야기">Our story</a></div>
+ <div class="right"><button class="lang" id="lang" aria-label="Switch language">한국어</button><a class="btn btn-red" href="#locations" data-ko="전화 주문">Call to order</a></div>
+</nav>
+
+<header class="hero">
+ <div class="txt">
+  <div class="since"><span class="seal">40<br>年</span><span data-ko="한국에서 40년 넘게 이어온 맛">40+ years of family recipes from South Korea</span></div>
+  <h1 data-ko="40년 끓여온<br><em>삼계탕</em> 한 그릇.">A bowl of <em>samgyetang</em>, forty years in the making.</h1>
+  <p data-ko="인삼, 대추, 찹쌀을 품은 영계 한 마리를 뚝배기에 정성껏 끓였습니다. 노스욕 두 곳에서 만나보세요.">A whole young chicken stuffed with sweet rice, ginseng and jujube, simmered until the broth turns milky. Served bubbling in stone, with banchan, at two North York restaurants.</p>
+  <div class="cta"><a class="btn btn-red" href="#locations" data-ko="가까운 매장 찾기">Find your nearest KoSam</a><a class="btn btn-line" href="#menu" data-ko="대표 메뉴 보기">See the menu</a></div>
+ </div>
+ <div class="pic">
+  <img src="../../../kosam/img/samgyetang.jpg" alt="Koryo samgyetang, whole ginseng chicken soup in a stone pot">
+  <div class="tag"><b>Koryo Samgyetang · 고려삼계탕</b><span>Our signature since day one</span></div>
+ </div>
+</header>
+
+<div class="proof">
+ <div><b data-ko="40년+">40+ years</b><span data-ko="한국에서 시작된 레시피">Recipe roots in South Korea</span></div>
+ <div><b data-ko="2곳">2 locations</b><span>Yonge &amp; Sheppard · Leslie &amp; Cummer</span></div>
+ <div><b data-ko="반찬 리필">Banchan refills</b><span data-ko="원하시는 만큼">Side dishes, replenished</span></div>
+ <div><b data-ko="테라스">Covered patio</b><span data-ko="쉐퍼드점 뒤뜰">Backyard patio at Sheppard</span></div>
+</div>
+
+<section class="sec" id="menu"><div class="wrap">
+ <div class="head"><div><div class="eyebrow" data-ko="대표 메뉴">Signature dishes</div><h2 data-ko="처음이시라면,<br>이 메뉴부터.">First time?<br>Start here.</h2></div><p data-ko="뚝배기 요리부터 바삭한 치킨까지. 모든 메인 메뉴에는 반찬이 함께 나옵니다.">From stone-pot soups to crispy chicken for the table. Every main comes with banchan.</p></div>
+ <div class="menu">
+  <article class="dish"><div class="ph"><img src="../../../kosam/img/samgyetang.jpg" alt="Koryo samgyetang"><span class="badge">Signature</span></div><div class="body"><h3>Koryo Samgyetang <small>고려삼계탕</small></h3><p>Whole young chicken stuffed with sweet rice, ginseng, jujube and garlic, in a milky broth.</p></div></article>
+  <article class="dish"><div class="ph type warm"><b>들깨</b></div><div class="body"><h3>Perilla Seed Samgyetang <small>들깨삼계탕</small></h3><p>Our samgyetang, finished with a nutty, creamy perilla seed broth.</p></div></article>
+  <article class="dish"><div class="ph"><img src="../../../kosam/img/bibimbap.jpg" alt="Hot stone bibimbap"></div><div class="body"><h3>Hot Stone Bibimbap <small>돌솥비빔밥</small></h3><p>Rice, sautéed vegetables and a fried egg in a sizzling stone bowl. Mix it all, scrape the crispy bottom.</p></div></article>
+  <article class="dish"><div class="ph"><img src="../../../kosam/img/soondobu.jpg" alt="Seafood soft tofu stew"></div><div class="body"><h3>Jjamppong Soondubu <small>짬뽕순두부</small></h3><p>Custardy soft tofu in a spicy seafood broth. Hot, filling and made for cold nights.</p></div></article>
+  <article class="dish"><div class="ph type red"><b>불닭</b></div><div class="body"><h3>Stir-Fried Bul Dak <small>불닭</small></h3><p>Fiery stir-fried chicken under a blanket of melted cheese. Order rice.</p></div></article>
+  <article class="dish"><div class="ph type"><b>치킨</b></div><div class="body"><h3>Honey Butter Fried Chicken <small>허니버터치킨</small></h3><p>Boneless Korean fried chicken, glazed sweet and buttery. Also in yangnyeom.</p></div></article>
+ </div>
+ <div class="menu-cta"><a class="btn btn-line" href="http://kosam.ca/assets/menu/Yonge.pdf" target="_blank" rel="noopener">Yonge &amp; Sheppard full menu</a><a class="btn btn-line" href="http://kosam.ca/assets/menu/Leslie.pdf" target="_blank" rel="noopener">Leslie &amp; Cummer full menu</a></div>
+</div></section>
+
+<section class="sec how" id="how"><div class="wrap">
+ <div class="head"><div><div class="eyebrow" data-ko="삼계탕 맛있게 먹는 법">How to eat samgyetang</div><h2 data-ko="처음이어도 괜찮아요.">New to samgyetang?<br>Here's the ritual.</h2></div><p data-ko="서버가 테이블에서 친절히 알려드립니다.">Our servers will walk you through it at the table. Here's the short version.</p></div>
+ <div class="steps">
+  <div class="step"><b data-ko="간 맞추기">Season it</b><p data-ko="국물은 일부러 담백하게 끓입니다. 소금과 후추로 취향껏 간하세요.">The broth is left unsalted on purpose. Add salt and pepper from the table to taste.</p></div>
+  <div class="step"><b data-ko="닭 열기">Open the chicken</b><p data-ko="젓가락으로 닭을 갈라 속에 든 찹쌀, 인삼, 대추를 국물에 풀어주세요.">Pull the bird apart with your chopsticks and let the sweet rice, ginseng and jujube spill into the broth.</p></div>
+  <div class="step"><b data-ko="찍어 먹기">Dip the meat</b><p data-ko="살코기는 소금·후추에 찍어 드세요.">Dip pieces of chicken in the salt-and-pepper dish.</p></div>
+  <div class="step"><b data-ko="김치와 함께">Add kimchi</b><p data-ko="깍두기나 김치를 곁들이면 더 맛있습니다.">Spoon broth and rice together and top with radish kimchi. Ask for more banchan any time.</p></div>
+ </div>
+</div></section>
+
+<section class="sec" id="locations"><div class="wrap">
+ <div class="head"><div><div class="eyebrow" data-ko="매장 안내">Locations</div><h2 data-ko="노스욕 두 곳에서<br>기다리고 있어요.">Two homes in North York.</h2></div><p data-ko="쉐퍼드점은 목·금·토 자정까지 영업합니다.">Sheppard stays open until midnight Thursday to Saturday.</p></div>
+ <div class="locs">
+  <div class="loc" data-loc="sheppard">
+   <div class="top"><div><h3>Yonge &amp; Sheppard</h3><div class="aka">KoSam Korean Restaurant &amp; Bar</div></div><span class="now"></span></div>
+   <span class="note">Full menu + bar · covered backyard patio</span>
+   <table></table>
+   <div class="meta"><span>4922 Yonge St, Toronto ON M2N 5N5</span><a href="tel:+14165512826">416-551-2826</a></div>
+   <div class="acts"><a class="btn btn-red" href="tel:+14165512826">Call to order</a><a class="btn btn-line" href="https://maps.google.com/?q=4922+Yonge+St+Toronto" target="_blank" rel="noopener">Directions</a></div>
+  </div>
+  <div class="loc" data-loc="leslie">
+   <div class="top"><div><h3>Leslie &amp; Cummer</h3><div class="aka">Also known as Koryo Samgyetang · 고려삼계탕</div></div><span class="now"></span></div>
+   <span class="note">The original samgyetang house</span>
+   <table></table>
+   <div class="meta"><span>5865 Leslie St, Toronto ON M2H 1J8</span><a href="tel:+14164930880">416-493-0880</a></div>
+   <div class="acts"><a class="btn btn-red" href="tel:+14164930880">Call to order</a><a class="btn btn-line" href="https://maps.google.com/?q=5865+Leslie+St+Toronto" target="_blank" rel="noopener">Directions</a></div>
+  </div>
+ </div>
+</div></section>
+
+<section class="sec reviews"><div class="wrap">
+ <div class="head"><div><div class="eyebrow" data-ko="손님 후기">From our guests</div><h2 data-ko="노스욕의 숨은 맛집.">"A hidden gem in North York."</h2></div></div>
+ <div class="quotes">
+  <div class="quote"><p>"The servers take time to list off the side dishes provided and to explain how to eat each entree."</p><cite>Juu · Yelp</cite></div>
+  <div class="quote"><p>"This place is a hidden gem in North York! I found this place to satisfy my craving of bibimbap and some tasty Korean side dishes."</p><cite>Joe · Yelp</cite></div>
+  <div class="quote"><p>"Overall, love the ambience, great service and wonderful tasting food. Will come back!"</p><cite>Sharon · Yelp</cite></div>
+ </div>
+</div></section>
+
+<section class="sec story" id="story"><div class="wrap grid">
+ <div class="ph"><img src="../../../kosam/img/testimonials.jpg" alt="Korean dishes on the table at KoSam"></div>
+ <div>
+  <div class="eyebrow" data-ko="우리의 이야기">Our story</div>
+  <h2 data-ko="한국의 40년,<br>토론토의 한 그릇.">Forty years in Korea.<br>One bowl in Toronto.</h2>
+  <p data-ko="KoSam은 한국에서 40년 넘게 사랑받아 온 식당을 운영한 가족이 토론토에 문을 연 곳입니다.">KoSam comes from a family that ran a beloved restaurant in South Korea for more than forty years. They brought the recipes, and the patience, to North York.</p>
+  <p data-ko="처음 이름은 고려삼계탕. 지금도 레슬리점에서는 그 이름으로 불립니다.">We started as Koryo Samgyetang, and our Leslie &amp; Cummer home still goes by that name. At Yonge &amp; Sheppard, KoSam adds a bar, fried chicken and a backyard patio.</p>
+ </div>
+</div></section>
+
+<footer><div class="row">
+ <div><b>KoSam 고삼</b><br>Korean Restaurant &amp; Bar · <a href="mailto:info@kosam.ca">info@kosam.ca</a></div>
+ <div>Yonge &amp; Sheppard <a href="tel:+14165512826">416-551-2826</a><br>Leslie &amp; Cummer <a href="tel:+14164930880">416-493-0880</a></div>
+ <div><a href="https://www.instagram.com/koryo_samgyetang/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.yelp.ca/biz/koryo-samgaetang-north-york" target="_blank" rel="noopener">Yelp</a></div>
+</div></footer>
+
+<div class="dock"><a href="#locations">Locations</a><a href="#menu">Menu</a><a href="tel:+14165512826">Call</a></div>
+
+<script>
+// Hours from kosam.ca/locations.html. Minutes after midnight; close past 24:00 means after midnight.
+const H={sheppard:{name:'Sheppard',hours:[[660,1380],[660,1380],[660,1380],[660,1380],[660,1440],[660,1440],[660,1440]]},
+         leslie:{name:'Leslie',hours:Array(7).fill([660,1320])}};
+const DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const DAYS_KO=['일요일','월요일','화요일','수요일','목요일','금요일','토요일'];
+const fmt=m=>{m%=1440;const h=Math.floor(m/60),mm=m%60,ap=h>=12?'pm':'am',hh=h%12||12;return hh+(mm?':'+String(mm).padStart(2,'0'):'')+ap};
+const p=Object.fromEntries(new Intl.DateTimeFormat('en-US',{timeZone:'America/Toronto',weekday:'long',hour:'numeric',minute:'numeric',hour12:false}).formatToParts(new Date()).map(x=>[x.type,x.value]));
+const d=DAYS.indexOf(p.weekday),m=(+p.hour%24)*60+(+p.minute);
+let ko=false;
+function render(){
+ const st=[];
+ for(const [k,v] of Object.entries(H)){
+  const [o,c]=v.hours[d],[,pc]=v.hours[(d+6)%7];
+  const open=(m>=o&&m<c)||(pc>1440&&m<pc-1440);
+  const label=open?(ko?`영업 중 · ${fmt(c)}까지`:`Open now · until ${fmt(c)}`):(m<o?(ko?`${fmt(o)} 오픈`:`Opens ${fmt(o)}`):(ko?'영업 종료 · 내일 11am 오픈':'Closed · opens 11am'));
+  st.push(`<span><i class="pill ${open?'':'off'}"></i>${v.name}: ${label}</span>`);
+  const el=document.querySelector(`[data-loc="${k}"]`);
+  el.querySelector('.now').textContent=label;el.querySelector('.now').classList.toggle('off',!open);
+  el.querySelector('table').innerHTML=[1,2,3,4,5,6,0].map(i=>`<tr class="${i===d?'today':''}"><td>${(ko?DAYS_KO:DAYS)[i]}${i===d?(ko?' · 오늘':' · today'):''}</td><td>${fmt(v.hours[i][0])} – ${fmt(v.hours[i][1])}</td></tr>`).join('');
+ }
+ document.getElementById('status').innerHTML=st.join('');
+}
+// Simple EN / 한국어 toggle: swaps text for every element with data-ko
+document.querySelectorAll('[data-ko]').forEach(e=>e.dataset.en=e.innerHTML);
+document.getElementById('lang').onclick=function(){
+ ko=!ko;document.documentElement.lang=ko?'ko':'en';this.textContent=ko?'English':'한국어';
+ document.querySelectorAll('[data-ko]').forEach(e=>e.innerHTML=ko?e.dataset.ko:e.dataset.en);render();
+};
+render();
+</script>
+</body></html>

@@ -105,6 +105,7 @@ else{
  if(!artist)notes.push(['Older versions',`<a href="archive/#${c.id}">Archive: first draft and playful v2</a>`]);
  if(artist)notes.push(['Case',c.status+' · '+c.work]);
  if(c.teamNote)notes.push(['Note',c.teamNote]);
+ if(artist)notes.push(['Not checked','Instagram and other social bios sit behind a login and were not read. Look for a link in bio before sending.']);
  notes.push(['Before captured',c.beforeDate+'. These states change; re-check before sending.']);
  document.getElementById('teamNotes').innerHTML=notes.map(([t,d])=>`<div class="nx"><span>${t}</span><div>${d}</div></div>`).join('');
 }

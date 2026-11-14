@@ -59,7 +59,7 @@ window.CONCEPTS = [
     pitch: 'Their reservations, menu and ordering already work. This turns the landing page into a reason to come: the food, the 3am hours and two easy location paths.',
     highlights: ['Real dish photos from their own menu, up front', 'Live open status that handles the 3am close and 1:30 kitchen', 'English / 한국어 toggle'],
     changes: [
-      ['First screen', 'The illustrated host and "Korean Kitchen & Soju Bar", with no food shown.', 'Their logo stays in the header, next to one of their own dish photos and the 3am headline.'],
+      ['First screen', 'The illustrated host and "Korean Kitchen & Soju Bar", with no food shown.', 'Their logo, one of their own dish photos and the 3am headline. The host illustration is not in this version; it can return in the story section.'],
       ['Food', 'No dishes on the homepage; photos live only inside the menu app.', 'Eight Popular dishes with photos and prices, linking into the existing menu.'],
       ['Hours', 'Written in each location card.', 'Live "open now · kitchen until 1:30" status for both locations.'],
       ['Locations', 'Two text cards with links.', 'Two clear paths: reserve, menu, delivery, call and directions per location.'],
@@ -195,24 +195,24 @@ window.CONCEPTS = [
     category: 'artist', group: 'active', beforeDate: '13 Nov 2026',
     work: 'Website + domain recovery', status: 'Strong case', live: 'https://adriakain.com/', liveUnsafe: 'now a casino page', accent: '#9a4a25',
     pitch: 'A JUNO-nominated artist whose old address now sends fans to a casino page. One clean page puts the music, the story and booking back under her name.',
-    evidence: 'adriakain.com was her official site in Feb 2022 (Wayback Machine). On 13 Nov 2026 the same address showed a casino page. Her Bandcamp page lists no releases. She is on Instagram as @adriakain.',
+    evidence: 'adriakain.com was her official site in Feb 2022 (Wayback Machine). On 13 Nov 2026 the same address showed a casino page. Her Linktree links to streaming, videos and a newer album, This Feels Like Home, but not to a site. Her Bandcamp page lists no releases.',
     
-    highlights: ['A site under her own name again, or a new address if the old one cannot be recovered.', 'All four releases in one list, newest first.', 'Polaris long list and JUNO nomination up front.'],
-    changes: [['Her address', 'adriakain.com showed an online-casino page on 13 Nov 2026.', 'A site under her own name again, or a new address if the old one cannot be recovered.'], ['Music', 'Her Bandcamp page lists no releases.', 'All four releases in one list, newest first. Listen links are added with her.'], ['Recognition', 'We found it only on Wikipedia and the JUNO site.', 'Polaris long list and JUNO nomination up front.'], ['Booking', 'We found no booking contact.', 'A booking and press section with a press kit.']],
+    highlights: ['A site under her own name again, or a new address if the old one cannot be recovered.', 'Album and EPs in one list, newest first, with a Listen button.', 'Polaris long list and JUNO nomination up front.'],
+    changes: [['Her address', 'adriakain.com showed an online-casino page on 13 Nov 2026.', 'A site under her own name again, or a new address if the old one cannot be recovered.'], ['Music', 'A Linktree of streaming and video links.', 'Albums and EPs in one list, newest first, with a Listen button.'], ['Recognition', 'On Wikipedia and the JUNO site, not on a page of her own.', 'Polaris long list and JUNO nomination up front.'], ['Booking', 'Not on a page of her own.', 'A booking and press section with a press kit.']],
     next: [['Launch', "A one-page site on the artist's own domain, with HTTPS and a press kit."], ['CMS', 'A simple editor for shows, releases and news, so updates take a minute.'], ['Add-on', 'Press photos and a short bio written with the artist.'], ['Care', 'Domain renewal reminders and monthly updates.']],
-    sources: ['Wikipedia: Adria Kain', 'junoawards.ca (2026 nominee, Contemporary R&B Recording of the Year, "Set Me Free")', 'web.archive.org snapshot of adriakain.com, 11 Feb 2022', 'adriakain.bandcamp.com']
+    sources: ['Wikipedia: Adria Kain', 'junoawards.ca (2026 nominee, Contemporary R&B Recording of the Year, "Set Me Free")', 'web.archive.org snapshot of adriakain.com, 11 Feb 2022', 'linktr.ee/adriakain', 'adriakain.bandcamp.com (no releases listed)']
   },
   {
     id: 'persaud', short: 'Lydia Persaud', name: 'Lydia Persaud', kind: 'Soul singer-songwriter', area: 'Toronto',
     category: 'artist', group: 'active', beforeDate: '13 Nov 2026',
     work: 'Website', status: 'Strong case', live: 'https://www.lydiapersaud.com/', accent: '#1f3a2c',
-    pitch: 'Her official address shows "Website Expired". A light one-page site brings back the two albums and a way to book her.',
-    evidence: 'lydiapersaud.com was her site in 2019 and 2022 (Wayback Machine). On 13 Nov 2026 it showed Squarespace\'s "Website Expired" page. Her Bandcamp page works and still links to the expired address.',
+    pitch: 'Her official address shows "Website Expired". A light one-page site brings back her records and a way to book her.',
+    evidence: 'lydiapersaud.com was her site in 2019 and 2022 (Wayback Machine). On 13 Nov 2026 it showed Squarespace\'s "Website Expired" page. Her Bandcamp page works and still links to the expired address. Her Linktree is active and lists a 2025 release, but no site.',
     
-    highlights: ['A working one-page site.', 'Moody31 and Let Me Show You listed with a Listen button.', 'Booking and press section.'],
-    changes: [['Her address', 'Shows "Website Expired".', 'A working one-page site.'], ['Albums', 'On Bandcamp, which links back to the expired address.', 'Moody31 and Let Me Show You listed with a Listen button.'], ['Booking', 'We found only Bandcamp\'s contact form.', 'Booking and press section.']],
+    highlights: ['A working one-page site.', 'Her records in one list with a Listen button.', 'Booking and press section.'],
+    changes: [['Her address', 'Shows "Website Expired".', 'A working one-page site.'], ['Albums', 'On Bandcamp, which links back to the expired address.', 'Her records in one list, newest first, with a Listen button.'], ['Booking', 'Not on a page of her own.', 'Booking and press section.']],
     next: [['Launch', "A one-page site on the artist's own domain, with HTTPS and a press kit."], ['CMS', 'A simple editor for shows, releases and news, so updates take a minute.'], ['Add-on', 'Press photos and a short bio written with the artist.'], ['Care', 'Domain renewal reminders and monthly updates.']],
-    sources: ['NOW Toronto', 'Killbeat Music press releases', 'web.archive.org snapshots of lydiapersaud.com', 'lydiapersaud.bandcamp.com']
+    sources: ['NOW Toronto', 'Killbeat Music press releases', 'web.archive.org snapshots of lydiapersaud.com', 'lydiapersaud.bandcamp.com', 'linktr.ee/lydiapersaud']
   },
   {
     id: 'ibrahim', short: 'Zaki Ibrahim', name: 'Zaki Ibrahim', kind: 'Singer-songwriter', area: 'Toronto',
@@ -222,7 +222,7 @@ window.CONCEPTS = [
     evidence: 'zakiibrahim.com was her site from 2019 to 2024 (Wayback Machine). On 13 Nov 2026 it showed Squarespace\'s "Website Expired" page. A second address listed on the Pirates Blend label page, zakiibrahim.co.za, showed a parked page the same day. Her Bandcamp page works.',
     
     highlights: ['A working one-page site.', 'Selected releases, newest first, with the Polaris short list noted.', 'Booking and press section.'],
-    changes: [['Her address', 'Shows "Website Expired".', 'A working one-page site.'], ['Releases', 'On Bandcamp.', 'Selected releases, newest first, with the Polaris short list noted and a Listen button.'], ['Booking', 'We found only Bandcamp\'s contact form.', 'Booking and press section.']],
+    changes: [['Her address', 'Shows "Website Expired".', 'A working one-page site.'], ['Releases', 'On Bandcamp.', 'Selected releases, newest first, with the Polaris short list noted and a Listen button.'], ['Booking', 'Not on a page of her own.', 'Booking and press section.']],
     next: [['Launch', "A one-page site on the artist's own domain, with HTTPS and a press kit."], ['CMS', 'A simple editor for shows, releases and news, so updates take a minute.'], ['Add-on', 'Press photos and a short bio written with the artist.'], ['Care', 'Domain renewal reminders and monthly updates.']],
     sources: ['Wikipedia: Zaki Ibrahim', 'web.archive.org snapshots of zakiibrahim.com', 'zakiibrahim.bandcamp.com', 'piratesblend.com/artists/zaki-ibrahim (lists zakiibrahim.co.za)']
   },
@@ -230,37 +230,37 @@ window.CONCEPTS = [
     id: 'witchprophet', short: 'Witch Prophet', name: 'Witch Prophet', kind: 'Musician', area: 'Toronto',
     category: 'artist', group: 'active', beforeDate: '13 Nov 2026',
     work: 'Website + domain recovery', status: 'Strong case', live: 'https://witchprophet.com/', liveUnsafe: 'now a parked ad page', accent: '#e39a66',
-    pitch: 'Three albums and a Polaris short list, but both of her addresses are down: the .com is a parked ad page and the .ca has expired.',
-    evidence: 'witchprophet.com was her site in 2019 and 2021 (Wayback Machine). On 13 Nov 2026 it redirected to a parked "lander" page with ads. Her Bandcamp page works and links to witchprophet.ca, which showed Squarespace\'s "Website Expired" page the same day.',
+    pitch: 'Four albums and a Polaris short list, but both of her addresses are down: the .com is a parked ad page and the .ca has expired.',
+    evidence: 'witchprophet.com was her site in 2019 and 2021 (Wayback Machine). On 13 Nov 2026 it redirected to a parked "lander" page with ads. Her Bandcamp page works and links to witchprophet.ca, which showed Squarespace\'s "Website Expired" page the same day. The Website button on her Linktree points to the same expired address.',
     
-    highlights: ['A site under her name, or a new address if the old one cannot be recovered.', 'Three albums in one list with a Listen button.', 'A short About with the label and documentary noted.'],
-    changes: [['Her addresses', 'The .com redirects to a parked ad page. The .ca shows "Website Expired".', 'A site under her name, or a new address if the old one cannot be recovered.'], ['Albums', 'On Bandcamp and streaming.', 'Three albums in one list with a Listen button.'], ['Story', 'Told by press and a documentary.', 'A short About with the label and documentary noted.']],
+    highlights: ['A site under her name, or a new address if the old one cannot be recovered.', 'Four albums in one list with a Listen button.', 'A short About with the label and documentary noted.'],
+    changes: [['Her addresses', 'The .com redirects to a parked ad page. The .ca shows "Website Expired".', 'A site under her name, or a new address if the old one cannot be recovered.'], ['Albums', 'On Bandcamp.', 'Four albums in one list with a Listen button.'], ['Story', 'Told by press and a documentary.', 'A short About with the label and documentary noted.']],
     next: [['Launch', "A one-page site on the artist's own domain, with HTTPS and a press kit."], ['CMS', 'A simple editor for shows, releases and news, so updates take a minute.'], ['Add-on', 'Press photos and a short bio written with the artist.'], ['Care', 'Domain renewal reminders and monthly updates.']],
-    sources: ['Wikipedia: Witch Prophet', 'web.archive.org snapshots of witchprophet.com', 'witchprophet.bandcamp.com (links to witchprophet.ca)']
+    sources: ['Wikipedia: Witch Prophet', 'web.archive.org snapshots of witchprophet.com', 'witchprophet.bandcamp.com (links to witchprophet.ca)', 'linktr.ee/witchprophet']
   },
   {
-    id: 'charter', short: 'Kyla Charter', name: 'Kyla Charter', kind: 'Singer-songwriter', area: 'Toronto',
+    id: 'lalanoel', short: 'Lala Noel', name: 'Lala Noel', kind: 'Singer-songwriter (Kyla Charter)', area: 'Toronto',
     category: 'artist', group: 'active', beforeDate: '13 Nov 2026',
-    work: 'Website', status: 'Strong case', live: 'https://kylacharter.com/', accent: '#7a2e1d',
-    pitch: 'Her site says "under construction". This sketch is what it could open with: the debut album, track by track.',
-    evidence: 'kylacharter.com had a full site in 2020 and 2022 (Wayback Machine). On 13 Nov 2026 it showed "We\'re under construction. Please check back for an update soon."',
-    
-    highlights: ['A finished one-page site.', 'Edible Flowers listed track by track with a Listen button.', 'Booking and press section.'],
-    changes: [['Her address', 'An "under construction" notice.', 'A finished one-page site.'], ['Album', 'On Bandcamp.', 'Edible Flowers listed track by track with a Listen button.'], ['Booking', 'We found only Bandcamp\'s contact form.', 'Booking and press section.']],
-    next: [['Launch', "A one-page site on the artist's own domain, with HTTPS and a press kit."], ['CMS', 'A simple editor for shows, releases and news, so updates take a minute.'], ['Add-on', 'Press photos and a short bio written with the artist.'], ['Care', 'Domain renewal reminders and monthly updates.']],
-    sources: ['Exclaim!', 'Killbeat Music press releases', 'web.archive.org snapshots of kylacharter.com', 'kycharter.bandcamp.com']
+    work: 'Tidy-up + old address', status: 'Modest case', live: 'https://lalanoel.com/', accent: '#7a2e1d',
+    pitch: 'She now performs as Lala Noel and her new site works. The small wins are pointing her old address at it and putting what she does on the first screen.',
+    evidence: 'Kyla Charter now performs as Lala Noel. lalanoel.com is a working Squarespace site with About, Press, Photo Gallery, Music, Watch and Booking pages. kylacharter.com, the address under her given name, showed "We\'re under construction" on 13 Nov 2026 and does not lead to the new site. On lalanoel.com the Music page sits at /shows and Booking at /new-page. This is a modest case.',
+    teamNote: 'Our first pass sketched her as Kyla Charter from the under-construction page. Her Linktree led to lalanoel.com, so the sketch was renamed and the case downgraded.',
+    highlights: ['Name, one line about her and a Listen button first.', 'Old address pointed at the new site.', 'A Booking button on every screen.'],
+    changes: [['Old address', 'kylacharter.com shows an "under construction" notice.', 'Redirects to the Lala Noel site.'], ['First screen', 'A full-width photo, then two videos. What she does is on the About page.', 'Name, one line about her and a Listen button first.'], ['Page addresses', 'Music is at /shows and Booking at /new-page.', 'Plain addresses, such as /music and /booking.'], ['Booking', 'On its own page.', 'A Booking button on every screen.']],
+    next: [['Tidy-up', 'Redirect kylacharter.com and fix the page addresses on the current site.'], ['Refresh', 'Move the content to a faster one-page template, if she wants a change.'], ['Care', 'Updates as shows and releases come.']],
+    sources: ['lalanoel.com (Home, About, Music, Booking)', 'linktr.ee/kylacharter', 'kycharter.bandcamp.com', 'web.archive.org snapshots of kylacharter.com']
   },
   {
     id: 'botos', short: 'Robi Botos', name: 'Robi Botos', kind: 'Jazz pianist', area: 'Toronto',
     category: 'artist', group: 'active', beforeDate: '13 Nov 2026',
     work: 'Website', status: 'Strong case', live: 'https://robibotos.com/', accent: '#14213d',
     pitch: "A JUNO-winning pianist whose address shows a domain registrar's placeholder. Wikipedia still links to it.",
-    evidence: "robibotos.com was his site in 2019 and 2022 (Wayback Machine) and is the website listed on Wikipedia. On 13 Nov 2026 it showed a Dutch registrar's placeholder page.",
+    evidence: "robibotos.com was his site in 2019 and 2022 (Wayback Machine) and is the website listed on Wikipedia. On 13 Nov 2026 it showed a Dutch registrar's placeholder page. The Website button on his Linktree points to the same address.",
     
     highlights: ['A working one-page site.', 'Selected recordings with labels and years.', 'JUNO and TD Grand Jazz Award up front.'],
-    changes: [['His address', 'A registrar placeholder in Dutch.', 'A working one-page site.'], ['Recordings', 'Listed on Wikipedia. His Bandcamp page lists no releases.', 'Selected recordings with labels and years.'], ['Awards', 'We found them only on other sites.', 'JUNO and TD Grand Jazz Award up front.']],
+    changes: [['His address', 'A registrar placeholder in Dutch.', 'A working one-page site.'], ['Recordings', 'Listed on Wikipedia. Two releases on Bandcamp.', 'Selected recordings with labels and years, and a Listen button.'], ['Awards', 'We found them only on other sites.', 'JUNO and TD Grand Jazz Award up front.']],
     next: [['Launch', "A one-page site on the artist's own domain, with HTTPS and a press kit."], ['CMS', 'A simple editor for shows, releases and news, so updates take a minute.'], ['Add-on', 'Press photos and a short bio written with the artist.'], ['Care', 'Domain renewal reminders and monthly updates.']],
-    sources: ['Wikipedia: Robi Botos', 'junoawards.ca', 'web.archive.org snapshots of robibotos.com', 'robibotos.bandcamp.com (no releases listed)']
+    sources: ['Wikipedia: Robi Botos', 'junoawards.ca', 'web.archive.org snapshots of robibotos.com', 'robi-botos.bandcamp.com', 'linktr.ee/robibotos']
   },
   {
     id: 'bacchus', short: 'Justin Bacchus', name: 'Justin Bacchus', kind: 'Vocalist', area: 'Toronto',
@@ -279,9 +279,9 @@ window.CONCEPTS = [
     category: 'artist', group: 'active', beforeDate: '13 Nov 2026',
     work: 'One-page site + identity', status: 'No site yet', live: null, accent: '#9a4a25',
     pitch: 'A working bassist with a 1919 feature and no page of his own. A one-page player site gives bookers somewhere to land.',
-    evidence: 'A web search for his name on 13 Nov 2026 returned no page about him. The 1919 Magazine essay is the only profile we found.',
+    evidence: 'On 13 Nov 2026 we searched for his name alone, with "bass Toronto" and with "Listening Room", and checked marcmanhertz.com, marcmanhertz.ca, Bandcamp and Linktree. None returned a page of his. The 1919 Magazine essay is the only profile we found.',
     teamNote: 'The name is spelled Manhertz (1919 Magazine). No site was found, so there is nothing to compare against; treat this as a cold introduction.',
-    noBefore: ['A web search for his name returned no page about him.', 'The 1919 Magazine essay is the only profile we found.', 'We found no official site, link page or booking contact.'],
+    noBefore: ['Three web searches for his name returned no page about him.', 'The 1919 Magazine essay is the only profile we found.', 'We found no official site, link page or booking contact.'],
     highlights: ['A one-page player site: bio, credits, booking.', 'Selected work he can add to.', 'Booking section with a placeholder for his email.'],
     changes: [['Website', 'None found.', 'A one-page player site: bio, credits, booking.'], ['Credits', 'Mentioned in press only.', 'Selected work he can add to.'], ['Booking', 'We found no public booking contact.', 'Booking section with a placeholder for his email.']],
     next: [['Launch', 'One page on his own domain.'], ['Identity', 'A simple wordmark and colour palette for posters and socials.'], ['Add-on', 'Live video and photos from a Listening Room night, with permission.'], ['Care', 'Updates as credits grow.']],

@@ -61,7 +61,7 @@ export default {
       ctas: [{ href: '#visit', label: { en: 'Reserve tonight', ko: '오늘 예약하기' }, style: 'tonal' }] },
     { type: 'story', id: 'story', eyebrow: { en: 'Our story', ko: '이화 이야기' },
       title: { en: 'A hanbok<br><i class="accent">and a smartphone.</i>', ko: '한복과<br><i class="accent">스마트폰.</i>' },
-      paras: [{ en: 'The woman in our logo wears a hanbok and carries a smartphone. The menu works the same way: old-school Korean diner classics like tonkatsu and hamburg steak next to mala rosé tteokbokki and four-flavour chicken.', ko: '이화의 얼굴은 한복을 입고 스마트폰을 든 여인이에요. 메뉴도 마찬가지로, 옛날 경양식 돈까스와 함박 스테이크부터 마라 로제 떡볶이까지 함께 있어요.' },
+      paras: [{ en: 'The woman in our artwork wears a hanbok and carries a smartphone. The menu works the same way: old-school Korean diner classics like tonkatsu and hamburg steak next to mala rosé tteokbokki and four-flavour chicken.', ko: '이화의 얼굴은 한복을 입고 스마트폰을 든 여인이에요. 메뉴도 마찬가지로, 옛날 경양식 돈까스와 함박 스테이크부터 마라 로제 떡볶이까지 함께 있어요.' },
               { en: 'Uptown or downtown, the soju is cold and the kitchen is open late.', ko: '업타운이든 다운타운이든, 늦은 시간까지 편하게 들러 주세요.' }],
       images: [P('ehwa-jeongsik', { en: 'Ehwa Jeong-sik set', ko: '이화 정식' }), P('injeolmi-tangsuyuk', { en: 'Injeolmi tangsuyuk', ko: '인절미 탕수육' })],
       extra: `<div style="margin-top:24px"><a class="m-btn m-btn--outlined m-interactive" href="https://www.instagram.com/ehwa_restaurant" target="_blank" rel="noopener">@ehwa_restaurant</a></div>` },

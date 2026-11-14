@@ -8,8 +8,8 @@ export default artist({
   aboutTitle: 'Soul and jazz, in her own voice.',
   about: ['Lydia Persaud is a Toronto singer, songwriter and guitarist. Her 2019 debut, Let Me Show You, moved into soul and jazz; Moody31 followed in April 2022 on Next Door Records.', 'She has also sung with The Soul Motivators, the folk group The O’Pears and the covers band Dwayne Gretzky.'],
   aboutFacts: [['Based in', 'Toronto, Ontario'], ['Label', 'Next Door Records']],
-  workTitle: 'Albums', workText: 'Solo records, newest first.',
-  works: [['Moody31', '2022 · Next Door Records', 'Album'], ['Let Me Show You', '2019', 'Album']],
+  workTitle: 'Records', workText: 'Newest first.',
+  works: [['Part 1', '2025 · as Lydia &amp; Christine', 'Duo'], ['Moody31', '2022 · Next Door Records', 'Album'], ['Let Me Show You', '2019', 'Album']],
   links: [{ kind: 'Bandcamp', title: 'Listen &amp; buy', text: 'lydiapersaud.bandcamp.com', href: 'https://lydiapersaud.bandcamp.com/', primary: true }],
-  sources: ['NOW Toronto', 'Killbeat Music press releases', 'Bandcamp']
+  sources: ['NOW Toronto', 'Killbeat Music press releases', 'Bandcamp', 'her Linktree']
 });

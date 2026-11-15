@@ -8,7 +8,7 @@ Static site, no framework. Serve the folder to preview:
 - `index.html` — team directory: filter by category, quick index, cards, owner-link buttons, pricing
 - `compare.html?c=<id>` — before / after for one concept (`&share=1` is the owner view: no other concepts, sources or pricing)
 - `<id>/` — the current page for each concept, built from the template
-- `archive/` — older versions of the restaurant pages (`archive/<id>/v1`, `archive/<id>/v2`)
+- `archive/` — older versions of the restaurant pages (`archive/<id>/v1`, `archive/<id>/v2`) and earlier artist sketches
 
 ## Template
 - `ds/m3.css`, `ds/m3.js` — the design system: Material 3–style tokens and components
@@ -27,6 +27,26 @@ Static site, no framework. Serve the folder to preview:
     node build/test-hours.mjs
     node build/build.mjs            # everything
     node build/build.mjs jokbal     # one page
+
+## Hours are written once
+Opening hours live only in `locations[].hours` in each venue file. Copy uses tokens, and the build fills
+them in, so one edit updates the headline, facts, footer, meta description, status bar, hours table and schema:
+
+    [[h:open]] [[h:close]] [[h:range]] [[h:days]] [[h:kitchen]]      English: 5:30pm, 2:30am, 5:30pm – 2:30am, Tue–Sun
+    [[hk:open]] [[hk:close]] [[hk:range]] [[hk:days]] [[hk:kitchen]] Korean: 오후 5시 30분, 새벽 2시 30분, 화–일
+    [[h:close.short]]  a bare clock (2:30)      [[h:range@northyork]]  another location
+
+If the open days disagree on a value, the build stops instead of printing one day's time for all of them.
+
+## Published copy
+The collection is served by GitHub Pages from this repo's `main` branch:
+https://mooque-dev.github.io/restaurant-concepts/ . Every page carries `noindex`. Owner links are
+`compare.html?c=<id>&share=1`. The owner view hides navigation only; it is not private, so everything in
+`data/concepts.js` should read acceptably to the person it is about.
+
+- `group: 'history'` in `data/concepts.js` keeps an earlier sketch on the archive page and out of the directory.
+- `confirm: [...]` lists what the owner should check; it shows as "Please confirm" on the before/after page.
+- Photos are stored in `<id>/img/` (copied from each business's own site), never hot-linked.
 
 To add a concept: copy a file in `venues/` or `artists/`, change the content, add `before-desktop.jpg`,
 `before-mobile.jpg` and `thumb.jpg` in `<id>/`, then add an entry to `data/concepts.js`.

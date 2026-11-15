@@ -214,7 +214,7 @@ document.getElementById('foot').textContent='© '+new Date().getFullYear()+' '+S
 const cb=document.getElementById('contactBtn');
 if(S.email){cb.href='mailto:'+S.email+'?subject=Free%20website%20concept'}else{cb.textContent='Contact email coming soon';cb.removeAttribute('href')}
 // Pricing is kept in local/pricing.html, which is not published. It appears only where that file can be fetched.
-fetch('local/pricing.html').then(r=>r.ok?r.text():'').then(h=>{if(!/class="pricing"/.test(h))return;document.getElementById('pricingSlot').outerHTML=h;document.querySelectorAll('[data-pricing]').forEach(e=>e.hidden=false)}).catch(()=>{});
+if(/^(localhost|127\.0\.0\.1)$/.test(location.hostname))fetch('local/pricing.html').then(r=>r.ok?r.text():'').then(h=>{if(!/class="pricing"/.test(h))return;document.getElementById('pricingSlot').outerHTML=h;document.querySelectorAll('[data-pricing]').forEach(e=>e.hidden=false)}).catch(()=>{});
 const by=cat=>C.filter(c=>c.category===cat);
 document.getElementById('stats').innerHTML=[[by('food').length,'restaurants & cafés'],[by('artist').length,'artists & musicians']].map(([b,s])=>`<div><b>${b}</b><span>${s}</span></div>`).join('');
 const ownerLink=id=>new URL('for/'+id+'/',location.href).href;

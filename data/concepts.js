@@ -284,6 +284,40 @@ window.CONCEPTS = [
     sources: ['justinbacchus.com (The Artist, Contact, Home pages)']
   },
   {
+    id: 'dijahsb', short: 'DijahSB', name: 'DijahSB', kind: 'Rapper', area: 'Toronto',
+    category: 'artist', group: 'active', beforeDate: '15 Nov 2026',
+    work: 'Website + domain recovery', status: 'Address taken over', level: 'down', live: 'https://dijahsb.com/', liveUnsafe: 'now leads to a gambling site', accent: '#8b6fd1',
+    pitch: 'A new album came out this month, and the address on their Bandcamp page now leads to a security warning and a gambling site.',
+    evidence: 'dijahsb.com was their site and shop in Nov 2023 (Wayback Machine). On 15 Nov 2026 it redirected to an unrelated server: browsers showed a security warning, and past it a gambling site. Their Bandcamp page still links to the address. Their Linktree lists releases and socials but no site.',
+    highlights: ['A site under their own name again, or a new address if the old one cannot be recovered.', 'Seven albums and EPs in one list, newest first, with a Listen button.', 'The new album and both Polaris nods up front.'],
+    changes: [['Their address', 'A browser security warning, then a gambling site.', 'A site under their own name again, or a new address if the old one cannot be recovered.'], ['Music', 'On Bandcamp, which still links to the lost address.', 'Seven albums and EPs in one list, newest first, with a Listen button.'], ['New album', 'Announced through Linktree and socials.', 'Why Die When You Can Dance? at the top of the page.'], ['Booking', 'Not on a page of their own.', 'A booking and press section with a press kit.']],
+    next: [['Launch', "A one-page site on the artist's own domain, with HTTPS and a press kit."], ['CMS', 'A simple editor for shows, releases and news, so updates take a minute.'], ['Add-on', 'Press photos and a short bio written with the artist.'], ['Care', 'Domain renewal reminders and monthly updates.']],
+    sources: ['Wikipedia: DijahSB', 'dijahsb.bandcamp.com', 'linktr.ee/dijahsb', 'web.archive.org snapshot of dijahsb.com, 30 Nov 2023']
+  },
+  {
+    id: 'coldspecks', short: 'Cold Specks', name: 'Cold Specks', kind: 'Singer-songwriter', area: 'Toronto',
+    category: 'artist', group: 'active', beforeDate: '15 Nov 2026',
+    work: 'Website + domain recovery', status: 'Address taken over', level: 'down', live: 'https://coldspecks.com/', liveUnsafe: 'now a gambling site', accent: '#e39a66',
+    pitch: 'Four albums and three Polaris nods, and the address that carried her name now opens a gambling site.',
+    evidence: 'coldspecks.com was her official site in Apr 2017 (Wayback Machine). On 15 Nov 2026 it redirected to a gambling site. Her Bandcamp page works and links to a Linktree, which lists Instagram, Bandcamp and a management email but no site.',
+    highlights: ['A site under her own name again, or a new address if the old one cannot be recovered.', 'Four albums in one list with a Listen button.', 'Light for the Midnight and the Polaris lists up front.'],
+    changes: [['Her address', 'Redirects to a gambling site.', 'A site under her own name again, or a new address if the old one cannot be recovered.'], ['Albums', 'On Bandcamp.', 'Four albums in one list with a Listen button.'], ['Recognition', 'On Wikipedia, not on a page of her own.', 'Polaris short list and long lists up front.'], ['Booking', 'A management email on her Linktree.', 'A booking and press section with a press kit.']],
+    next: [['Launch', "A one-page site on the artist's own domain, with HTTPS and a press kit."], ['CMS', 'A simple editor for shows, releases and news, so updates take a minute.'], ['Add-on', 'Press photos and a short bio written with the artist.'], ['Care', 'Domain renewal reminders and monthly updates.']],
+    sources: ['Wikipedia: Cold Specks', 'coldspecks.bandcamp.com', 'linktr.ee/coldspecks', 'web.archive.org snapshot of coldspecks.com, 20 Apr 2017']
+  },
+  {
+    id: 'liliefeldt', short: 'L. Liliefeldt', name: 'Louise Liliefeldt', kind: 'Performance artist & painter', area: 'Toronto',
+    category: 'artist', group: 'active', beforeDate: '15 Nov 2026',
+    work: 'Website', status: 'Site expired', level: 'down', live: 'https://www.louiseliliefeldt.com/', accent: '#9a4a25',
+    pitch: 'Three arts organizations link to her site, and it now shows "Website Expired". A light one-page site brings back her performances and a way to reach her.',
+    evidence: 'louiseliliefeldt.com was her site in Jan 2024 (Wayback Machine), with Performance, Visual Art, Press and Contact pages. On 15 Nov 2026 it showed Squarespace\'s "Website Expired" page. Wikipedia, FADO Performance Art Centre and Vtape all still link to it.',
+    teamNote: 'The site was still live in late 2025, so this may be a lapsed renewal. Check the address again before writing to her.',
+    highlights: ['A working one-page site.', 'Selected performances with venues and years.', 'Room for paintings, press and a CV.'],
+    changes: [['Her address', 'Shows "Website Expired".', 'A working one-page site.'], ['Work', 'Described on FADO, Vtape and Wikipedia.', 'Selected performances with venues and years, and room for the paintings.'], ['Contact', 'Not on a page of her own.', 'A contact section for curators and press.']],
+    next: [['Launch', "A one-page site on the artist's own domain, with HTTPS."], ['CMS', 'A simple editor for performances, exhibitions and images.'], ['Add-on', 'An image gallery for the paintings and performance documentation.'], ['Care', 'Domain renewal reminders and monthly updates.']],
+    sources: ['Wikipedia: Louise Liliefeldt', 'performanceart.ca/artist/louise-lilifeldt', 'vtape.org artist page', 'm-a-i.qc.ca/en/event/seen-and-heard', 'web.archive.org snapshot of louiseliliefeldt.com, 11 Jan 2024']
+  },
+  {
     id: 'manhertz', short: 'Marc Manhertz', name: 'Marc Manhertz', kind: 'Bassist', area: 'Toronto',
     category: 'artist', group: 'active', beforeDate: '13 Nov 2026',
     work: 'One-page site + identity', status: 'No site found', level: 'none', live: null, accent: '#9a4a25',

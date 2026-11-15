@@ -8,7 +8,7 @@ const BOOK = 'https://mikaku.setmore.com/', TEL = 'tel:+16477482340', MAP = 'htt
 export default {
   id: 'mikaku', langs: ['en', 'ko'], micro: ['lastCall'],
   title: { en: 'Mikaku Izakaya — Late-night sake bar, Yonge & Finch', ko: '미카쿠 이자카야 | 영 & 핀치 심야 이자카야 · 사케 바' },
-  description: 'Mikaku Izakaya: a late-night Japanese izakaya and sake bar at 6180 Yonge St, North York. Open [[h:days]] until [[h:close]]. Book a table.',
+  description: 'Mikaku Izakaya: a late-night Japanese izakaya and sake bar at 6180 Yonge St, North York. Open Tuesday to Sunday until [[h:close]]. Book a table.',
   favicon: '味',
   schema: { name: 'Mikaku Izakaya', cuisine: ['Japanese', 'Izakaya'], url: 'https://mikakutoronto.ca/', menu: 'https://mikakutoronto.ca/menu/', reservations: BOOK },
   preload: { href: 'img/grilled-butter-squid-1200.webp', srcset: 'img/grilled-butter-squid-640.webp 640w, img/grilled-butter-squid-1200.webp 1200w' },
@@ -111,12 +111,12 @@ export default {
       images: [P('img_1973', { en: 'Mikaku bar', ko: '미카쿠 바' }, { caption: { en: 'The bar', ko: '바' } }), P('mikaku-1535', { en: 'Shared plates', ko: '여러 안주' }, { caption: { en: 'The spread', ko: '다양한 안주' } }), P('img_1967', { en: 'Interior detail', ko: '매장 내부' }, { caption: { en: 'Late night', ko: '늦은 밤' } }), P('salmon-tataki', { en: 'Salmon tataki', ko: '연어 타다키' }, { caption: { en: 'Salmon tataki', ko: '연어 타다키' } }), P('maze-udon', { en: 'Maze udon', ko: '마제 우동' }, { caption: { en: 'Maze udon', ko: '마제 우동' } })],
       perks: [{ title: { en: 'Heated tatami', ko: '다다미 좌식 룸' }, text: { en: 'Shoes off, sit low, stay late. Ask for it when you book a group.', ko: '신발을 벗고 편하게 앉는 난방 좌식 공간이에요. 단체 예약 시 요청해 주세요.' } },
               { title: { en: 'Bar seats', ko: '바 좌석' }, text: { en: 'No time limit at the bar, unlike the tables. Regulars know.', ko: '테이블과 달리 이용 시간 제한이 없어요.' } },
-              { title: { en: 'Late nights', ko: '새벽까지 영업' }, text: { en: 'Open until [[h:close]], [[h:days]]. Yes, really.', ko: '[[hk:days]], [[hk:close]]까지 열어요.' } },
+              { title: { en: 'Late nights', ko: '새벽까지 영업' }, text: { en: 'Open until [[h:close]], six nights a week. Yes, really.', ko: '화요일부터 일요일까지, [[hk:close]]까지 열어요.' } },
               { title: { en: 'Parking', ko: '주차' }, text: { en: 'Small lot out front. Blink and you’ll miss it. Street parking nearby.', ko: '가게 앞에 작은 주차장이 있어요. 입구를 지나치기 쉬우니 천천히 진입해 주세요. 인근 노상 주차도 가능해요.' } }] },
     { type: 'locations', id: 'visit', tint: true, eyebrow: { en: 'Visit', ko: '오시는 길' }, title: { en: 'See you<br><i class="accent">tonight?</i>', ko: '오늘 밤,<br><i class="accent">미카쿠에서.</i>' },
       image: P('img_1961', { en: 'Mikaku storefront and patio on Yonge St', ko: '영 스트리트의 미카쿠 매장 입구' }, { focal: '50% 60%' }), imageCaption: { en: 'Look for the black awning.', ko: '검은 차양이 보이면 도착.' } },
     { type: 'links', eyebrow: { en: 'The Mikaku family', ko: '미카쿠의 다른 매장' }, items: [
-      { href: '#visit', kicker: { en: 'Izakaya · You are here', ko: '이자카야 · 현재 매장' }, title: { en: 'Mikaku Izakaya', ko: '미카쿠 이자카야' }, text: { en: '6180 Yonge St · [[h:days]] [[h:range]]', ko: '6180 Yonge St · [[hk:days]] [[hk:range]]' } },
+      { href: '#visit', kicker: { en: 'Izakaya · You are here', ko: '이자카야 · 현재 매장' }, title: { en: 'Mikaku Izakaya', ko: '미카쿠 이자카야' }, text: { en: '6180 Yonge St · [[h:days]] [[h:open]]–[[h:close]]', ko: '6180 Yonge St · [[hk:days]] 오후 [[h:open.short]]–새벽 [[h:close.short]]' } },
       { href: 'https://maps.google.com/?q=229+Carlton+St+Toronto', kicker: { en: 'Udon Bar', ko: '우동 바' }, title: { en: 'Carlton', ko: '칼튼' }, text: { en: '229 Carlton St · Lunch &amp; dinner, Tue–Sun', ko: '229 Carlton St · 화–일 점심 &amp; 저녁' } },
       { href: 'https://maps.google.com/?q=360+Hwy+7+Unit+10+Richmond+Hill', kicker: { en: 'Udon Bar', ko: '우동 바' }, title: { en: 'Richmond Hill', ko: '리치먼드 힐' }, text: { en: '360 Hwy 7, Unit 10 · Lunch &amp; dinner, Tue–Sun', ko: '360 Hwy 7, Unit 10 · 화–일 점심 &amp; 저녁' } }] }
   ],

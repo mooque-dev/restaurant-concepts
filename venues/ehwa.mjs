@@ -3,7 +3,7 @@
 const D = { 'army-soup': [960, 720], 'crispy-boneless-fried-chicken': [720, 960], 'ehwa-jeongsik': [960, 720], 'g-quva-chicken': [768, 960], 'injeolmi-tangsuyuk': [960, 540], 'original-tteokbokki': [960, 720], 'rose-tteokbokki': [960, 540], 'ssagaji-dak': [960, 720], 'yubu-odeng-tang': [960, 720] };
 const P = (n, alt, extra = {}) => ({ src: `img/${n}.jpg`, w: D[n][0], h: D[n][1], alt, ...extra });
 const night = Array(7).fill([1050, 1620]), kitchen = Array(7).fill([1050, 1530]);
-const kRow = { k: { en: 'Kitchen', ko: '주방' }, v: { en: 'Last orders [[h:kitchen]]', ko: '[[hk:kitchen]] 라스트 오더' } };
+const kRow = { k: { en: 'Kitchen', ko: '주방' }, v: { en: 'Last orders [[h:kitchen]]', ko: '새벽 [[h:kitchen.short]] 라스트 오더' } };
 
 export default {
   id: 'ehwa', langs: ['en', 'ko'], micro: ['nightMeter'],
@@ -68,9 +68,9 @@ export default {
       images: [P('ehwa-jeongsik', { en: 'Ehwa Jeong-sik set', ko: '이화 정식' }), P('injeolmi-tangsuyuk', { en: 'Injeolmi tangsuyuk', ko: '인절미 탕수육' })],
       extra: `<div style="margin-top:24px"><a class="m-btn m-btn--outlined m-interactive" href="https://www.instagram.com/ehwa_restaurant" target="_blank" rel="noopener">@ehwa_restaurant</a></div>` },
     { type: 'locations', id: 'visit', tint: true, eyebrow: { en: 'Locations', ko: '매장 안내' }, title: { en: 'Pick your<br><i class="accent">EHWA.</i>', ko: '가까운<br><i class="accent">이화</i>를 골라 주세요.' },
-      text: { en: 'Both open [[h:open]] to [[h:close]], [[h:days]]. Reserve, check the menu or order delivery for the location you want.', ko: '두 매장 모두 [[hk:days]] [[hk:open]]부터 [[hk:close]]까지. 매장별로 예약, 메뉴, 배달 주문을 바로 이용할 수 있어요.' } }
+      text: { en: 'Both open [[h:open]] to [[h:close]], every day. Reserve, check the menu or order delivery for the location you want.', ko: '두 매장 모두 매일 [[hk:open]]부터 [[hk:close]]까지. 매장별로 예약, 메뉴, 배달 주문을 바로 이용할 수 있어요.' } }
   ],
-  footer: `<div><b>EHWA</b><span data-ko="한식 주점 · [[hk:days]] [[hk:range]]">Korean Kitchen &amp; Soju Bar · [[h:days]] [[h:range]]</span></div><div><span data-ko="업타운">Uptown</span> · <a href="tel:+14376659995">(437) 665-9995</a><br><span data-ko="다운타운">Downtown</span> · <a href="tel:+14372672266">(437) 267-2266</a></div><div><a href="https://www.instagram.com/ehwa_restaurant" target="_blank" rel="noopener">Instagram</a></div>`,
+  footer: `<div><b>EHWA</b><span data-ko="한식 주점 · 매일 오후 [[h:open.short]] – 새벽 [[h:close.short]]:00">Korean Kitchen &amp; Soju Bar · daily [[h:range]]</span></div><div><span data-ko="업타운">Uptown</span> · <a href="tel:+14376659995">(437) 665-9995</a><br><span data-ko="다운타운">Downtown</span> · <a href="tel:+14372672266">(437) 267-2266</a></div><div><a href="https://www.instagram.com/ehwa_restaurant" target="_blank" rel="noopener">Instagram</a></div>`,
   css: `.m-brand{align-items:center}
 .night{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:28px}
 .night__bar{width:min(420px,80vw);height:10px;border-radius:10px;background:color-mix(in srgb,var(--md-sys-color-on-primary) 18%,transparent);overflow:hidden}

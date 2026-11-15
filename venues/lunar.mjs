@@ -32,10 +32,10 @@ export default {
   strings: { en: { open: 'Open', openUntil: 'until {t}', closed: 'Closed', opens: 'opens {d} at {t}', today: 'today', tomorrow: 'tomorrow', days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], closedDay: 'Closed', copied: 'Address copied' } },
   sections: [
     { type: 'hero', eyebrow: 'Specialty drinks &amp; desserts · Rosedale · North York', title: 'Minimal space.<br><i class="accent">Creative cups.</i>',
-      text: 'Signature drops made with housemade syrups and silky cream, plus carefully made espresso classics. Two cafés on Yonge, open [[h:days]].',
+      text: 'Signature drops made with housemade syrups and silky cream, plus carefully made espresso classics. Two cafés on Yonge, open every day.',
       ctas: [{ href: ORDER, label: 'Order ahead', icon: 'shopping_bag' }, { href: '#visit', label: 'Find a café' }],
       cutout: true, image: C('cream-drop', 'Cream Drop in a glass', 1.45) },
-    { type: 'facts', items: [{ value: '2', label: 'Cafés on Yonge' }, { value: '6', label: 'Signature drinks' }, { value: 'Daily', label: 'Open [[h:days]]' }, { value: 'Online', label: 'Order ahead for pickup' }] },
+    { type: 'facts', items: [{ value: '2', label: 'Cafés on Yonge' }, { value: '6', label: 'Signature drinks' }, { value: 'Daily', label: 'Open every day' }, { value: 'Online', label: 'Order ahead for pickup' }] },
     { type: 'cards', id: 'drops', media: 'cutout', ratio: '1/1', cols: 3, eyebrow: 'Signature', title: 'Signature<br><i class="accent">drops.</i>',
       text: 'Most are built on a housemade syrup or concentrate. Three come hot or iced; the rest are served cold.',
       items: [
@@ -53,7 +53,7 @@ export default {
       ] },
     { type: 'gallery', id: 'space', eyebrow: 'The space', title: 'Quiet rooms,<br><i class="accent">good light.</i>', text: 'Minimal and simple, made for staying a while.',
       images: [PH('space-1', 'Coffee Lunar café interior'), PH('space-2', 'Café counter'), PH('space-3', 'Espresso being poured'), PH('space-4', 'Seating area'), PH('space-5', 'Espresso machine')] },
-    { type: 'locations', id: 'visit', tint: true, eyebrow: 'Locations', title: 'Two cafés<br><i class="accent">on Yonge.</i>', text: 'Open [[h:days]]. Parking notes included, because that’s always the question.' },
+    { type: 'locations', id: 'visit', tint: true, eyebrow: 'Locations', title: 'Two cafés<br><i class="accent">on Yonge.</i>', text: 'Open every day. Parking notes included, because that’s always the question.' },
     { type: 'links', eyebrow: 'Also at Lunar', items: [{ href: 'https://coffeelunar.com/foods', kicker: 'Food', title: 'Sandwiches &amp; desserts', text: 'See what’s in the case today.' }, { href: 'https://coffeelunar.com/store/merchandise', kicker: 'Shop', title: 'Merch', text: 'Take a little Lunar home.' }, { href: 'https://www.instagram.com/coffeelunar', kicker: 'Instagram', title: '@coffeelunar', text: 'New drinks and café updates.' }] }
   ],
   footer: `<div><b>COFFEE LUNAR</b>Specialty drinks &amp; desserts</div><div>Rosedale · 920 Yonge St · [[h:range]]<br>North York · 6040 Yonge St · [[h:range@northyork]]</div>`,

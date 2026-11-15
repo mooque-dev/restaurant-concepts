@@ -13,7 +13,9 @@ export default artist({
   works: [['Seen and Heard', 'MAI, Montréal · solo performance · date to confirm', 'Performance'], ['Land of the Living', 'Rhubarb Festival · 2022', 'Performance'], ['What Does It Mean To Forget', 'Art Gallery of Ontario · 2016 · commissioned by Wanda Nanibush', 'Performance'], ['Egalitarian', 'FADO Performance Art Centre · 2005', 'Performance']],
   workNote: 'Visual art, press and publications to be added with the artist.',
   showsNav: 'Exhibitions', showsHint: 'In the live site, performances and exhibitions are added from a simple editor: date, venue, link. Past dates move to an archive on their own.',
-  linksEyebrow: 'Elsewhere', todos: ['Image gallery', 'CV download'],
+  linksEyebrow: 'Elsewhere',
+  contactNav: 'Contact', contactEyebrow: 'Contact &amp; press', contactTitle: 'Curators, press<br>and commissions.', contactText: 'One place for enquiries, a CV and images for press.',
+  baseTodos: ['Contact email (from the artist)', 'CV download', 'Image gallery'],
   links: [{ kind: 'FADO', title: 'Artist page', text: 'performanceart.ca', href: 'https://performanceart.ca/artist/louise-lilifeldt/' }, { kind: 'Vtape', title: 'Artist page', text: 'vtape.org', href: 'https://www.vtape.org/artist?ai=829' }],
   sources: ['Wikipedia', 'FADO Performance Art Centre', 'Vtape', 'MAI']
 });

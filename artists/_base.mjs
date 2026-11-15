@@ -30,11 +30,11 @@ export function artist(a) {
     ribbon: `Sketch by Mooque Studio for ${a.name}. Not an official site. Photos, dates and contact details are placeholders.${a.current ? ` <a href="${a.current}" target="_blank" rel="noopener">Current page ↗</a>` : ''}`,
     brand: { wordmark: a.name.toUpperCase() },
     nav: [{ href: '#about', label: 'About' }, { href: '#work', label: a.workNav || 'Music' }, { href: '#shows', label: a.showsNav || 'Shows' }, { href: '#contact', label: 'Contact' }],
-    primary: { href: '#contact', label: 'Booking' },
-    bar: [{ icon: a.workIcon || 'music_note', href: '#work', label: a.workNav || 'Music' }, { icon: 'event', href: '#shows', label: a.showsNav || 'Shows' }, { icon: 'mail', href: '#contact', label: 'Booking', primary: true }],
+    primary: { href: '#contact', label: a.contactNav || 'Booking' },
+    bar: [{ icon: a.workIcon || 'music_note', href: '#work', label: a.workNav || 'Music' }, { icon: 'event', href: '#shows', label: a.showsNav || 'Shows' }, { icon: 'mail', href: '#contact', label: a.contactNav || 'Booking', primary: true }],
     sections: [
       { type: 'hero', eyebrow: `${a.role} · Toronto`, title: a.headline, text: a.lead,
-        ctas: [listen ? { href: listen.href, label: listen.cta || 'Listen', icon: 'play_arrow' } : { href: '#work', label: a.workNav || 'Music', icon: a.workIcon || 'music_note' }, { href: '#contact', label: 'Booking &amp; press' }] },
+        ctas: [listen ? { href: listen.href, label: listen.cta || 'Listen', icon: 'play_arrow' } : { href: '#work', label: a.workNav || 'Music', icon: a.workIcon || 'music_note' }, { href: '#contact', label: a.contactEyebrow || 'Booking &amp; press' }] },
       ...(a.facts ? [{ type: 'facts', items: a.facts.map(([value, label]) => ({ value, label })) }] : []),
       { type: 'prose', id: 'about', eyebrow: 'About', placeholder: 'Press photo', title: a.aboutTitle, paras: a.about, facts: a.aboutFacts && a.aboutFacts.map(([k, v]) => ({ k, v })) },
       { type: 'index', id: 'work', tint: true, eyebrow: a.workEyebrow || 'Music', title: a.workTitle, text: a.workText,
@@ -42,9 +42,9 @@ export function artist(a) {
       { type: 'empty', id: 'shows', eyebrow: a.showsNav || 'Shows', title: 'Upcoming<br><i class="accent">dates.</i>', icon: 'event',
         label: 'Dates will appear here.', hint: a.showsHint || 'In the live site, shows are added from a simple editor: date, venue, ticket link. Past dates move to an archive on their own.' },
       ...(a.links && a.links.length ? [{ type: 'links', eyebrow: a.linksEyebrow || 'Listen &amp; follow', items: a.links.map(l => ({ href: l.href, kicker: l.kind, title: l.title, text: l.text })) }] : []),
-      { type: 'contact', id: 'contact', eyebrow: 'Booking &amp; press', title: a.contactTitle || 'Bookings, press<br>and collaborations.',
+      { type: 'contact', id: 'contact', eyebrow: a.contactEyebrow || 'Booking &amp; press', title: a.contactTitle || 'Bookings, press<br>and collaborations.',
         text: a.contactText || 'One place for booking requests, press kits and high-resolution photos.',
-        todos: ['Booking email (from the artist)', 'Press kit download', 'Newsletter sign-up', ...(a.todos || [])] }
+        todos: [...(a.baseTodos || ['Booking email (from the artist)', 'Press kit download', 'Newsletter sign-up']), ...(a.todos || [])] }
     ],
     footer: `<div><b>${a.name.toUpperCase()}</b>${a.role} · Toronto</div><div>Sketch for discussion. Facts from public sources: ${a.sources.join(', ')}.</div>`,
     css: `.m-brand{font-size:17px}`

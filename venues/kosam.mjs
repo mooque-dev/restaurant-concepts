@@ -7,6 +7,7 @@ export default {
   id: 'kosam', langs: ['en', 'ko'], micro: [],
   title: { en: 'KoSam — Korean restaurant & bar, Yonge & Sheppard and Leslie & Cummer', ko: 'KoSam | 노스욕 삼계탕 · 한식당' },
   description: 'KoSam Korean Restaurant & Bar: samgyetang, bibimbap and soondubu from the owners of a 40-year-old restaurant in South Korea. Two North York locations.',
+  schema: { name: 'KoSam Korean Restaurant & Bar', cuisine: ['Korean'], url: 'http://kosam.ca/' },
   theme: {
     colors: { scheme: 'light', primary: '#c8262d', secondary: '#4f6f5c', tertiary: '#2f6b4a', neutral: '#f6f0e6' },
     fonts: { brand: "'Gowun Batang',serif", plain: "'IBM Plex Sans KR',system-ui,sans-serif", ko: "'Gowun Batang',serif", displayWeight: 700, tracking: '-.02em', brandTracking: '0', wordmark: "'Gowun Batang',serif", accentStyle: 'normal',
@@ -36,7 +37,7 @@ export default {
       text: { en: 'From the owners of a restaurant that ran for more than 40 years in South Korea. Ginseng chicken soup, bibimbap and soft tofu stew at two North York locations.', ko: '한국에서 40년 넘게 사랑받은 식당의 주인이 토론토에 문을 열었어요. 삼계탕, 비빔밥, 순두부를 노스욕 두 곳에서 만나보세요.' },
       ctas: [{ href: '#visit', label: { en: 'Find a location', ko: '매장 찾기' }, icon: 'location_on' }, { href: '#dishes', label: { en: 'See the dishes', ko: '대표 메뉴 보기' } }],
       image: { src: K + 'team/samgyetang.jpg', w: 1200, h: 900, focal: '50% 45%', alt: { en: 'Samgyetang, whole ginseng chicken soup in a stone pot', ko: '뚝배기에 담긴 삼계탕' } } },
-    { type: 'facts', items: [{ value: { en: '40+ yrs', ko: '40년+' }, label: { en: 'Restaurant roots in South Korea', ko: '한국에서 이어온 식당' } }, { value: '2', label: { en: 'North York locations', ko: '노스욕 매장' } }, { value: { en: '11am', ko: '오전 11시' }, label: { en: 'Open daily from', ko: '매일 오픈' } }, { value: { en: 'Patio', ko: '테라스' }, label: { en: 'At Yonge &amp; Sheppard', ko: '영 &amp; 쉐퍼드점' } }] },
+    { type: 'facts', items: [{ value: { en: '40+ yrs', ko: '40년+' }, label: { en: 'Restaurant roots in South Korea', ko: '한국에서 이어온 식당' } }, { value: '2', label: { en: 'North York locations', ko: '노스욕 매장' } }, { value: { en: '[[h:open]]', ko: '[[hk:open]]' }, label: { en: 'Open [[h:days]] from', ko: '[[hk:days]] 오픈' } }, { value: { en: 'Patio', ko: '테라스' }, label: { en: 'At Yonge &amp; Sheppard', ko: '영 &amp; 쉐퍼드점' } }] },
     { type: 'cards', id: 'dishes', media: 'photo', ratio: '4/3', cols: 3, scroll: false,
       eyebrow: { en: 'Our dishes', ko: '대표 메뉴' }, title: { en: 'Three bowls<br><i class="accent">to know.</i>', ko: 'KoSam의<br><i class="accent">대표 메뉴 세 가지.</i>' },
       text: { en: 'The dishes we’re known for. Ask for the full menu at your location.', ko: 'KoSam을 대표하는 메뉴예요. 전체 메뉴는 매장에서 확인해 주세요.' },

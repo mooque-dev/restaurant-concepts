@@ -1,13 +1,15 @@
 // EHWA Korean Kitchen & Soju Bar — facts from ehwa.ca (homepage + Uptown menu).
-const R2 = 'https://pub-629916be3bfa4e17a06590d0da6e7b4a.r2.dev/';
-const P = (n, alt, extra = {}) => ({ src: R2 + n + '.webp', w: 1448, h: 1086, alt, ...extra });
+// Photos are EHWA's own menu photos, copied from their menu app and resized (see ehwa/img).
+const D = { 'army-soup': [960, 720], 'crispy-boneless-fried-chicken': [720, 960], 'ehwa-jeongsik': [960, 720], 'g-quva-chicken': [768, 960], 'injeolmi-tangsuyuk': [960, 540], 'original-tteokbokki': [960, 720], 'rose-tteokbokki': [960, 540], 'ssagaji-dak': [960, 720], 'yubu-odeng-tang': [960, 720] };
+const P = (n, alt, extra = {}) => ({ src: `img/${n}.jpg`, w: D[n][0], h: D[n][1], alt, ...extra });
 const night = Array(7).fill([1050, 1620]), kitchen = Array(7).fill([1050, 1530]);
-const kRow = { k: { en: 'Kitchen', ko: '주방' }, v: { en: 'Last orders 1:30am', ko: '새벽 1:30 라스트 오더' } };
+const kRow = { k: { en: 'Kitchen', ko: '주방' }, v: { en: 'Last orders [[h:kitchen]]', ko: '[[hk:kitchen]] 라스트 오더' } };
 
 export default {
   id: 'ehwa', langs: ['en', 'ko'], micro: ['nightMeter'],
-  title: { en: 'EHWA — Korean Kitchen & Soju Bar, open until 3am', ko: '이화 EHWA | 새벽 3시까지 여는 한식 주점' },
-  description: 'EHWA Korean Kitchen & Soju Bar: fried chicken, tteokbokki and soju until 3am at Yonge & Sheppard and downtown on Isabella St, Toronto. Reserve online.',
+  title: { en: 'EHWA — Korean Kitchen & Soju Bar, open until [[h:close]]', ko: '이화 EHWA | [[hk:close]]까지 여는 한식 주점' },
+  description: 'EHWA Korean Kitchen & Soju Bar: fried chicken, tteokbokki and soju until [[h:close]] at Yonge & Sheppard and downtown on Isabella St, Toronto. Reserve online.',
+  schema: { name: 'EHWA Korean Kitchen & Soju Bar', cuisine: ['Korean'], url: 'https://www.ehwa.ca/', menu: 'https://www.ehwa.ca/uptown/menu/index.html' },
   theme: {
     colors: { scheme: 'dark', primary: '#d9b45a', secondary: '#e2675b', tertiary: '#86c79b', neutral: '#16110d' },
     fonts: { brand: "Fraunces,serif", plain: "Inter,'Apple SD Gothic Neo',system-ui,sans-serif", ko: "'Gowun Batang',serif", displayWeight: 600, wordmark: 'Fraunces,serif', brandTracking: '.18em',
@@ -16,7 +18,7 @@ export default {
     shape: [6, 10, 14, 20, 28, 999]
   },
   ribbon: { en: 'Design concept by Mooque Studio, not the official EHWA website. <a href="https://www.ehwa.ca/" target="_blank" rel="noopener">See the current site ↗</a>', ko: 'Mooque Studio의 디자인 시안이며, EHWA 공식 웹사이트가 아닙니다. <a href="https://www.ehwa.ca/" target="_blank" rel="noopener">현재 사이트 보기 ↗</a>' },
-  brand: { wordmark: '<img src="https://www.ehwa.ca/assets/logo-white.webp" alt="" width="18" height="29" style="display:inline-block;vertical-align:middle;margin:-4px 10px 0 0">EHWA' },
+  brand: { wordmark: '<img src="img/logo-white.webp" alt="" width="18" height="29" style="display:inline-block;vertical-align:middle;margin:-4px 10px 0 0">EHWA' },
   nav: [{ href: '#menu', label: { en: 'Menu', ko: '메뉴' } }, { href: '#late', label: { en: 'Late night', ko: '심야 영업' } }, { href: '#story', label: { en: 'Our story', ko: '이화 이야기' } }, { href: '#visit', label: { en: 'Locations', ko: '매장 안내' } }],
   primary: { href: '#visit', label: { en: 'Reserve', ko: '예약하기' } },
   bar: [{ icon: 'location_on', href: '#visit', label: { en: 'Locations', ko: '매장' } }, { icon: 'restaurant_menu', href: '#menu', label: { en: 'Menu', ko: '메뉴' } }, { icon: 'event_available', href: '#visit', label: { en: 'Reserve', ko: '예약하기' }, primary: true }],
@@ -36,11 +38,11 @@ export default {
   },
   sections: [
     { type: 'hero', eyebrow: { en: 'Korean Kitchen &amp; Soju Bar · Uptown &amp; Downtown', ko: '한식 주점 · 업타운 &amp; 다운타운' },
-      title: { en: 'Korean food &amp; soju,<br><i class="accent">until 3am.</i>', ko: '한식과 소주,<br><i class="accent">새벽 3시까지.</i>' },
-      text: { en: 'Crispy chicken, tteokbokki and hot pots to share, at Yonge &amp; Sheppard and downtown on Isabella. The kitchen takes last orders at 1:30am.', ko: '바삭한 치킨, 떡볶이, 함께 나눠 먹는 탕까지. 영 &amp; 쉐퍼드와 다운타운 이사벨라 두 곳에서 만나요. 주방 마감은 새벽 1시 30분이에요.' },
+      title: { en: 'Korean food &amp; soju,<br><i class="accent">until [[h:close]].</i>', ko: '한식과 소주,<br><i class="accent">[[hk:close]]까지.</i>' },
+      text: { en: 'Crispy chicken, tteokbokki and hot pots to share, at Yonge &amp; Sheppard and downtown on Isabella. The kitchen takes last orders at [[h:kitchen]].', ko: '바삭한 치킨, 떡볶이, 함께 나눠 먹는 탕까지. 영 &amp; 쉐퍼드와 다운타운 이사벨라 두 곳에서 만나요. 주방 마감은 [[hk:kitchen]]이에요.' },
       ctas: [{ href: '#visit', label: { en: 'Reserve a table', ko: '예약하기' }, icon: 'event_available' }, { href: '#menu', label: { en: 'See what to order', ko: '대표 메뉴 보기' } }],
       image: P('ssagaji-dak', { en: 'Ssagaji Dak, four-flavour chicken', ko: '싸가지 닭' }, { focal: '50% 50%' }) },
-    { type: 'facts', items: [{ value: { en: '3am', ko: '새벽 3시' }, label: { en: 'Close, every night', ko: '매일 영업 마감' } }, { value: { en: '1:30am', ko: '새벽 1:30' }, label: { en: 'Kitchen last orders', ko: '주방 라스트 오더' } }, { value: '2', label: { en: 'Uptown &amp; Downtown', ko: '업타운 · 다운타운' } }, { value: { en: 'Online', ko: '온라인' }, label: { en: 'Reservations &amp; delivery', ko: '예약 · 배달 주문' } }] },
+    { type: 'facts', items: [{ value: { en: '[[h:close]]', ko: '[[hk:close]]' }, label: { en: 'Close, every night', ko: '매일 영업 마감' } }, { value: { en: '[[h:kitchen]]', ko: '새벽 [[h:kitchen.short]]' }, label: { en: 'Kitchen last orders', ko: '주방 라스트 오더' } }, { value: '2', label: { en: 'Uptown &amp; Downtown', ko: '업타운 · 다운타운' } }, { value: { en: 'Online', ko: '온라인' }, label: { en: 'Reservations &amp; delivery', ko: '예약 · 배달 주문' } }] },
     { type: 'cards', id: 'menu', media: 'photo', ratio: '4/3', cols: 4,
       eyebrow: { en: 'What to order', ko: '대표 메뉴' }, title: { en: 'Start with<br><i class="accent">the favourites.</i>', ko: '처음이라면,<br><i class="accent">인기 메뉴부터.</i>' },
       text: { en: 'Dishes marked Popular on our menu. Prices are from the Uptown menu.', ko: '메뉴판에서 인기 메뉴로 표시된 요리예요. 가격은 업타운 메뉴 기준이에요.' },
@@ -57,7 +59,7 @@ export default {
       ctas: [{ href: 'https://www.ehwa.ca/uptown/menu/index.html', label: { en: 'Uptown menu', ko: '업타운 메뉴' }, style: 'outlined' }, { href: 'https://www.ehwa.ca/downtown/menu/index.html', label: { en: 'Downtown menu', ko: '다운타운 메뉴' }, style: 'outlined' }] },
     { type: 'band', id: 'late', top: '<div class="night"><div class="night__bar" data-night-meter><i></i></div><span class="t-label-l" data-night-label></span></div>',
       title: { en: 'Open late,<br>seven nights a week.', ko: '일주일 내내,<br>새벽 3시까지.' },
-      text: { en: 'Doors at 5:30pm. Kitchen until 1:30am. Last round at 3am.', ko: '오후 5시 30분 오픈, 주방은 새벽 1시 30분까지, 영업은 새벽 3시까지예요.' },
+      text: { en: 'Doors at [[h:open]]. Kitchen until [[h:kitchen]]. Last round at [[h:close]].', ko: '[[hk:open]] 오픈, 주방은 [[hk:kitchen]]까지, 영업은 [[hk:close]]까지예요.' },
       ctas: [{ href: '#visit', label: { en: 'Reserve tonight', ko: '오늘 예약하기' }, style: 'tonal' }] },
     { type: 'story', id: 'story', eyebrow: { en: 'Our story', ko: '이화 이야기' },
       title: { en: 'A hanbok<br><i class="accent">and a smartphone.</i>', ko: '한복과<br><i class="accent">스마트폰.</i>' },
@@ -66,9 +68,9 @@ export default {
       images: [P('ehwa-jeongsik', { en: 'Ehwa Jeong-sik set', ko: '이화 정식' }), P('injeolmi-tangsuyuk', { en: 'Injeolmi tangsuyuk', ko: '인절미 탕수육' })],
       extra: `<div style="margin-top:24px"><a class="m-btn m-btn--outlined m-interactive" href="https://www.instagram.com/ehwa_restaurant" target="_blank" rel="noopener">@ehwa_restaurant</a></div>` },
     { type: 'locations', id: 'visit', tint: true, eyebrow: { en: 'Locations', ko: '매장 안내' }, title: { en: 'Pick your<br><i class="accent">EHWA.</i>', ko: '가까운<br><i class="accent">이화</i>를 골라 주세요.' },
-      text: { en: 'Both open 5:30pm to 3am, every day. Reserve, check the menu or order delivery for the location you want.', ko: '두 매장 모두 매일 오후 5시 30분부터 새벽 3시까지. 매장별로 예약, 메뉴, 배달 주문을 바로 이용할 수 있어요.' } }
+      text: { en: 'Both open [[h:open]] to [[h:close]], [[h:days]]. Reserve, check the menu or order delivery for the location you want.', ko: '두 매장 모두 [[hk:days]] [[hk:open]]부터 [[hk:close]]까지. 매장별로 예약, 메뉴, 배달 주문을 바로 이용할 수 있어요.' } }
   ],
-  footer: `<div><b>EHWA</b><span data-ko="한식 주점 · 매일 오후 5:30 – 새벽 3:00">Korean Kitchen &amp; Soju Bar · daily 5:30pm – 3am</span></div><div><span data-ko="업타운">Uptown</span> · <a href="tel:+14376659995">(437) 665-9995</a><br><span data-ko="다운타운">Downtown</span> · <a href="tel:+14372672266">(437) 267-2266</a></div><div><a href="https://www.instagram.com/ehwa_restaurant" target="_blank" rel="noopener">Instagram</a></div>`,
+  footer: `<div><b>EHWA</b><span data-ko="한식 주점 · [[hk:days]] [[hk:range]]">Korean Kitchen &amp; Soju Bar · [[h:days]] [[h:range]]</span></div><div><span data-ko="업타운">Uptown</span> · <a href="tel:+14376659995">(437) 665-9995</a><br><span data-ko="다운타운">Downtown</span> · <a href="tel:+14372672266">(437) 267-2266</a></div><div><a href="https://www.instagram.com/ehwa_restaurant" target="_blank" rel="noopener">Instagram</a></div>`,
   css: `.m-brand{align-items:center}
 .night{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:28px}
 .night__bar{width:min(420px,80vw);height:10px;border-radius:10px;background:color-mix(in srgb,var(--md-sys-color-on-primary) 18%,transparent);overflow:hidden}

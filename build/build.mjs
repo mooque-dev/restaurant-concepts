@@ -1,8 +1,11 @@
-// node build/build.mjs [id ...] — renders venues/<id>.mjs into <id>/v2/index.html (self-contained: CSS + JS inlined).
+// node build/build.mjs [id ...] — renders venues/<id>.mjs and artists/<id>.mjs into <id>/index.html (self-contained: CSS + JS inlined).
 import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { roles, contrastReport, HOURS_JS } from './lib.mjs';
+import { roles, contrastReport, HOURS_JS, fillHours, openingSpec } from './lib.mjs';
+
+// Public address of the collection (GitHub Pages). Used for link previews, which need absolute URLs.
+const BASE = 'https://mooque-dev.github.io/restaurant-concepts/';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CSS = readFileSync(join(ROOT, 'ds/m3.css'), 'utf8');
@@ -100,8 +103,28 @@ function themeCss(v) {
   const vars = Object.entries(r).map(([k, c]) => `--md-sys-color-${k}:${c}`).join(';');
   return `:root{${vars};--md-ref-typeface-brand:${f.brand};--md-ref-typeface-plain:${f.plain};--md-ref-typeface-ko:${f.ko || "'Apple SD Gothic Neo',sans-serif"};${f.wordmark ? `--md-ref-typeface-wordmark:${f.wordmark};` : ''}${f.card ? `--md-ref-typeface-card:${f.card};` : ''}--md-ref-display-weight:${f.displayWeight || 400};--md-ref-display-tracking:${f.tracking || '-.02em'};--md-ref-brand-tracking:${f.brandTracking || '.2em'};--md-ref-accent-style:${f.accentStyle || 'italic'};--md-sys-shape-corner-xs:${sh[0]}px;--md-sys-shape-corner-s:${sh[1]}px;--md-sys-shape-corner-m:${sh[2]}px;--md-sys-shape-corner-l:${sh[3]}px;--md-sys-shape-corner-xl:${sh[4]}px;--md-sys-shape-corner-full:${sh[5] ?? 999}px;${v.theme.cutoutBg ? `--md-ref-cutout-bg:${v.theme.cutoutBg};` : ''}color-scheme:${v.theme.colors.scheme}}`;
 }
+// Browser-tab icon: the brand's first letter (or v.favicon) on its primary colour
+function favicon(v) {
+  const r = roles(v.theme.colors), ch = v.favicon || (v.brand.wordmark.replace(/<[^>]+>/g, '').trim()[0] || '•');
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="${r.primary}"/><text x="32" y="45" font-family="Georgia,serif" font-size="38" font-weight="700" text-anchor="middle" fill="${r['on-primary']}">${ch}</text></svg>`;
+  return 'data:image/svg+xml,' + encodeURIComponent(svg);
+}
+// schema.org data for venues, generated from the same locations and hours the page shows
+function schema(v) {
+  if (!v.locations.length || !v.schema) return '';
+  const plain = x => String(L(x).en || '').replace(/<[^>]+>/g, '').replace(/&amp;/g, '&');
+  const items = v.locations.map(l => {
+    const tel = (JSON.stringify(l).match(/tel:(\+?[0-9]+)/) || [])[1];
+    return { '@context': 'https://schema.org', '@type': v.schema.type || 'Restaurant', name: v.locations.length > 1 ? `${v.schema.name} (${plain(l.name)})` : v.schema.name,
+      servesCuisine: v.schema.cuisine, address: l.address, ...(tel ? { telephone: tel } : {}), ...(v.schema.url ? { sameAs: v.schema.url } : {}),
+      ...(v.schema.menu ? { hasMenu: v.schema.menu } : {}), ...(v.schema.reservations ? { acceptsReservations: v.schema.reservations } : {}),
+      openingHoursSpecification: openingSpec(l.hours) };
+  });
+  return `\n<script type="application/ld+json">${JSON.stringify(items.length > 1 ? items : items[0]).replace(/</g, '\\u003c')}</script>`;
+}
 function render(v) {
-  v.locations = v.locations || []; v.bar = v.bar || []; v.micro = v.micro || []; v.langs = v.langs || ['en'];
+  v.locations = v.locations || [];
+  const H = x => (v.locations.length ? fillHours(x, v.locations) : x); v.bar = v.bar || []; v.micro = v.micro || []; v.langs = v.langs || ['en'];
   v.strings = v.strings || { en: { copied: 'Copied', days: [] } };
   const body = v.sections.map(s => { if (!R[s.type]) throw new Error('unknown section ' + s.type); return R[s.type](s, v); }).join('\n');
   const nav = v.nav.map(n => `<a class="m-interactive" href="${n.href}">${T('span', n.label)}</a>`).join('');
@@ -133,11 +156,15 @@ ${v.bar.length ? '<nav class="m-bar" data-away="true" aria-label="Quick actions"
   const icons = [...new Set([...page.matchAll(/<span class="icon"[^>]*>([a-z_]+)<\/span>/g)].map(m => m[1]).concat(['local_fire_department', 'ac_unit']))].sort();
   fontLinks.push(`https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..24,400..500,0..1,0&icon_names=${icons.join(',')}&display=block`);
   const data = { id: v.id, tz: 'America/Toronto', langs: v.langs, title: v.title, micro: v.micro || [], koFont, strings: v.strings, locations: v.locations.map(l => ({ id: l.id, name: l.short || l.name, hours: l.hours, kitchen: l.kitchen })) };
-  return `<!doctype html>
+  const title = L(v.title).en, desc = v.description;
+  return H(`<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex">
-<title>${esc(L(v.title).en)}</title>
-<meta name="description" content="${esc(v.description)}">
+<title>${esc(title)}</title>
+<meta name="description" content="${esc(desc)}">
+<meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}">
+<meta property="og:url" content="${BASE}${v.id}/"><meta property="og:image" content="${BASE}${v.id}/thumb.jpg"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="${favicon(v)}">${schema(v)}
 <meta name="theme-color" content="${v.theme.colors.neutral}">
 ${v.preload ? `<link rel="preload" as="image" href="${v.preload.href}"${v.preload.srcset ? ` imagesrcset="${v.preload.srcset}" imagesizes="100vw"` : ''} fetchpriority="high">` : ''}
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -148,7 +175,7 @@ ${v.css || ''}</style></head><body>
 ${page}
 <script type="application/json" id="venue">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>
 <script>${JS}</script>
-</body></html>`;
+</body></html>`);
 }
 
 const DIRS = ['venues', 'artists'];

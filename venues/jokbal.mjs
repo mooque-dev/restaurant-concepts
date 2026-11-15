@@ -1,6 +1,6 @@
 // Jokbal Night Market (족발야시장) — prices read at full size from all eight menu images on jokbalnightmarket.com.
-const Z = 'https://assets.zyrosite.com/Yg2WbpNnx0TLVl37/';
-const pg = { 1: Z + 'pg1-YNqyExwJZQsWjbq0.jpg', 2: Z + 'pg2-AMqbGOJnv8iNX38y.jpg', 3: Z + 'pg3-AE0oeD1vDPIoZ4VK.jpg', 4: Z + 'pg4-Ylevj1P5JoIBrv3g.jpg' };
+// Menu art copied from jokbalnightmarket.com (see jokbal/img); dish photos are cut from these pages.
+const pg = { 1: 'img/pg1.jpg', 2: 'img/pg2.jpg', 3: 'img/pg3.jpg', 4: 'img/pg4.jpg' };
 const plate = (p, cx, cy, r) => ({ src: pg[p], cx, cy, r });
 const ORDER = 'https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=4ee9b0f4-fb27-4bc8-81ab-2356f1230795';
 const TEL = 'tel:+14165127211', MAP = 'https://maps.google.com/?q=41+Sheppard+Ave+E+North+York+ON';
@@ -11,7 +11,8 @@ const sz = (...p) => p.map(([s, v]) => `<em>${s}</em>${v}`).join('');
 export default {
   id: 'jokbal', langs: ['en', 'ko'], micro: [],
   title: { en: 'Jokbal Night Market — Korean jokbal & bossam, Sheppard & Yonge', ko: '족발야시장 | 토론토 노스욕 족발 · 보쌈' },
-  description: 'Jokbal Night Market (족발야시장): Korean jokbal and bossam simmered with ten herbal ingredients, plus gamjatang. 41 Sheppard Ave E, North York. Open daily 11:30am to midnight.',
+  description: 'Jokbal Night Market (족발야시장): Korean jokbal and bossam simmered with ten herbal ingredients, plus gamjatang. 41 Sheppard Ave E, North York. Open [[h:days]], [[h:range]].',
+  schema: { name: 'Jokbal Night Market', cuisine: ['Korean'], url: 'https://jokbalnightmarket.com/' },
   theme: {
     colors: { scheme: 'dark', primary: '#d42f26', secondary: '#f4b63c', tertiary: '#6fd394', neutral: '#0f1630' },
     fonts: { brand: "'Black Han Sans',sans-serif", plain: "Inter,'Apple SD Gothic Neo',system-ui,sans-serif", ko: "'Black Han Sans',sans-serif", wordmark: "'Black Han Sans',sans-serif", card: "'Black Han Sans',sans-serif", brandTracking: '0', tracking: '0', accentStyle: 'normal',
@@ -36,7 +37,7 @@ export default {
       text: { en: 'Pork trotters simmered for hours in our secret soy recipe, served with lettuce and sides for wrapping. Bossam and gamjatang too, every day until midnight.', ko: '비법 간장 육수와 열 가지 한약재로 오래 삶아낸 족발. 보쌈과 감자탕도 함께, 매일 자정까지 영업해요.' },
       ctas: [{ href: ORDER, label: { en: 'Order for pickup', ko: '픽업 주문하기' }, icon: 'shopping_bag' }, { href: '#menu', label: { en: 'See the menu', ko: '메뉴 보기' } }],
       image: { src: pg[2], w: 555, h: 1323, focal: '50% 66%', alt: { en: 'Jokmahawk and crispy jokbal', ko: '족마호크와 크리스피 족발' } } },
-    { type: 'facts', items: [{ value: '10', label: { en: 'Herbal ingredients in the broth', ko: '육수에 들어가는 한약재' } }, { value: 'S · M · L', label: { en: 'Sizes for any table', ko: '인원에 맞는 사이즈' } }, { value: { en: '11:30–12', ko: '11:30–24:00' }, label: { en: 'Open daily until midnight', ko: '매일 자정까지 영업' } }, { value: { en: 'Pickup', ko: '픽업' }, label: { en: 'Order online', ko: '온라인 주문 가능' } }] },
+    { type: 'facts', items: [{ value: '10', label: { en: 'Herbal ingredients in the broth', ko: '육수에 들어가는 한약재' } }, { value: 'S · M · L', label: { en: 'Sizes for any table', ko: '인원에 맞는 사이즈' } }, { value: { en: '[[h:open]]', ko: '[[hk:open]]' }, label: { en: 'Open [[h:days]], until [[h:close]]', ko: '[[hk:days]] [[hk:close]]까지 영업' } }, { value: { en: 'Pickup', ko: '픽업' }, label: { en: 'Order online', ko: '온라인 주문 가능' } }] },
     { type: 'cards', id: 'jokbal', media: 'plate', plateSize: 176, cols: 4,
       eyebrow: { en: 'Jokbal', ko: '족발' }, title: { en: 'Original, spicy<br><i class="accent">or both.</i>', ko: '오리지널, 불족발,<br><i class="accent">아니면 반반.</i>' },
       text: { en: 'Pick a size for your table. The price updates as you choose.', ko: '인원에 맞춰 사이즈를 골라 보세요. 선택하면 가격이 바로 바뀌어요.' },
@@ -70,7 +71,7 @@ export default {
       steps: [{ title: { en: 'Start with a leaf', ko: '상추 한 장' }, text: { en: 'Lay a lettuce or perilla leaf flat in your hand.', ko: '손바닥에 상추나 깻잎을 한 장 올려요.' } }, { title: { en: 'Add meat and sides', ko: '고기와 곁들이' }, text: { en: 'A slice of jokbal or bossam, then a little kimchi, garlic and sauce.', ko: '족발이나 보쌈 한 점에 김치, 마늘, 쌈장을 조금씩 올려요.' } }, { title: { en: 'Wrap and eat', ko: '싸서 한입에' }, text: { en: 'Fold it up and eat it in one bite. Bossam means “wrapped”.', ko: '잘 싸서 한입에. 보쌈이라는 이름도 ‘싸다’에서 왔어요.' } }] },
     { type: 'locations', id: 'visit', eyebrow: { en: 'Visit', ko: '오시는 길' }, title: { en: 'Open every day<br><i class="accent">until midnight.</i>', ko: '매일<br><i class="accent">자정까지 영업.</i>' } }
   ],
-  footer: `<div><b>족발야시장</b>Jokbal Night Market · 41 Sheppard Ave E</div><div><span data-ko="매일 오전 11:30 – 자정">Every day 11:30am – midnight</span><br><a href="tel:+14165127211">(416) 512-7211</a></div>`,
+  footer: `<div><b>족발야시장</b>Jokbal Night Market · 41 Sheppard Ave E</div><div><span data-ko="[[hk:days]] [[hk:range]]">Open [[h:days]], [[h:range]]</span><br><a href="tel:+14165127211">(416) 512-7211</a></div>`,
   css: `.m-brand{font-size:26px}
 .m-card--plate{background:var(--md-sys-color-surface-container)}
 .m-card--plate .m-card__title h3{font-size:22px;font-weight:400}

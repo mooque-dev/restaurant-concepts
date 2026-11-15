@@ -42,4 +42,21 @@ for (const [name, week, day, min, want] of cases) {
   }
 }
 console.log(fail ? `${fail} failures` : `all ${cases.length * 2} checks pass`);
-process.exit(fail ? 1 : 0);
+if (fail) process.exitCode = 1;
+
+// ---------- hours as words ----------
+import { clock, openDays, hoursWords, fillHours, openingSpec } from './lib.mjs';
+const eq = (name, got, want) => { const ok = JSON.stringify(got) === JSON.stringify(want); if (!ok) { console.error(`FAIL ${name}: got ${JSON.stringify(got)}, want ${JSON.stringify(want)}`); process.exitCode = 1; } return ok; };
+const words = [
+  ['clock 2:30am', clock(1590), '2:30am'], ['clock 3am', clock(1620), '3am'], ['clock midnight', clock(1440), 'midnight'], ['clock 5:30pm', clock(1050), '5:30pm'],
+  ['clock short', clock(1590, 'en', true), '2:30'], ['clock ko dawn', clock(1590, 'ko'), '새벽 2시 30분'], ['clock ko 3', clock(1620, 'ko'), '새벽 3시'],
+  ['clock ko pm', clock(1050, 'ko'), '오후 5시 30분'], ['clock ko am', clock(690, 'ko'), '오전 11시 30분'], ['clock ko midnight', clock(1440, 'ko'), '자정'],
+  ['days Mikaku', openDays(MIKAKU), 'Tue–Sun'], ['days Mikaku ko', openDays(MIKAKU, 'ko'), '화–일'], ['days daily', openDays(EHWA), 'every day'], ['days daily ko', openDays(EHWA, 'ko'), '매일'],
+  ['range Mikaku', hoursWords({ hours: MIKAKU }, 'range'), '5:30pm – 2:30am'],
+  ['fill', fillHours('open [[h:days]] until [[h:close]] / [[hk:close]]까지 / [[h:close@b]]', [{ id: 'a', hours: MIKAKU }, { id: 'b', hours: JOKBAL }]), 'open Tue–Sun until 2:30am / 새벽 2시 30분까지 / midnight'],
+  ['spec', openingSpec(MIKAKU)[0], { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Sunday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], opens: '17:30', closes: '02:30' }]
+];
+let wordsOk = words.filter(([n, g, w]) => eq(n, g, w)).length;
+let threw = false; try { hoursWords({ hours: KOSAM_SHEP }, 'close'); } catch (e) { threw = true; }
+if (!threw) { console.error('FAIL ambiguous close should throw'); process.exitCode = 1; } else wordsOk++;
+console.log(`hours-as-words: ${wordsOk}/${words.length + 1} pass`);

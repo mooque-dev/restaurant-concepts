@@ -110,3 +110,57 @@ export function hoursState(week, day, min) {
   return { open: false };
 }
 export const HOURS_JS = `function hoursState(week,day,min){const t=week[day],y=week[(day+6)%7];if(y&&y[1]>1440&&min<y[1]-1440)return{open:true,closesAt:y[1]-1440,closesIn:y[1]-1440-min};if(t&&min>=t[0]&&min<t[1])return{open:true,closesAt:t[1],closesIn:t[1]-min};if(t&&min<t[0])return{open:false,opensAt:t[0],opensDay:0};for(let i=1;i<=7;i++){const d=week[(day+i)%7];if(d)return{open:false,opensAt:d[0],opensDay:i}}return{open:false}}`;
+
+// ---------- hours as words (one source of truth) ----------
+// Venue copy uses tokens instead of typed-out times, so a change to locations[].hours updates every mention:
+//   [[h:open]] [[h:close]] [[h:range]] [[h:days]] [[h:kitchen]]   English   ("5:30pm", "2:30am", "5:30pm – 2:30am", "Tue–Sun", "1:30am")
+//   [[hk:open]] [[hk:close]] [[hk:range]] [[hk:days]] [[hk:kitchen]]   Korean    ("오후 5시 30분", "새벽 2시 30분", …, "화–일")
+//   add .short for a bare clock ("2:30", "11:30"), and @id for a location other than the first: [[h:close@leslie]]
+// If the opening days disagree on the value, the build stops rather than print one day's time as if it were every day's.
+const EN_DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'], KO_DAYS = ['일', '월', '화', '수', '목', '금', '토'];
+export function clock(min, lang = 'en', short = false) {
+  const m = ((min % 1440) + 1440) % 1440, h24 = Math.floor(m / 60), mm = m % 60, h12 = h24 % 12 || 12;
+  if (short) return mm ? `${h12}:${String(mm).padStart(2, '0')}` : `${h12}`;
+  if (lang === 'ko') {
+    if (m === 0) return '자정'; if (m === 720) return '정오';
+    const part = h24 < 6 ? '새벽' : h24 < 12 ? '오전' : h24 < 18 ? '오후' : h24 < 21 ? '저녁' : '밤';
+    return `${part} ${h12}시${mm ? ` ${mm}분` : ''}`;
+  }
+  if (m === 0) return 'midnight'; if (m === 720) return 'noon';
+  return `${h12}${mm ? ':' + String(mm).padStart(2, '0') : ''}${h24 < 12 ? 'am' : 'pm'}`;
+}
+export function openDays(week, lang = 'en') {
+  const names = lang === 'ko' ? KO_DAYS : EN_DAYS, on = week.map(Boolean);
+  if (on.every(Boolean)) return lang === 'ko' ? '매일' : 'every day';
+  const order = [1, 2, 3, 4, 5, 6, 0].filter(d => on[d]);                       // Monday first
+  const pos = d => (d + 6) % 7, contiguous = order.every((d, i) => !i || pos(d) === pos(order[i - 1]) + 1);
+  return contiguous && order.length > 2 ? `${names[order[0]]}–${names[order[order.length - 1]]}` : order.map(d => names[d]).join(lang === 'ko' ? '·' : ', ');
+}
+function same(week, idx, what) {
+  const vals = [...new Set(week.filter(Boolean).map(d => d[idx]))];
+  if (vals.length !== 1) throw new Error(`hours token "${what}" is ambiguous: days differ (${vals.join(', ')}). Write that sentence by hand.`);
+  return vals[0];
+}
+export function hoursWords(loc, key, lang = 'en') {
+  const [name, fmt] = key.split('.'), short = fmt === 'short', dash = ' – ';
+  if (name === 'days') return openDays(loc.hours, lang);
+  if (name === 'kitchen') { if (!loc.kitchen) throw new Error('no kitchen hours on ' + loc.id); return clock(same(loc.kitchen, 1, key), lang, short); }
+  if (name === 'open') return clock(same(loc.hours, 0, key), lang, short);
+  if (name === 'close') return clock(same(loc.hours, 1, key), lang, short);
+  if (name === 'range') return clock(same(loc.hours, 0, key), lang, short) + (short ? '–' : dash) + clock(same(loc.hours, 1, key), lang, short);
+  throw new Error('unknown hours token ' + key);
+}
+export function fillHours(text, locations) {
+  return String(text).replace(/\[\[(hk?):([a-z.]+)(?:@([a-z0-9-]+))?\]\]/g, (m, l, key, id) => {
+    const loc = id ? locations.find(x => x.id === id) : locations[0];
+    if (!loc) throw new Error('hours token names an unknown location: ' + m);
+    return hoursWords(loc, key, l === 'hk' ? 'ko' : 'en');
+  });
+}
+// schema.org opening hours from the same week data
+export function openingSpec(week) {
+  const full = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], hhmm = m => { const x = m % 1440; return `${String(Math.floor(x / 60)).padStart(2, '0')}:${String(x % 60).padStart(2, '0')}`; };
+  const groups = new Map();
+  week.forEach((d, i) => { if (!d) return; const k = d.join('-'); if (!groups.has(k)) groups.set(k, { d, days: [] }); groups.get(k).days.push(full[i]); });
+  return [...groups.values()].map(g => ({ '@type': 'OpeningHoursSpecification', dayOfWeek: g.days, opens: hhmm(g.d[0]), closes: hhmm(g.d[1]) }));
+}

@@ -6,7 +6,11 @@ Static site, no framework. Serve the folder to preview:
 
 ## Pages
 - `index.html` — team directory: filter by category, quick index, cards, owner-link buttons. Pricing lives in `local/pricing.html`, which is git-ignored and shows only on this machine
-- `compare.html?c=<id>` — before / after for one concept (`&share=1` is the owner view: no other concepts or sources)
+- `directory.html` — every concept in one list, with search and filters (`?show=artist` or `?show=food`)
+- `compare.html?c=<id>` — before / after for one concept, team view
+- `for/<id>/` — the owner page for one concept: the same before / after with only that concept's data and its own link preview.
+  Built by `build/owners.mjs` (run by `build/build.mjs`); `compare.html?c=<id>&share=1` still works for links already sent
+- `local/` — git-ignored: `pricing.html` (shown on the hub only on this machine) and review notes
 - `<id>/` — the current page for each concept, built from the template
 - `archive/` — older versions of the restaurant pages (`archive/<id>/v1`, `archive/<id>/v2`) and earlier artist sketches
 
@@ -40,8 +44,8 @@ If the open days disagree on a value, the build stops instead of printing one da
 
 ## Published copy
 The collection is served by GitHub Pages from this repo's `main` branch:
-https://mooque-dev.github.io/restaurant-concepts/ . Every page carries `noindex`. Owner links are
-`compare.html?c=<id>&share=1`. The owner view hides navigation only; it is not private, so everything in
+https://mooque-dev.github.io/restaurant-concepts/ . Every page carries `noindex`. Owner links are `for/<id>/`.
+An owner page carries only its own concept, but the hub and directory are public, so everything in
 `data/concepts.js` should read acceptably to the person it is about.
 
 - `group: 'history'` in `data/concepts.js` keeps an earlier sketch on the archive page and out of the directory.

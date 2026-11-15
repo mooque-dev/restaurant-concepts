@@ -142,7 +142,7 @@ footer{border-top:1px solid var(--line);padding:30px 32px 50px;max-width:1240px;
 
 <header>
  <a class="brand" href="#"><i></i><span id="studioName">Studio</span></a>
- <nav><a href="#work">Work</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a></nav>
+ <nav><a href="#work">Work</a><a href="#how">How it works</a><a href="#pricing" data-pricing hidden>Pricing</a><a href="#contact">Contact</a></nav>
 </header>
 
 <main>
@@ -150,7 +150,7 @@ footer{border-top:1px solid var(--line);padding:30px 32px 50px;max-width:1240px;
  <div class="eyebrow">Websites for independent restaurants, cafés and artists · Toronto</div>
  <h1>Your work is great. <em>Your website</em> should be too.</h1>
  <p>We design websites for Toronto restaurants, cafés, artists and musicians around what visitors look for first. See a working concept of yours before you pay anything.</p>
- <div class="cta"><a class="btn fill" href="#work">See the concepts</a><a class="btn" href="#pricing">Pricing</a></div>
+ <div class="cta"><a class="btn fill" href="#work">See the concepts</a><a class="btn" href="#pricing" data-pricing hidden>Pricing</a></div>
  <div class="stats" id="stats"></div>
 </div></section>
 
@@ -178,24 +178,7 @@ footer{border-top:1px solid var(--line);padding:30px 32px 50px;max-width:1240px;
  </div>
 </div></section>
 
-<section class="pricing" id="pricing"><div class="wrap">
- <div class="sechead"><div><div class="eyebrow">Pricing</div><h2>Three ways to work together.</h2></div><p>Prices in Canadian dollars, plus tax. Hosting is included in every plan.</p></div>
- <div class="tiers">
-  <div class="tier"><span class="name">Concept</span><div class="price">$0</div><p class="for">See it before you decide.</p><ul><li>One-page concept with your photos, menu and hours</li><li>Live "open now" status and hours</li><li>Call, directions and booking buttons on mobile</li><li>Private link to share with your team</li></ul><a class="btn" href="#contact">Ask for yours</a></div>
-  <div class="tier feat"><span class="name">Launch</span><div class="price">$750 <small>one time</small></div><p class="for">Your new site, live on your domain.</p><ul><li>Everything in Concept</li><li>Connected to your domain with HTTPS</li><li>Full menu as a web page, no PDFs</li><li>Compressed, self-hosted photos</li><li>Google Business Profile and search tune-up</li><li>Visitor stats: calls, directions, bookings</li><li>Two rounds of changes</li></ul><a class="btn" href="#contact">Launch my site</a></div>
-  <div class="tier"><span class="name">Care</span><div class="price">$59 <small>/ month</small></div><p class="for">Never think about your website again.</p><ul><li>Menu, price and hours updates within 2 business days</li><li>Holiday hours and seasonal promos</li><li>Monthly one-page report</li><li>Hosting, HTTPS and uptime monitoring</li><li>Cancel any time</li></ul><a class="btn" href="#contact">Add care</a></div>
- </div>
- <div class="addons">
-  <div class="addon"><b>Photo shoot</b><span>Half-day food and room shoot</span><em>from $450</em></div>
-  <div class="addon"><b>Bilingual site</b><span>Korean, Chinese, French or another language</span><em>+$300</em></div>
-  <div class="addon"><b>Reservations &amp; ordering</b><span>Resy, OpenTable, Toast or Square</span><em>+$150</em></div>
-  <div class="addon"><b>Extra location</b><span>Own hours, menu and map</span><em>+$200</em></div>
-  <div class="addon"><b>QR table menu</b><span>Printed table cards linked to your web menu</span><em>+$120</em></div>
-  <div class="addon"><b>Review booster</b><span>Table card that sends happy guests to Google</span><em>+$80</em></div>
-  <div class="addon"><b>Events &amp; catering form</b><span>Group bookings straight to your inbox</span><em>+$150</em></div>
-  <div class="addon"><b>Café finder</b><span>Live hours and nearest-location for multi-site cafés</span><em>quoted</em></div>
- </div>
-</div></section>
+<div id="pricingSlot"></div>
 
 <section class="check"><div class="wrap">
  <div class="sechead"><div><div class="eyebrow">Free 10-point check</div><h2>What we look at first.</h2></div><p>The questions diners ask in the first five seconds on your site. Most restaurant sites miss at least four.</p></div>
@@ -230,8 +213,10 @@ document.title=S.name+' · Website Concepts';
 document.getElementById('foot').textContent='© '+new Date().getFullYear()+' '+S.name+' · '+S.city;
 const cb=document.getElementById('contactBtn');
 if(S.email){cb.href='mailto:'+S.email+'?subject=Free%20website%20concept'}else{cb.textContent='Contact email coming soon';cb.removeAttribute('href')}
+// Pricing is kept in local/pricing.html, which is not published. It appears only where that file can be fetched.
+fetch('local/pricing.html').then(r=>r.ok?r.text():'').then(h=>{if(!/class="pricing"/.test(h))return;document.getElementById('pricingSlot').outerHTML=h;document.querySelectorAll('[data-pricing]').forEach(e=>e.hidden=false)}).catch(()=>{});
 const by=cat=>C.filter(c=>c.category===cat);
-document.getElementById('stats').innerHTML=[[by('food').length,'restaurants & cafés'],[by('artist').length,'artists & musicians'],['$0','to see yours']].map(([b,s])=>`<div><b>${b}</b><span>${s}</span></div>`).join('');
+document.getElementById('stats').innerHTML=[[by('food').length,'restaurants & cafés'],[by('artist').length,'artists & musicians']].map(([b,s])=>`<div><b>${b}</b><span>${s}</span></div>`).join('');
 const ownerLink=id=>new URL('compare.html?c='+id+'&share=1',location.href).href;
 async function copyLink(btn,id){try{await navigator.clipboard.writeText(ownerLink(id));const t=btn.textContent;btn.textContent='Copied ✓';setTimeout(()=>btn.textContent=t,1600)}catch(e){prompt('Owner link:',ownerLink(id))}}
 const strength=c=>c.category!=='artist'?'':`<span class="tag ${c.level==='down'?'strong':c.level==='dated'||c.level==='ok'?'modest':'none'}">${c.status}</span>`;

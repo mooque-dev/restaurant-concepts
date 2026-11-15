@@ -5,7 +5,7 @@
 // confirm: things the owner should check before anything goes live (shown on the before/after page).
 // Pages are built from venues/<id>.mjs or artists/<id>.mjs with `node build/build.mjs` into <id>/index.html.
 // Older versions live under archive/<id>/v1 and archive/<id>/v2 (see archive/index.html).
-// Owner link for any concept: compare.html?c=<id>&share=1 (hides the other concepts, sources and pricing).
+// Owner link for any concept: compare.html?c=<id>&share=1 (hides the other concepts and sources).
 window.STUDIO = {
   name: 'Mooque Studio',
   email: 'allensmkang@gmail.com',

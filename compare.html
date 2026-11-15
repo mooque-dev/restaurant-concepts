@@ -87,7 +87,7 @@ body.share .top{display:none}
 
 <h2>What could come next</h2>
 <div class="next" id="next"></div>
-<div class="cta" id="teamCta"><a class="btn fill" href="./#pricing">See pricing</a><a class="btn" href="./">Back to all concepts</a></div>
+<div class="cta" id="teamCta"><a class="btn fill" href="./">Back to all concepts</a></div>
 <div id="teamOnly"><h2>Team notes</h2><div class="next" id="teamNotes"></div></div>
 <p class="ownerNote" id="ownerNote" hidden></p>
 
@@ -96,7 +96,7 @@ body.share .top{display:none}
 const Q=new URLSearchParams(location.search),ALL=window.CONCEPTS.filter(x=>x.group!=='hidden'),id=Q.get('c')||ALL[0].id,c=ALL.find(x=>x.id===id)||ALL[0],C=ALL.filter(x=>x.group==='active'||x===c);
 const CATS=[['food','Restaurants & cafés'],['artist','Artists & musicians']];
 const artist=c.category==='artist';
-// Owner view (?share=1): no links to other concepts, the team hub, sources, archive or pricing
+// Owner view (?share=1): no links to other concepts, the team hub, sources or archive
 const share=Q.get('share')==='1';
 if(share){document.body.classList.add('share');['teamCta','teamNav','teamOnly'].forEach(i=>document.getElementById(i).remove());const on=document.getElementById('ownerNote');on.hidden=false;on.textContent=(artist?'This is a design sketch based on public information about your work. It uses none of your photos; photos, dates and contact details are placeholders until you supply them.':'This is a design concept made with your public photos, menu and hours.')+' Questions or changes? Reply to the message this link came with.';}
 else{

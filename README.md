@@ -5,8 +5,8 @@ Static site, no framework. Serve the folder to preview:
     python3 -m http.server 8765
 
 ## Pages
-- `index.html` — team directory: filter by category, quick index, cards, owner-link buttons, pricing
-- `compare.html?c=<id>` — before / after for one concept (`&share=1` is the owner view: no other concepts, sources or pricing)
+- `index.html` — team directory: filter by category, quick index, cards, owner-link buttons. Pricing lives in `local/pricing.html`, which is git-ignored and shows only on this machine
+- `compare.html?c=<id>` — before / after for one concept (`&share=1` is the owner view: no other concepts or sources)
 - `<id>/` — the current page for each concept, built from the template
 - `archive/` — older versions of the restaurant pages (`archive/<id>/v1`, `archive/<id>/v2`) and earlier artist sketches
 

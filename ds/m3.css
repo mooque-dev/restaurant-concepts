@@ -357,3 +357,6 @@ html[lang=ko] .m-card__kicker[data-native]{display:none}
  .m-index__row>span:empty{display:none}
  .m-index__row .icon{grid-column:3;grid-row:1}
 }
+
+/* Korean words wrap whole, never mid-word */
+.m-list__row b,.m-card h3,.t-display-l,.t-display-m{word-break:keep-all}

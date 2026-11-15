@@ -374,6 +374,9 @@ html[lang=ko] .m-card__kicker[data-native]{display:none}
  .m-index__row .icon{grid-column:3;grid-row:1}
 }
 
+/* Korean words wrap whole, never mid-word */
+.m-list__row b,.m-card h3,.t-display-l,.t-display-m{word-break:keep-all}
+
 .m-brand{font-size:26px}
 .m-card--plate{background:var(--md-sys-color-surface-container)}
 .m-card--plate .m-card__title h3{font-size:22px;font-weight:400}

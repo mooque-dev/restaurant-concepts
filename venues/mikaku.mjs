@@ -1,6 +1,7 @@
 // Mikaku Izakaya — copy carried over from the approved v1 page (English + Korean).
 const D = { 'beef-tartare': [1200, 943], 'beef-tataki': [958, 1200], buta: [1200, 1086], 'cream-cheese-tekbokki': [1200, 800], 'grilled-butter-squid': [1200, 1505], img_1961: [899, 1200], img_1965: [1200, 892], img_1967: [801, 1200], img_1973: [799, 1200], 'maze-udon': [1200, 800], 'mikaku-1535': [1200, 800], 'mikaku-interior': [1200, 900], 'rose-teokbokki': [1200, 911], 'salmon-tataki': [1008, 1200], 'spicy-cream-udon': [1200, 800] };
 const P = (n, alt, extra = {}) => ({ src: `img/${n}-1200.webp`, srcset: `img/${n}-640.webp 640w, img/${n}-1200.webp 1200w`, w: D[n][0], h: D[n][1], alt, ...extra });
+const m = (name, price, desc, tag) => ({ name, price, desc, tag });
 const S5 = [1050, 1590];                          // 5:30pm – 2:30am
 const BOOK = 'https://mikaku.setmore.com/', TEL = 'tel:+16477482340', MAP = 'https://maps.google.com/?q=6180+Yonge+St+North+York+ON';
 
@@ -64,7 +65,35 @@ export default {
         { image: P('cream-cheese-tekbokki', { en: 'Cream cheese rice cake in a bread bowl', ko: '빵 그릇에 담은 크림치즈 떡볶이' }), title: { en: 'Cream Cheese Rice Cake', ko: '크림치즈 떡볶이' }, price: '$21.99', desc: { en: 'Really unique and filling.', ko: '바삭한 빵 그릇에 담아내는 든든한 한 그릇' } },
         { image: P('rose-teokbokki', { en: 'Rosé tteokbokki', ko: '로제 떡볶이' }), title: { en: 'Rosé Tteokbokki', ko: '로제 떡볶이' }, price: '$21.99', desc: { en: 'Rice cakes &amp; potato noodles in spicy rosé cream', ko: '매콤한 로제 크림 소스에 떡과 감자면' } }
       ],
-      ctas: [{ href: 'https://mikakutoronto.ca/menu/', label: { en: 'Full food menu', ko: '전체 메뉴 보기' }, style: 'outlined' }] },
+      ctas: [{ href: '#fullmenu', label: { en: 'Full food menu', ko: '전체 메뉴 보기' }, style: 'outlined' }] },
+    // Full food menu: names, prices and descriptions as on mikakutoronto.ca/menu (read 15 Nov 2026). Dish names are kept in English as printed.
+    { type: 'menu', id: 'fullmenu', eyebrow: { en: 'Full menu', ko: '전체 메뉴' }, title: { en: 'Everything<br><i class="accent">on the menu.</i>', ko: '전체<br><i class="accent">메뉴.</i>' },
+      text: { en: 'Forty plates, readable on your phone. Prices before tax.', ko: '휴대폰에서도 보기 편한 전체 메뉴예요. 가격은 세금 별도예요.' },
+      search: { en: 'Search the menu, e.g. “udon”', ko: '메뉴 검색, 예: udon' },
+      tabs: [
+        { id: 'starter', label: { en: 'Starters', ko: '스타터' }, rows: [
+          m('Garden Salad', '$5', 'Spring mix salad with house-made dressing.'), m('Stamina Hotate', '$6', 'Marinated scallop skirt muscles with garlic shoot and sesame seed.'), m('Edamame', '$7', 'Lightly salted soybeans.'),
+          m('Takowasabi', '$9.50', 'Diced octopus salad marinated in Japanese horseradish. Served with dried seaweed.'), m('Assorted Seafood Plate', '$10', 'Seaweed salad, chopped crawfish salad and marinated squid salad.'),
+          m('Takoyaki', '$11.99', 'Octopus balls with mayo and special sauce.'), m('Grilled Pollock Roe', '$17.99', 'Seaweed, radish sprouts, pollock roe, cucumber, garlic mayo.')] },
+        { id: 'fry', label: { en: 'Deep fry', ko: '튀김' }, rows: [
+          m('Chicken Cartilage Karaage', '$12.99', 'Deep-fried chicken cartilage.'), m('Geso Karaage', '$13.99', 'Deep-fried squid tentacles with housemade sweet soy sauce.'),
+          m('Chicken Karaage', '$13.99', 'Crispy boneless chicken with our signature sauce, classic style.'), m('Yuzu Deep Fried Chicken', '$14.99', 'Crispy boneless chicken with citrus (yuzu) sauce on the side.'),
+          m('Ebi Mayo', '$15.99', 'Deep-fried shrimp with our signature sauces.'), m('Assorted Fried Cheese', '$16.99', 'Deep-fried camembert, gouda and brie with mixed berry sauce and a house-made salad.')] },
+        { id: 'main', label: { en: 'Mains', ko: '메인' }, rows: [
+          m('Hamburg Steak', '$15.99', 'Pan-seared hamburg steak in a rich mushroom cream sauce.'), m('Buta', '$17.99', 'Grilled pork belly with Mikaku’s signature sauce.'),
+          m('Beef Tartare Rice Bowl', '$17.99', 'Julienned beef sashimi and mixed vegetables on rice, with signature sauce and egg yolk.'), m('Maze Udon', '$17.99', 'Udon without soup, in a special sauce with dried bonito, pork, green onion, chives, seaweed, garlic and yolk. Served with a small rice.'),
+          m('Salmon Tataki', '$18.99', 'Flame-seared salmon sashimi with Mikaku’s special sauce.'), m('Shimesaba', '$18.99', 'Marinated mackerel sashimi topped with chopped ginger and wasabi.'),
+          m('Stir-fried Beef with Bean Sprout', '$19.99', 'Stir-fried beef and bean sprouts in a savoury sauce, topped with dried bonito.'), m('Unagi', '$19.99', 'Marinated eel grilled with special sauce. Served with stir-fried cabbage.'),
+          m('Grilled Butter Squid', '<em>M</em>$20.99 <em>L</em>$22.99', 'Grilled squid with caramelized butter sauce. Mayo sauce on the side.'), m('Mikaku Beef Tartare', '$21.99', 'Julienned beef sashimi with Mikaku’s signature sauce and a quail egg yolk.'),
+          m('Cream Cheese Rice Cake', '$21.99', 'Rice cake with seafood in a rich cream cheese sauce, served in a crispy bread bowl.'), m('Rosé Tteokbokki', '$21.99', 'Korean-style wheat cake and potato noodles in a rich, spicy rosé cream sauce.'),
+          m('Spicy Cream Udon', '$21.99', 'Spicy seafood cream udon with mussels, shrimp, bacon and vegetables.'), m('Spicy Chicken', '$34.99', 'Blazing fire stir-fried boneless chicken.')] },
+        { id: 'nabe', label: { en: 'Nabe &amp; soup', ko: '나베 · 국물' }, rows: [
+          m('Mini Buta Udon', '$12.99'), m('Japanese Mussel Soup', '$16.99'), m('Japanese Fish Cake Soup', '$18.99'), m('Spicy Seafood Udon', '$23.99', 'Korean-style spicy seafood udon.'),
+          m('Nagasaki Udon', '$25.99', 'Seafood udon in a creamy broth with mussels, squid and bean sprouts.'), m('Mushroom Hotpot', '$31.99', 'Assorted mushrooms in a savoury broth with sliced beef and greens.'),
+          m('Spicy Braised Chicken Feet', '$32.99', 'Chicken feet, bean sprouts and onions in a rich, spicy broth. Add a riceball.'), m('Beef Intestine Hot Pot', '$36.99', 'Beef intestines, perilla leaves, green chilli peppers and vegetables in a flavourful broth.'),
+          m('Beef Tendon Hotpot', '$36.99', 'Tender beef tendon and snow fungus simmered in a savoury broth with garlic chives.', { en: 'Seasonal', ko: '계절 메뉴' })] },
+        { id: 'extra', label: { en: 'Extras', ko: '추가' }, rows: [m('Bread (4pcs)', '$1.50'), m('Cheese', '$2'), m('Rice', '$2.50'), m('Mochi Ice Cream (3pcs)', '$5.50')] }
+      ] },
     { type: 'list', id: 'sake', tint: true, image: P('img_1965', { en: 'Sake bottles at the bar', ko: '바에 놓인 사케' }),
       eyebrow: { en: 'Sake Bar', ko: '사케 바' }, title: { en: 'Seven pages of sake.<br><i class="accent">Zero homework.</i>', ko: '사케가 처음이어도<br><i class="accent">괜찮아요.</i>' },
       text: { en: 'You don’t need to know junmai from daiginjo. Tell us what you like and we’ll pour. Or pick a mood:', ko: '일곱 페이지 분량의 사케 리스트가 어렵게 느껴지신다면, 직원에게 취향만 알려 주세요. 그날의 기분에 따라 골라 보셔도 좋아요.' },

@@ -19,7 +19,14 @@ p.lead{color:var(--mute);max-width:640px;margin-bottom:36px}
 <h1>Archive</h1>
 <p class="lead">Older versions of the restaurant and café pages, kept for reference. The current standard page for each venue is the one linked from the directory.</p>
 <div id="rows"></div>
+<h2 id="sketches" style="font:400 28px 'Instrument Serif',serif;margin:44px 0 6px">Earlier artist sketches</h2>
+<p class="lead">Sketches for artists whose own websites turned out to work. Kept as history; they are not in the main directory.</p>
+<div id="hist"></div>
+<script src="../data/concepts.js"></script>
 <script>
+document.getElementById('hist').innerHTML=window.CONCEPTS.filter(c=>c.group==='history').map(c=>`<div class="row" id="${c.id}"><b>${c.name}</b>
+ <a href="../compare.html?c=${c.id}"><span>${c.status} · ${c.beforeDate}</span>Before and after</a>
+ <a href="../${c.id}/"><span>Sketch</span>One-page sketch</a></div>`).join('');
 const V=[['mikaku','Mikaku Izakaya'],['ehwa','EHWA'],['jokbal','Jokbal Night Market'],['lunar','Coffee Lunar'],['kosam','KoSam']];
 document.getElementById('rows').innerHTML=V.map(([id,n])=>`<div class="row" id="${id}"><b>${n}</b>
  <a href="${id}/v1/"><span>Version 1 · early Nov 2026</span>First hand-built draft</a>

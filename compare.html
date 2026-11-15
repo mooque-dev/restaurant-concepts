@@ -58,6 +58,7 @@ body.share .top{display:none}
 .nobefore li{margin:0 0 10px 18px}
 .btn{display:inline-flex;align-items:center;height:46px;padding:0 22px;border-radius:99px;font:600 14px Inter;border:1.5px solid var(--ink);text-decoration:none}
 .btn.fill{background:var(--ink);color:#fff}
+.confirm{list-style:none;padding:0;margin:0 0 8px;display:grid;gap:8px;max-width:820px}.confirm li{padding:12px 14px 12px 40px;border:1px solid var(--line);border-radius:12px;position:relative;background:#fff;font-size:15px;line-height:1.45}.confirm li:before{content:"";position:absolute;left:14px;top:14px;width:14px;height:14px;border:1.5px solid var(--ink);border-radius:4px}
 @media(max-width:1000px){.panes{grid-template-columns:1fr}body{padding:18px 16px 60px}td:first-child{white-space:normal}}
 </style></head><body>
 
@@ -78,6 +79,8 @@ body.share .top{display:none}
 
 <div id="ixWrap" hidden><h2>Interaction concepts</h2><div class="next" id="ix"></div></div>
 
+<div id="cfWrap"><h2>Please confirm</h2><p class="evidence" style="margin-bottom:10px">Everything here comes from public sources. Before anything goes live, these need a yes from you.</p><ul class="confirm" id="confirm"></ul></div>
+
 <h2>What changed</h2>
 <table><thead><tr><th style="width:150px">Area</th><th>Before</th><th>After</th></tr></thead><tbody id="changes"></tbody></table>
 
@@ -89,7 +92,7 @@ body.share .top{display:none}
 
 <script src="data/concepts.js"></script>
 <script>
-const Q=new URLSearchParams(location.search),C=window.CONCEPTS.filter(x=>x.group==='active'),id=Q.get('c')||C[0].id,c=C.find(x=>x.id===id)||C[0];
+const Q=new URLSearchParams(location.search),ALL=window.CONCEPTS.filter(x=>x.group!=='hidden'),id=Q.get('c')||ALL[0].id,c=ALL.find(x=>x.id===id)||ALL[0],C=ALL.filter(x=>x.group==='active'||x===c);
 const CATS=[['food','Restaurants & cafés'],['artist','Artists & musicians']];
 const artist=c.category==='artist';
 // Owner view (?share=1): no links to other concepts, the team hub, sources, archive or pricing
@@ -103,7 +106,8 @@ else{
  const notes=[];
  if(c.sources)notes.push(['Sources',c.sources.join(' · ')]);
  if(!artist)notes.push(['Older versions',`<a href="archive/#${c.id}">Archive: first draft and playful v2</a>`]);
- if(artist)notes.push(['Case',c.status+' · '+c.work]);
+ if(artist)notes.push(['Status',c.status+' · '+c.work]);
+ if(c.group==='history')notes.push(['Archived','An earlier sketch, kept for reference. It is not in the main directory.']);
  if(c.teamNote)notes.push(['Note',c.teamNote]);
  if(artist)notes.push(['Not checked','Instagram and other social bios sit behind a login and were not read. Look for a link in bio before sending.']);
  notes.push(['Before captured',c.beforeDate+'. These states change; re-check before sending.']);
@@ -133,6 +137,8 @@ document.querySelectorAll('#mode button').forEach(b=>b.onclick=()=>{document.que
 addEventListener('resize',fit);setMode('desktop');
 if(c.evidence){document.getElementById('evWrap').hidden=false;document.getElementById('evidence').textContent=c.evidence}
 if(c.interactions){document.getElementById('ixWrap').hidden=false;document.getElementById('ix').innerHTML=c.interactions.map(([t,d])=>`<div class="nx"><b style="display:block;font:400 22px 'Instrument Serif';margin-bottom:4px">${t}</b><div>${d}</div></div>`).join('')}
+const cf=c.confirm||(artist?['The short bio and the facts in it.','The list of works: titles, years and order.','A booking email and any agent or label contact.','Press photos we may use. The sketch uses none of your photos.','Show dates, or that the section should stay empty for now.','The address the site should live on.']:[]);
+if(cf.length){document.getElementById('confirm').innerHTML=cf.map(x=>`<li>${x}</li>`).join('')}else{document.getElementById('cfWrap').remove()}
 document.getElementById('changes').innerHTML=c.changes.map(([a,b,f])=>`<tr><td>${a}</td><td>${b}</td><td class="after">${f}</td></tr>`).join('');
 document.getElementById('next').innerHTML=c.next.map(([t,d])=>`<div class="nx"><span class="${t}">${t}</span><div>${d}</div></div>`).join('');
 </script>

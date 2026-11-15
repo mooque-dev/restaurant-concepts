@@ -233,7 +233,7 @@ const by=cat=>C.filter(c=>c.category===cat);
 document.getElementById('stats').innerHTML=[[by('food').length,'restaurants & cafés'],[by('artist').length,'artists & musicians'],['$0','to see yours']].map(([b,s])=>`<div><b>${b}</b><span>${s}</span></div>`).join('');
 const ownerLink=id=>new URL('compare.html?c='+id+'&share=1',location.href).href;
 async function copyLink(btn,id){try{await navigator.clipboard.writeText(ownerLink(id));const t=btn.textContent;btn.textContent='Copied ✓';setTimeout(()=>btn.textContent=t,1600)}catch(e){prompt('Owner link:',ownerLink(id))}}
-const strength=c=>c.category!=='artist'?'':`<span class="tag ${/Strong/.test(c.status)?'strong':/Modest/.test(c.status)?'modest':'none'}">${c.status}</span>`;
+const strength=c=>c.category!=='artist'?'':`<span class="tag ${c.level==='down'?'strong':c.level==='dated'||c.level==='ok'?'modest':'none'}">${c.status}</span>`;
 // quick index, grouped
 document.getElementById('quick').innerHTML='<div class="qrow"><span>Concept</span><span>What we would do</span><span>Pages</span><span></span><span>Share</span></div>'+CATS.map(([cat,label])=>`<div class="qgroup" data-cat="${cat}">${label}</div>`+by(cat).map(c=>`
  <div class="qrow" data-cat="${cat}"><span><span class="dot" style="background:${c.accent}"></span><b>${c.short}</b></span><span class="muted">${c.work}${c.category==='artist'?' · '+c.status:''}</span><a class="l" href="${c.id}/">Concept</a><a class="l" href="compare.html?c=${c.id}">Before / after</a><button class="copy" type="button" onclick="copyLink(this,'${c.id}')">Copy owner link</button></div>`).join('')).join('');

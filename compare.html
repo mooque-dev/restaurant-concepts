@@ -63,7 +63,7 @@ body.share .top{display:none}
 @media(max-width:1000px){.panes{grid-template-columns:1fr}body{padding:18px 16px 60px}td:first-child{white-space:normal}}
 </style></head><body>
 
-<div class="top" id="teamNav"><a href="./">← All concepts</a><label class="pick">Concept <select id="switch" aria-label="Choose a concept"></select></label><button class="copy" id="copyOwner" type="button">Copy owner link</button></div>
+<div class="top" id="teamNav"><a href="directory.html" id="backLink">← Directory</a><label class="pick">Concept <select id="switch" aria-label="Choose a concept"></select></label><button class="copy" id="copyOwner" type="button">Copy owner link</button></div>
 <h1 id="title"></h1>
 <p class="sub" id="sub"></p>
 <div class="bar">
@@ -87,23 +87,25 @@ body.share .top{display:none}
 
 <h2>What could come next</h2>
 <div class="next" id="next"></div>
-<div class="cta" id="teamCta"><a class="btn fill" href="./">Back to all concepts</a></div>
+<div class="cta" id="teamCta"><a class="btn fill" href="directory.html">Back to the directory</a></div>
 <div id="teamOnly"><h2>Team notes</h2><div class="next" id="teamNotes"></div></div>
 <p class="ownerNote" id="ownerNote" hidden></p>
 
 <script src="data/concepts.js"></script>
 <script>
-const Q=new URLSearchParams(location.search),ALL=window.CONCEPTS.filter(x=>x.group!=='hidden'),id=Q.get('c')||ALL[0].id,c=ALL.find(x=>x.id===id)||ALL[0],C=ALL.filter(x=>x.group==='active'||x===c);
+// window.OWNER is set only on the built owner pages (for/<id>/), which carry one concept and nothing else.
+const Q=new URLSearchParams(location.search),ALL=window.CONCEPTS.filter(x=>x.group!=='hidden'),id=window.OWNER||Q.get('c')||ALL[0].id,c=ALL.find(x=>x.id===id)||ALL[0],C=ALL.filter(x=>x.group==='active'||x===c);
 const CATS=[['food','Restaurants & cafés'],['artist','Artists & musicians']];
 const artist=c.category==='artist';
 // Owner view (?share=1): no links to other concepts, the team hub, sources or archive
-const share=Q.get('share')==='1';
+const share=!!window.OWNER||Q.get('share')==='1';
 if(share){document.body.classList.add('share');['teamCta','teamNav','teamOnly'].forEach(i=>document.getElementById(i).remove());const on=document.getElementById('ownerNote');on.hidden=false;on.textContent=(artist?'This is a design sketch based on public information about your work. It uses none of your photos; photos, dates and contact details are placeholders until you supply them.':'This is a design concept made with your public photos, menu and hours.')+' Questions or changes? Reply to the message this link came with.';}
 else{
  const sel=document.getElementById('switch');
  sel.innerHTML=CATS.map(([k,l])=>`<optgroup label="${l}">${C.filter(x=>x.category===k).map(x=>`<option value="${x.id}"${x.id===c.id?' selected':''}>${x.name}</option>`).join('')}</optgroup>`).join('');
  sel.onchange=()=>{location.search='?c='+sel.value};
- document.getElementById('copyOwner').onclick=async function(){const u=new URL(location.href);u.search='?c='+c.id+'&share=1';try{await navigator.clipboard.writeText(u.href);this.textContent='Copied ✓'}catch(e){prompt('Owner link:',u.href)}};
+ document.getElementById('backLink').href='directory.html?show='+c.category;
+ document.getElementById('copyOwner').onclick=async function(){const u=new URL((c.group==='active'?'for/'+c.id+'/':'compare.html?c='+c.id+'&share=1'),location.href);try{await navigator.clipboard.writeText(u.href);this.textContent='Copied ✓'}catch(e){prompt('Owner link:',u.href)}};
  const notes=[];
  if(c.sources)notes.push(['Sources',c.sources.join(' · ')]);
  if(!artist)notes.push(['Older versions',`<a href="archive/#${c.id}">Archive: first draft and playful v2</a>`]);

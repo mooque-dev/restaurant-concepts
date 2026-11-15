@@ -3,6 +3,7 @@ import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { roles, contrastReport, HOURS_JS, fillHours, openingSpec } from './lib.mjs';
+import { buildOwners } from './owners.mjs';
 
 // Public address of the collection (GitHub Pages). Used for link previews, which need absolute URLs.
 const BASE = 'https://mooque-dev.github.io/restaurant-concepts/';
@@ -190,3 +191,4 @@ for (const [id, dir] of all.filter(([id]) => !want.length || want.includes(id)))
   const worst = contrastReport(roles(v.theme.colors)).sort((a, b) => a.ratio / a.min - b.ratio / b.min)[0];
   console.log(`${id}: ${Math.round(html.length / 1024)} KB · lowest contrast ${worst.f} on ${worst.b} ${worst.ratio}:1`);
 }
+console.log(`owner pages (for/<id>/): ${buildOwners().length}`);

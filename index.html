@@ -86,7 +86,7 @@ header nav{display:flex;gap:28px;font-size:14px;font-weight:500}
 .acard p{font-size:14px;color:#36332f}
 .acard .acts{margin-top:auto;padding-top:10px;display:flex;gap:8px;flex-wrap:wrap}
 .acard .btn,.acard .copy{height:38px;padding:0 14px;font-size:13px}
-.tag.strong{background:#1f6b3a;color:#fff;border:0}.tag.modest{background:#8a6a1e;color:#fff;border:0}.tag.none{background:#5b4a8a;color:#fff;border:0}
+.tag.strong{background:#a23b2a;color:#fff;border:0}.tag.modest{background:#8a6a1e;color:#fff;border:0}.tag.none{background:#5b4a8a;color:#fff;border:0}
 .archnote{margin-top:40px;font-size:14px;color:var(--mute)}.archnote a{text-decoration:underline;color:var(--ink)}
 [data-cat][hidden]{display:none}
 @media(max-width:960px){.acards{grid-template-columns:1fr}.acard{grid-template-columns:110px 1fr}.acard .shot{min-height:0}}
@@ -142,7 +142,7 @@ footer{border-top:1px solid var(--line);padding:30px 32px 50px;max-width:1240px;
 
 <header>
  <a class="brand" href="#"><i></i><span id="studioName">Studio</span></a>
- <nav><a href="#work">Work</a><a href="#how">How it works</a><a href="#pricing" data-pricing hidden>Pricing</a><a href="#contact">Contact</a></nav>
+ <nav><a href="directory.html">Directory</a><a href="#work">Work</a><a href="#how">How it works</a><a href="#pricing" data-pricing hidden>Pricing</a><a href="#contact">Contact</a></nav>
 </header>
 
 <main>
@@ -150,20 +150,19 @@ footer{border-top:1px solid var(--line);padding:30px 32px 50px;max-width:1240px;
  <div class="eyebrow">Websites for independent restaurants, cafés and artists · Toronto</div>
  <h1>Your work is great. <em>Your website</em> should be too.</h1>
  <p>We design websites for Toronto restaurants, cafés, artists and musicians around what visitors look for first. See a working concept of yours before you pay anything.</p>
- <div class="cta"><a class="btn fill" href="#work">See the concepts</a><a class="btn" href="#pricing" data-pricing hidden>Pricing</a></div>
+ <div class="cta"><a class="btn fill" href="#work">See the concepts</a><a class="btn" href="directory.html">Open the directory</a><a class="btn" href="#pricing" data-pricing hidden>Pricing</a></div>
  <div class="stats" id="stats"></div>
 </div></section>
 
 <section class="work" id="work"><div class="wrap">
- <div class="sechead"><div><div class="eyebrow">Directory</div><h2>All concepts</h2></div><p>Each concept is built from public facts and compared with what exists today. Open one, compare before and after, or copy a private link for the owner.</p></div>
+ <div class="sechead"><div><div class="eyebrow">Directory</div><h2>All concepts</h2></div><p>Each concept is built from public facts and compared with what exists today. For the full list with search, <a href="directory.html" style="text-decoration:underline;text-underline-offset:3px">open the directory</a>.</p></div>
  <div class="filters" id="filters" role="group" aria-label="Filter concepts"></div>
- <div class="quick" id="quick" aria-label="All concepts at a glance"></div>
  <div data-cat="food">
   <div class="sechead sub"><div><div class="eyebrow">Restaurants &amp; cafés</div><h2>Standard pages</h2></div><p>One format for every venue: live hours, real menu, booking in one tap, English and Korean where it fits.</p></div>
   <div class="cards" id="cards-food"></div>
  </div>
  <div data-cat="artist">
-  <div class="sechead sub"><div><div class="eyebrow">Artists &amp; musicians</div><h2>Before &amp; after sketches</h2></div><p>Ten Toronto artists whose web presence needs work, each with dated evidence. Sketches use sourced facts and labelled placeholders, never borrowed photos.</p></div>
+  <div class="sechead sub"><div><div class="eyebrow">Artists &amp; musicians</div><h2>Before &amp; after sketches</h2></div><p>Toronto artists and musicians whose web presence needs work, each with dated evidence. Sketches use sourced facts and labelled placeholders, never borrowed photos.</p></div>
   <div class="acards" id="cards-artist"></div>
  </div>
  <p class="archnote">Older versions of the restaurant pages are kept in the <a href="archive/">archive</a>.</p>
@@ -197,7 +196,7 @@ footer{border-top:1px solid var(--line);padding:30px 32px 50px;max-width:1240px;
 </div></section>
 
 <section class="wrap" id="contact"><div class="contact">
- <h2>Want to see a free concept of your restaurant?</h2>
+ <h2>Want to see a free concept of your own site?</h2>
  <a class="btn" id="contactBtn" href="#">Get in touch</a>
 </div></section>
 </main>
@@ -217,12 +216,9 @@ if(S.email){cb.href='mailto:'+S.email+'?subject=Free%20website%20concept'}else{c
 fetch('local/pricing.html').then(r=>r.ok?r.text():'').then(h=>{if(!/class="pricing"/.test(h))return;document.getElementById('pricingSlot').outerHTML=h;document.querySelectorAll('[data-pricing]').forEach(e=>e.hidden=false)}).catch(()=>{});
 const by=cat=>C.filter(c=>c.category===cat);
 document.getElementById('stats').innerHTML=[[by('food').length,'restaurants & cafés'],[by('artist').length,'artists & musicians']].map(([b,s])=>`<div><b>${b}</b><span>${s}</span></div>`).join('');
-const ownerLink=id=>new URL('compare.html?c='+id+'&share=1',location.href).href;
+const ownerLink=id=>new URL('for/'+id+'/',location.href).href;
 async function copyLink(btn,id){try{await navigator.clipboard.writeText(ownerLink(id));const t=btn.textContent;btn.textContent='Copied ✓';setTimeout(()=>btn.textContent=t,1600)}catch(e){prompt('Owner link:',ownerLink(id))}}
 const strength=c=>c.category!=='artist'?'':`<span class="tag ${c.level==='down'?'strong':c.level==='dated'||c.level==='ok'?'modest':'none'}">${c.status}</span>`;
-// quick index, grouped
-document.getElementById('quick').innerHTML='<div class="qrow"><span>Concept</span><span>What we would do</span><span>Pages</span><span></span><span>Share</span></div>'+CATS.map(([cat,label])=>`<div class="qgroup" data-cat="${cat}">${label}</div>`+by(cat).map(c=>`
- <div class="qrow" data-cat="${cat}"><span><span class="dot" style="background:${c.accent}"></span><b>${c.short}</b></span><span class="muted">${c.work}${c.category==='artist'?' · '+c.status:''}</span><a class="l" href="${c.id}/">Concept</a><a class="l" href="compare.html?c=${c.id}">Before / after</a><button class="copy" type="button" onclick="copyLink(this,'${c.id}')">Copy owner link</button></div>`).join('')).join('');
 // restaurant cards
 document.getElementById('cards-food').innerHTML=by('food').map(c=>`
  <article class="card" style="--acc:${c.accent}">

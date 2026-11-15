@@ -276,12 +276,27 @@ window.CONCEPTS = [
     category: 'artist', group: 'active', beforeDate: '13 Nov 2026',
     work: 'Website + CMS', status: 'Dated site', level: 'dated', live: 'http://www.justinbacchus.com/', accent: '#e39a66',
     pitch: 'His site runs on a retired builder with no HTTPS, and the bio stops in 2014. The sketch keeps his story and makes room for what came after.',
-    evidence: "justinbacchus.com is built on GoDaddy Website Builder 7, has no HTTPS, and its homepage slideshow rendered as an empty box in our tests on 13 Nov 2026. The bio's latest release is from October 2014; the homepage note is signed 2020.",
+    evidence: "justinbacchus.com is built on GoDaddy Website Builder 7, has no HTTPS, and its homepage slideshow rendered as an empty box in our tests on 13 Nov 2026. The bio's latest release is from October 2014; the homepage note is signed 2020. He is still performing: Visit Oakville lists a show at the Oakville Centre for the Performing Arts on 17 Apr 2025.",
     
     highlights: ['A fast, secure one-page site.', 'Name, role and a clear Booking button.', 'A short About with room for newer work.'],
     changes: [['Platform', 'GoDaddy Website Builder 7, no HTTPS.', 'A fast, secure one-page site.'], ['Homepage', 'An empty slideshow box and a short note from 2020.', 'Name, role and a clear Booking button.'], ['Bio', 'Stops at the 2014 album.', 'A short About with room for newer work.'], ['Shows', 'Not listed.', 'A dates section he can update himself.']],
     next: [['Launch', "A one-page site on the artist's own domain, with HTTPS and a press kit."], ['CMS', 'A simple editor for shows, releases and news, so updates take a minute.'], ['Add-on', 'Press photos and a short bio written with the artist.'], ['Care', 'Domain renewal reminders and monthly updates.']],
-    sources: ['justinbacchus.com (The Artist, Contact, Home pages)']
+    sources: ['justinbacchus.com (The Artist, Contact, Home pages)', 'visitoakville.com/events/justin-bacchus']
+  },
+  {
+    id: 'collective', short: 'JB Collective', name: 'The Justin Bacchus Collective', kind: 'Band', area: 'Toronto',
+    related: ['bacchus'],
+    category: 'artist', group: 'active', beforeDate: '15 Nov 2026',
+    work: 'Band page + booking', status: 'No page of its own', level: 'none', live: 'http://www.justinbacchus.com/the-artist.html', accent: '#7a2e1d',
+    pitch: 'The band has an album and a regular stage, but no page of its own: it lives in two sentences of the bio. A band page gives bookers the line-up, the record and a way to book.',
+    evidence: 'On 15 Nov 2026 the band appeared only in the bio on justinbacchus.com, which names The Rex and the 2014 album Time of Your Life. We checked justinbacchuscollective.com, thejustinbacchuscollective.com, Bandcamp and Linktree under the band\'s name and found nothing. A web search for the band\'s name returned no page about it.',
+    teamNote: 'Justin Bacchus has his own entry. This could be a second page on his site rather than a separate site. Everything here comes from one paragraph of his bio, and nothing in it about the band is dated after 2014.',
+    confirm: ['That the band is still active, and where it plays.', 'The line-up.', 'Where Time of Your Life can be heard or bought.', 'A booking contact for the band.', 'Photos and live video we may use. The sketch uses none.'],
+    noBefore: ['The band has no page of its own.', 'It appears in two sentences of the bio on justinbacchus.com.', 'We found no site, Bandcamp page or link page under the band\'s name.'],
+    highlights: ['A page for the band: who plays and how to book.', 'Time of Your Life with a Listen link.', 'Dates at The Rex and elsewhere.'],
+    changes: [['Band page', 'None. Two sentences in the bio.', 'A page for the band: who plays, what it sounds like and how to book.'], ['Album', 'Named in the bio, with no way to hear it.', 'Time of Your Life, with a Listen link once the band supplies one.'], ['Booking', 'Through the contact page on justinbacchus.com.', 'A booking section for the band.']],
+    next: [['Launch', 'A band page alongside the singer\'s own site, on the same address.'], ['CMS', 'Dates at The Rex and elsewhere from a simple editor.'], ['Add-on', 'Live video and band photos.'], ['Care', 'Updates as the line-up and dates change.']],
+    sources: ['justinbacchus.com (The Artist, Contact)']
   },
   {
     id: 'dijahsb', short: 'DijahSB', name: 'DijahSB', kind: 'Rapper', area: 'Toronto',

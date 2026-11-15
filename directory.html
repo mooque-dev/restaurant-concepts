@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Directory · Mooque Studio</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Every concept in one list: restaurants, cafés, artists and musicians, with the page, the before and after, and the owner link for each.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%23141414%22/%3E%3Ccircle cx=%2232%22 cy=%2232%22 r=%2212%22 fill=%22%23ff5a36%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f2ee;--card:#fff;--ink:#141414;--mute:#6b6760;--line:#14141418;--hot:#ff5a36;--down:#a23b2a;--dated:#8a6a1e;--none:#5b4a8a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:400 15px/1.5 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--hot);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+header{padding:22px 0 0}
+.crumb{font-size:14px;font-weight:500;color:var(--mute)}.crumb a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+h1{font:400 clamp(40px,6vw,64px)/1 'Instrument Serif',serif;letter-spacing:-.02em;margin:22px 0 8px}
+.lead{color:var(--mute);max-width:620px;font-size:16px}
+/* controls stay in reach while the list scrolls */
+.controls{position:sticky;top:0;z-index:5;background:var(--bg);padding:18px 0 14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--line);margin-top:22px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tabs button{height:42px;padding:0 16px;border-radius:99px;border:1.5px solid var(--line);background:none;font:600 14px Inter;cursor:pointer;color:var(--ink);white-space:nowrap}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tabs button span{font-weight:500;opacity:.6;margin-left:6px;font-variant-numeric:tabular-nums}
+.search{flex:1;min-width:200px;height:42px;border-radius:99px;border:1.5px solid var(--line);background:#fff;padding:0 18px;font:400 15px Inter;color:var(--ink)}
+.group{font:600 12px Inter;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin:34px 0 10px;display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.group small{font:500 13px Inter;letter-spacing:0;text-transform:none}
+.list{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.row{display:grid;grid-template-columns:88px minmax(0,1.3fr) minmax(0,1fr) auto;gap:16px;align-items:center;padding:14px 18px;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.row[hidden]{display:none}
+.thumb{width:88px;height:62px;border-radius:8px;overflow:hidden;background:#ddd;border:1px solid var(--line)}
+.thumb img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block}
+.name{font:400 24px/1.1 'Instrument Serif',serif}
+.sub{font-size:13px;color:var(--mute);margin-top:3px}
+.what{font-size:13.5px}
+.what{min-width:0}
+.tag{display:inline-block;font:600 11px Inter;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:99px;border:1px solid var(--line);margin:0 6px 4px 0}
+.tag.down{background:var(--down);color:#fff;border:0}.tag.dated{background:var(--dated);color:#fff;border:0}.tag.ok{background:#6b6760;color:#fff;border:0}.tag.none{background:var(--none);color:#fff;border:0}
+.acts{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.acts a,.acts button{height:36px;padding:0 13px;border-radius:99px;border:1.5px solid var(--ink);font:600 13px Inter;display:inline-flex;align-items:center;background:none;color:var(--ink);cursor:pointer;white-space:nowrap}
+.acts a.fill{background:var(--ink);color:#fff}
+.acts button{border-style:dashed;border-color:#14141455}
+.empty{padding:26px 18px;color:var(--mute)}
+.foot{margin:40px 0 70px;font-size:14px;color:var(--mute)}.foot a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+@media(max-width:1140px){.row{grid-template-columns:88px minmax(0,1.3fr) minmax(0,1fr)}.acts{grid-column:2/-1;justify-content:flex-start}}
+@media(max-width:860px){
+ .wrap{padding:0 16px}
+ .row{grid-template-columns:64px minmax(0,1fr);gap:10px 12px;padding:14px}
+ .thumb{width:64px;height:46px}
+ .what,.acts{grid-column:1/-1}
+ .acts{justify-content:flex-start}
+ .acts a,.acts button{height:40px}
+ .search{flex-basis:100%}
+}
+</style></head><body>
+<div class="wrap">
+<header>
+ <div class="crumb"><a href="./">← Mooque Studio</a></div>
+ <h1>Directory</h1>
+ <p class="lead">Every concept in one list. Open the page, compare before and after, or copy the link to send to the owner.</p>
+</header>
+<div class="controls">
+ <div class="tabs" id="tabs" role="group" aria-label="Show"></div>
+ <input class="search" id="q" type="search" placeholder="Search by name, kind or status" aria-label="Search the directory">
+</div>
+<main id="lists"></main>
+<p class="foot">Earlier versions of the restaurant pages and earlier artist sketches are in the <a href="archive/">archive</a>. Owner links open a page with only that owner's concept on it.</p>
+</div>
+<script src="data/concepts.js"></script>
+<script>
+const ALL=window.CONCEPTS.filter(c=>c.group==='active'),HIST=window.CONCEPTS.filter(c=>c.group==='history');
+const CATS=[['food','Restaurants & cafés'],['artist','Artists & musicians']];
+const ownerUrl=c=>new URL(c.group==='active'?'for/'+c.id+'/':'compare.html?c='+c.id+'&share=1',location.href).href;
+async function copyLink(btn,id){const c=window.CONCEPTS.find(x=>x.id===id),u=ownerUrl(c);try{await navigator.clipboard.writeText(u);const t=btn.textContent;btn.textContent='Copied ✓';setTimeout(()=>btn.textContent=t,1600)}catch(e){prompt('Owner link:',u)}}
+const row=c=>`<div class="row" data-text="${[c.name,c.short,c.kind,c.area,c.status,c.work].join(' ').toLowerCase().replace(/"/g,'')}">
+ <a class="thumb" href="compare.html?c=${c.id}" aria-label="${c.name}: before and after"><img loading="lazy" src="${c.id}/thumb.jpg" alt=""></a>
+ <div><div class="name">${c.name}</div><div class="sub">${c.kind} · ${c.area}</div></div>
+ <div class="what">${c.category==='artist'?`<span class="tag ${c.level||''}">${c.status}</span>`:''}<span class="tag">${c.work}</span></div>
+ <div class="acts"><a class="fill" href="compare.html?c=${c.id}">Before &amp; after</a><a href="${c.id}/">${c.category==='artist'?'Sketch':'Concept'}</a><a href="${ownerUrl(c)}">Owner page</a><button type="button" onclick="copyLink(this,'${c.id}')">Copy owner link</button></div>
+</div>`;
+document.getElementById('lists').innerHTML=CATS.map(([k,label])=>{const items=ALL.filter(c=>c.category===k);return `<section data-cat="${k}" id="${k}"><div class="group"><span>${label}</span><small>${items.length}</small></div><div class="list">${items.map(row).join('')}<div class="empty" hidden>Nothing matches that search.</div></div></section>`}).join('')
+ +(HIST.length?`<section data-cat="history" id="history"><div class="group"><span>Earlier sketches</span><small>${HIST.length} · their own sites work</small></div><div class="list">${HIST.map(row).join('')}<div class="empty" hidden>Nothing matches that search.</div></div></section>`:'');
+const tabs=[['all','All',ALL.length],...CATS.map(([k,l])=>[k,l,ALL.filter(c=>c.category===k).length])];
+const T=document.getElementById('tabs'),Q=document.getElementById('q');
+T.innerHTML=tabs.map(([k,l,n])=>`<button type="button" data-k="${k}" aria-pressed="false">${l}<span>${n}</span></button>`).join('');
+let show=new URLSearchParams(location.search).get('show')||(location.hash||'').slice(1)||'all';if(!tabs.some(t=>t[0]===show))show='all';
+function apply(){
+ const q=Q.value.trim().toLowerCase();
+ T.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===show));
+ document.querySelectorAll('section[data-cat]').forEach(s=>{
+  const cat=s.dataset.cat,inTab=show==='all'||cat===show||(cat==='history'&&show==='artist');
+  let n=0;s.querySelectorAll('.row').forEach(r=>{const hit=!q||r.dataset.text.includes(q);r.hidden=!hit;if(hit)n++});
+  s.querySelector('.empty').hidden=n>0;s.hidden=!inTab||(q&&n===0&&show==='all');
+ });
+}
+T.onclick=e=>{const b=e.target.closest('button');if(!b)return;show=b.dataset.k;history.replaceState(null,'',show==='all'?'directory.html':'directory.html?show='+show);apply()};
+Q.oninput=apply;apply();
+</script>
+</body></html>

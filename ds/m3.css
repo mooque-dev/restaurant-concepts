@@ -122,7 +122,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .m-card--outlined{background:var(--md-sys-color-surface);border:1px solid var(--md-sys-color-outline-variant)}
 .m-media{position:relative;overflow:hidden;background:var(--md-sys-color-surface-container-high)}
 .m-media[data-ratio="4/5"]{aspect-ratio:4/5}.m-media[data-ratio="4/3"]{aspect-ratio:4/3}.m-media[data-ratio="1/1"]{aspect-ratio:1/1}.m-media[data-ratio="3/2"]{aspect-ratio:3/2}.m-media[data-ratio="16/9"]{aspect-ratio:16/9}
-.m-media img{width:100%;height:100%;object-fit:cover;object-position:var(--focal,50% 50%);transform:scale(var(--zoom,1));transform-origin:var(--focal,50% 50%);transition:transform var(--md-sys-motion-duration-long) var(--md-sys-motion-easing-standard)}
+.m-media img{width:100%;height:100%;object-fit:cover;object-position:var(--focal,50% 50%);transform-origin:var(--focal,50% 50%);transition:transform var(--md-sys-motion-duration-long) var(--md-sys-motion-easing-standard)}
+/* Only images that ask for a zoom get a transform. An identity transform on every image stopped some hero photos from painting at desktop widths. */
+.m-media img[style*="--zoom"]{transform:scale(var(--zoom))}
 .m-media--cutout{background:var(--md-ref-cutout-bg,var(--md-sys-color-surface-container-low))}
 .m-media--cutout img{object-fit:contain;padding:10%}
 @media(hover:hover){a.m-card:hover .m-media img,.m-card[data-zoom-hover]:hover .m-media img{transform:scale(calc(var(--zoom,1) * 1.04))}}

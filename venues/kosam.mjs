@@ -37,16 +37,16 @@ export default {
   sections: [
     { type: 'hero', eyebrow: { en: 'Korean restaurant &amp; bar · North York', ko: '한식당 &amp; 바 · 노스욕' },
       title: { en: 'Samgyetang,<br><i class="accent">forty years in the making.</i>', ko: '40년 전통의<br><i class="accent">삼계탕.</i>' },
-      text: { en: 'From the owners of a restaurant that ran for more than 40 years in South Korea. Ginseng chicken soup, bibimbap and soft tofu stew at two North York locations.', ko: '한국에서 40년 넘게 사랑받은 식당의 주인이 토론토에 문을 열었어요. 삼계탕, 비빔밥, 순두부를 노스욕 두 곳에서 만나보세요.' },
+      text: { en: 'From the owners of a restaurant that ran for more than 40 years in South Korea. Ginseng chicken soup, bibimbap and soft tofu stew at two North York locations.', ko: '한국에서 40년 넘게 식당을 운영한 주인이 토론토에 문을 열었어요. 삼계탕, 비빔밥, 순두부찌개를 노스욕 두 매장에서 만나 보세요.' },
       ctas: [{ href: '#visit', label: { en: 'Find a location', ko: '매장 찾기' }, icon: 'location_on' }, { href: '#dishes', label: { en: 'See the dishes', ko: '대표 메뉴 보기' } }],
       image: { src: K + 'samgyetang.jpg', w: 1200, h: 900, focal: '50% 45%', alt: { en: 'Samgyetang, whole ginseng chicken soup in a stone pot', ko: '뚝배기에 담긴 삼계탕' } } },
-    { type: 'facts', items: [{ value: { en: '40+ yrs', ko: '40년+' }, label: { en: 'Restaurant roots in South Korea', ko: '한국에서 이어온 식당' } }, { value: '2', label: { en: 'North York locations', ko: '노스욕 매장' } }, { value: { en: '[[h:open]]', ko: '[[hk:open]]' }, label: { en: 'Open daily from', ko: '매일 오픈' } }, { value: { en: 'Patio', ko: '테라스' }, label: { en: 'At Yonge &amp; Sheppard', ko: '영 &amp; 쉐퍼드점' } }] },
+    { type: 'facts', items: [{ value: { en: '40+ yrs', ko: '40년+' }, label: { en: 'Restaurant roots in South Korea', ko: '한국에서 식당을 운영한 시간' } }, { value: '2', label: { en: 'North York locations', ko: '노스욕 매장' } }, { value: { en: '[[h:open]]', ko: '[[hk:open]]' }, label: { en: 'Open daily from', ko: '매일 오픈' } }, { value: { en: 'Patio', ko: '테라스' }, label: { en: 'At Yonge &amp; Sheppard', ko: '영 &amp; 쉐퍼드점' } }] },
     { type: 'cards', id: 'dishes', media: 'photo', ratio: '4/3', cols: 3, scroll: false,
       eyebrow: { en: 'Our dishes', ko: '대표 메뉴' }, title: { en: 'Three bowls<br><i class="accent">to know.</i>', ko: 'KoSam의<br><i class="accent">대표 메뉴 세 가지.</i>' },
       text: { en: 'The dishes we’re known for. The full menu is just below.', ko: 'KoSam을 대표하는 메뉴예요. 전체 메뉴는 바로 아래에 있어요.' },
       items: [
         { image: { src: K + 'samgyetang.jpg', alt: { en: 'Samgyetang', ko: '삼계탕' }, focal: '50% 45%' }, kicker: '삼계탕', title: { en: 'Samgyetang', ko: '삼계탕' }, desc: { en: 'Our signature ginseng chicken soup, made to warm you up when the weather turns cold.', ko: 'KoSam의 시그니처. 추운 날 몸을 따뜻하게 녹여 주는 삼계탕이에요.' }, badge: { en: 'Signature', ko: '시그니처' } },
-        { image: { src: K + 'bibimbap.jpg', alt: { en: 'Bibimbap', ko: '비빔밥' } }, kicker: '비빔밥', title: { en: 'Bibimbap', ko: '비빔밥' }, desc: { en: 'Steamed rice, sautéed vegetables and a fried egg, mixed together in one bowl.', ko: '밥, 볶은 채소, 달걀 프라이를 한 그릇에 비벼 먹는 메뉴예요.' } },
+        { image: { src: K + 'bibimbap.jpg', alt: { en: 'Bibimbap', ko: '비빔밥' } }, kicker: '비빔밥', title: { en: 'Bibimbap', ko: '비빔밥' }, desc: { en: 'Steamed rice, sautéed vegetables and a fried egg, mixed together in one bowl.', ko: '밥에 나물과 달걀 프라이를 올려 한 그릇에 비벼 먹어요.' } },
         { image: { src: K + 'soondobu.jpg', alt: { en: 'Soondubu soft tofu stew', ko: '순두부찌개' } }, kicker: '순두부', title: { en: 'Soondubu', ko: '순두부' }, desc: { en: 'Soft tofu in a hot, spicy broth. Filling and full of flavour.', ko: '부드러운 순두부를 얼큰한 국물에 끓였어요.' } }
       ],
       ctas: [{ href: '#menu', label: { en: 'See the full menu', ko: '전체 메뉴 보기' }, style: 'outlined' }] },
@@ -59,7 +59,7 @@ export default {
           k('Samgyetang', '고려삼계탕', '$27.99', 'Whole Cornish hen with sticky rice stuffing in ginseng broth.'), k('Green Tea Samgyetang', '녹차 삼계탕', '$28.99', 'With green tea.'), k('Perilla Seed Samgyetang', '들깨 삼계탕', '$29.99', 'With perilla seed for a richer broth.'),
           k('Seafood Samgyetang', '해물 삼계탕', '$31.99', 'With sea cucumber, mussels and shrimp.'), k('Whole Abalone Samgyetang', '전복 삼계탕', MP, 'With a whole abalone.'), k('Organic Pine Mushroom Samgyetang', '자연송이 삼계탕', MP, 'With organic pine mushrooms.'),
           k('Extra Noodles', '소면 추가', '$3.50', 'Two in a bundle.')] },
-        { id: 'bib', label: { en: 'Bibimbap &amp; dol sot', ko: '비빔밥 · 돌솥' }, note: { en: 'Comes with a side soup. Dol sot dishes are served in a hot stone bowl.', ko: '국이 함께 나와요. 돌솥 메뉴는 뜨거운 돌솥에 담겨 나옵니다.' }, rows: [
+        { id: 'bib', label: { en: 'Bibimbap &amp; dol sot', ko: '비빔밥 · 돌솥' }, note: { en: 'Comes with a side soup. Dol sot dishes are served in a hot stone bowl.', ko: '국이 함께 나와요. 돌솥 메뉴는 뜨거운 돌솥에 담겨 나와요.' }, rows: [
           k('Koryo Bibimbap', '고려비빔밥', '$19.99', 'Assorted vegetables, yolk and ground beef.'), k('Nah Mul Bibimbap', '나물비빔밥', '$19.99', 'Vegetarian version of Koryo Bibimbap.', VEG),
           k('Dol Sot Koryo Bibimbap', '돌솥비빔밥', '$20.99'), k('Dol Sot Nah Mul Bibimbap', '돌솥나물비빔밥', '$20.99', null, VEG), k('Dol Sot Organic Mushroom Bibimbap', '돌솥유기농버섯비빔밥', '$21.99', 'With assorted organic mushrooms.'),
           k('Dol Sot Raw Veal Bibimbap', '돌솥육회비빔밥', '$23.99', 'With marinated raw veal.'), k('Dol Sot Kimchi Fried Rice', '돌솥 김치볶음밥', '$21.99', 'Kimchi, sliced pork and rice topped with a fried egg. Add cheese +$3.'),
